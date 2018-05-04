@@ -14,7 +14,7 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Candidates</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="<?php echo base_url() ?>c_student/listofstudent">List of candidates</a>
+              <a class="dropdown-item" href="<?php echo base_url() ?>c_student/allCandidate">List of candidates</a>
               <a class="dropdown-item" href="<?php echo base_url() ?>c_student/view_candidate_info">New candidate</a>
               <a class="dropdown-item" href="#">Province distribution</a>
             </div>
