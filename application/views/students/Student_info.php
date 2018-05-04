@@ -129,7 +129,7 @@
 									<option value="#">4</option>
 								</select>
 							</div><br>
-							<div class="ccol-lg-3 col-md-3 col-sm-4 col-xs-12">Responsible & maturity:</div>
+							<div class="ccol-lg-3 col-md-3 col-sm-4 col-xs-12">Responsibility & maturity:</div>
 							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 								<input type="text" class="form-control" placeholder="Ex: 18/20" required>
 							</div>
@@ -167,7 +167,7 @@
 								<a href="#">
 									<h6>
 										<i class="mdi mdi-plus" style="color:#000;font-size: 20px;">
-										</i>Add other Scholashiop
+										</i>Add other Scholaship
 									</h6>
 								</a>
 							</div>
@@ -585,7 +585,7 @@
 								</div><br>
 								<div class="row">
 									<div class="col-md-1"></div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Income(on a monthly basis)</div>
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Income (on a monthly basis):</div>
 									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 										<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
 									</div>
@@ -629,7 +629,7 @@
 								</div><br>
 								<div class="row">
 									<div class="col-md-1"></div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Income(on a monthly basis)
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Income (on a monthly basis):
 									</div>
 									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 										<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
@@ -650,7 +650,7 @@
 								</div><br>
 								<div class="row">
 									<div class="col-md-1"></div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Monthly Income per individual living:</div>
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Monthly Income per individual living in parent's house:</div>
 									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 										<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
 									</div>
@@ -686,31 +686,31 @@
 										<div class="form-group row">
 											<label for="" class="col-5 col-xs-12 col-form-label">Rice:</label>
 											<div class="col-7 col-xs-12">
-												<input type="number" class="form-control" placeholder="Xx$" style="direction:rtl;" required>
+												<input type="number" class="form-control" placeholder="$" style="direction:rtl;" required>
 											</div>
 										</div>
 										<div class="form-group row">
 											<label for="" class="col-5 col-form-label">Food:</label>
 											<div class="col-7">
-												<input type="number" class="form-control" placeholder="Xx$" style="direction:rtl;" required>
+												<input type="number" class="form-control" placeholder="$" style="direction:rtl;" required>
 											</div>
 										</div>
 										<div class="form-group row">
 											<label for="" class="col-5 col-form-label">Firewood-Gas-Chacoal:</label>
 											<div class="col-7">
-												<input type="number" class="form-control" placeholder="Xx$" style="direction:rtl;" required>
+												<input type="number" class="form-control" placeholder="$" style="direction:rtl;" required>
 											</div>
 										</div>
 										<div class="form-group row">
 											<label for="" class="col-5 col-form-label">Loan:</label>
 											<div class="col-7">
-												<input type="number" class="form-control" placeholder="Xx$" style="direction:rtl;" required>
+												<input type="number" class="form-control" placeholder="$" style="direction:rtl;" required>
 											</div>
 										</div>
 										<div class="form-group row">
 											<label for="" class="col-5 col-form-label">Study:</label>
 											<div class="col-7">
-												<input type="number" class="form-control" placeholder="Xx$" style="direction:rtl;" required>
+												<input type="number" class="form-control" placeholder="$" style="direction:rtl;" required>
 											</div>
 										</div>
 									</div>
@@ -719,31 +719,31 @@
 										<div class="form-group row">
 											<label for="" class="col-5 col-form-label">Medical:</label>
 											<div class="col-7">
-												<input type="number" class="form-control" placeholder="Xx$" style="direction:rtl;" required>
+												<input type="number" class="form-control" placeholder="$" style="direction:rtl;" required>
 											</div>
 										</div>
 										<div class="form-group row">
 											<label for="" class="col-5 col-form-label">Eletricities and Water:</label>
 											<div class="col-7">
-												<input type="number" class="form-control" placeholder="Xx$" style="direction:rtl;" required>
+												<input type="number" class="form-control" placeholder="$" style="direction:rtl;" required>
 											</div>
 										</div>
 										<div class="form-group row">
 											<label for="" class="col-5 col-form-label">Agriculture:</label>
 											<div class="col-7">
-												<input type="number" class="form-control" placeholder="Xx$" style="direction:rtl;" required>
+												<input type="number" class="form-control" placeholder="$" style="direction:rtl;" required>
 											</div>
 										</div>
 										<div class="form-group row">
 											<label for="" class="col-5 col-form-label">Wedding, Ceremony:</label>
 											<div class="col-7">
-												<input type="number" class="form-control" placeholder="Xx$" style="direction:rtl;" required>
+												<input type="number" class="form-control" placeholder="$" style="direction:rtl;" required>
 											</div>
 										</div>
 										<div class="form-group row">
 											<label for="" class="col-5 col-form-label">Other Utilities:</label>
 											<div class="col-7">
-												<input type="number" class="form-control" placeholder="Xx$" style="direction:rtl;" required>
+												<input type="number" class="form-control" placeholder="$" style="direction:rtl;" required>
 											</div>
 										</div>	
 									</div>
@@ -752,10 +752,10 @@
 								<div class="row">
 									<div class="col-md-2 col-sm-1"></div>
 									<div class="col-md-3 col-sm-4">
-										<label>Total Expences:</label>
+										<label>Total Expenses:</label>
 									</div>
 									<div class="col-md-4 col-sm-7">
-										<input type="text" class="form-control" style="direction: rtl;" required placeholder="Xx$">
+										<input type="text" class="form-control" style="direction: rtl;" required placeholder="$">
 									</div>
 									
 								</div>
@@ -797,20 +797,20 @@
 										<label for="">Initial amount:</label>	
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" placeholder="Xx$" style="direction:rtl" required>
+										<input type="number" class="form-control" placeholder="$" style="direction:rtl" required>
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
 										<label for="">Institution:</label>	
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" placeholder="Xx$" style="direction:rtl" required>
+										<input type="number" class="form-control" placeholder="$" style="direction:rtl" required>
 									</div>
 									<br>
 									<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
 										<label for="">Interest rates:</label>	
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" placeholder="Xx$" style="direction:rtl" required>
+										<input type="number" class="form-control" placeholder="$" style="direction:rtl" required>
 									</div>
 								</div>
 								<br>
@@ -830,19 +830,19 @@
 										<label for="">Monthly:</label>	
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" placeholder="Xx$" style="direction:rtl" required>
+										<input type="number" class="form-control" placeholder="$" style="direction:rtl" required>
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
 										<label for="">Trimester:</label>	
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" placeholder="Xx$" style="direction:rtl" required>
+										<input type="number" class="form-control" placeholder="$" style="direction:rtl" required>
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
 										<label for="">Semester:</label>	
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" placeholder="Xx$" style="direction:rtl" required>
+										<input type="number" class="form-control" placeholder="$" style="direction:rtl" required>
 									</div>
 								</div>
 								<br>
@@ -851,7 +851,7 @@
 										<label for="">Capital:</label>	
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" placeholder="Xx$" style="direction:rtl" required>
+										<input type="number" class="form-control" placeholder="$" style="direction:rtl" required>
 									</div>
 									
 								</div>
@@ -913,7 +913,7 @@
 										</select>
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-										<label for="">Rating Scal:</label>
+										<label for="">Rating Scale:</label>
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
 										<select name="" id="" class="form-control">
@@ -957,13 +957,13 @@
 						<div id="collapseHomeAssets" class="collapse" aria-labelledby="homeAssets" data-parent="#subAccordion">
 							<!-- form family home assets -->
 							<div class="card-body contentBody">
-								<h3>Applicance</h3>
+								<h3>Appliances</h3>
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 										<div class="row">
 											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"></div>
 											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-												<h4>Coef x3</h4>
+												<h4>Coef x5</h4>
 											</div>
 										</div>
 										<div class="row">
@@ -1169,12 +1169,12 @@
 												<span></span>
 											</div>
 											<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-												<h4>&nbsp</h4>
+												<h4>&nbsp;</h4>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-												<textarea name="" id="" cols="65" rows="5" class="form-control" placeholder="Please specify if you have any comment"></textarea>
+												<textarea name="" id="textarea" cols="65" rows="4" style="height: 107%" class="form-control" placeholder="Please specify if you have any comment"></textarea>
 											</div>
 										</div>
 									</div>
@@ -1224,7 +1224,7 @@
 										</div>
 										<div class="row">
 											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-												<textarea name="" id="" cols="65" rows="5" class="form-control" placeholder="Please specify if you have any comment"></textarea>
+												<textarea name="" id="textarea" cols="65" rows="4" style="height: 107%" class="form-control" placeholder="Please specify if you have any comment"></textarea>
 											</div>
 										</div>
 									</div>
@@ -1264,7 +1264,7 @@
 										</div>
 										<div class="row">
 											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-												<textarea name="" id="" cols="65" rows="2" class="form-control" placeholder="Please specify if you have any comment"></textarea>
+												<textarea name="" id="area" cols="65" rows="1" class="form-control" placeholder="Please specify if you have any comment"></textarea>
 											</div>
 										</div>
 									</div>
