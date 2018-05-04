@@ -17,11 +17,6 @@
 			$this->load->view('students/Student_info');
 			$this->load->view('templates/footer');
 		}
-		function goback(){
-			$this->load->view('templates/header');
-			$this->load->view('menu/index');
-			$this->load->view('students/studentList');
-			$this->load->view('templates/footer');
-		}
+		
 	}
  ?>
