@@ -91,7 +91,7 @@
                                 <td>B</td>
                                 <td>No</td>
                                 <td>
-                                    <a href="#"><i class="mdi mdi-eye text-info"></i></a>&nbsp;
+                                    <a href="<?php echo base_url() ?>c_student/view_candidate_info"><i class="mdi mdi-eye text-info"></i></a>&nbsp;
                                     <a href="#"><i class="mdi mdi-delete text-danger"></i></a>
                                 </td>
                             </tr>
@@ -103,7 +103,7 @@
                                 <td>Failed</td>
                                 <td>Yes</td>
                                 <td>
-                                    <a href="#"><i class="mdi mdi-eye text-info"></i></a>&nbsp;
+                                    <a href="<?php echo base_url() ?>c_student/view_candidate_info"><i class="mdi mdi-eye text-info"></i></a>&nbsp;
                                     <a href="#"><i class="mdi mdi-delete text-danger"></i></a>
                                 </td>
                             </tr>
@@ -115,7 +115,7 @@
                                 <td>B</td>
                                 <td>No</td>
                                 <td>
-                                    <a href="#"><i class="mdi mdi-eye text-info"></i></a>&nbsp;
+                                    <a href="<?php echo base_url() ?>c_student/view_candidate_info"><i class="mdi mdi-eye text-info"></i></a>&nbsp;
                                     <a href="#"><i class="mdi mdi-delete text-danger"></i></a>
                                 </td>
                             </tr>
@@ -127,7 +127,7 @@
                                 <td>A</td>
                                 <td>Yes</td>
                                 <td>
-                                    <a href="#"><i class="mdi mdi-eye text-info"></i></a>&nbsp;
+                                    <a href="<?php echo base_url() ?>c_student/view_candidate_info"><i class="mdi mdi-eye text-info"></i></a>&nbsp;
                                     <a href="#"><i class="mdi mdi-delete text-danger"></i></a>
                                 </td>
                             </tr>
@@ -135,13 +135,20 @@
                   </div>
                 </div>
                     <div class="row">
-                      <div class="col-xs-12 col-sm-12 col-md-12">
-                          <button id="addButton" class="btn btn-success clearfix"><i class="mdi mdi-account-plus"></i>
-                          &nbsp;Add Candidate</button>
-                          <button id="exportButton" class="btn btn-warning text-white clearfix"><i class="mdi mdi-file-excel"></i>&nbsp;Export to Excel</button>
-                          <button id="mapButton" class="btn btn-primary clearfix"><i class="mdi mdi-map"></i>
-                          &nbsp;Province Distribution</button>
-                      </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <a href="<?php echo base_url() ?>c_student/view_candidate_info"">
+                                <button id="addButton" class="btn btn-success clearfix">
+                                    <i class="mdi mdi-account-plus"></i>
+                                &nbsp;Add Candidate
+                                </button>
+                            </a>
+                                <button id="exportButton" class="btn btn-warning text-white clearfix">
+                                    <i class="mdi mdi-file-excel"></i>
+                                &nbsp;Export to Excel
+                                </button>
+                                <button id="mapButton" class="btn btn-primary clearfix"><i class="mdi mdi-map"></i>
+                              &nbsp;Province Distribution</button>
+                        </div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-6">

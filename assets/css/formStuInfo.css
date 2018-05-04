@@ -1,0 +1,24 @@
+.subCollapse{
+	padding-left: 3%;
+}
+.contentBody{
+	border:2px solid gray;
+	margin: 2%;
+}
+@media only screen and (max-width: 328px) {
+	.subCollapse{
+		padding-left: 15%;
+	}
+	.contentBody{
+		margin: 4%;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.subCollapse{
+		padding-left: 6%;
+	}
+	.contentBody{
+		margin: 4%;
+	}
+}
