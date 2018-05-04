@@ -7,8 +7,10 @@
                 <div class="row">
                     
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                      <button class="btn btn-primary clearfix">All Candidates</button>
-                      <button class="btn btn-success clearfix">Selected Candidates</button>
+                      <a href="<?php echo base_url() ?>c_student/allCandidate"><button class="btn btn-primary clearfix">All Candidates</button></a>
+                      <a href="<?php echo base_url() ?>c_student/selectedCandidate">
+                        <button class="btn btn-success clearfix">Selected Candidates</button>
+                    </a>
                     </div>
                 </div>
                 <br>
@@ -35,8 +37,9 @@
                                 <td>A</td>
                                 <td>Yes</td>
                                 <td>
-                                    <a href="<?php echo base_url() ?>c_student/view_candidate_info"><i class="mdi mdi-eye text-info"></i></a>&nbsp;
-                                    <a href="#"><i class="mdi mdi-delete text-danger"></i></a>
+                                    <a href="<?php echo base_url() ?>c_student/view_candidate_info"><i class="mdi mdi-eye text-info" title="View candidate"></i></a>&nbsp;
+                                    <a href="#"><i class="mdi mdi-pencil-box mdi-pencil-box-outline text-success" title="Edit candidate"></i></a>&nbsp;
+                                    <a href="#"><i class="mdi mdi-delete text-danger" title="Delete candidate"></i></a>
                                 </td>
                             </tr>
                             <tr>
@@ -47,8 +50,9 @@
                                 <td>B</td>
                                 <td>No</td>
                                 <td>
-                                    <a href="#"><i class="mdi mdi-eye text-info"></i></a>&nbsp;
-                                    <a href="#"><i class="mdi mdi-delete text-danger"></i></a>
+                                    <a href="<?php echo base_url() ?>c_student/view_candidate_info"><i class="mdi mdi-eye text-info" title="View candidate"></i></a>&nbsp;
+                                    <a href="#"><i class="mdi mdi-pencil-box mdi-pencil-box-outline text-success" title="Edit candidate"></i></a>&nbsp;
+                                    <a href="#"><i class="mdi mdi-delete text-danger" title="Delete candidate"></i></a>
                                 </td>
                             </tr>
                             <tr>
@@ -59,8 +63,9 @@
                                 <td>Failed</td>
                                 <td>Yes</td>
                                 <td>
-                                    <a href="#"><i class="mdi mdi-eye text-info"></i></a>&nbsp;
-                                    <a href="#"><i class="mdi mdi-delete text-danger"></i></a>
+                                    <a href="<?php echo base_url() ?>c_student/view_candidate_info"><i class="mdi mdi-eye text-info" title="View candidate"></i></a>&nbsp;
+                                    <a href="#"><i class="mdi mdi-pencil-box mdi-pencil-box-outline text-success" title="Edit candidate"></i></a>&nbsp;
+                                    <a href="#"><i class="mdi mdi-delete text-danger" title="Delete candidate"></i></a>
                                 </td>
                             </tr>
                             <tr>
@@ -71,8 +76,9 @@
                                 <td>B</td>
                                 <td>No</td>
                                 <td>
-                                    <a href="#"><i class="mdi mdi-eye text-info"></i></a>&nbsp;
-                                    <a href="#"><i class="mdi mdi-delete text-danger"></i></a>
+                                    <a href="<?php echo base_url() ?>c_student/view_candidate_info"><i class="mdi mdi-eye text-info" title="View candidate"></i></a>&nbsp;
+                                    <a href="#"><i class="mdi mdi-pencil-box mdi-pencil-box-outline text-success" title="Edit candidate"></i></a>&nbsp;
+                                    <a href="#"><i class="mdi mdi-delete text-danger" title="Delete candidate"></i></a>
                                 </td>
                             </tr>
                             <tr>
@@ -83,8 +89,9 @@
                                 <td>A</td>
                                 <td>Yes</td>
                                 <td>
-                                    <a href="#"><i class="mdi mdi-eye text-info"></i></a>&nbsp;
-                                    <a href="#"><i class="mdi mdi-delete text-danger"></i></a>
+                                    <a href="<?php echo base_url() ?>c_student/view_candidate_info"><i class="mdi mdi-eye text-info" title="View candidate"></i></a>&nbsp;
+                                    <a href="#"><i class="mdi mdi-pencil-box mdi-pencil-box-outline text-success" title="Edit candidate"></i></a>&nbsp;
+                                    <a href="#"><i class="mdi mdi-delete text-danger" title="Delete candidate"></i></a>
                                 </td>
                             </tr>
                         </table>
@@ -93,7 +100,7 @@
                     <div class="row">
                       <div class="col-xs-12 col-sm-12 col-md-12">
                           <button id="addButton" class="btn btn-success clearfix"><i class="mdi mdi-account-plus"></i>
-                          &nbsp;Add Candidate</button>
+                          &nbsp;New Candidate</button>
                           <button id="exportButton" class="btn btn-warning text-white clearfix"><i class="mdi mdi-file-excel"></i>&nbsp;Export to Excel</button>
                           <button id="mapButton" class="btn btn-primary clearfix"><i class="mdi mdi-map"></i>
                           &nbsp;Province Distribution</button>
