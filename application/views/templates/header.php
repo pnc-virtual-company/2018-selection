@@ -21,8 +21,14 @@ $langCode= (isset($langCode)) ? $langCode :  "en";
   <script src="<?php echo base_url();?>assets/bootstrap-4.0.0/js/bootstrap.min.js"></script>
 
 	<style type="text/css">
-  body {
+ /* body {
       padding-top: 60px;
+  }*/
+  .navbar-nav > li{
+    padding-left:5px;
+    padding-right:5px;
+    /*font-weight: bold;*/
+   font-size: 17px;
   }
 	</style>
 </head>

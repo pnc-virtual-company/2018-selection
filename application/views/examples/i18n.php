@@ -1,4 +1,4 @@
-<h1>Translate user interface with CI·</h1>
+x<h1>Translate user interface with CI·</h1>
 
 <p>You must define the strings you want to translate into <code>application/language/...</code> and then use the strings in the views:</p>
 

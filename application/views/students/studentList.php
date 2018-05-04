@@ -1,48 +1,4 @@
-<br>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <div class="card bg-primary p-20">
-                <div class="media widget-ten">
-                    <div class="card-body text-left text-white">
-                        <h1 class="mdi mdi-account-outline text-default" style="font-size: 70px;"></h1>
-                    </div>
-                    <div class="card-body text-right text-white">
-                        <h2 class="color-white">278</h2>
-                        <p class="m-b-0">All Candidates</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <div class="card bg-warning p-20">
-                <div class="media widget-ten">
-                    <div class="card-body text-left text-white">
-                        <h1 class="mdi mdi-account-outline text-default" style="font-size: 70px;"></h1>
-                        </div>
-                        <div class="card-body text-right text-white">
-                            <h2 class="color-white">100</h2>
-                            <p class="m-b-0">Selected Candidates</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                <div class="card bg-success p-20">
-                    <div class="media widget-ten">
-                        <div class="card-body text-left text-white">
-                            <h1 class="mdi mdi-map-marker text-default" style="font-size: 70px;"></h1>
-                        </div>
-                        <div class="card-body text-right text-white">
-                            <h2 class="color-white">25</h2>
-                            <p class="m-b-0">All Provinces</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-        </div>
-    </div>
     <br>
     <div class="container-fluid">
         <div class="row">
