@@ -15,11 +15,11 @@
 				</div>
 				<div class="col-lg-1 col-md-1 col-sm-2 col-xs-8">
 					<select class="form-control">
-						<option value="#">A+</option>
-						<option value="#">A</option>
-						<option value="#">B+</option>
-						<option value="#">B-</option>
-						<option value="#">Failed</option>
+						<option value="A++">A+</option>
+						<option value="A">A</option>
+						<option value="B+">B+</option>
+						<option value="B-">B-</option>
+						<option value="Failed">Failed</option>
 					</select>
 				</div>
 				<div class="col-lg-1 col-md-1 col-sm-2 col-xs-12">	
@@ -33,205 +33,205 @@
 					<div class="col-md-12">
 						<button class="btn btn-primary btn-block collapsed headerForm" data-toggle="collapse" data-target="#collapseStuInfo" aria-expanded="false" aria-controls="collapseStuInfo" style="border-bottom: 1px solid #fff;">
 							<h6  class="text-left">Student Informations
-							<i class="mdi mdi-chevron-down float-right more" style="color:#fff; font-size: 25px;"></i>
-							<i class="mdi mdi-chevron-up float-right less" style="color:#fff; font-size: 25px;display: none;"></i></h6>
+								<i class="mdi mdi-chevron-down float-right more" style="color:#fff; font-size: 25px;"></i>
+								<i class="mdi mdi-chevron-up float-right less" style="color:#fff; font-size: 25px;display: none;"></i></h6>
 
-						</button>
+							</button>
+						</div>
 					</div>
-				</div>
-				<!-- end buttonCollapsed student information -->
+					<!-- end buttonCollapsed student information -->
 
-				<!-- collapsed student information -->
-				<div id="collapseStuInfo" class="collapse" aria-labelledby="stuInfo" data-parent="#accordion">
-					<!--  student information -->
-					<div class="card-body contentBody">
-						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-							<h5>General Information</h5>
-						</div><br>
-						<div class="col-md-8"></div>
-						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">Province:</div>
-							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
-								<select class="form-control">
-									<option value="#">Pursat</option>
-									<option value="#">Battambong</option>
-									<option value="#">Banteaymean chey</option>
-									<option value="#">Siem Reap</option>
-								</select>
-							</div>
-							<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">Gender:</div>
-							<div class="col-md-2 col-sm-3">
-								<select class="form-control">
-									<option value="#">Male</option>
-									<option value="#">Female</option>
-								</select>
-							</div>
-
-							<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">Age:</div>
-							<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-								<input type="number" class="form-control" placeholder="Your Age " required>
-							</div>
-						</div><br>
-						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">NGO:</div>
-							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
-								<select class="form-control">
-									<option value="#">PSE</option>
-									<option value="#">KBFC</option>
-									<option value="#">Other</option>
-								</select>
-							</div>
-							<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">Other:</div>
-							<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-								<input type="text" class="form-control" placeholder="If other please specify " required>
-							</div>
-						</div><br>
-						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">Health Status:</div>
-							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
-								<select class="form-control">
-									<option value="#">Healthy</option>
-									<option value="#">Some health issuses</option>
-								</select>
-							</div>
-							<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">Other:</div>
-							<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-								<input type="text" class="form-control" placeholder="If some health issuses, please specify " required>
-							</div>
-						</div><br>
-						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">Rank in class:</div>
-							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
-								<input type="text" class="form-control" placeholder="Ex: 10/33" required>
-							</div>		
-						</div><br>
-						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">Extracuricular activity and activement:</div>
-							<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-								<input type="text" class="form-control" placeholder="Please comment" required>
-							</div>		
-						</div><br>
-						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><h5>Motivation</h5></div>
-						<div class="col-lg-8 col-md-8 col-sm-10 col-xs-12"></div><br>
-						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">PNC choice rank:</div>
-							<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-								<select class="form-control">
-									<option value="#">1</option>
-									<option value="#">2</option>
-									<option value="#">3</option>
-									<option value="#">4</option>
-								</select>
+					<!-- collapsed student information -->
+					<div id="collapseStuInfo" class="collapse" aria-labelledby="stuInfo" data-parent="#accordion">
+						<!--  student information -->
+						<div class="card-body contentBody">
+							<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+								<h5>General Information</h5>
 							</div><br>
-							<div class="ccol-lg-3 col-md-3 col-sm-4 col-xs-12">Responsibility & maturity:</div>
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-								<input type="text" class="form-control" placeholder="Ex: 18/20" required>
-							</div>
-						</div><br>
-						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">Motivation for PNC:</div>
-							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
-								<input type="text" class="form-control" placeholder="Ex: 23/30" required>
-							</div>
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">Communication:</div>
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-								<input type="text" class="form-control" placeholder="Ex: 10/10" required>
-							</div>
-						</div><br>
-						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">Other Scholaship:</div>
-							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
-								<input type="text" class="form-control" placeholder="" required>
-							</div>
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">Choice Rank:</div>
-							<div class="col-lg-3 col-md-3 col-sm-2 col-xs-12">
-								<select class="form-control">
-									<option value="#">1</option>
-									<option value="#">2</option>
-									<option value="#">3</option>
-									<option value="#">4</option>
-								</select>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
-							<div class="col-lg-4 col-md-4 col-sm-9 col-xs-12">
-								<a href="#">
-									<h6>
-										<i class="mdi mdi-plus" style="color:#000;font-size: 20px;">
-										</i>Add other Scholaship
-									</h6>
-								</a>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Commitment of the student:
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<input type="text" class="form-control" placeholder="Please comment" required>
-							</div>
-							<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12"></div>
-						</div><br>
-						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Commitment of the parents:</div>
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<input type="text" class="form-control" placeholder="Please comment" required>
-							</div>
-							<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12"></div>
-						</div><br>
-						<div class="row">
-							<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12"></div>
-							<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-								<button type="button" class="btn btn-primary float-right">Save Information</button><br><br>	
-							</div>
-						</div>
-					</div>
-					<!-- end student information -->
-				</div>
-				<!--  end collapsed student information -->
+							<div class="col-md-8"></div>
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">Province:</div>
+								<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+									<select name="province" class="form-control">
+										<option value="Pursat">Pursat</option>
+										<option value="Battambong">Battambong</option>
+										<option value="Banteaymean chey">Banteaymean chey</option>
+										<option value="Siem Reap">Siem Reap</option>
+									</select>
+								</div>
+								<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">Gender:</div>
+								<div class="col-md-2 col-sm-3">
+									<select name="gender" class="form-control">
+										<option value="Male">Male</option>
+										<option value="Female">Female</option>
+									</select>
+								</div>
 
-				<!-- collapsed family information -->
-				<!-- button collapsed family information -->
-				<div id="familyInfo">
-					<div class="col-md-12">
-						<button class="btn btn-primary btn-block collapsed headerForm" data-toggle="collapse" data-target="#collapseFamilyInfo" aria-expanded="false" aria-controls="collapseFamilyInfo">
-							<h6 class="text-left">Family Informations
-							<i class="mdi mdi-chevron-down float-right more" style="color:#fff; font-size: 25px;"></i>
-								<i class="mdi mdi-chevron-up float-right less" style="color:#fff; font-size: 25px;display: none;"></i>
-							</h6>
-						</button>
-					</div>
-				</div>
-				<!-- end button collapsed family information -->
-				<div id="collapseFamilyInfo" class="collapse" aria-labelledby="familyInfo" data-parent="#accordion">
-					<!-- sub collapse -->
-					<div id="subAccordion">
-						<!-- subCollapsed family profile -->
-						<div id="familyPro">
-							<div class="col-md-12">
-								<button class="btn btn-default btn-block collapsed subForm" data-toggle="collapse" data-target="#collapsefamilyPro" aria-expanded="false" aria-controls="collapsefamilyPro" style="border-bottom: 1px solid #fff;">
-									<h6 class="text-left subCollapse">Family Profile
-										<i class="mdi mdi-chevron-down float-right down " style="color:#fff; font-size: 25px;">	
-										</i>
-										<i class="mdi mdi-chevron-up float-right up" style="color:#fff; font-size: 25px;display: none;">
-										</i>
-									</h6>	
-								</button>
+								<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">Age:</div>
+								<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+									<input name="age" type="number" class="form-control" placeholder="Your Age " required>
+								</div>
+							</div><br>
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">NGO:</div>
+								<div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+									<select name="ngo" class="form-control">
+										<option value="PSE">PSE</option>
+										<option value="KBFC">KBFC</option>
+										<option value="Other">Other</option>
+									</select>
+								</div>
+								<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">Other:</div>
+								<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+									<input name="otherNGO" type="text" class="form-control" placeholder="If other please specify " required>
+								</div>
+							</div><br>
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">Health Status:</div>
+								<div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+									<select class="form-control">
+										<option value="#">Healthy</option>
+										<option value="#">Some health issuses</option>
+									</select>
+								</div>
+								<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">Other:</div>
+								<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+									<input type="text" class="form-control" placeholder="If some health issuses, please specify " required>
+								</div>
+							</div><br>
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">Rank in class:</div>
+								<div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+									<input type="text" class="form-control" placeholder="Ex: 10/33" required>
+								</div>		
+							</div><br>
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">Extracuricular activity and activement:</div>
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+									<input type="text" class="form-control" placeholder="Please comment" required>
+								</div>		
+							</div><br>
+							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><h5>Motivation</h5></div>
+							<div class="col-lg-8 col-md-8 col-sm-10 col-xs-12"></div><br>
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">PNC choice rank:</div>
+								<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+									<select class="form-control">
+										<option value="#">1</option>
+										<option value="#">2</option>
+										<option value="#">3</option>
+										<option value="#">4</option>
+									</select>
+								</div><br>
+								<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">Responsibility & maturity:</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+									<input type="text" class="form-control" placeholder="Ex: 18/20" required>
+								</div>
+							</div><br>
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">Motivation for PNC:</div>
+								<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+									<input type="text" class="form-control" placeholder="Ex: 23/30" required>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">Communication:</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+									<input type="text" class="form-control" placeholder="Ex: 10/10" required>
+								</div>
+							</div><br>
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">Other Scholaship:</div>
+								<div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+									<input type="text" class="form-control" placeholder="" required>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">Choice Rank:</div>
+								<div class="col-lg-3 col-md-3 col-sm-2 col-xs-12">
+									<select name="rank" class="form-control">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+									</select>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
+								<div class="col-lg-4 col-md-4 col-sm-9 col-xs-12">
+									<a href="#">
+										<h6>
+											<i class="mdi mdi-plus" style="color:#000;font-size: 20px;">
+											</i>Add other Scholaship
+										</h6>
+									</a>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Commitment of the student:
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<input type="text" class="form-control" placeholder="Please comment" required>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12"></div>
+							</div><br>
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Commitment of the parents:</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<input type="text" class="form-control" placeholder="Please comment" required>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12"></div>
+							</div><br>
+							<div class="row">
+								<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12"></div>
+								<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+									<button type="button" class="btn btn-primary float-right">Save Information</button><br><br>	
+								</div>
 							</div>
 						</div>
-						<div id="collapsefamilyPro" class="collapse" aria-labelledby="familyPro" data-parent="#subAccordion">
-							<div class="card-body contentBody">
-								<br>
+						<!-- end student information -->
+					</div>
+					<!--  end collapsed student information -->
+
+					<!-- collapsed family information -->
+					<!-- button collapsed family information -->
+					<div id="familyInfo">
+						<div class="col-md-12">
+							<button class="btn btn-primary btn-block collapsed headerForm" data-toggle="collapse" data-target="#collapseFamilyInfo" aria-expanded="false" aria-controls="collapseFamilyInfo">
+								<h6 class="text-left">Family Informations
+									<i class="mdi mdi-chevron-down float-right more" style="color:#fff; font-size: 25px;"></i>
+									<i class="mdi mdi-chevron-up float-right less" style="color:#fff; font-size: 25px;display: none;"></i>
+								</h6>
+							</button>
+						</div>
+					</div>
+					<!-- end button collapsed family information -->
+					<div id="collapseFamilyInfo" class="collapse" aria-labelledby="familyInfo" data-parent="#accordion">
+						<!-- sub collapse -->
+						<div id="subAccordion">
+							<!-- subCollapsed family profile -->
+							<div id="familyPro">
+								<div class="col-md-12">
+									<button class="btn btn-default btn-block collapsed subForm" data-toggle="collapse" data-target="#collapsefamilyPro" aria-expanded="false" aria-controls="collapsefamilyPro" style="border-bottom: 1px solid #fff;">
+										<h6 class="text-left subCollapse">Family Profile
+											<i class="mdi mdi-chevron-down float-right down " style="color:#fff; font-size: 25px;">	
+											</i>
+											<i class="mdi mdi-chevron-up float-right up" style="color:#fff; font-size: 25px;display: none;">
+											</i>
+										</h6>	
+									</button>
+								</div>
+							</div>
+							<div id="collapsefamilyPro" class="collapse" aria-labelledby="familyPro" data-parent="#subAccordion">
+								<div class="card-body contentBody">
+									<br>
 									<h4>Father</h4>
 									<div class="row">
 										<div class="col-lg-2 col-md-2 col-sm-4">
@@ -251,13 +251,13 @@
 													<b>Occupation:</b>
 												</div>
 												<div class="col-lg-7 col-md-7 col-sm-8">
-													<select class="form-control">
-														<option value="#">Farmer/Laborer</option>
-														<option value="#">Teacher</option>
-														<option value="#">Soldier</option>
-														<option value="#">Police Officer</option>
-														<option value="#">Agriculture</option>
-														<option value="#">Other</option>
+													<select name="occupation" class="form-control">
+														<option value="Farmer / Laborer">Farmer/Laborer</option>
+														<option value="Teacher">Teacher</option>
+														<option value="Soldier">Soldier</option>
+														<option value="Police Officer">Police Officer</option>
+														<option value="Agriculture">Agriculture</option>
+														<option value="Other">Other</option>
 													</select>
 												</div>
 											</div>
@@ -295,19 +295,20 @@
 												</div>
 												<div class="col-md-2 col-sm-1"></div>
 												<div class="col-md-6 col-sm-4">
-													<select class="form-control">
-														<option value="#">1</option>
-														<option value="#">2</option>
-														<option value="#">3</option>
-														<option value="#">4</option>
-														<option value="#">5</option>
-														<option value="#">7</option>
-														<option value="#">8</option>
-														<option value="#">9</option>
-														<option value="#">10</option>
-														<option value="#">11</option>
-														<option value="#">12</option>
-														<option value="#">University</option>
+													<select name="education" class="form-control">
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+														<option value="8">8</option>
+														<option value="9">9</option>
+														<option value="10">10</option>
+														<option value="11">11</option>
+														<option value="12">12</option>
+														<option value="University">University</option>
 													</select>
 												</div>
 											</div>
@@ -336,12 +337,12 @@
 												</div>
 												<div class="col-md-7">
 													<select class="form-control">
-														<option value="#">Farmer/Laborer</option>
-														<option value="#">Teacher</option>
-														<option value="#">Soldier</option>
-														<option value="#">Police Officer</option>
-														<option value="#">Agriculture</option>
-														<option value="#">Other</option>
+														<option value="Farmer/Laborer">Farmer/Laborer</option>
+														<option value="Teacher">Teacher</option>
+														<option value="Soldier">Soldier</option>
+														<option value="Police Officer">Police Officer</option>
+														<option value="Agriculture">Agriculture</option>
+														<option value="Other">Other</option>
 													</select>
 												</div>
 											</div>
@@ -379,18 +380,19 @@
 												<div class="col-md-2"></div>
 												<div class="col-md-6">
 													<select class="form-control">
-														<option value="#">1</option>
-														<option value="#">2</option>
-														<option value="#">3</option>
-														<option value="#">4</option>
-														<option value="#">5</option>
-														<option value="#">7</option>
-														<option value="#">8</option>
-														<option value="#">9</option>
-														<option value="#">10</option>
-														<option value="#">11</option>
-														<option value="#">12</option>
-														<option value="#">University</option>
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+														<option value="8">8</option>
+														<option value="9">9</option>
+														<option value="10">10</option>
+														<option value="11">11</option>
+														<option value="12">12</option>
+														<option value="University">University</option>
 													</select>
 												</div>
 											</div>
@@ -409,18 +411,19 @@
 													<b>Number of siblings</b>
 												</div>
 												<div class="col-md-6">
-													<select class="form-control">
-														<option value="#">1</option>
-														<option value="#">2</option>
-														<option value="#">3</option>
-														<option value="#">4</option>
-														<option value="#">5</option>
-														<option value="#">7</option>
-														<option value="#">8</option>
-														<option value="#">9</option>
-														<option value="#">10</option>
-														<option value="#">11</option>
-														<option value="#">12</option>
+													<select name="siblings" class="form-control">
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+														<option value="8">8</option>
+														<option value="9">9</option>
+														<option value="10">10</option>
+														<option value="11">11</option>
+														<option value="12">12</option>
 													</select>
 												</div>
 											</div>
@@ -431,18 +434,19 @@
 													<b>Married:</b>
 												</div>
 												<div class="col-md-6">
-													<select class="form-control">
-														<option value="#">1</option>
-														<option value="#">2</option>
-														<option value="#">3</option>
-														<option value="#">4</option>
-														<option value="#">5</option>
-														<option value="#">7</option>
-														<option value="#">8</option>
-														<option value="#">9</option>
-														<option value="#">10</option>
-														<option value="#">11</option>
-														<option value="#">12</option>
+													<select name="married" class="form-control">
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+														<option value="8">8</option>
+														<option value="9">9</option>
+														<option value="10">10</option>
+														<option value="11">11</option>
+														<option value="12">12</option>
 													</select>
 												</div>
 											</div>
@@ -453,18 +457,19 @@
 													<b>Separated:</b>
 												</div>
 												<div class="col-md-6">
-													<select class="form-control">
-														<option value="#">1</option>
-														<option value="#">2</option>
-														<option value="#">3</option>
-														<option value="#">4</option>
-														<option value="#">5</option>
-														<option value="#">7</option>
-														<option value="#">8</option>
-														<option value="#">9</option>
-														<option value="#">10</option>
-														<option value="#">11</option>
-														<option value="#">12</option>
+													<select name="separated" class="form-control">
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+														<option value="8">8</option>
+														<option value="9">9</option>
+														<option value="10">10</option>
+														<option value="11">11</option>
+														<option value="12">12</option>
 													</select>
 												</div>
 											</div>
@@ -479,21 +484,22 @@
 													<b>Living in the family's house (including parents):</b>
 												</div>
 												<div class="col-md-3">
-													<select class="form-control">
-														<option value="#">1</option>
-														<option value="#">2</option>
-														<option value="#">3</option>
-														<option value="#">4</option>
-														<option value="#">5</option>
-														<option value="#">7</option>
-														<option value="#">8</option>
-														<option value="#">9</option>
-														<option value="#">10</option>
-														<option value="#">11</option>
-														<option value="#">12</option>
-														<option value="#">13</option>
-														<option value="#">14</option>
-														<option value="#">15</option>
+													<select name="living" class="form-control">
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+														<option value="8">8</option>
+														<option value="9">9</option>
+														<option value="10">10</option>
+														<option value="11">11</option>
+														<option value="12">12</option>
+														<option value="13">13</option>
+														<option value="14">14</option>
+														<option value="15">15</option>
 													</select>
 												</div>
 											</div>
@@ -504,18 +510,19 @@
 													<b>Student rank:</b>
 												</div>
 												<div class="col-md-6">
-													<select class="form-control">
-														<option value="#">1</option>
-														<option value="#">2</option>
-														<option value="#">3</option>
-														<option value="#">4</option>
-														<option value="#">5</option>
-														<option value="#">7</option>
-														<option value="#">8</option>
-														<option value="#">9</option>
-														<option value="#">10</option>
-														<option value="#">11</option>
-														<option value="#">12</option>
+													<select name="stuRank" class="form-control">
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+														<option value="8">8</option>
+														<option value="9">9</option>
+														<option value="10">10</option>
+														<option value="11">11</option>
+														<option value="12">12</option>
 													</select>
 												</div>
 											</div>
@@ -529,148 +536,148 @@
 										</div>
 									</div>
 									<br>
-							</div>
-						</div>
-						<!-- end subCollapsed family profile -->
-
-						<!-- susCollapsed family income -->
-						<div id="familyIncome">
-							<div class="col-md-12">
-								<button class="btn btn-default btn-block collapsed subForm" data-toggle="collapse" data-target="#collapseFamilyIncome" aria-expanded="false" aria-controls="collapseFamilyIncome" style="border-bottom: 1px solid #fff;">
-									<h6 class="text-left subCollapse">Family's Income
-										<i class="mdi mdi-chevron-down float-right down " style="color:#fff; font-size: 25px;">	
-										</i>
-										<i class="mdi mdi-chevron-up float-right up" style="color:#fff; font-size: 25px;display: none;">
-										</i>
-									</h6>
-								</button>
-							</div>
-						</div>
-						<div id="collapseFamilyIncome" class="collapse" aria-labelledby="familyIncome" data-parent="#subAccordion">
-							<!-- form family income -->
-							<div class="card-body contentBody">
-								<div class="row">
-									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><h5>Family Income</h5></div>
-									<div class="col-md-4"></div>
-								</div>
-								<div class="row">
-									<div class="col-md-1"></div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Monthly Income:</div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-									</div>
-								</div><br>
-								<div class="row">
-									<div class="col-md-1"></div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Daily Income:</div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-									</div>
-
-								</div><br>
-								<div class="row">
-									<div class="col-md-1"></div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Seasonal Income:</div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-									</div>
-
-								</div><br>
-								<div class="row">
-									<div class="col-md-1"></div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Yearly Income:</div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-									</div>
-								</div><br>
-								<div class="row">
-									<div class="col-md-1"></div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Income (on a monthly basis):</div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-									</div>
-								</div><br>	
-								<!-- list all children assistance -->
-								<div class="row">
-									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><h5>Children's Assistance</h5></div>
-									<div class="col-md-6"></div>
-								</div>
-								<div class="row">
-									<div class="col-md-1"></div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Monthly Income:</div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-									</div>
-
-								</div><br>
-								<div class="row">
-									<div class="col-md-1"></div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Daily Income:</div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-									</div>
-
-								</div><br>
-								<div class="row">
-									<div class="col-md-1"></div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Seasonal Income:</div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-									</div>
-
-								</div><br>
-								<div class="row">
-									<div class="col-md-1"></div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Yearly Income:</div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-									</div>
-
-								</div><br>
-								<div class="row">
-									<div class="col-md-1"></div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Income (on a monthly basis):
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-									</div>
-
-								</div><br>
-								<div class="row">
-									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><h5>Globale Family's Income</h5></div>
-									<div class="col-md-6"></div>
-								</div>
-								<div class="row">
-									<div class="col-md-1"></div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Monthly Income:</div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-									</div>
-
-								</div><br>
-								<div class="row">
-									<div class="col-md-1"></div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Monthly Income per individual living in parent's house:</div>
-									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-									</div>
-								</div><br>
-								<div class="row">
-									<div class="col-md-6"></div>
-									<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-										<button type="button" class="btn btn-primary float-right">Save Information</button>	
-									</div>
 								</div>
 							</div>
-							<!-- end family income -->
-						</div>
-						<!-- end subCollapsed family income -->
+							<!-- end subCollapsed family profile -->
 
-						<!-- subCollapsed family expense -->
-						<div id="familyExpense">
-							<div class="col-md-12">
-								<button class="btn btn-default btn-block collapsed subForm" data-toggle="collapse" data-target="#collapseFamilyExpense" aria-expanded="false" aria-controls="collapseFamilyExpense" style="border-bottom: 1px solid #fff;">
-									<h6 class="text-left subCollapse">Family's Expense<i class="mdi mdi-chevron-down float-right down " style="color:#fff; font-size: 25px;">	
+							<!-- susCollapsed family income -->
+							<div id="familyIncome">
+								<div class="col-md-12">
+									<button class="btn btn-default btn-block collapsed subForm" data-toggle="collapse" data-target="#collapseFamilyIncome" aria-expanded="false" aria-controls="collapseFamilyIncome" style="border-bottom: 1px solid #fff;">
+										<h6 class="text-left subCollapse">Family's Income
+											<i class="mdi mdi-chevron-down float-right down " style="color:#fff; font-size: 25px;">	
+											</i>
+											<i class="mdi mdi-chevron-up float-right up" style="color:#fff; font-size: 25px;display: none;">
+											</i>
+										</h6>
+									</button>
+								</div>
+							</div>
+							<div id="collapseFamilyIncome" class="collapse" aria-labelledby="familyIncome" data-parent="#subAccordion">
+								<!-- form family income -->
+								<div class="card-body contentBody">
+									<div class="row">
+										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><h5>Family Income</h5></div>
+										<div class="col-md-4"></div>
+									</div>
+									<div class="row">
+										<div class="col-md-1"></div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Monthly Income:</div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
+										</div>
+									</div><br>
+									<div class="row">
+										<div class="col-md-1"></div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Daily Income:</div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
+										</div>
+
+									</div><br>
+									<div class="row">
+										<div class="col-md-1"></div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Seasonal Income:</div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
+										</div>
+
+									</div><br>
+									<div class="row">
+										<div class="col-md-1"></div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Yearly Income:</div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
+										</div>
+									</div><br>
+									<div class="row">
+										<div class="col-md-1"></div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Income (on a monthly basis):</div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
+										</div>
+									</div><br>	
+									<!-- list all children assistance -->
+									<div class="row">
+										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><h5>Children's Assistance</h5></div>
+										<div class="col-md-6"></div>
+									</div>
+									<div class="row">
+										<div class="col-md-1"></div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Monthly Income:</div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
+										</div>
+
+									</div><br>
+									<div class="row">
+										<div class="col-md-1"></div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Daily Income:</div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
+										</div>
+
+									</div><br>
+									<div class="row">
+										<div class="col-md-1"></div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Seasonal Income:</div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
+										</div>
+
+									</div><br>
+									<div class="row">
+										<div class="col-md-1"></div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Yearly Income:</div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
+										</div>
+
+									</div><br>
+									<div class="row">
+										<div class="col-md-1"></div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Income (on a monthly basis):
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
+										</div>
+
+									</div><br>
+									<div class="row">
+										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><h5>Globale Family's Income</h5></div>
+										<div class="col-md-6"></div>
+									</div>
+									<div class="row">
+										<div class="col-md-1"></div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Monthly Income:</div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
+										</div>
+
+									</div><br>
+									<div class="row">
+										<div class="col-md-1"></div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Monthly Income per individual living in parent's house:</div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
+										</div>
+									</div><br>
+									<div class="row">
+										<div class="col-md-6"></div>
+										<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+											<button type="button" class="btn btn-primary float-right">Save Information</button>	
+										</div>
+									</div>
+								</div>
+								<!-- end family income -->
+							</div>
+							<!-- end subCollapsed family income -->
+
+							<!-- subCollapsed family expense -->
+							<div id="familyExpense">
+								<div class="col-md-12">
+									<button class="btn btn-default btn-block collapsed subForm" data-toggle="collapse" data-target="#collapseFamilyExpense" aria-expanded="false" aria-controls="collapseFamilyExpense" style="border-bottom: 1px solid #fff;">
+										<h6 class="text-left subCollapse">Family's Expense<i class="mdi mdi-chevron-down float-right down " style="color:#fff; font-size: 25px;">	
 										</i>
 										<i class="mdi mdi-chevron-up float-right up" style="color:#fff; font-size: 25px;display: none;">
 										</i>
@@ -797,20 +804,20 @@
 										<label for="">Initial amount:</label>	
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" placeholder="$" style="direction:rtl" required>
+										<input name="initAmount" type="number" class="form-control" placeholder="$" style="direction:rtl" required>
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
 										<label for="">Institution:</label>	
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" placeholder="$" style="direction:rtl" required>
+										<input name="institution" type="number" class="form-control" placeholder="$" style="direction:rtl" required>
 									</div>
 									<br>
 									<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
 										<label for="">Interest rates:</label>	
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" placeholder="$" style="direction:rtl" required>
+										<input name="interestRates" type="number" class="form-control" placeholder="$" style="direction:rtl" required>
 									</div>
 								</div>
 								<br>
@@ -819,7 +826,7 @@
 										<label for="">Reason:</label>
 									</div>
 									<div class="col-lg-10 col-md-10 col-sm-10 col-xs-6">
-										<input type="text" class="form-control" placeholder="Please comment" required="">
+										<input name="reason" type="text" class="form-control" placeholder="Please comment" required="">
 									</div>
 								</div>
 								<div class="row">
@@ -830,19 +837,19 @@
 										<label for="">Monthly:</label>	
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" placeholder="$" style="direction:rtl" required>
+										<input name="monthly" type="number" class="form-control" placeholder="$" style="direction:rtl" required>
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
 										<label for="">Trimester:</label>	
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" placeholder="$" style="direction:rtl" required>
+										<input name="trimester" type="number" class="form-control" placeholder="$" style="direction:rtl" required>
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
 										<label for="">Semester:</label>	
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" placeholder="$" style="direction:rtl" required>
+										<input name="semester" type="number" class="form-control" placeholder="$" style="direction:rtl" required>
 									</div>
 								</div>
 								<br>
@@ -851,7 +858,7 @@
 										<label for="">Capital:</label>	
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-										<input type="number" class="form-control" placeholder="$" style="direction:rtl" required>
+										<input name="capital" type="number" class="form-control" placeholder="$" style="direction:rtl" required>
 									</div>
 									
 								</div>
@@ -889,39 +896,39 @@
 										<label for="">Status:</label>
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
-										<select name="" id="" class="form-control">
-											<option value="">Inherited</option>
-											<option value="">Shared</option>
-											<option value="">Purchased</option>
-											<option value="">Rent</option>
+										<select name="status" id="" class="form-control">
+											<option value="Inherited">Inherited</option>
+											<option value="Shared">Shared</option>
+											<option value="Purchased">Purchased</option>
+											<option value="Rent">Rent</option>
 										</select>
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-1 col-xs-12">
 										<label for="">Age:</label>
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-										<select name="" id="" class="form-control">
-											<option value="">1</option>
-											<option value="">2</option>
-											<option value="">3</option>
-											<option value="">4</option>
-											<option value="">5</option>
-											<option value="">6</option>
-											<option value="">7</option>
-											<option value="">8</option>
-											<option value="">9</option>
+										<select name="age" id="" class="form-control">
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
 										</select>
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
 										<label for="">Rating Scale:</label>
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-										<select name="" id="" class="form-control">
-											<option value="">1</option>
-											<option value="">2</option>
-											<option value="">3</option>
-											<option value="">4</option>
-											<option value="">5</option>
+										<select name="ratingScale" id="" class="form-control">
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
 										</select>
 									</div>
 								</div>
@@ -944,12 +951,8 @@
 							<div class="col-md-12">
 								<button class="btn btn-default btn-block collapsed subForm" data-toggle="collapse" data-target="#collapseHomeAssets" aria-expanded="false" aria-controls="collapseHomeAssets" style="border-bottom: 1px solid #fff;">
 									<h6 class="text-left subCollapse">Home Assets
-									<i class="mdi mdi-chevron-down float-right down " style="color:#fff; font-size: 25px;">
-										
-									</i>
-									<i class="mdi mdi-chevron-up float-right up" style="color:#fff; font-size: 25px;display: none;">
-										
-									</i>
+										<i class="mdi mdi-chevron-down float-right down " style="color:#fff; font-size: 25px;">	</i>
+										<i class="mdi mdi-chevron-up float-right up" style="color:#fff; font-size: 25px;display: none;"></i>
 									</h6>
 								</button>
 							</div>
@@ -1367,16 +1370,16 @@
 	</div>    	
 </div>
 <script>
-	  $(document).ready(function(){
-	  $( ".headerForm" ).click(function() {
-	      $(".more",this).toggle();
-	      $(".less",this).toggle();
-	    
-	  });
-	  $( ".subForm" ).click(function() {
-	      $(".down",this).toggle();
-	      $(".up",this).toggle();
-	    
-	  });
+	$(document).ready(function(){
+		$( ".headerForm" ).click(function() {
+			$(".more",this).toggle();
+			$(".less",this).toggle();
+
+		});
+		$( ".subForm" ).click(function() {
+			$(".down",this).toggle();
+			$(".up",this).toggle();
+
+		});
 	});
 </script>
