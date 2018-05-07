@@ -60,119 +60,193 @@ body{
 						<h5>General Information</h5>
 					</div><br>
 					<form action="" method="POST">
-						<div class="col-md-8"></div>
 						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">Province:</div>
-							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
-								<select class="form-control">
-									<option value="#">Pursat</option>
-									<option value="#">Battambong</option>
-									<option value="#">Banteaymean chey</option>
-									<option value="#">Siem Reap</option>
-								</select>
+							<div class="col-lg-4 col-md-4">
+								<div class="form-group row">
+									<div class="col-lg-1 col-md-1"></div>
+									<label for="status" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Province :</label>
+									<div class="col-lg-6 col-md-6 col-xs-12">
+										<select class="form-control">
+											<option value="#">Pursat</option>
+											<option value="#">Battambong</option>
+											<option value="#">Banteaymean chey</option>
+											<option value="#">Siem Reap</option>
+										</select>
+									</div>
+								</div>
 							</div>
-							<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">Gender:</div>
-							<div class="col-md-2 col-sm-3">
-								<select class="form-control">
-									<option value="#">Male</option>
-									<option value="#">Female</option>
-								</select>
+							<div class="col-lg-4 col-md-4">
+								<div class="form-group row">
+									<div class="col-lg-1 col-md-1"></div>
+									<label for="status" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Gender :</label>
+									<div class="col-lg-6 col-md-6 col-xs-12">
+										<select class="form-control">
+											<option value="#">Male</option>
+											<option value="#">Female</option>
+										</select>
+									</div>
+								</div>
 							</div>
-
-							<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">Age:</div>
-							<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-								<input type="number" class="form-control" placeholder="Your Age " required>
+							<div class="col-lg-4 col-md-4">
+								<div class="form-group row">
+									<div class="col-lg-1 col-md-1"></div>
+									<label for="status" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Age :</label>
+									<div class="col-lg-6 col-md-6 col-xs-12">
+										<input type="number" class="form-control" placeholder="Your Age " required>
+									</div>
+								</div>
 							</div>
-						</div><br>
+						</div>
 						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">NGO:</div>
-							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
-								<select class="form-control">
-									<option value="#">PSE</option>
-									<option value="#">KBFC</option>
-									<option value="#">Other</option>
-								</select>
+							<div class="col-lg-4 col-md-4">
+								<div class="form-group row">
+									<div class="col-lg-1 col-md-1"></div>
+									<label for="ngo" class="col-lg-4 col-md-4 col-xs-12 col-form-label">NGO :</label>
+									<div class="col-lg-6 col-md-6 col-xs-12">
+										<select class="form-control" id="ngo">
+											<option value="#">PSE</option>
+											<option value="#">KBFC</option>
+											<option value="#">Other</option>
+										</select>
+									</div>
+								</div>
 							</div>
-							<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">Other:</div>
-							<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-								<input type="text" class="form-control" placeholder="If other please specify " required>
+							<div class="col-lg-7 col-md-7">
+								<div class="form-group row">
+									<div class="col-md-1"></div>
+									<label for="other" class="col-lg-2 col-md-2 col-xs-12 col-form-label">Other :</label>
+									<div class="col-lg-9 col-md-9 col-xs-12">
+										<input type="text" class="form-control" id="other" placeholder="If other please specify " required>
+									</div>
+								</div>
 							</div>
-						</div><br>
+						</div>
 						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">Health Status:</div>
-							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
-								<select class="form-control">
-									<option value="#">Healthy</option>
-									<option value="#">Some health issuses</option>
-								</select>
+							<div class="col-lg-4 col-md-4">
+								<div class="form-group row">
+									<div class="col-lg-1 col-md-1"></div>
+									<label for="ngo" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Health Status :</label>
+									<div class="col-lg-6 col-md-6 col-xs-12">
+										<select class="form-control" id="ngo">
+											<option value="#">Healthy</option>
+											<option value="#">some health issuses</option>
+											
+										</select>
+									</div>
+								</div>
 							</div>
-							<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">Other:</div>
-							<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-								<input type="text" class="form-control" placeholder="If some health issuses, please specify " required>
+							<div class="col-lg-7 col-md-7">
+								<div class="form-group row">
+									<div class="col-md-1"></div>
+									<label for="other" class="col-lg-2 col-md-2 col-xs-12 col-form-label">Other :</label>
+									<div class="col-lg-9 col-md-9 col-xs-12">
+										<input type="text" class="form-control" id="other" placeholder="If some health issuses, please specify" required>
+									</div>
+								</div>
 							</div>
-						</div><br>
+						</div>
 						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">Rank in class:</div>
-							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
-								<input type="text" class="form-control" placeholder="Ex: 10/33" required>
+							<div class="col-lg-4 col-md-4">
+								<div class="form-group row">
+									<div class="col-lg-1 col-md-1"></div>
+									<label for="ngo" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Rank in class :</label>
+									<div class="col-lg-6 col-md-6 col-xs-12">
+										<input type="text" class="form-control" placeholder="Ex: 10/33" required>
+									</div>
+								</div>
 							</div>		
-						</div><br>
+						</div>
 						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">Extracuricular activity and activement:</div>
-							<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-								<input type="text" class="form-control" placeholder="Please comment" required>
-							</div>		
-						</div><br>
+							<div class="col-lg-4 col-md-4">
+								<div class="form-group row">
+									<div class="col-lg-1 col-md-1"></div>
+									<label for="ngo" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Extracuricular activity 
+									& activement :</label>	
+								</div>
+							</div>	
+							<div class="col-lg-7 col-md-7">
+								<div class="form-group row">
+									<div class="col-md-1"></div>
+									<label for="other" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+									<div class="col-lg-9 col-md-9 col-xs-12">
+										<input type="text" class="form-control" id="other" placeholder="please comment" required>
+									</div>
+								</div>
+							</div>	
+						</div>
 						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><h5>Motivation</h5></div>
 						<div class="col-lg-8 col-md-8 col-sm-10 col-xs-12"></div><br>
 						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">PNC choice rank:</div>
-							<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-								<select class="form-control">
-									<option value="#">1</option>
-									<option value="#">2</option>
-									<option value="#">3</option>
-									<option value="#">4</option>
-								</select>
-							</div><br>
-							<div class="ccol-lg-3 col-md-3 col-sm-4 col-xs-12">Responsible & maturity:</div>
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-								<input type="text" class="form-control" placeholder="Ex: 18/20" required>
+							<div class="col-lg-6 col-md-6">
+								<div class="form-group row">
+									<div class="col-lg-1 col-md-1"></div>
+									<label for="status" class="col-lg-6 col-md-6 col-xs-12 col-form-label">PNC choice rank :</label>
+									<div class="col-lg-4 col-md-4 col-xs-12">
+										<select class="form-control">
+											<option value="#">1</option>
+											<option value="#">2</option>
+											<option value="#">3</option>
+											<option value="#">4</option>
+										</select>
+									</div>
+								</div>
 							</div>
-						</div><br>
-						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">Motivation for PNC:</div>
-							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
-								<input type="text" class="form-control" placeholder="Ex: 23/30" required>
-							</div>
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">Communication:</div>
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-								<input type="text" class="form-control" placeholder="Ex: 10/10" required>
-							</div>
-						</div><br>
-						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">Other Scholaship:</div>
-							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
-								<input type="text" class="form-control" placeholder="" required>
-							</div>
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">Choice Rank:</div>
-							<div class="col-lg-3 col-md-3 col-sm-2 col-xs-12">
-								<select class="form-control">
-									<option value="#">1</option>
-									<option value="#">2</option>
-									<option value="#">3</option>
-									<option value="#">4</option>
-								</select>
+							<div class="col-lg-6 col-md-6">
+								<div class="form-group row">
+									<div class="col-lg-1 col-md-1"></div>
+									<label for="status" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Responsible & maturity :</label>
+									<div class="col-lg-4 col-md-4 col-xs-12">
+										<input type="text" class="form-control" id="other" placeholder="Ex: 18/20" required>
+									</div>
+								</div>
 							</div>
 						</div>
+						<div class="row">
+							<div class="col-lg-6 col-md-6">
+								<div class="form-group row">
+									<div class="col-lg-1 col-md-1"></div>
+									<label for="status" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Motivation for PNC :</label>
+									<div class="col-lg-4 col-md-4 col-xs-12">
+										<input type="text" class="form-control" id="other" placeholder="Ex: 18/20" required>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6">
+								<div class="form-group row">
+									<div class="col-lg-1 col-md-1"></div>
+									<label for="status" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Communication :</label>
+									<div class="col-lg-4 col-md-4 col-xs-12">
+										<input type="text" class="form-control" id="other" placeholder="Ex: 10/10" required>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-6 col-md-6">
+								<div class="form-group row">
+									<div class="col-lg-1 col-md-1"></div>
+									<label for="status" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Other Scholaship :</label>
+									<div class="col-lg-4 col-md-4 col-xs-12">
+										<input type="text" class="form-control" id="other" placeholder="" required>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6">
+								<div class="form-group row">
+									<div class="col-lg-1 col-md-1"></div>
+									<label for="status" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Choice Rank :</label>
+									<div class="col-lg-4 col-md-4 col-xs-12">
+										<select class="form-control">
+											<option value="#">1</option>
+											<option value="#">2</option>
+											<option value="#">3</option>
+											<option value="#">4</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+						
 						<div class="row">
 							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
 							<div class="col-lg-4 col-md-4 col-sm-9 col-xs-12">
@@ -185,22 +259,39 @@ body{
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Commitment of the student:
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<input type="text" class="form-control" placeholder="Please comment" required>
-							</div>
-							<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12"></div>
-						</div><br>
+							<div class="col-lg-4 col-md-4">
+								<div class="form-group row">
+									<div class="col-lg-1 col-md-1"></div>
+									<label for="ngo" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the student :</label>	
+								</div>
+							</div>	
+							<div class="col-lg-7 col-md-7">
+								<div class="form-group row">
+									<div class="col-md-1"></div>
+									<label for="other" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+									<div class="col-lg-9 col-md-9 col-xs-12">
+										<input type="text" class="form-control" id="other" placeholder="please comment" required>
+									</div>
+								</div>
+							</div>	
+						</div>
 						<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Commitment of the parents:</div>
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<input type="text" class="form-control" placeholder="Please comment" required>
-							</div>
-							<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12"></div>
-						</div><br>
+							<div class="col-lg-4 col-md-4">
+								<div class="form-group row">
+									<div class="col-lg-1 col-md-1"></div>
+									<label for="ngo" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the parents :</label>	
+								</div>
+							</div>	
+							<div class="col-lg-7 col-md-7">
+								<div class="form-group row">
+									<div class="col-md-1"></div>
+									<label for="other" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+									<div class="col-lg-9 col-md-9 col-xs-12">
+										<input type="text" class="form-control" id="other" placeholder="please comment" required>
+									</div>
+								</div>
+							</div>	
+						</div>
 						<div class="row">
 							<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12"></div>
 							<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
