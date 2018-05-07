@@ -1,6 +1,11 @@
 <style>
 body{
 	background-image: url("<?php echo base_url();?>assets/images/background/rice.jpg");
+	background-attachment: fixed;    
+	background-position: center;   
+	 background-repeat: no-repeat; 
+
+	background-size: cover;
 }
 </style>
 <!-- form header -->
@@ -642,10 +647,10 @@ body{
 						<div id="familyIncome">
 							<h5 class="mb-0">
 								<button class="btn btn-default collapsed  btn-block text-left subHeading" data-toggle="collapse" data-target="#collapseFamilyIncome" aria-expanded="false" aria-controls="collapseFamilyIncome" style="height: 60px;border-bottom: 2px solid #fff;">
-									<h5 class="subCollapse">Family's Income
-										<i class="mdi mdi-chevron-down float-right subDown" style="color:#000; font-size: 30px;">
+									<h5 class="subCollapse" style="color: #fff;">Family's Income
+										<i class="mdi mdi-chevron-down float-right subDown" style="color:#fff; font-size: 30px;">
 										</i>
-										<i class="mdi mdi-chevron-up float-right subUp" style="color:#000; font-size: 30px;display: none;">
+										<i class="mdi mdi-chevron-up float-right subUp" style="font-size: 30px;display: none;">
 										</i>
 									</h5>
 								</button>
