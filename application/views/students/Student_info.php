@@ -19,12 +19,12 @@ body{
 			<p style="color:#fff;">Global grade:</p>
 		</div>
 		<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
-			<select class="form-control">
-				<option value="#">A+</option>
-				<option value="#">A</option>
-				<option value="#">B+</option>
-				<option value="#">B-</option>
-				<option value="#">Failed</option>
+			<select class="form-control" name="grade">
+				<option value="A+">A+</option>
+				<option value="A">A</option>
+				<option value="B+">B+</option>
+				<option value="B-">B-</option>
+				<option value="Failed">Failed</option>
 			</select>
 		</div>
 		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
@@ -65,18 +65,38 @@ body{
 							<div class="col-md-1"></div>
 							<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">Province:</div>
 							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
-								<select class="form-control">
-									<option value="#">Pursat</option>
-									<option value="#">Battambong</option>
-									<option value="#">Banteaymean chey</option>
-									<option value="#">Siem Reap</option>
+								<select class="form-control" name="province">
+									<option value="Battambong">Battambong</option>
+									<option value="BanteayMeanChey">BanteayMeanChey</option>
+									<option value="Siem Reap">SiemReap</option>
+									<option value="SteungTreang">SteungTreang</option>
+									<option value="SvayReang">SvayReang</option>
+									<option value="OdorMeanChey">OdorMeanChey</option>
+									<option value="Pursat">Pursat</option>
+									<option value="PreahVihear">PreahVihear</option>
+									<option value="PreyVeng">PreyVeng</option>
+									<option value="PhnomPenh">PhnomPenh</option>
+									<option value="Pailen">Pailen</option>
+									<option value="kompongThom">kompongThom</option>
+									<option value="KompongCham">KompongCham</option>
+									<option value="KompongChhnang">KompongChhnang</option>
+									<option value="KompogSpeur">KompogSpeur</option>
+									<option value="Kompot">Kompot</option>
+									<option value="KohKong">KohKong</option>
+									<option value="Keb">Keb</option>
+									<option value="Kondal">Kondal</option>
+									<option value="kratie">kratie</option>
+									<option value="Ratanakiry">Ratanakiry</option>
+									<option value="Mondalkiry">Mondolkiry</option>
+									<option value="Takeo">Takeo</option>
+									<option value="Sihanoukville">Sihanoukville</option>
 								</select>
 							</div>
 							<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">Gender:</div>
 							<div class="col-md-2 col-sm-3">
-								<select class="form-control">
-									<option value="#">Male</option>
-									<option value="#">Female</option>
+								<select class="form-control" name="gender">
+									<option value="Male">Male</option>
+									<option value="Female">Female</option>
 								</select>
 							</div>
 
@@ -89,10 +109,10 @@ body{
 							<div class="col-md-1"></div>
 							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">NGO:</div>
 							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
-								<select class="form-control">
-									<option value="#">PSE</option>
-									<option value="#">KBFC</option>
-									<option value="#">Other</option>
+								<select class="form-control" name="ngo">
+									<option value="PSE">PSE</option>
+									<option value="KBFC">KBFC</option>
+									<option value="Other">Other</option>
 								</select>
 							</div>
 							<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">Other:</div>
@@ -104,9 +124,9 @@ body{
 							<div class="col-md-1"></div>
 							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">Health Status:</div>
 							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
-								<select class="form-control">
-									<option value="#">Healthy</option>
-									<option value="#">Some health issuses</option>
+								<select class="form-control" name="health">
+									<option value="Healthy">Healthy</option>
+									<option value="Some health issuses">Some health issuses</option>
 								</select>
 							</div>
 							<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">Other:</div>
@@ -134,14 +154,14 @@ body{
 							<div class="col-md-1"></div>
 							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">PNC choice rank:</div>
 							<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-								<select class="form-control">
-									<option value="#">1</option>
-									<option value="#">2</option>
-									<option value="#">3</option>
-									<option value="#">4</option>
+								<select class="form-control" name="rank">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
 								</select>
 							</div><br>
-							<div class="ccol-lg-3 col-md-3 col-sm-4 col-xs-12">Responsible & maturity:</div>
+							<div class="ccol-lg-3 col-md-3 col-sm-4 col-xs-12">Responsiblity & maturity:</div>
 							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 								<input type="text" class="form-control" placeholder="Ex: 18/20" required>
 							</div>
@@ -165,11 +185,11 @@ body{
 							</div>
 							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">Choice Rank:</div>
 							<div class="col-lg-3 col-md-3 col-sm-2 col-xs-12">
-								<select class="form-control">
-									<option value="#">1</option>
-									<option value="#">2</option>
-									<option value="#">3</option>
-									<option value="#">4</option>
+								<select class="form-control" name="rank">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
 								</select>
 							</div>
 						</div>
@@ -179,7 +199,7 @@ body{
 								<a href="#">
 									<h6>
 										<i class="mdi mdi-plus" style="color:#000;font-size: 20px;">
-										</i>Add other Scholashiop
+										</i>Add other Scholaship
 									</h6>
 								</a>
 							</div>
@@ -248,9 +268,9 @@ body{
 								<form action="" method="POST">
 									<div class="row">
 										<div class="col-lg-2 col-md-2 col-sm-4">
-											<div class="row">
-												<div class="col-lg-5 col-md-4 col-sm-4">
-													<b>Age:</b>
+											<div class="form-group row">
+												<div class="col-lg-5 col-md-4 col-sm-4 f">
+													<label for="amount" class="col-form-label">Age :</label>
 												</div>
 												<div class="col-lg-7 col-md-8 col-sm-8">
 													<input type="number" name="age" id="" class="form-control">
@@ -259,18 +279,18 @@ body{
 										</div>
 
 										<div class="col-lg-5 col-md-5 col-sm-8">
-											<div class="row">
+											<div class=" form-group row">
 												<div class="col-lg-5 col-md-5 col-sm-4">
-													<b>Occupation:</b>
+													<label for="amount" class="col-form-label">Occupation :</label>
 												</div>
 												<div class="col-lg-7 col-md-7 col-sm-8">
-													<select class="form-control">
-														<option value="#">Farmer/Laborer</option>
-														<option value="#">Teacher</option>
-														<option value="#">Soldier</option>
-														<option value="#">Police Officer</option>
-														<option value="#">Agriculture</option>
-														<option value="#">Other</option>
+													<select class="form-control" name="Occupation">
+														<option value="Farmer/Laborer">Farmer/Laborer</option>
+														<option value="Teacher">Teacher</option>
+														<option value="Soldier">Soldier</option>
+														<option value="Police Officer">Police Officer</option>
+														<option value="Agriculture">Agriculture</option>
+														<option value="Other">Other</option>
 													</select>
 												</div>
 											</div>
@@ -283,9 +303,9 @@ body{
 									<br>
 									<div class="row">
 										<div class="col-md-4">
-											<div class="row">
+											<div class="form-group row">
 												<div class="col-md-6">
-													<b>Health status</b>
+													<label for="amount" class="col-form-label">Health status :</label>
 												</div>
 												<div class="col-md-6">
 													<select name="health" id="" class="form-control">
@@ -302,25 +322,26 @@ body{
 									<br>
 									<div class="row">
 										<div class="col-md-4 col-sm-12">
-											<div class="row">
+											<div class="form-group row">
 												<div class="col-md-4 col-sm-4">
-													<b>Education:</b>
+													<label for="amount" class="col-form-label">Education :</label>
 												</div>
 												<div class="col-md-2 col-sm-1"></div>
 												<div class="col-md-6 col-sm-4">
-													<select class="form-control">
-														<option value="#">1</option>
-														<option value="#">2</option>
-														<option value="#">3</option>
-														<option value="#">4</option>
-														<option value="#">5</option>
-														<option value="#">7</option>
-														<option value="#">8</option>
-														<option value="#">9</option>
-														<option value="#">10</option>
-														<option value="#">11</option>
-														<option value="#">12</option>
-														<option value="#">University</option>
+													<select class="form-control" name="education">
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+														<option value="8">8</option>
+														<option value="9">9</option>
+														<option value="10">10</option>
+														<option value="11">11</option>
+														<option value="12">12</option>
+														<option value="University">University</option>
 													</select>
 												</div>
 											</div>
@@ -332,9 +353,9 @@ body{
 									<h5>Mother</h5>
 									<div class="row">
 										<div class="col-md-2">
-											<div class="row">
+											<div class="form-group row">
 												<div class="col-lg-5 col-md-4 col-sm-4">
-													<b>Age:</b>
+													<label for="amount" class="col-form-label">Age :</label>
 												</div>
 												<div class="col-lg-7 col-md-8 col-sm-8">
 													<input type="number" name="age" id="" class="form-control">
@@ -343,18 +364,18 @@ body{
 										</div>
 										<!-- <div class="col-md-"></div> -->
 										<div class="col-md-5">
-											<div class="row">
+											<div class="form-group row">
 												<div class="col-md-5">
-													<b>Occupation:</b>
+													<label for="amount" class="col-form-label">Occupation :</label>
 												</div>
 												<div class="col-md-7">
-													<select class="form-control">
-														<option value="#">Farmer/Laborer</option>
-														<option value="#">Teacher</option>
-														<option value="#">Soldier</option>
-														<option value="#">Police Officer</option>
-														<option value="#">Agriculture</option>
-														<option value="#">Other</option>
+													<select class="form-control" name="Occupation">
+														<option value="Farmer/Laborer">Farmer/Laborer</option>
+														<option value="Teacher">Teacher</option>
+														<option value="Soldier">Soldier</option>
+														<option value="Police Officer">Police Officer</option>
+														<option value="Agriculture">Agriculture</option>
+														<option value="Other">Other</option>
 													</select>
 												</div>
 											</div>
@@ -366,9 +387,9 @@ body{
 									<br>
 									<div class="row">
 										<div class="col-md-4">
-											<div class="row">
+											<div class="form-group row">
 												<div class="col-md-6">
-													<b>Health status</b>
+													<label for="amount" class="col-form-label">Health status :</label>
 												</div>
 												<div class="col-md-6">
 													<select name="health" id="" class="form-control">
@@ -385,25 +406,26 @@ body{
 									<br>
 									<div class="row">
 										<div class="col-md-4">
-											<div class="row">
+											<div class="form-group row">
 												<div class="col-md-4">
-													<b>Education:</b>
+													<label for="amount" class="col-form-label">Education :</label>
 												</div>
 												<div class="col-md-2"></div>
 												<div class="col-md-6">
-													<select class="form-control">
-														<option value="#">1</option>
-														<option value="#">2</option>
-														<option value="#">3</option>
-														<option value="#">4</option>
-														<option value="#">5</option>
-														<option value="#">7</option>
-														<option value="#">8</option>
-														<option value="#">9</option>
-														<option value="#">10</option>
-														<option value="#">11</option>
-														<option value="#">12</option>
-														<option value="#">University</option>
+													<select class="form-control" name="education">
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+														<option value="8">8</option>
+														<option value="9">9</option>
+														<option value="10">10</option>
+														<option value="11">11</option>
+														<option value="12">12</option>
+														<option value="University">University</option>
 													</select>
 												</div>
 											</div>
@@ -417,67 +439,70 @@ body{
 									<br>
 									<div class="row">
 										<div class="col-md-4">
-											<div class="row">
+											<div class="form-group row">
 												<div class="col-md-6">
-													<b>Number of siblings</b>
+													<label for="amount" class="col-form-label">Number of sibling :</label>
 												</div>
 												<div class="col-md-6">
-													<select class="form-control">
-														<option value="#">1</option>
-														<option value="#">2</option>
-														<option value="#">3</option>
-														<option value="#">4</option>
-														<option value="#">5</option>
-														<option value="#">7</option>
-														<option value="#">8</option>
-														<option value="#">9</option>
-														<option value="#">10</option>
-														<option value="#">11</option>
-														<option value="#">12</option>
+													<select class="form-control" name="sibling">
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+														<option value="8">8</option>
+														<option value="9">9</option>
+														<option value="10">10</option>
+														<option value="11">11</option>
+														<option value="12">12</option>
 													</select>
 												</div>
 											</div>
 										</div>
 										<div class="col-md-4">
-											<div class="row">
+											<div class="form-group row">
 												<div class="col-md-6">
-													<b>Married:</b>
+													<label for="amount" class="col-form-label">Married :</label>
 												</div>
 												<div class="col-md-6">
-													<select class="form-control">
-														<option value="#">1</option>
-														<option value="#">2</option>
-														<option value="#">3</option>
-														<option value="#">4</option>
-														<option value="#">5</option>
-														<option value="#">7</option>
-														<option value="#">8</option>
-														<option value="#">9</option>
-														<option value="#">10</option>
-														<option value="#">11</option>
-														<option value="#">12</option>
+													<select class="form-control" name="Married">
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+														<option value="8">8</option>
+														<option value="9">9</option>
+														<option value="10">10</option>
+														<option value="11">11</option>
+														<option value="12">12</option>
 													</select>
 												</div>
 											</div>
 										</div>
 										<div class="col-md-4">
-											<div class="row">
+											<div class="form-group row">
 												<div class="col-md-6">
-													<b>Separated:</b>
+													<label for="amount" class="col-form-label">Separeted :</label>
 												</div>
 												<div class="col-md-6">
-													<select class="form-control">
-														<option value="#">1</option>
-														<option value="#">2</option>
-														<option value="#">3</option>
-														<option value="#">4</option>
-														<option value="#">5</option>
-														<option value="#">7</option>
-														<option value="#">8</option>
-														<option value="#">9</option>
-														<option value="#">10</option>
-														<option value="#">11</option>
-														<option value="#">12</option>
+													<select class="form-control" name="Separated">
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+														<option value="8">8</option>
+														<option value="9">9</option>
+														<option value="10">10</option>
+														<option value="11">11</option>
+														<option value="12">12</option>
 													</select>
 												</div>
 											</div>
@@ -487,48 +512,50 @@ body{
 									<br>
 									<div class="row">
 										<div class="col-md-8">
-											<div class="row">
+											<div class="form-group row">
 												<div class="col-md-9">
-													<b>Living in the family's house (including parents):</b>
+													<label for="amount" class="col-form-label">Living in the family's house (including parents) :</label>
 												</div>
 												<div class="col-md-3">
-													<select class="form-control">
-														<option value="#">1</option>
-														<option value="#">2</option>
-														<option value="#">3</option>
-														<option value="#">4</option>
-														<option value="#">5</option>
-														<option value="#">7</option>
-														<option value="#">8</option>
-														<option value="#">9</option>
-														<option value="#">10</option>
-														<option value="#">11</option>
-														<option value="#">12</option>
-														<option value="#">13</option>
-														<option value="#">14</option>
-														<option value="#">15</option>
+													<select class="form-control" name="liveInfamily">
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+														<option value="8">8</option>
+														<option value="9">9</option>
+														<option value="10">10</option>
+														<option value="11">11</option>
+														<option value="12">12</option>
+														<option value="13">13</option>
+														<option value="14">14</option>
+														<option value="15">15</option>
 													</select>
 												</div>
 											</div>
 										</div>
 										<div class="col-md-4">
-											<div class="row">
+											<div class="form-group row">
 												<div class="col-md-6">
-													<b>Student rank:</b>
+													<label for="amount" class="col-form-label">Student rank :</label>
 												</div>
 												<div class="col-md-6">
-													<select class="form-control">
-														<option value="#">1</option>
-														<option value="#">2</option>
-														<option value="#">3</option>
-														<option value="#">4</option>
-														<option value="#">5</option>
-														<option value="#">7</option>
-														<option value="#">8</option>
-														<option value="#">9</option>
-														<option value="#">10</option>
-														<option value="#">11</option>
-														<option value="#">12</option>
+													<select class="form-control" name="rank">
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+														<option value="8">8</option>
+														<option value="9">9</option>
+														<option value="10">10</option>
+														<option value="11">11</option>
+														<option value="12">12</option>
 													</select>
 												</div>
 											</div>
@@ -601,7 +628,7 @@ body{
 									</div><br>
 									<div class="row">
 										<div class="col-md-1"></div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Income(on a monthly basis)</div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Income (on a monthly basis):</div>
 										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
 										</div>
@@ -647,7 +674,7 @@ body{
 									</div><br>
 									<div class="row">
 										<div class="col-md-1"></div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Income(on a monthly basis)
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Income (on a monthly basis):
 										</div>
 										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
@@ -670,7 +697,7 @@ body{
 									</div><br>
 									<div class="row">
 										<div class="col-md-1"></div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Monthly Income per individual living:</div>
+										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Monthly Income per individual living in the parent's house:</div>
 										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
 										</div>
@@ -928,11 +955,11 @@ body{
 											<div class="form-group row">
 												<label for="status" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Status :</label>
 												<div class="col-lg-7 col-md-7 col-xs-12">
-													<select name="" id="" class="form-control">
-														<option value="">Inherited</option>
-														<option value="">Shared</option>
-														<option value="">Purchased</option>
-														<option value="">Rent</option>
+													<select name="Status" id="" class="form-control">
+														<option value="Inherited">Inherited</option>
+														<option value="Shared">Shared</option>
+														<option value="Purchased">Purchased</option>
+														<option value="Rent">Rent</option>
 													</select>
 												</div>
 											</div>
@@ -941,30 +968,30 @@ body{
 											<div class="form-group row">
 												<label for="age" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Age :</label>
 												<div class="col-lg-7 col-md-7 col-xs-12">
-													<select name="" id="" class="form-control">
-														<option value="">1</option>
-														<option value="">2</option>
-														<option value="">3</option>
-														<option value="">4</option>
-														<option value="">5</option>
-														<option value="">6</option>
-														<option value="">7</option>
-														<option value="">8</option>
-														<option value="">9</option>
+													<select name="age" id="" class="form-control">
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+														<option value="8">8</option>
+														<option value="9">9</option>
 													</select>
 												</div>
 											</div>
 										</div>
 										<div class="col-lg-4 col-md-4">
 											<div class="form-group row">
-												<label for="rating" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Rating scal :</label>
+												<label for="rating" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Rating scale :</label>
 												<div class="col-lg-7 col-md-7 col-xs-12">
-													<select name="" id="" class="form-control">
-														<option value="">1</option>
-														<option value="">2</option>
-														<option value="">3</option>
-														<option value="">4</option>
-														<option value="">5</option>
+													<select name="Rating_scale" id="" class="form-control">
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
 													</select>
 												</div>
 											</div>
