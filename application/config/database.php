@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> 'mysql:host=localhost; dbname=skeleton; charset=utf8;',
-	'hostname' => 'localhost',
+	'hostname' => 'http://localhost',
 	'username' => 'root',
 	'password' => '',
 	'database' => 'skeleton',

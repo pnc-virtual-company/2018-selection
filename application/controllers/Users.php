@@ -31,7 +31,7 @@ class Users extends CI_Controller {
              redirect('errors/privileges');
            }
          } else {
-           redirect('connection/login');
+           // redirect('connection/login');
          }
         $this->load->model('users_model');
     }
