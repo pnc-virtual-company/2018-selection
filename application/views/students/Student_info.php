@@ -1014,7 +1014,7 @@ body{
 											<div class="form-group row">
 												<label for="radio" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Radio :</label>
 												<div class="col-lg-7 col-md-7 col-xs-12">
-													<input type="number" class="form-control" placeholder="Quantity" name="refrigerator" id="radio">
+													<input type="number" class="form-control" placeholder="Quantity " name="refrigerator" id="radio">
 												</div>
 											</div>
 										</div>
