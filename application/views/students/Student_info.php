@@ -661,42 +661,90 @@ body{
 										<div class="col-md-4"></div>
 									</div>
 									<div class="row">
-										<div class="col-md-1"></div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Monthly Income:</div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-										</div>
-									</div><br>
+										<div class="col-lg-5 col-md-5">
+											<div class="form-group row">
+												<div class="col-lg-1 col-md-1"></div>
+												<label for="fMonthly" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Monthly Income :</label>	
+											</div>
+										</div>	
+										<div class="col-lg-6 col-md-6">
+											<div class="form-group row">
+												<div class="col-md-1"></div>
+												<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+												<div class="col-lg-9 col-md-9 col-xs-12">
+													<input type="number" class="form-control" id="fMonthly" placeholder="$" style="direction: rtl;" required>
+												</div>
+											</div>
+										</div>	
+									</div>
 									<div class="row">
-										<div class="col-md-1"></div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Daily Income:</div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-										</div>
-
-									</div><br>
+										<div class="col-lg-5 col-md-5">
+											<div class="form-group row">
+												<div class="col-lg-1 col-md-1"></div>
+												<label for="fDaily" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Daily Income :</label>	
+											</div>
+										</div>	
+										<div class="col-lg-6 col-md-6">
+											<div class="form-group row">
+												<div class="col-md-1"></div>
+												<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+												<div class="col-lg-9 col-md-9 col-xs-12">
+													<input type="number" class="form-control" id="fDaily" placeholder="$" style="direction: rtl;" required>
+												</div>
+											</div>
+										</div>	
+									</div>
 									<div class="row">
-										<div class="col-md-1"></div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Seasonal Income:</div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-										</div>
-
-									</div><br>
+										<div class="col-lg-5 col-md-5">
+											<div class="form-group row">
+												<div class="col-lg-1 col-md-1"></div>
+												<label for="fSeasonal" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Seasonal Income :</label>	
+											</div>
+										</div>	
+										<div class="col-lg-6 col-md-6">
+											<div class="form-group row">
+												<div class="col-md-1"></div>
+												<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+												<div class="col-lg-9 col-md-9 col-xs-12">
+													<input type="number" class="form-control" id="fSeasonal" placeholder="$" style="direction: rtl;" required>
+												</div>
+											</div>
+										</div>	
+									</div>
 									<div class="row">
-										<div class="col-md-1"></div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Yearly Income:</div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-										</div>
-									</div><br>
+										<div class="col-lg-5 col-md-5">
+											<div class="form-group row">
+												<div class="col-lg-1 col-md-1"></div>
+												<label for="fYearly" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Yearly Income :</label>	
+											</div>
+										</div>	
+										<div class="col-lg-6 col-md-6">
+											<div class="form-group row">
+												<div class="col-md-1"></div>
+												<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+												<div class="col-lg-9 col-md-9 col-xs-12">
+													<input type="number" class="form-control" id="fYearly" placeholder="$" style="direction: rtl;" required>
+												</div>
+											</div>
+										</div>	
+									</div>
 									<div class="row">
-										<div class="col-md-1"></div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Income(on a monthly basis)</div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-										</div>
-									</div><br>	
+										<div class="col-lg-5 col-md-5">
+											<div class="form-group row">
+												<div class="col-lg-1 col-md-1"></div>
+												<label for="fTotal" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Total Income (on a monthly basis) :</label>	
+											</div>
+										</div>	
+										<div class="col-lg-6 col-md-6">
+											<div class="form-group row">
+												<div class="col-md-1"></div>
+												<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+												<div class="col-lg-9 col-md-9 col-xs-12">
+													<input type="number" class="form-control" id="fTotal" placeholder="$" style="direction: rtl;" required>
+												</div>
+											</div>
+										</div>	
+									</div>	
 									<!-- list all children assistance -->
 									<div class="row">
 										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -705,46 +753,90 @@ body{
 										<div class="col-md-6"></div>
 									</div>
 									<div class="row">
-										<div class="col-md-1"></div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Monthly Income:</div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-										</div>
-
-									</div><br>
+										<div class="col-lg-5 col-md-5">
+											<div class="form-group row">
+												<div class="col-lg-1 col-md-1"></div>
+												<label for="cMonthly" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Monthly Income :</label>	
+											</div>
+										</div>	
+										<div class="col-lg-6 col-md-6">
+											<div class="form-group row">
+												<div class="col-md-1"></div>
+												<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+												<div class="col-lg-9 col-md-9 col-xs-12">
+													<input type="number" class="form-control" id="cMonthly" placeholder="$" style="direction: rtl;" required>
+												</div>
+											</div>
+										</div>	
+									</div>
 									<div class="row">
-										<div class="col-md-1"></div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Daily Income:</div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-										</div>
-
-									</div><br>
+										<div class="col-lg-5 col-md-5">
+											<div class="form-group row">
+												<div class="col-lg-1 col-md-1"></div>
+												<label for="cDaily" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Daily Income :</label>	
+											</div>
+										</div>	
+										<div class="col-lg-6 col-md-6">
+											<div class="form-group row">
+												<div class="col-md-1"></div>
+												<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+												<div class="col-lg-9 col-md-9 col-xs-12">
+													<input type="number" class="form-control" id="cDaily" placeholder="$" style="direction: rtl;" required>
+												</div>
+											</div>
+										</div>	
+									</div>
 									<div class="row">
-										<div class="col-md-1"></div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Seasonal Income:</div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-										</div>
-
-									</div><br>
+										<div class="col-lg-5 col-md-5">
+											<div class="form-group row">
+												<div class="col-lg-1 col-md-1"></div>
+												<label for="cSeasonal" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Seasonal Income :</label>	
+											</div>
+										</div>	
+										<div class="col-lg-6 col-md-6">
+											<div class="form-group row">
+												<div class="col-md-1"></div>
+												<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+												<div class="col-lg-9 col-md-9 col-xs-12">
+													<input type="number" class="form-control" id="cSeasonal" placeholder="$" style="direction: rtl;" required>
+												</div>
+											</div>
+										</div>	
+									</div>
 									<div class="row">
-										<div class="col-md-1"></div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Yearly Income:</div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-										</div>
-
-									</div><br>
+										<div class="col-lg-5 col-md-5">
+											<div class="form-group row">
+												<div class="col-lg-1 col-md-1"></div>
+												<label for="cYearly" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Yearly Income :</label>	
+											</div>
+										</div>	
+										<div class="col-lg-6 col-md-6">
+											<div class="form-group row">
+												<div class="col-md-1"></div>
+												<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+												<div class="col-lg-9 col-md-9 col-xs-12">
+													<input type="number" class="form-control" id="cYearly" placeholder="$" style="direction: rtl;" required>
+												</div>
+											</div>
+										</div>	
+									</div>
 									<div class="row">
-										<div class="col-md-1"></div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Income(on a monthly basis)
-										</div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-										</div>
-
-									</div><br>
+										<div class="col-lg-5 col-md-5">
+											<div class="form-group row">
+												<div class="col-lg-1 col-md-1"></div>
+												<label for="cTotal" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Total Income (on a monthly basis) :</label>	
+											</div>
+										</div>	
+										<div class="col-lg-6 col-md-6">
+											<div class="form-group row">
+												<div class="col-md-1"></div>
+												<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+												<div class="col-lg-9 col-md-9 col-xs-12">
+													<input type="number" class="form-control" id="cTotal" placeholder="$" style="direction: rtl;" required>
+												</div>
+											</div>
+										</div>	
+									</div>	
 									<div class="row">
 										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 											<h5>Globale Family's Income</h5>
@@ -752,23 +844,42 @@ body{
 										<div class="col-md-6"></div>
 									</div>
 									<div class="row">
-										<div class="col-md-1"></div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Monthly Income:</div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-										</div>
-
-									</div><br>
+										<div class="col-lg-5 col-md-5">
+											<div class="form-group row">
+												<div class="col-lg-1 col-md-1"></div>
+												<label for="gTotal1" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Total Monthly Income :</label>	
+											</div>
+										</div>	
+										<div class="col-lg-6 col-md-6">
+											<div class="form-group row">
+												<div class="col-md-1"></div>
+												<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+												<div class="col-lg-9 col-md-9 col-xs-12">
+													<input type="number" class="form-control" id="gTotal1" placeholder="$" style="direction: rtl;" required>
+												</div>
+											</div>
+										</div>	
+									</div>
 									<div class="row">
-										<div class="col-md-1"></div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Total Monthly Income per individual living:</div>
-										<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-											<input type="number" class="form-control" style="direction:rtl;" placeholder="$" required>
-										</div>
-									</div><br>
+										<div class="col-lg-5 col-md-5">
+											<div class="form-group row">
+												<div class="col-lg-1 col-md-1"></div>
+												<label for="gTotal2" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Total Monthly Income per individual living :</label>	
+											</div>
+										</div>	
+										<div class="col-lg-6 col-md-6">
+											<div class="form-group row">
+												<div class="col-md-1"></div>
+												<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+												<div class="col-lg-9 col-md-9 col-xs-12">
+													<input type="number" class="form-control" id="gTotal2" placeholder="$" style="direction: rtl;" required>
+												</div>
+											</div>
+										</div>	
+									</div>	
 									<div class="row">
 										<div class="col-md-6"></div>
-										<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+										<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
 											<button type="button" class="btn btn-primary float-right">Save Information</button>	
 										</div>
 									</div>
