@@ -7,8 +7,10 @@ $langCode= (isset($langCode)) ? $langCode :  "en";
 <html lang="<?php echo $langCode; ?>">
 <head>
 	<meta charset="utf-8">
+
 	<title><?php echo $title; ?></title>
   <link rel="shortcut icon" href="<?php echo base_url();?>title.png" type="image/x-icon">
+
   <link rel="stylesheet" href="<?php echo base_url();?>assets/bootstrap-4.0.0/css/bootstrap.min.css">
   <link href="<?php echo base_url();?>assets/MDI-2.1.19/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
 
@@ -30,6 +32,14 @@ $langCode= (isset($langCode)) ? $langCode :  "en";
     padding-right:5px;
     /*font-weight: bold;*/
    font-size: 17px;
+  }
+  
+  .myContainer {
+      max-width: 98%;
+  }
+  #myCard{
+    margin-top: -15px;
+    max-height: 100px;
   }
 	</style>
 </head>
