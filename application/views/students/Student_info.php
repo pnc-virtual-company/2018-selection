@@ -1,12 +1,6 @@
 <style>
 body{
-	background-image: url("<?php echo base_url();?>assets/images/background/images.jpg");
-	/*background-color: lightblue;*/
-	background-attachment: fixed;    
-	background-position: center;   
-	background-repeat: no-repeat; 
-
-	background-size: cover;
+	background-color: lightblue;
 }
 </style>
 <!-- form header -->
