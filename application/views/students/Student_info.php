@@ -1570,12 +1570,12 @@ body{
 														<div  class="col-lg-5 col-md-5 col-xs-12">
 															<div class="row">
 																<div class="col-md-12">
-																	<label for="sumQuantity5"col-form-label">Total x5 coef :</label>
+																	<label for="sumQuantity5"col-form-label" style="line-height: 2.5;">Total x5 coef :</label>
 																</div>
 															</div>
 															<div class="row">
 																<div class="col-md-12">
-																	<span>(Sum of quantities x 5)</span>
+																	<p style="line-height: 0.5;">(Sum of quantities x 5)</p>
 																</div>
 															</div>
 														</div>
@@ -1598,12 +1598,12 @@ body{
 														<div  class="col-lg-5 col-md-5 col-xs-12">
 															<div class="row">
 																<div class="col-md-12">
-																	<label for="sumQuantity3"col-form-label">Total x3 coef :</label>
+																	<label for="sumQuantity3"col-form-label" style="line-height: 2.5;">Total x3 coef :</label>
 																</div>
 															</div>
 															<div class="row">
 																<div class="col-md-12">
-																	<span>(Sum of quantities x 3)</span>
+																	<p style="line-height: 0.5;">(Sum of quantities x 3)</p>
 																</div>
 															</div>
 														</div>
@@ -1653,7 +1653,7 @@ body{
 									<div class="col-lg-6 col-md-6 col-sm-12">
 										<div class="row">
 											<div class="col-md-2 col-sm-12"></div>
-											<div class="col-md-6 col-sm-12">
+											<div class="col-md-6 col-sm-12" style="line-height: 2.5;">
 												<p>Poverty certificate</p>
 											</div>
 											<div class="col-md-4 col-sm-12">
@@ -1667,7 +1667,7 @@ body{
 									<div class="col-lg-6 col-md-6 col-sm-12">
 										<div class="row">
 											<div class="col-md-6 col-sm-12">
-												<label for="specifyLevel">If yes, Please specify the level:</label>
+												<label for="specifyLevel" style="line-height: 2.5;">If yes, Please specify the level:</label>
 											</div>
 											<div class="col-md-3 col-sm-12">
 												<select class="form-control" name="specifyLevel" id="specifyLevel">
