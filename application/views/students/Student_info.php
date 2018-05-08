@@ -1,7 +1,7 @@
 <style>
 body{
-// 	background-image: url("<?php echo base_url();?>assets/images/background/rice.jpg");
-background-color: #eceff1;
+	background-image: url("<?php echo base_url();?>assets/images/background/images.jpg");
+	/*background-color: lightblue;*/
 	background-attachment: fixed;    
 	background-position: center;   
 	background-repeat: no-repeat; 
@@ -141,7 +141,7 @@ background-color: #eceff1;
 									<div class="col-md-1"></div>
 									<label for="other" class="col-lg-2 col-md-2 col-xs-12 col-form-label">Other :</label>
 									<div class="col-lg-9 col-md-9 col-xs-12">
-										<input type="text" class="form-control" id="other" placeholder="If other please specify " required>
+										<input type="text" class="form-control" id="other" placeholder="If other, please specify " required>
 									</div>
 								</div>
 							</div>
@@ -186,7 +186,7 @@ background-color: #eceff1;
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
 									<label for="ngo" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Extracuricular activity 
-									& activement :</label>	
+									& achievement :</label>	
 								</div>
 							</div>	
 							<div class="col-lg-7 col-md-7">
@@ -250,7 +250,7 @@ background-color: #eceff1;
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="status" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Other Scholaship :</label>
+									<label for="status" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Other Scholarship :</label>
 									<div class="col-lg-4 col-md-4 col-xs-12">
 										<input type="text" class="form-control" id="other" placeholder="" required>
 									</div>
@@ -278,7 +278,7 @@ background-color: #eceff1;
 								<a href="#">
 									<h6>
 										<i class="mdi mdi-plus" style="color:#000;font-size: 20px;">
-										</i>Add other Scholashiop
+										</i>Add other Scholarship
 									</h6>
 								</a>
 							</div>
@@ -674,7 +674,7 @@ background-color: #eceff1;
 						<div id="familyIncome">
 							<h5 class="mb-0">
 								<button class="btn btn-default collapsed  btn-block text-left subHeading" data-toggle="collapse" data-target="#collapseFamilyIncome" aria-expanded="false" aria-controls="collapseFamilyIncome" style="height: 60px;border-bottom: 2px solid #fff;">
-									<h5 class="subCollapse">Family's Income
+									<h5 class="subCollapse">Family's Income Sources
 										<i class="mdi mdi-chevron-down float-right subDown" style="color:#000; font-size: 30px;">
 										</i>
 										<i class="mdi mdi-chevron-up float-right subUp" style="font-size: 30px;display: none;">
@@ -688,7 +688,7 @@ background-color: #eceff1;
 								<form action="" method="POST">
 									<div class="row">
 										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-											<h5>Family Income</h5>
+											<h5>Parents's Income</h5>
 										</div>
 										<div class="col-md-4"></div>
 									</div>
@@ -871,7 +871,7 @@ background-color: #eceff1;
 									</div>	
 									<div class="row">
 										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-											<h5>Globale Family's Income</h5>
+											<h5>Global Family's Income (parents' income + childrend assistance)</h5>
 										</div>
 										<div class="col-md-6"></div>
 									</div>
@@ -925,7 +925,7 @@ background-color: #eceff1;
 						<div id="familyExpense">
 							<h5 class="mb-0">
 								<button class="btn btn-default collapsed btn-block text-left subHeading" data-toggle="collapse" data-target="#collapseFamilyExpense" aria-expanded="false" aria-controls="collapseFamilyExpense" style="height: 60px;border-bottom: 2px solid #fff; ">
-									<h5 class="subCollapse">Family's Expense
+									<h5 class="subCollapse">Family's Expense Sources
 										<i class="mdi mdi-chevron-down float-right subDown" style="color:#000; font-size: 30px;">
 										</i>
 										<i class="mdi mdi-chevron-up float-right subUp" style="color:#000; font-size: 30px;display: none;">
@@ -978,7 +978,7 @@ background-color: #eceff1;
 												</div>
 											</div>
 											<div class="form-group row">
-												<label for="" class="col-5 col-form-label">Eletricities and Water:</label>
+												<label for="" class="col-5 col-form-label">Eletricity & Water:</label>
 												<div class="col-7">
 													<input type="number" class="form-control" placeholder="$" style="direction:rtl;" required>
 												</div>
@@ -990,7 +990,7 @@ background-color: #eceff1;
 												</div>
 											</div>
 											<div class="form-group row">
-												<label for="" class="col-5 col-form-label">Wedding, Ceremony:</label>
+												<label for="" class="col-5 col-form-label">Wedding & Ceremony:</label>
 												<div class="col-7">
 													<input type="number" class="form-control" placeholder="$" style="direction:rtl;" required>
 												</div>
@@ -1191,7 +1191,7 @@ background-color: #eceff1;
 										</div>
 										<div class="col-lg-4 col-md-4">
 											<div class="form-group row">
-												<label for="rating" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Rating scal :</label>
+												<label for="rating" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Rating scale :</label>
 												<div class="col-lg-7 col-md-7 col-xs-12">
 													<select name="Rating_scal" id="" class="form-control">
 														<option value="1">1</option>
@@ -1233,8 +1233,26 @@ background-color: #eceff1;
 						</div>
 						<div id="collapseHomeAsset" class="collapse" aria-labelledby="homeAsset" data-parent="#subAccordion">
 							<div class="card-body contentBody">
-								<h5>Applicanse</h5>
+								<h5>Appliances</h5>
 								<form action="" method="POST">
+									<div class="row">
+										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+											<div class="row">
+												<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"></div>
+												<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+													<label for="">Coef x5</label>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+											<div class="row">
+												<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"></div>
+												<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+													<label for="">Coef x3</label>
+												</div>
+											</div>
+										</div>
+									</div>
 									<div class="row">
 										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 											<div class="form-group row">
@@ -1412,10 +1430,8 @@ background-color: #eceff1;
 											</div>
 										</div>
 									</div>
-								</form>
-								<!-- start vehicles -->
-								<h3>Vehicles</h3>
-								<form action="" method="post">
+									<!-- start vehicles -->
+									<h3>Vehicles</h3>
 									<div class="row">
 										<div class="col-sm-12 col-md-6 col-lg-6">
 											<div class="row">
@@ -1467,11 +1483,9 @@ background-color: #eceff1;
 											<textarea name="" id="" cols="66" rows="6" class="form-control" placeholder="Please specify if you have any comment" style="line-height: 22px;"></textarea>
 										</div>
 									</div>
-								</form>
-								<!-- end of vehicles -->
-								<h3>Animal</h3>
-								<!-- start animal -->
-								<form action="" method="post">
+									<!-- end of vehicles -->
+									<h3>Animal</h3>
+									<!-- start animal -->
 									<div class="row">
 										<div class="col-sm-12 col-md-6 col-lg-6">
 											<div class="row">
@@ -1523,11 +1537,9 @@ background-color: #eceff1;
 											<textarea name="" id="" cols="66" rows="6" class="form-control" placeholder="Please specify if you have any comment" style="line-height: 22px;"></textarea>
 										</div>
 									</div>
-								</form>
-								<!-- end of animal -->
-								<h3>Farm</h3>
-								<p>If farm size > 10 000 m <sup>2</sup> (= 1 hectare), it counts as coeff 5;3 otherwise</p>
-								<form action="">
+									<!-- end of animal -->
+									<h3>Farm</h3>
+									<p>If farm size > 10 000 m <sup>2</sup> (= 1 hectare), it counts as coeff 5;3 otherwise</p>
 									<div class="row">
 										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 											<div class="row">
@@ -1546,26 +1558,36 @@ background-color: #eceff1;
 											<textarea name="" id="" cols="66" rows="1" class="form-control" placeholder="Please specify if you have any comment"></textarea>
 										</div>
 									</div>
-								</form>
-								<!-- start of resutl -->
-								<h3>Result</h3>
-								<!-- <p>If farm size > 10 000 m <sup>2</sup> (= 1 hectare), it counts as coeff 5;3 otherwise</p> -->
-								<form action="">
+									<!-- start of resutl -->
+									<h3>Result</h3>
+									<!-- <p>If farm size > 10 000 m <sup>2</sup> (= 1 hectare), it counts as coeff 5;3 otherwise</p> -->
 									<div class="row">
 										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 											<div class="row">
 												<!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"></div> -->
 												<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 													<div class="form-group row">
-														<label for="pig" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Total x5 coef :</label>
-														<div class="col-lg-7 col-md-7 col-xs-12">
-															<input type="number" class="form-control" name="pig" id="pig">
+														<div  class="col-lg-5 col-md-5 col-xs-12">
+															<div class="row">
+																<div class="col-md-12">
+																	<label for="sumQuantity5"col-form-label">Total x5 coef :</label>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-md-12">
+																	<span>(Sum of quantities x 5)</span>
+																</div>
+															</div>
 														</div>
+														<div class="col-lg-7 col-md-7 col-xs-12">
+															<input type="number" class="form-control" name="sumQuantity5" id="sumQuantity5">
+														</div>
+														<!-- <div class="col-lg-2 col-md-1"></div> -->
 													</div>
-													<div class="row">
-														<span>(Sum of quantities x 5)</span>
-													</div>
-												</div>
+												<!-- 	<div class="row">
+														
+												</div> -->
+											</div>
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -1573,43 +1595,58 @@ background-color: #eceff1;
 												<!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"></div> -->
 												<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 													<div class="form-group row">
-														<label for="pig" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Total x3 coef :</label>
+														<div  class="col-lg-5 col-md-5 col-xs-12">
+															<div class="row">
+																<div class="col-md-12">
+																	<label for="sumQuantity3"col-form-label">Total x3 coef :</label>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-md-12">
+																	<span>(Sum of quantities x 3)</span>
+																</div>
+															</div>
+														</div>
 														<div class="col-lg-7 col-md-7 col-xs-12">
-															<input type="number" class="form-control" name="pig" id="pig">
+															<input type="number" class="form-control" name="sumQuantity3" id="sumQuantity3">
 														</div>
 													</div>
-													<div class="row">
-														<span>(Sum of quantities x 3)</span>
-													</div>
-												</div>
 											</div>
 										</div>
 									</div>
-								</form>
+								</div>
 								<br>
 								<!-- asset global -->
 								<div class="row">	
 									<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
 									<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-										<form action="" method="post">
-											<div class="row">
-												<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
-												<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-													<label for="globalAsset"><b>Asset global total: </b></label>
+										<div class="row">
+											<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
+											
+											<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+												<div class="row">
+													<!-- <div class="form-group"> -->
+														<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+															<label for="globalAsset" style="line-height: 2.5;"><b>Asset global total: </b></label>
+														</div>
+														<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+															<input class="form-control" type="number" placeholder="$" name="globalAsset" id="globalAsset">
+														</div>
+													<!-- </div> -->
 												</div>
-												<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-													<div class="form-group">
-														<input class="form-control" type="number" placeholder="Xx" name="globalAsset" id="globalAsset">
-													</div>
-												</div>
-												<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
 											</div>
-
-										</form>
+											<!-- <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+												<label for="globalAsset"><b>Asset global total: </b></label>
+											</div>
+											<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+													<input class="form-control" type="number" placeholder="$" name="globalAsset" id="globalAsset">
+											</div>-->
+											 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div> 
+										</div>
 									</div>
 									<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
 								</div>
-								
+								<br>
 								<!-- end of asset global -->
 								<!-- start poverty -->
 								<div class="row">
@@ -1620,7 +1657,7 @@ background-color: #eceff1;
 												<p>Poverty certificate</p>
 											</div>
 											<div class="col-md-4 col-sm-12">
-												<select name="certificate" id="certificate">
+												<select class="form-control" name="certificate" id="certificate">
 													<option value="Yes">Yes</option>
 													<option value="No">No</option>
 												</select>
@@ -1632,53 +1669,56 @@ background-color: #eceff1;
 											<div class="col-md-6 col-sm-12">
 												<label for="specifyLevel">If yes, Please specify the level:</label>
 											</div>
-											<div class="col-md-1 col-sm-12">
-												<select name="specifyLevel" id="specifyLevel">
+											<div class="col-md-3 col-sm-12">
+												<select class="form-control" name="specifyLevel" id="specifyLevel">
 													<option value="1">1</option>
 													<option value="2">2</option>
 													<option value="3">3</option>
 												</select>
 											</div>
-											<div class="col-md-5 col-sm-12"></div>
+											<div class="col-md-2 col-sm-12"></div>
 										</div>
 									</div>
 								</div>
 								<!-- end of poverty -->
 								<!-- button save information for home asset -->
+								<br>
 								<div class="row">
 									<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
 									<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
 									<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
-									<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+									<div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+									<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
 										<button class="btn btn-primary btn-block">Save information</button>
 									</div>
 								</div>
-							</div>
+							</form>
 						</div>
 					</div>
-					<!-- end form family assets -->
 				</div>
+				<!-- end form family assets -->
 			</div>
 		</div>
 	</div>
-	<br>
-	<div class="conclustion">
-		<form action="" method="POST">
-			<div class="row">
-				<div class="col-md-12">
-					<h4 style="color: #000;">Investigator's Conclusion</h4>
-					<textarea name="" id="" rows="5" class="form-control" placeholder="Please comment"></textarea>
-				</div>
+</div>
+<br>
+<div class="conclustion">
+	<form action="" method="POST">
+		<div class="row">
+			<div class="col-md-12">
+				<h4 style="color: #000;">Investigator's Conclusion</h4>
+				<textarea name="" id="" rows="5" class="form-control" placeholder="Please comment"></textarea>
 			</div>
-			<br>
-			<div class="row">
-				<div class="col-lg-10 col-md-10"></div>
-				<div class="col-lg-2 col-md-2">
-					<button type="button" class="btn btn-primary float-right">Save Information</button>
-				</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-lg-10 col-md-10"></div>
+			<div class="col-lg-2 col-md-2">
+				<button type="button" class="btn btn-primary float-right">Save Information</button>
 			</div>
-		</form>	
-	</div>
+		</div>
+	</form>	
+</div>
 </div>
 <script>
 	$(document).ready(function(){
