@@ -1,6 +1,6 @@
-# Skeleton application
+# Selection Committee Application
 
-The Skeleton application is designed for the WEP Students of Passerelles numériques in Cambodia.
+The Selection Committee Application application is designed for the Selection team of Passerelles numériques in Cambodia when they are going to select students for every new generation.
 It contains some useful frontend and backend libraries:
 
  * CodeIgniter 3
