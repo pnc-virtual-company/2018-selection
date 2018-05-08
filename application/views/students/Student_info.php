@@ -1,9 +1,10 @@
 <style>
 body{
-	background-image: url("<?php echo base_url();?>assets/images/background/rice.jpg");
+// 	background-image: url("<?php echo base_url();?>assets/images/background/rice.jpg");
+background-color: #eceff1;
 	background-attachment: fixed;    
 	background-position: center;   
-	 background-repeat: no-repeat; 
+	background-repeat: no-repeat; 
 
 	background-size: cover;
 }
@@ -13,7 +14,7 @@ body{
 	<div class="row">
 		<div class="col-lg-4 col-md-4 col-sm-3 col-xs-12"></div>
 		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-			<h2 class="text-center" style="color:#fff;">Student Name</h2>
+			<h2 class="text-center" style="color:#000;">Student Name</h2>
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-3 col-xs-12"></div>	
 	</div>
@@ -21,7 +22,7 @@ body{
 	<div class="row">
 		<div class="col-lg-3 col-md-3 col-sm-2 col-xs-12"></div>
 		<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
-			<p style="color:#fff;">Global grade:</p>
+			<p style="color:#000;">Global grade:</p>
 		</div>
 		<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
 			<select class="form-control" name="grade">
@@ -35,7 +36,6 @@ body{
 		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
 			<button type="button" class="btn btn-primary float-right">SAVE</button>
 		</div>
-		
 		<div class="col-lg-3 col-md-3 col-sm-2 col-xs-12"></div>
 	</div>
 </div>
@@ -72,26 +72,26 @@ body{
 									<label for="status" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Province :</label>
 									<div class="col-lg-6 col-md-6 col-xs-12">
 										<select class="form-control" name="Province">
-											<option value="Battambong">Battambong</option>
-											<option value="BanteayMeanChey">BanteayMeanChey</option>
-											<option value="SiemReap">SiemReap</option>
-											<option value="SteungTreng">SteungTreng</option>
+											<option value="Phnom Penh">Phnom Penh</option>
+											<option value="Battambang">Battambang</option>
+											<option value="Banteay MeanChey">Banteay MeanChey</option>
+											<option value="Siem Reap">Siem Reap</option>
+											<option value="Steung Treng">Steung Treng</option>
 											<option value="SvayReang">SvayReang</option>
 											<option value="Sihanoukville">Sihanoukville</option>
 											<option value="Pursat">Pursat</option>
 											<option value="Pailen">Pailen</option>
-											<option value="PhnomPenh">PhnomPenh</option>
-											<option value="PreyVeang">PreyVeang</option>
-											<option value="PreahVihear">PreahVihear</option>
+											<option value="Prey Veng">Prey Veng</option>
+											<option value="Preah Vihear">Preah Vihear</option>
 											<option value="Kompot">Kompot</option>
 											<option value="Keb">Keb</option>
-											<option value="KompongCham">KompongCham</option>
-											<option value="KompongChhnang">KompongChhnang</option>
-											<option value="KompongThom">KompongThom</option>
-											<option value="KompongSpeu">KompongSpeu</option>
+											<option value="Kompong Cham">Kompong Cham</option>
+											<option value="Kompong Chhnang">Kompong Chhnang</option>
+											<option value="Kompong Thom">Kompong Thom</option>
+											<option value="Kompong Speu">Kompong Speu</option>
 											<option value="Kratie">Kratie</option>
 											<option value="KohKong">KohKong</option>
-											<option value="Kondal">Kondal</option>
+											<option value="Kondal">Kandal</option>
 											<option value="Ratanakiry">Ratanakiry</option>
 											<option value="Mondolkiry">Mondolkiry</option>
 											<option value="OdorMeanChey">OdorMeanChey</option>
@@ -674,8 +674,8 @@ body{
 						<div id="familyIncome">
 							<h5 class="mb-0">
 								<button class="btn btn-default collapsed  btn-block text-left subHeading" data-toggle="collapse" data-target="#collapseFamilyIncome" aria-expanded="false" aria-controls="collapseFamilyIncome" style="height: 60px;border-bottom: 2px solid #fff;">
-									<h5 class="subCollapse" style="color: #fff;">Family's Income
-										<i class="mdi mdi-chevron-down float-right subDown" style="color:#fff; font-size: 30px;">
+									<h5 class="subCollapse">Family's Income
+										<i class="mdi mdi-chevron-down float-right subDown" style="color:#000; font-size: 30px;">
 										</i>
 										<i class="mdi mdi-chevron-up float-right subUp" style="font-size: 30px;display: none;">
 										</i>
@@ -1007,12 +1007,12 @@ body{
 									<div class="row">
 										<div class="col-md-2 col-sm-1"></div>
 										<div class="col-md-8 col-sm-8">
-										<div class="form-group row">
-											<label for="" class="col-5 col-form-label">Total Expense:</label>
-											<div class="col-7">
-												<input type="number" class="form-control" placeholder="$" style="direction:rtl;" required>
+											<div class="form-group row">
+												<label for="" class="col-5 col-form-label">Total Expense:</label>
+												<div class="col-7">
+													<input type="number" class="form-control" placeholder="$" style="direction:rtl;" required>
+												</div>
 											</div>
-										</div>
 										</div>
 										
 									</div>
@@ -1380,9 +1380,7 @@ body{
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-											
-										</div>
+										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"></div>
 										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 											<div class="form-group row">
 												<label for="gascooker" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Gascooker :</label>
@@ -1393,9 +1391,7 @@ body{
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-											
-										</div>
+										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"></div>
 										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 											<div class="form-group row">
 												<label for="fruit" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Fruit blender :</label>
@@ -1406,9 +1402,7 @@ body{
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-											
-										</div>
+										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"></div>
 										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 											<div class="form-group row">
 												<label for="electrical" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Electrical cooker :</label>
@@ -1418,8 +1412,247 @@ body{
 											</div>
 										</div>
 									</div>
-									<h5>Applicanse</h5>
 								</form>
+								<!-- start vehicles -->
+								<h3>Vehicles</h3>
+								<form action="" method="post">
+									<div class="row">
+										<div class="col-sm-12 col-md-6 col-lg-6">
+											<div class="row">
+												<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"></div>
+												<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+													<p>Coef x5</p>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-6"></div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-6 col-md-6">
+											<div class="row">
+												<!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"></div> -->
+												<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<div class="form-group row">
+														<label for="motobike" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Motobike > 500 :</label>
+														<div class="col-lg-7 col-md-7 col-xs-12">
+															<input type="number" class="form-control" placeholder="Quantity" name="motobike" id="motobike">
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"></div> -->
+												<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<div class="form-group row">
+														<label for="farming" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Farming machine :</label>
+														<div class="col-lg-7 col-md-7 col-xs-12">
+															<input type="number" class="form-control" placeholder="Quantity" name="farming" id="farming">
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"></div> -->
+												<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<div class="form-group row">
+														<label for="car" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Car / Truck :</label>
+														<div class="col-lg-7 col-md-7 col-xs-12">
+															<input type="number" class="form-control" placeholder="Quantity" name="car" id="car">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-12 col-md-6 col-md-6">
+											<textarea name="" id="" cols="66" rows="6" class="form-control" placeholder="Please specify if you have any comment" style="line-height: 22px;"></textarea>
+										</div>
+									</div>
+								</form>
+								<!-- end of vehicles -->
+								<h3>Animal</h3>
+								<!-- start animal -->
+								<form action="" method="post">
+									<div class="row">
+										<div class="col-sm-12 col-md-6 col-lg-6">
+											<div class="row">
+												<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"></div>
+												<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+													<p>Coef x5</p>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-12 col-md-6 col-lg-6"></div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-6 col-md-6">
+											<div class="row">
+												<!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"></div> -->
+												<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<div class="form-group row">
+														<label for="cow" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Cow :</label>
+														<div class="col-lg-7 col-md-7 col-xs-12">
+															<input type="number" class="form-control" placeholder="Quantity" name="cow" id="cow">
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"></div> -->
+												<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<div class="form-group row">
+														<label for="buffaloe" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Buffaloe :</label>
+														<div class="col-lg-7 col-md-7 col-xs-12">
+															<input type="number" class="form-control" placeholder="Quantity" name="buffaloe" id="buffaloe">
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"></div> -->
+												<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<div class="form-group row">
+														<label for="pig" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Pig :</label>
+														<div class="col-lg-7 col-md-7 col-xs-12">
+															<input type="number" class="form-control" placeholder="Quantity" name="pig" id="pig">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-12 col-md-6 col-md-6">
+											<textarea name="" id="" cols="66" rows="6" class="form-control" placeholder="Please specify if you have any comment" style="line-height: 22px;"></textarea>
+										</div>
+									</div>
+								</form>
+								<!-- end of animal -->
+								<h3>Farm</h3>
+								<p>If farm size > 10 000 m <sup>2</sup> (= 1 hectare), it counts as coeff 5;3 otherwise</p>
+								<form action="">
+									<div class="row">
+										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+											<div class="row">
+												<!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"></div> -->
+												<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<div class="form-group row">
+														<label for="pig" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Size :</label>
+														<div class="col-lg-7 col-md-7 col-xs-12">
+															<input type="number" class="form-control" placeholder="Quantity" name="pig" id="pig">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+											<textarea name="" id="" cols="66" rows="1" class="form-control" placeholder="Please specify if you have any comment"></textarea>
+										</div>
+									</div>
+								</form>
+								<!-- start of resutl -->
+								<h3>Result</h3>
+								<!-- <p>If farm size > 10 000 m <sup>2</sup> (= 1 hectare), it counts as coeff 5;3 otherwise</p> -->
+								<form action="">
+									<div class="row">
+										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+											<div class="row">
+												<!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"></div> -->
+												<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<div class="form-group row">
+														<label for="pig" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Total x5 coef :</label>
+														<div class="col-lg-7 col-md-7 col-xs-12">
+															<input type="number" class="form-control" name="pig" id="pig">
+														</div>
+													</div>
+													<div class="row">
+														<span>(Sum of quantities x 5)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+											<div class="row">
+												<!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"></div> -->
+												<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<div class="form-group row">
+														<label for="pig" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Total x3 coef :</label>
+														<div class="col-lg-7 col-md-7 col-xs-12">
+															<input type="number" class="form-control" name="pig" id="pig">
+														</div>
+													</div>
+													<div class="row">
+														<span>(Sum of quantities x 3)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+								<br>
+								<!-- asset global -->
+								<div class="row">	
+									<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
+									<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+										<form action="" method="post">
+											<div class="row">
+												<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
+												<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+													<label for="globalAsset"><b>Asset global total: </b></label>
+												</div>
+												<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+													<div class="form-group">
+														<input class="form-control" type="number" placeholder="Xx" name="globalAsset" id="globalAsset">
+													</div>
+												</div>
+												<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
+											</div>
+
+										</form>
+									</div>
+									<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
+								</div>
+								
+								<!-- end of asset global -->
+								<!-- start poverty -->
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-sm-12">
+										<div class="row">
+											<div class="col-md-2 col-sm-12"></div>
+											<div class="col-md-6 col-sm-12">
+												<p>Poverty certificate</p>
+											</div>
+											<div class="col-md-4 col-sm-12">
+												<select name="certificate" id="certificate">
+													<option value="Yes">Yes</option>
+													<option value="No">No</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-12">
+										<div class="row">
+											<div class="col-md-6 col-sm-12">
+												<label for="specifyLevel">If yes, Please specify the level:</label>
+											</div>
+											<div class="col-md-1 col-sm-12">
+												<select name="specifyLevel" id="specifyLevel">
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+												</select>
+											</div>
+											<div class="col-md-5 col-sm-12"></div>
+										</div>
+									</div>
+								</div>
+								<!-- end of poverty -->
+								<!-- button save information for home asset -->
+								<div class="row">
+									<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+										<button class="btn btn-primary btn-block">Save information</button>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -1433,7 +1666,7 @@ body{
 		<form action="" method="POST">
 			<div class="row">
 				<div class="col-md-12">
-					<h4 style="color: #fff;">Investigator's Conclusion</h4>
+					<h4 style="color: #000;">Investigator's Conclusion</h4>
 					<textarea name="" id="" rows="5" class="form-control" placeholder="Please comment"></textarea>
 				</div>
 			</div>
@@ -1452,7 +1685,6 @@ body{
 		$( ".formHeading" ).click(function() {
 			$(".down",this).toggle();
 			$(".up",this).toggle();
-
 		});
 		$( ".subHeading" ).click(function() {
 			$(".subDown",this).toggle();
