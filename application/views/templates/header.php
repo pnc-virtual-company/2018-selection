@@ -7,10 +7,8 @@ $langCode= (isset($langCode)) ? $langCode :  "en";
 <html lang="<?php echo $langCode; ?>">
 <head>
 	<meta charset="utf-8">
-
 	<title><?php echo $title; ?></title>
   <link rel="shortcut icon" href="<?php echo base_url();?>title.png" type="image/x-icon">
-
   <link rel="stylesheet" href="<?php echo base_url();?>assets/bootstrap-4.0.0/css/bootstrap.min.css">
   <link href="<?php echo base_url();?>assets/MDI-2.1.19/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
 
