@@ -239,9 +239,9 @@ body{
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="status" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Communication :</label>
+									<label for="communication" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Communication :</label>
 									<div class="col-lg-4 col-md-4 col-xs-12">
-										<input type="text" class="form-control" id="other" placeholder="Ex: 10/10" required>
+										<input type="text" class="form-control" id="communication" placeholder="Ex: 10/10" required>
 									</div>
 								</div>
 							</div>
@@ -250,18 +250,18 @@ body{
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="status" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Other Scholarship :</label>
+									<label for="scholarship" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Other Scholarship :</label>
 									<div class="col-lg-4 col-md-4 col-xs-12">
-										<input type="text" class="form-control" id="other" placeholder="" required>
+										<input type="text" class="form-control" id="scholarship" placeholder="" required>
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="status" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Choice Rank :</label>
+									<label for="choiceRank" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Choice Rank :</label>
 									<div class="col-lg-4 col-md-4 col-xs-12">
-										<select class="form-control" name="rank">
+										<select class="form-control" name="rank" id="choiceRank">
 											<option value="1">1</option>
 											<option value="2">2</option>
 											<option value="3">3</option>
@@ -287,15 +287,15 @@ body{
 							<div class="col-lg-4 col-md-4">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="ngo" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the student :</label>	
+									<label for="studentCommit" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the student :</label>	
 								</div>
 							</div>	
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
 									<div class="col-md-1"></div>
-									<label for="other" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+									<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 									<div class="col-lg-9 col-md-9 col-xs-12">
-										<input type="text" class="form-control" id="other" placeholder="please comment" required>
+										<input type="text" class="form-control" id="studentCommit" placeholder="please comment" required>
 									</div>
 								</div>
 							</div>	
@@ -304,15 +304,15 @@ body{
 							<div class="col-lg-4 col-md-4">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="ngo" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the parents :</label>	
+									<label for="parentsCommit" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the parents :</label>	
 								</div>
 							</div>	
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
 									<div class="col-md-1"></div>
-									<label for="other" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+									<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 									<div class="col-lg-9 col-md-9 col-xs-12">
-										<input type="text" class="form-control" id="other" placeholder="please comment" required>
+										<input type="text" class="form-control" id="parentsCommit" placeholder="please comment" required>
 									</div>
 								</div>
 							</div>	
@@ -1181,9 +1181,9 @@ body{
 										</div>
 										<div class="col-lg-4 col-md-4">
 											<div class="form-group row">
-												<label for="age" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Age :</label>
+												<label for="residenceAge" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Age :</label>
 												<div class="col-lg-7 col-md-7 col-xs-12">
-													<select name="age" id="age" class="form-control">
+													<select name="age" id="residenceAge" class="form-control">
 														<option value="1">1</option>
 														<option value="2">2</option>
 														<option value="3">3</option>
