@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-$title = (isset($title)) ? $title :  "Skeleton";
+$title = (isset($title)) ? $title :  "Selection Committee";
 $langCode= (isset($langCode)) ? $langCode :  "en";
 
 ?><!DOCTYPE html>
 <html lang="<?php echo $langCode; ?>">
 <head>
 	<meta charset="utf-8">
-	<title>Selection Committee</title>
-  <link rel="shortcut icon" href="<?php echo base_url();?>assets/images/system_img/favIcon.png" type="image/x-icon" style="width: 100px;">
+	<title><?php echo $title; ?></title>
+  <link rel="shortcut icon" href="<?php echo base_url();?>title.png" type="image/x-icon">
   <link rel="stylesheet" href="<?php echo base_url();?>assets/bootstrap-4.0.0/css/bootstrap.min.css">
   <link href="<?php echo base_url();?>assets/MDI-2.1.19/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
 
