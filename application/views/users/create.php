@@ -14,7 +14,7 @@
     <div class="col-md-6">
       <div class="card">
         <div class="card-header bg-primary text-white">
-        <h2 class="text-center">Create a new user</h2>
+        <h1 class="text-center"><?php echo $page_title;?></h1>
         </div>
         <div class="card-body">
           <?php echo validation_errors(); ?>

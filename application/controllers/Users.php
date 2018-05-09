@@ -43,7 +43,7 @@ class Users extends CI_Controller {
     public function index() {
         $this->load->helper('form');
         $data['users'] = $this->users_model->getUsersAndRoles();
-        $data['title'] = 'List of users';
+        $data['page_title'] = 'List of users';
         $data['activeLink'] = 'users';
         $data['flashPartialView'] = $this->load->view('templates/flash', $data, TRUE);
         $this->load->view('templates/header', $data);
@@ -90,7 +90,7 @@ class Users extends CI_Controller {
     public function edit($id) {
         $this->load->helper('form');
         $this->load->library('form_validation');
-        $data['title'] = 'Edit a user';
+        $data['page_title'] = 'Edit a user';
         $data['activeLink'] = 'users';
 
         $this->form_validation->set_rules('firstname', 'Firstname', 'required|strip_tags');
@@ -112,7 +112,7 @@ class Users extends CI_Controller {
             $this->load->view('templates/footer');
         } else {
             $this->users_model->updateUsers();
-            $this->session->set_flashdata('msg', 'The user was successfully modified.');
+            $this->session->set_flashdata('msg', 'The user was successfully updated.');
             if (isset($_GET['source'])) {
                 redirect($_GET['source']);
             } else {
@@ -205,7 +205,7 @@ class Users extends CI_Controller {
     public function create() {
         $this->load->helper('form');
         $this->load->library('form_validation');
-        $data['title'] = 'Create a new user';
+        $data['page_title'] = 'Create a new user';
         $data['activeLink'] = 'users';
         $data['roles'] = $this->users_model->getRoles();
 
