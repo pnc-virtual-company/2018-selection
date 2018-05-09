@@ -4,10 +4,23 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
 <!-- Start Menu bar -->
 <nav class="navbar navbar-expand-md bg-light navbar-light fixed-top sticky-top">
 
+      <li class="nav-item">
+        <!-- <i class="mdi mdi-account"></i> Profile  -->
+        <!-- <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4"> -->
+          <a class="nav-link" href="#">
+            <i class="mdi mdi-account"></i>Profile</a>  
+          <!-- </div> -->
+        </li>
+        <li class="nav-item <?php echo ($activeLink=='users'?'active':'');?>">
+          <a class="nav-link" href="#"><i class="mdi mdi-logout"></i>Logout</a>
+        </li>
+      </ul>
+    </div>
     <a class="navbar-brand" href="<?php echo base_url(); ?>welcome/displayContent"><img src="<?php echo base_url();?>assets/images/system_img/logo.png" alt="Logo" class="img-fluid max-width"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
