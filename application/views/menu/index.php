@@ -28,13 +28,11 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
-
-
       <li class="nav-item">
         <!-- <i class="mdi mdi-account"></i> Profile  -->
         <!-- <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4"> -->
-          <a class="nav-link" href="#">
-            <i class="mdi mdi-account"></i> Profile </a>  
+          <a class="nav-link" href="#" data-toggle="modal" data-target="#profile">
+            <i class="mdi mdi-account"></i>Profile</a>  
           <!-- </div> -->
         </li>
         <li class="nav-item <?php echo ($activeLink=='users'?'active':'');?>">
@@ -42,7 +40,7 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
         </li>
       </ul>
     </div>
-
+    
     <?php if($this->session->loggedIn === TRUE) { ?>
     <div class="navbar-collapse collapse navbar-right">
       <ul class="navbar-nav ml-auto">
@@ -56,3 +54,43 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
     <?php } ?>
   </nav>
   <br>
+<div class="container">
+  <div class="modal fade" id="profile">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title text-justify">Profile detail</h4>
+          </div>
+          <div class="modal-body">
+            <ul class="list-group">
+              <li class="list-group-item">
+                Firstname : <b>Sim</b>
+              </li>
+              <li class="list-group-item">
+                Lastname : <b>Hul</b>
+              </li>
+              <li class="list-group-item">
+                Gender : <b>Male</b>
+              </li>
+              <li class="list-group-item">
+                Eamil : <b>sim.hul@passerellesnumeriques.org</b>
+              </li>
+              <li class="list-group-item">
+                Role : <b>Admin</b>
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <div class="row">
+              <div class="col-sm-6">
+                <button type="button" class="btn btn-primary btn-block">Edit</button>
+              </div>
+              <div class="col-sm-6">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
