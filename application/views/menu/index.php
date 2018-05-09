@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
-
+<!-- Start Menu bar -->
 <nav class="navbar navbar-expand-md bg-light navbar-light fixed-top sticky-top">
     <a class="navbar-brand" href="<?php echo base_url(); ?>welcome/displayContent"><img src="<?php echo base_url();?>assets/images/system_img/logo.png" alt="Logo" class="img-fluid max-width"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,8 +28,6 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-          
-          
             <li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                   <i class="mdi mdi-account"></i> Profile </a>
