@@ -38,7 +38,7 @@
 			$this->load->view('students/selectedStudentList');			
 			$this->load->view('templates/footer');		
 		}
-		function map()
+		function map() //view candidates distributtion
 		{
 		
 		$this->load->view('templates/header');
