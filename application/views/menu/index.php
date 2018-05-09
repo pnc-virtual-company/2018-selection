@@ -34,7 +34,7 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
         <!-- <i class="mdi mdi-account"></i> Profile  -->
         <!-- <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4"> -->
           <a class="nav-link" href="#">
-            <i class="mdi mdi-account"></i> Profile </a>  
+            <i class="mdi mdi-account"></i>Profile</a>  
           <!-- </div> -->
         </li>
         <li class="nav-item <?php echo ($activeLink=='users'?'active':'');?>">
