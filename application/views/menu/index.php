@@ -4,6 +4,7 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
 <!-- Start Menu bar -->
 <nav class="navbar navbar-expand-md bg-light navbar-light fixed-top sticky-top">
 
+
   <a class="navbar-brand" href="<?php echo base_url(); ?>"><img src="<?php echo base_url();?>assets/images/system_img/logo.png" alt="Logo" class="img-fluid max-width"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -36,6 +37,7 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
             <i class="mdi mdi-account"></i>Profile</a>  
           <!-- </div> -->
         </li>
+
               <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url();?>connection/logout"><i class="mdi mdi-logout"></i>Logout</a>
               </li>

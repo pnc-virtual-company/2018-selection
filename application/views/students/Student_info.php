@@ -1085,7 +1085,7 @@ body{
 											<div class="form-group row">
 												<label for="reason" class="col-lg-2 col-md-2 col-xs-12 col-form-label">Reason :</label>
 												<div class="col-lg-10 col-md-10 col-xs-12">
-													<input type="number" id="reason" class="form-control" placeholder="Please comment"  required>
+													<input type="text" id="reason" class="form-control" placeholder="Please comment"  required>
 												</div>
 											</div>
 										</div>
