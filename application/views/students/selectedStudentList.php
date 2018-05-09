@@ -143,12 +143,12 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <a href="<?php echo base_url() ?>c_student/view_candidate_info"">
-                                <button id="addButton" class="btn btn-success clearfix">
+                                <button id="addButton" class="btn btn-primary clearfix">
                                     <i class="mdi mdi-account-plus"></i>
                                 &nbsp;New Candidate
                                 </button>
                             </a>
-                                <button id="exportButton" class="btn btn-warning text-white clearfix">
+                                <button id="exportButton" class="btn btn-primary text-white clearfix">
                                     <i class="mdi mdi-file-excel"></i>
                                 &nbsp;Export to Excel
                                 </button>

@@ -1,6 +1,8 @@
+
 # Selection committee application
 
 The Selection committee application is designed for the Selection team of Passerelles numériques in Cambodia when they are going to select every new students for new generation of Passerelles numériques in Cambodia.
+>>>>>>> a517a2227ece0abb7db2bfaaf4e42bfcc49deafe
 It contains some useful frontend and backend libraries:
 
  * CodeIgniter 3
@@ -39,6 +41,7 @@ If you have cloned the repository, you need an extra step to install the PHP lib
 Use composer (PHP dependencies manager) to install the libraies with this command:
 
     composer install
+
 
 Create a database named (for example) selection committee with the collating option `utf8_general_ci`
 Import the schema by using the SQL script provided into the SQL folder.

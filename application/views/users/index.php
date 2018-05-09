@@ -10,9 +10,9 @@
 
 <div id="container">
 	<div class="row-fluid">
-		<div class="col-12">
+		<div class="col-md-12">
 
-<h1 class="text-title text-center"><?php echo $title;?></h1>
+<h1 class="text-title text-center"><?php echo $page_title;?></h1>
 
 <?php echo $flashPartialView;?>
 
@@ -41,30 +41,30 @@
         <td><?php echo $user['roles_list']; ?></td>
         <td data-order="<?php echo $user['id']; ?>" data-id="<?php echo $user['id'];?>">
             <?php if (boolval($user['active'])) { ?>
-            <a href="<?php echo base_url();?>users/disable/<?php echo $user['id'] ?>" title="Disable user"><i class="mdi mdi-account"></i></a>
+            <a href="<?php echo base_url();?>users/disable/<?php echo $user['id'] ?>" title="Disable user"><i class="mdi mdi-account" id="myIcon"></i></a>
             <?php } else { ?>
-            <a href="<?php echo base_url();?>users/enable/<?php echo $user['id'] ?>" title="Enable user"><i class="mdi mdi-account-off"></i></a>
+            <a href="<?php echo base_url();?>users/enable/<?php echo $user['id'] ?>" title="Enable user"><i class="mdi mdi-account-off" id="myIcon"></i></a>
             <?php } ?>
-            <a href="<?php echo base_url();?>users/edit/<?php echo $user['id'] ?>" title="Edit user"><i class="mdi mdi-pencil-box-outline text-success"></i></a>
-           <a href="#" class="confirm-delete" title="Delete user"><i class="mdi mdi-delete text-danger"></i></a>
-            <a href="#" class="reset-password text-warning" title="Reset user's password"><i class="mdi mdi-lock"></i></a>
+            <a href="<?php echo base_url();?>users/edit/<?php echo $user['id'] ?>" title="Edit user"><i class="mdi mdi-pencil-box-outline text-success" id="myIcon"></i></a>
+           <a href="#" class="confirm-delete" title="Delete user"><i class="mdi mdi-delete text-danger" id="myIcon"></i></a>
+            <a href="#" class="reset-password" title="Reset user's password"><i class="mdi mdi-lock text-warning" id="myIcon"></i></a>
         </td>
     </tr>
 <?php endforeach ?>
             </tbody>
         </table>
+
+    </div>
+
+</div>
+<div class="row-fluid">
+    <div class="col-md-12">
+      <a href="<?php echo base_url();?>users/export" class="btn btn-primary text-white"><i class="mdi mdi-file-excel"></i>&nbsp;Export this list</a>
+      &nbsp;
+      <a href="<?php echo base_url();?>users/create" class="btn btn-primary"><i class="mdi mdi-account-plus"></i>&nbsp;Create a new user</a>
     </div>
 </div>
-
-  <div class="row-fluid"><div class="col-12">&nbsp;</div></div>
-
-  <div class="row-fluid">
-      <div class="col-12">
-        <a href="<?php echo base_url();?>users/export" class="btn btn-warning text-white"><i class="mdi mdi-file-excel"></i>&nbsp;Export this list</a>
-        &nbsp;
-        <a href="<?php echo base_url();?>users/create" class="btn btn-success"><i class="mdi mdi-account-plus"></i>&nbsp;Create a new user</a>
-      </div>
-  </div>
+ 
 
 </div>
 
