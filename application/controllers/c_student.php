@@ -37,6 +37,15 @@
 			$this->load->view('menu/index');			
 			$this->load->view('students/selectedStudentList');			
 			$this->load->view('templates/footer');		
+		}
+		function map()
+		{
+		
+		$this->load->view('templates/header');
+		$this->load->view('menu/index');
+		$this->load->view('province');
+		$this->load->view('templates/footer');
+
 		}	
 		
 	}
