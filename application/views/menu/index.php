@@ -42,20 +42,20 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
           </ul>
       </div>
 </nav>
-<!-- <br>
-    <?php// if($this->session->loggedIn === TRUE) { ?>
+<br>
+    <?php if($this->session->loggedIn === TRUE) { ?>
     <div class="navbar-collapse collapse navbar-right">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="<?php //echo base_url();?>connection/logout">
-            <?php //echo $this->session->fullname;?> <i class="mdi mdi-power"></i>
+          <a class="nav-link" href="<?php echo base_url();?>connection/logout">
+            <?php echo $this->session->fullname;?> <i class="mdi mdi-power"></i>
           </a>
         </li>
       </ul>
     </div>
     <?php } ?>
   </nav>
-  <br> -->
+  <br>
 <div class="container">
   <div class="modal fade" id="profile">
       <div class="modal-dialog">
@@ -66,16 +66,16 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
           <div class="modal-body">
             <ul class="list-group">
               <li class="list-group-item">
-                Firstname : <b>Sim</b>
+                Firstname : <b>Admin</b>
               </li>
               <li class="list-group-item">
-                Lastname : <b>Hul</b>
+                Lastname : <b>Selection committee</b>
               </li>
               <li class="list-group-item">
                 Gender : <b>Male</b>
               </li>
               <li class="list-group-item">
-                Eamil : <b>sim.hul@passerellesnumeriques.org</b>
+                Eamil : <b>admin@passerellesnumeriques.org</b>
               </li>
               <li class="list-group-item">
                 Role : <b>Admin</b>
