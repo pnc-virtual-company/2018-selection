@@ -14,7 +14,7 @@
      <div class="col-md-6">
        <div class="card">
          <div class="card-header bg-primary text-white">
-           <h2 class="text-center">Edit user #<?php echo $users_item['id']; ?></h2>
+           <h2 class="text-center">Edit user #<?php echo $users_item['firstname']; ?></h2>
          </div>
          <div class="card-body">
           <!-- start form -->

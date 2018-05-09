@@ -12,6 +12,13 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
+		
+		$this->load->view('login/login');
+		
+	}
+
+	public function displayContent()
+	{
 		$data['activeLink'] = 'home';
 		$this->load->view('templates/header', $data);
 		$this->load->view('menu/index', $data);

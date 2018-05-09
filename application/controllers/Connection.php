@@ -25,9 +25,9 @@ class Connection extends CI_Controller {
 			log_message('debug', 'Let\'s display the login form');
 			$data['title'] = 'Login';
 			$data['flashPartialView'] = $this->load->view('templates/flash', $data, TRUE);
-			$this->load->view('templates/header', $data);
+			// $this->load->view('templates/header', $data);
 			$this->load->view('login/login', $data);
-			$this->load->view('templates/footer');
+			// $this->load->view('templates/footer');
 		} else {
 			$this->load->model('users_model');
 			$login = $this->input->post('login');
@@ -39,7 +39,7 @@ class Connection extends CI_Controller {
 					redirect($this->session->userdata('last_page'));
 				} else {
 					log_message('debug', 'Not last_page set. Redirect to the home page');
-					redirect('welcome');
+					redirect('welcome/displayContent');
 				}
 			} else {
 				log_message('error', 'Invalid credentials for user ' . $this->input->post('login'));
