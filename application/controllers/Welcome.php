@@ -18,4 +18,12 @@ class Welcome extends CI_Controller {
 		$this->load->view('welcome', $data);
 		$this->load->view('templates/footer', $data);
 	}
+	public function map()
+	{
+		
+		$this->load->view('templates/header', $data);
+		$this->load->view('menu/index', $data);
+		$this->load->view('province', $data);
+		$this->load->view('templates/footer', $data);
+	}
 }
