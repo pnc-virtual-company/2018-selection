@@ -5,9 +5,9 @@ body, html {
     height: 100%;
     margin: 0;
 }
-
+/*background of page*/
 .bgimg {
-    background-image: url('<?php echo base_url() ?>assets/images/background/1.jpg');
+    background-image: url('<?php echo base_url() ?>assets/images/background/sky.jpg');
     height: 100%;
     background-position: center;
     background-size: cover;
@@ -46,7 +46,7 @@ hr {
 <!-- page coming soon -->
 <div class="bgimg">
   <div class="topleft">
-    <p>MAP in Cambodia</p>
+    <p>Map in Cambodia</p>
   </div>
   <div class="middle">
     <h1>COMING SOON</h1>
