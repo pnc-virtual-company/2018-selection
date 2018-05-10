@@ -214,13 +214,15 @@ class Users_model extends CI_Model {
         if (((int) $row->role & 25)) {
             $isSuperAdmin = TRUE;
         }
-
         $newdata = array(
             'login' => $row->login,
             'id' => $row->id,
             'firstname' => $row->firstname,
             'lastname' => $row->lastname,
             'fullname' => $row->firstname . ' ' . $row->lastname,
+            'loginName' => $row->login,
+            'email' => $row->email,
+            'nameRole' => $row->role,	
             'isAdmin' => $isAdmin,
             'isSuperAdmin' => $isSuperAdmin,
             'loggedIn' => TRUE
