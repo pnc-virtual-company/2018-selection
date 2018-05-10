@@ -1,6 +1,6 @@
 <style>
 body{
-	background-color: lightblue;
+	background-color: #fff;
 }
 </style>
 <!-- form header -->
@@ -342,7 +342,7 @@ body{
 					<div class="card">
 						<div id="familyPro">
 							<h5 class="mb-0">
-								<button class="btn btn-default collapsed btn-block text-left subHeading" data-toggle="collapse" data-target="#collapseFamilyPro" aria-expanded="false" aria-controls="collapseFamilyPro" style="height: 60px;border-bottom: 2px solid #fff; ">
+								<button class="btn btn-default collapsed btn-block text-left subHeading" data-toggle="collapse" data-target="#collapseFamilyPro" aria-expanded="false" aria-controls="collapseFamilyPro" style="height: 60px;border-bottom: 2px solid #fff;background-color: #f8f9fa; ">
 									<h5 class="subCollapse">Family Profile
 										<i class="mdi mdi-chevron-down float-right subDown" style="color:#000; font-size: 30px;">
 										</i>
@@ -674,7 +674,7 @@ body{
 					<div class="card">
 						<div id="familyIncome">
 							<h5 class="mb-0">
-								<button class="btn btn-default collapsed  btn-block text-left subHeading" data-toggle="collapse" data-target="#collapseFamilyIncome" aria-expanded="false" aria-controls="collapseFamilyIncome" style="height: 60px;border-bottom: 2px solid #fff;">
+								<button class="btn btn-default collapsed  btn-block text-left subHeading" data-toggle="collapse" data-target="#collapseFamilyIncome" aria-expanded="false" aria-controls="collapseFamilyIncome" style="height: 60px;border-bottom: 2px solid #fff; background-color: #f8f9fa;">
 									<h5 class="subCollapse">Family's Income Sources
 										<i class="mdi mdi-chevron-down float-right subDown" style="color:#000; font-size: 30px;">
 										</i>
@@ -925,7 +925,7 @@ body{
 					<div class="card">
 						<div id="familyExpense">
 							<h5 class="mb-0">
-								<button class="btn btn-default collapsed btn-block text-left subHeading" data-toggle="collapse" data-target="#collapseFamilyExpense" aria-expanded="false" aria-controls="collapseFamilyExpense" style="height: 60px;border-bottom: 2px solid #fff; ">
+								<button class="btn btn-default collapsed btn-block text-left subHeading" data-toggle="collapse" data-target="#collapseFamilyExpense" aria-expanded="false" aria-controls="collapseFamilyExpense" style="height: 60px;border-bottom: 2px solid #fff;background-color: #f8f9fa; ">
 									<h5 class="subCollapse">Family's Expense Sources
 										<i class="mdi mdi-chevron-down float-right subDown" style="color:#000; font-size: 30px;">
 										</i>
@@ -1035,7 +1035,7 @@ body{
 					<div class="card">
 						<div id="loanDebt">
 							<h5 class="mb-0">
-								<button class="btn btn-default collapsed btn-block text-left subHeading" data-toggle="collapse" data-target="#collapseLoanDebt" aria-expanded="false" aria-controls="collapseLoanDebt" style="height: 60px;border-bottom: 2px solid #fff; ">
+								<button class="btn btn-default collapsed btn-block text-left subHeading" data-toggle="collapse" data-target="#collapseLoanDebt" aria-expanded="false" aria-controls="collapseLoanDebt" style="height: 60px;border-bottom: 2px solid #fff;background-color: #f8f9fa; ">
 									<h5 class="subCollapse">Loans & Debts
 										<i class="mdi mdi-chevron-down float-right subDown" style="color:#000; font-size: 30px;">
 										</i>
@@ -1146,7 +1146,7 @@ body{
 					<div class="card">
 						<div id="residence">
 							<h5 class="mb-0">
-								<button class="btn btn-default collapsed btn-block text-left subHeading" data-toggle="collapse" data-target="#collapseResidence" aria-expanded="false" aria-controls="collapseResidence" style="height: 60px;border-bottom: 2px solid #fff; ">
+								<button class="btn btn-default collapsed btn-block text-left subHeading" data-toggle="collapse" data-target="#collapseResidence" aria-expanded="false" aria-controls="collapseResidence" style="height: 60px;border-bottom: 2px solid #fff;background-color: #f8f9fa; ">
 									<h5 class="subCollapse">Residence Status
 										<i class="mdi mdi-chevron-down float-right subDown" style="color:#000; font-size: 30px;">
 										</i>
@@ -1223,7 +1223,7 @@ body{
 					<div class="card">
 						<div id="homeAsset">
 							<h5 class="mb-0">
-								<button class="btn btn-default collapsed btn-block text-left subHeading" data-toggle="collapse" data-target="#collapseHomeAsset" aria-expanded="false" aria-controls="collapseHomeAsset" style="height: 60px;border-bottom: 2px solid #fff; ">
+								<button class="btn btn-default collapsed btn-block text-left subHeading" data-toggle="collapse" data-target="#collapseHomeAsset" aria-expanded="false" aria-controls="collapseHomeAsset" style="height: 60px;border-bottom: 2px solid #fff;background-color: #f8f9fa; ">
 									<h5 class="subCollapse">Home Assets
 										<i class="mdi mdi-chevron-down float-right subDown" style="color:#000; font-size: 30px;">
 										</i>
