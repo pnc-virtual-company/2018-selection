@@ -5,7 +5,7 @@ body, html {
     height: 100%;
     margin: 0;
 }
-
+/*background of page*/
 .bgimg {
     background-image: url('<?php echo base_url() ?>assets/images/background/sky.jpg');
     height: 100%;
