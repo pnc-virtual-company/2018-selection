@@ -67,7 +67,7 @@ body{
 									<div class="col-lg-1 col-md-1"></div>
 									<label for="gender" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Firstname :</label>
 									<div class="col-lg-6 col-md-6 col-xs-12">
-										<input type="text" class="form-control" placeholder="firstname...">
+										<input type="text" class="form-control" placeholder="firstname">
 									</div>
 								</div>
 							</div>
@@ -76,7 +76,7 @@ body{
 									<div class="col-lg-1 col-md-1"></div>
 									<label for="gender" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Lastname :</label>
 									<div class="col-lg-6 col-md-6 col-xs-12">
-										<input type="text" class="form-control" placeholder="lastname...">
+										<input type="text" class="form-control" placeholder="lastname">
 									</div>
 								</div>
 							</div>
@@ -1755,20 +1755,6 @@ body{
 		</form>	
 	</div>
 </div>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-</head>
-<body>
-
 <div class="container">
 
   <!-- The Modal -->
