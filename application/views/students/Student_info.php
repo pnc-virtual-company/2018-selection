@@ -738,7 +738,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="fMonthly" placeholder="$" style="direction: rtl;" required>
+								<input type="number" class="form-control fincome" id="fMonthly" placeholder="$" style="direction: rtl;" required>
 							</div>
 						</div>
 					</div>	
@@ -755,7 +755,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="fDaily" placeholder="$" style="direction: rtl;" required>
+								<input type="number" class="form-control fincome" id="fDaily" placeholder="$" style="direction: rtl;" required>
 							</div>
 						</div>
 					</div>	
@@ -772,7 +772,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="fSeasonal" placeholder="$" style="direction: rtl;" required>
+								<input type="number" class="form-control fincome" id="fSeasonal" placeholder="$" style="direction: rtl;" required>
 							</div>
 						</div>
 					</div>	
@@ -789,7 +789,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="fYearly" placeholder="$" style="direction: rtl;" required>
+								<input type="number" class="form-control fincome" id="fYearly" placeholder="$" style="direction: rtl;" required>
 							</div>
 						</div>
 					</div>	
@@ -806,7 +806,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="fTotal" placeholder="$" style="direction: rtl;" required>
+								<input type="number" class="form-control" id="fTotal" style="direction: rtl;" required>
 							</div>
 						</div>
 					</div>	
@@ -830,7 +830,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="cMonthly" placeholder="$" style="direction: rtl;" required>
+								<input type="number" class="form-control cIncome" id="cMonthly" placeholder="$" style="direction: rtl;" required>
 							</div>
 						</div>
 					</div>	
@@ -847,7 +847,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="cDaily" placeholder="$" style="direction: rtl;" required>
+								<input type="number" class="form-control cIncome" id="cDaily" placeholder="$" style="direction: rtl;" required>
 							</div>
 						</div>
 					</div>	
@@ -864,7 +864,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="cSeasonal" placeholder="$" style="direction: rtl;" required>
+								<input type="number" class="form-control cIncome" id="cSeasonal" placeholder="$" style="direction: rtl;" required>
 							</div>
 						</div>
 					</div>	
@@ -881,7 +881,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="cYearly" placeholder="$" style="direction: rtl;" required>
+								<input type="number" class="form-control cIncome" id="cYearly" placeholder="$" style="direction: rtl;" required>
 							</div>
 						</div>
 					</div>	
@@ -1801,6 +1801,29 @@ body{
 			$(".subUp",this).toggle();
 
 		});
+
+
+
 	});
+	$('.form-group').on('input','.fincome',function(){
+			var totalSum = 0;
+			$('.form-group .fincome').each(function(){
+				var inputVal = $(this).val();
+				if($.isNumeric(inputVal)){
+					totalSum += parseFloat(inputVal);
+				}
+			});
+			$('#fTotal').val(totalSum);
+		});
+	$('.form-group').on('input','.cIncome',function(){
+			var cTotalSum = 0;
+			var cMonthly = $(this).val();
+			var cDaily = $(this).val();
+			var cSeasonal= $(this).val();
+			var cYearly= $(this).val();
+			cTotalSum = cMonthly + cDaily  + (cSeasonal + cYearly) / 12;
+			$('#cTotal').val(cTotalSum);
+		});
+
 </script>
 <!-- end form collapsed -->
