@@ -35,66 +35,75 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
         <!-- <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4"> -->
           <a class="nav-link" href="#" data-toggle="modal" data-target="#profile">
             <i class="mdi mdi-account"></i>Profile</a>  
-          <!-- </div> -->
-        </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url();?>connection/logout"><i class="mdi mdi-logout"></i>Logout</a>
-              </li>
-          </ul>
+            <!-- </div> -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url();?>connection/logout"><i class="mdi mdi-logout"></i>Logout</a>
+          </li>
+        </ul>
       </div>
-</nav>
-<br>
-    <?php if($this->session->loggedIn === TRUE) { ?>
+      <!-- </nav> -->
+      <br>
+<!--     <?php //if($this->session->loggedIn === TRUE) { ?>
     <div class="navbar-collapse collapse navbar-right">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url();?>connection/logout">
-            <?php echo $this->session->fullname;?> <i class="mdi mdi-power"></i>
+          <a class="nav-link" href="<?php// echo base_url();?>connection/logout">
+            <?php //echo $this->session->fullname;?> <i class="mdi mdi-power"></i>
           </a>
         </li>
       </ul>
     </div>
-    <?php } ?>
+    <?php //} ?> -->
   </nav>
   <br>
-<div class="container">
-  <div class="modal fade" id="profile">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title text-justify">Profile detail</h4>
-          </div>
-          <div class="modal-body">
-            <ul class="list-group">
-              <li class="list-group-item">
-                Firstname : <b>Admin</b>
-              </li>
-              <li class="list-group-item">
-                Lastname : <b>Selection committee</b>
-              </li>
-              <li class="list-group-item">
-                Gender : <b>Male</b>
-              </li>
-              <li class="list-group-item">
-                Eamil : <b>admin@passerellesnumeriques.org</b>
-              </li>
-              <li class="list-group-item">
-                Role : <b>Admin</b>
-              </li>
-            </ul>
-          </div>
-          <div class="modal-footer">
-            <div class="row">
-              <div class="col-sm-6">
-                <button type="button" class="btn btn-primary btn-block">Edit</button>
+  <?php if($this->session->loggedIn === TRUE) { ?>
+    <div class="container">
+      <div class="modal fade" id="profile">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title text-justify">Profile detail</h4>
+            </div>
+            <div class="modal-body">
+              <ul class="list-group">
+                <li class="list-group-item">
+                  Firstname : <b><?php echo $this->session->firstname;?></b>
+                </li>
+                <li class="list-group-item">
+                  Lastname : <b><?php echo $this->session->lastname;?></b>
+                </li>
+                <li class="list-group-item">
+                  Fullname : <b><?php echo $this->session->fullname;?></b>
+                </li>
+                <li class="list-group-item">
+                  Username : <b><?php echo $this->session->loginName;?></b>
+                </li>
+                <li class="list-group-item">
+                  Email : <b><?php echo $this->session->email;?></b>
+                </li>
+                <li class="list-group-item">
+                  <?php $role =$this->session->nameRole;?>
+                  <?php if ($role == 1): ?>
+                    Role : <b><?php echo "Admin"; ?></b>
+                    <?php else: ?>
+                      Role: <b><?php echo "User"; ?></b>
+                    <?php endif ?>
+                  </li>
+                </ul>
               </div>
-              <div class="col-sm-6">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#edit">Edit</button>
+                  </div>
+                  <div class="col-sm-6">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-</div>
+      <?php } ?>
