@@ -148,12 +148,13 @@
                                 &nbsp;New Candidate
                                 </button>
                             </a>
-                                <button id="exportButton" class="btn btn-primary text-white clearfix">
-                                    <i class="mdi mdi-file-excel"></i>
+                                <button id="exportButton" class="btn btn-primary text-white clearfix"><i class="mdi mdi-file-excel"></i>
                                 &nbsp;Export to Excel
                                 </button>
+                            <a href="<?php echo base_url() ?>c_student/map">
                                 <button id="mapButton" class="btn btn-primary clearfix"><i class="mdi mdi-map"></i>
                               &nbsp;Province Distribution</button>
+                            </a>
                         </div>
                     </div>
                 </div>
