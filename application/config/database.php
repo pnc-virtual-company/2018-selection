@@ -74,11 +74,11 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> 'mysql:host=localhost; dbname=skeleton; charset=utf8;',
+	'dsn'	=> 'mysql:host=localhost; dbname=selection_committee_db; charset=utf8;',
 	'hostname' => 'http://http://localhost',
 	'username' => 'root',
 	'password' => '',
-	'database' => 'skelton',
+	'database' => 'selection_committee_db',
 	'dbdriver' => 'pdo',
 	'dbprefix' => 'skeleton_',
 	'pconnect' => FALSE,
