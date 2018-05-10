@@ -41,7 +41,7 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function index() {
-        $this->load->helper('form');
+        // $this->load->helper('form');
         $data['users'] = $this->users_model->getUsersAndRoles();
         $data['page_title'] = 'List of users';
         $data['activeLink'] = 'users';

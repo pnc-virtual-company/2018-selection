@@ -8,6 +8,7 @@ class Welcome extends CI_Controller {
 	{
 			parent::__construct();
 			log_message('debug', 'URI=' . $this->uri->uri_string());
+			$this->load->model('users_model', 'u_m');
 	}
 
 	public function index()
@@ -19,6 +20,7 @@ class Welcome extends CI_Controller {
 
 	public function displayContent()
 	{
+		// $data['roles'] = $this->u_m->getRoles();
 		$data['activeLink'] = 'home';
 		$this->load->view('templates/header', $data);
 		$this->load->view('menu/index', $data);
