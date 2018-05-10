@@ -18,15 +18,7 @@ class Welcome extends CI_Controller {
 		
 	}
 
-	public function displayContent()
-	{
-		// $data['roles'] = $this->u_m->getRoles();
-		$data['activeLink'] = 'home';
-		$this->load->view('templates/header', $data);
-		$this->load->view('menu/index', $data);
-		$this->load->view('welcome', $data);
-		$this->load->view('templates/footer', $data);
-	}
+	
 	public function map()
 	{
 		
