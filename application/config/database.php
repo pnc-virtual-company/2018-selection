@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> 'mysql:host=localhost; dbname=skeleton; charset=utf8;',
-	'hostname' => 'http://http://localhost',
+	'hostname' => 'http://localhost',
 	'username' => 'root',
 	'password' => '',
-	'database' => 'skelton',
+	'database' => 'skeleton',
 	'dbdriver' => 'pdo',
 	'dbprefix' => 'skeleton_',
 	'pconnect' => FALSE,
