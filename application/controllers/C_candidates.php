@@ -10,10 +10,16 @@ Class C_candidates extends CI_Controller{
 	function index(){
 		$this->load->view('templates/header');
 		$this->load->view('menu/index');
-		$this->load->view('candidates/can_list');
+		$this->load->view('welcome');
 		$this->load->view('templates/footer');
 	}
-
+	function allCandidate() //list all candidate of admin	
+	{ 		
+	$this->load->view('templates/header');			
+	$this->load->view('menu/index');			
+	$this->load->view('welcome');			
+	$this->load->view('templates/footer');		
+	}	
 	public function showAllCandidates(){
 		$result = $this->m_can->showAllCandidates();
 		echo json_encode($result);

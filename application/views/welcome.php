@@ -8,7 +8,7 @@
                         <h1 class="mdi mdi-account-outline text-default" style="font-size: 50px;"></h1>
                     </div>
                     <div class="card-body text-right text-white">
-                        <h2 class="color-white">278</h2>
+                        <h2 class="color-white">11</h2>
                         <p class="m-b-0">All candidates</p>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                         <h1 class="mdi mdi-account-outline text-default" style="font-size: 50px;"></h1>
                         </div>
                         <div class="card-body text-right text-white">
-                            <h2 class="color-white">100</h2>
+                            <h2 class="color-white">9</h2>
                             <p class="m-b-0">Selected candidates</p>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                             <h1 class="mdi mdi-map-marker text-default" style="font-size: 50px;"></h1>
                         </div>
                         <div class="card-body text-right text-white">
-                            <h2 class="color-white">20</h2>
+                            <h2 class="color-white">3</h2>
                             <p class="m-b-0">Provinces of selected candidates</p>
                         </div>
                     </div>
@@ -47,117 +47,53 @@
     
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8">
-                <h1 class="text-center">List of Candidates</h1>
+                <h1 class="text-center">List of candidates</h1>
                 <br>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                      <a href="<?php echo base_url() ?>c_student/allCandidate"><button class="btn btn-primary clearfix">All Candidates</button></a>
-                      <a href="<?php echo base_url() ?>c_student/selectedCandidate"><button class="btn btn-default clearfix">Selected Candidates</button></a>
+                      <a href="<?php echo base_url() ?>c_candidates/allCandidate"><button class="btn btn-primary clearfix">All candidates</button></a>&nbsp;&nbsp;
+                      <a href="<?php echo base_url() ?>c_student/selectedCandidate"><button class="btn btn-default clearfix">Selected candidates</button></a>
                     </div>
                 </div>
                 <br>
                 <div class="row">
                   <div class="table-responsive-sm">
-                    <table id="students" class="table table-striped table-bordered table-hover">
+                    <table id="students" cellpadding="0" cellspacing="0" class="table table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Name</th>
-                                <th>Province</th>
-                                <th>Gender</th>
-                                <th>Global Grade</th>
-                                <th>Selected</th>
                                 <th>Action</th>
+                                <th>Full name</th>
+                                <th>Provinces</th>
+                                <th>Gender</th>
+                                <th>Global grade</th>
+                                <th>Selected</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Nuon</td>
-                                <td>Bonteay Meanchey</td>
-                                <td>Female</td>
-                                <td>A</td>
-                                <td>Yes</td>
-                                <td>
-                                    <a href="<?php echo base_url() ?>c_student/view_candidate_info"><i class="mdi mdi-eye text-info" title="View Candidate" id="myIcon"></i></a>&nbsp;
-                                    <a href="<?php echo base_url() ?>c_student/view_candidate_info"><i class="mdi  mdi-pencil-box-outline text-success" title="Update Candidate" id="myIcon"></i></a>&nbsp;
-                                    <a href="#"><i class="mdi mdi-delete text-danger" title="Delete Candidate" id="myIcon"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>                      
-                                <td>Vuthy</td>
-                                <td>Pursat</td>
-                                <td>Female</td>
-                                <td>B</td>
-                                <td>Yes</td>
-                                <td>
-                                    <a href="<?php echo base_url() ?>c_student/view_candidate_info"><i class="mdi mdi-eye text-info" title="View Candidate" id="myIcon"></i></a>&nbsp;
-                                    <a href="<?php echo base_url() ?>c_student/view_candidate_info" id="myIcon"><i class="mdi  mdi-pencil-box-outline text-success" title="Update Candidate"></i></a>&nbsp;
-                                    <a href="#"><i class="mdi mdi-delete text-danger" title="Delete Candidate" id="myIcon"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Chan</td>
-                                <td>Kompong Tom</td>
-                                <td>Male</td>
-                                <td>Failed</td>
-                                <td>No</td>
-                                <td>
-                                    <a href="<?php echo base_url() ?>c_student/view_candidate_info"><i class="mdi mdi-eye text-info" title="View Candidate" id="myIcon"></i></a>&nbsp;
-                                    <a href="<?php echo base_url() ?>c_student/view_candidate_info" id="myIcon"><i class="mdi  mdi-pencil-box-outline text-success" title="Update Candidate"></i></a>&nbsp;
-                                    <a href="#"><i class="mdi mdi-delete text-danger" title="Delete Candidate" id="myIcon"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Sopheak</td>
-                                <td>Preah Vihea</td>
-                                <td>Male</td>
-                                <td>B</td>
-                                <td>Yes</td>
-                                <td>
-                                    <a href="<?php echo base_url() ?>c_student/view_candidate_info"><i class="mdi mdi-eye text-info" title="View Candidate" id="myIcon"></i></a>&nbsp;
-                                    <a href="<?php echo base_url() ?>c_student/view_candidate_info"><i class="mdi mdi-pencil-box-outline text-success" title="Update Candidate" id="myIcon"></i></a>&nbsp;
-                                    <a href="#"><i class="mdi mdi-delete text-danger" title="Delete Candidate" id="myIcon"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Dakhen</td>
-                                <td>Battambong</td>
-                                <td>Male</td>
-                                <td>A</td>
-                                <td>Yes</td>
-                                <td>
-                                    <a href="<?php echo base_url() ?>c_student/view_candidate_info"><i class="mdi mdi-eye text-info" title="View Candidate" id="myIcon"></i></a>&nbsp;
-                                    <a href="<?php echo base_url() ?>c_student/view_candidate_info"><i class="mdi  mdi-pencil-box-outline text-success" title="Update Candidate" id="myIcon"></i></a>&nbsp;
-                                    <a href="#"><i class="mdi mdi-delete text-danger" title="Delete Candidate" id="myIcon"></i></a>
-                                </td>
-                            </tr>
+                        <tbody id="showdata">
+                            
+                        </tbody>
                         </table>
                   </div>
                 </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <a href="<?php echo base_url() ?>c_student/view_candidate_info"">
-                                <button id="addButton" class="btn btn-primary clearfix">
-                                    <i class="mdi mdi-account-plus"></i>
-                                &nbsp;New Candidate
-                                </button>
+                <br>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <a href="<?php echo base_url() ?>c_student/view_candidate_info" class="btn btn-primary clearfix" id="addButton" >
+                            <i class="mdi mdi-account-plus"></i>
+                            &nbsp;New candidate
+                        </a>&nbsp;&nbsp;
+                        <a href="#" class="btn btn-primary clearfix" id="exportButton">
+                            <i class="mdi mdi-file-excel"></i>
+                            &nbsp;Export to excel
+                        </a>&nbsp;&nbsp;
+                            <a href="<?php echo base_url() ?>c_student/map">
+                                <button id="mapButton" class="btn btn-primary clearfix"><i class="mdi mdi-map"></i>
+                          &nbsp;Province distribution</button>
                             </a>
-                                <button id="exportButton" class="btn btn-primary text-white clearfix">
-                                    <i class="mdi mdi-file-excel"></i>
-                                &nbsp;Export to Excel
-                                </button>
-                                <a href="<?php echo base_url() ?>c_student/map">
-                                    <button id="mapButton" class="btn btn-primary clearfix"><i class="mdi mdi-map"></i>
-                              &nbsp;Province Distribution</button>
-                                </a>
-                        </div>
                     </div>
                 </div>
+            </div>
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-4">
                   <h1 class="text-center">Distribution</h1>
                   <br>
@@ -175,20 +111,54 @@
 
 
  <script type="text/javascript">
-    $(document).ready(function() {
+    $(function() {
+    showAllCandidates();
     //Transform the HTML table in a fancy datatable
     $('#students').dataTable({
         stateSave: true,
     });
 
-    //$("#frmResetPwd").alert();
-    //$("#frmConfirmDelete").alert();
+    //function
+    function showAllCandidates(){
+        $.ajax({
+            type: 'ajax',
+            url: '<?php echo base_url() ?>C_candidates/showAllCandidates',
+            async: false,
+            dataType: 'json',
+            success: function(data){
+                var html = '';
+                var id=1;
+                var selected = "";
+                for(i=0; i<data.length; i++){
+                    if (data[i].can_global_grade ==="Failed") {
+                        selected ="No";
+                    }else{
+                        selected = "Yes";
+                    }
+                    html +='<tr>'+
+                                '<td>'+id+'</td>'+
+                                '<td>'+
+                                    '<a href="javascript:;" class="mdi mdi-eye text-info" title="View candidate information" data="'+data[i].can_id+'"></a>&nbsp;'+
+                                    '<a href="javascript:;" class="mdi mdi-pencil-box-outline text-success" title="Edit candidate information" data="'+data[i].can_id+'"></a>&nbsp;'+
+                                    '<a href="javascript:;" class="mdi mdi-delete text-danger" title="Delete candidate information" data="'+data[i].can_id+'"></a>'+
+                                '</td>'+
+                                '<td>'+data[i].can_name+'</td>'+
+                                '<td>'+data[i].province+'</td>'+
+                                '<td>'+data[i].can_gender+'</td>'+
+                                '<td>'+data[i].can_global_grade+'</td>'+
+                                '<td>'+ selected +'</td>'+
 
-    //On showing the confirmation pop-up, add the user id at the end of the delete url action
-    /*$('#frmConfirmDelete').on('show', function() {
-        var link = "<?php echo base_url();?>users/delete/" + $(this).data('id');
-        $("#lnkDeleteUser").attr('href', link);
-    });*/
+                            '</tr>';
+                        id++;
+                }
+                $('#showdata').html(html);
+                
+            },
+            error: function(){
+                alert('Could not get Data from Database');
+            }
+        });
+    }
 
     //Display a modal pop-up so as to confirm if a user has to be deleted or not
     //We build a complex selector because datatable does horrible things on DOM...
@@ -206,14 +176,6 @@
         $("#formResetPwd").prop("action", link);
         $('#frmResetPwd').modal('show');
     });
-
-    //Prevent to load always the same content (refreshed each time)
-    /*$('#frmConfirmDelete').on('hidden', function() {
-        $(this).removeData('modal');
-    });
-    $('#frmResetPwd').on('hidden', function() {
-        $(this).removeData('modal');
-    });*/
    
 });
 
