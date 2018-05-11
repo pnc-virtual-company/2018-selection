@@ -7,7 +7,7 @@
  * @since      1.0.0
  */
 ?>
-
+<br>
 <div id="container">
 	<div class="row-fluid">
 		<div class="col-md-12">
@@ -15,17 +15,17 @@
 <h1 class="text-title text-center"><?php echo $page_title;?></h1>
 
 <?php echo $flashPartialView;?>
-
+<div class="table-responsive-sm">   
 <table id="users" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="100%">
     <thead>
         <tr>
             <th>ID</th>
+            <th>Action</th>
             <th>Firstname</th>
             <th>Lastname</th>
             <th>Login</th>
             <th>Email</th>
             <th>Role</th>
-            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -34,11 +34,6 @@
         <td data-order="<?php echo $user['id']; ?>" data-id="<?php echo $user['id'];?>">
             <?php echo $user['id'] ?>&nbsp;
         </td>
-        <td><?php echo $user['firstname']; ?></td>
-        <td><?php echo $user['lastname']; ?></td>
-        <td><?php echo $user['login']; ?></td>
-        <td><a href="mailto:<?php echo $user['email']; ?>"><?php echo $user['email']; ?></a></td>
-        <td><?php echo $user['roles_list']; ?></td>
         <td data-order="<?php echo $user['id']; ?>" data-id="<?php echo $user['id'];?>">
             <?php if (boolval($user['active'])) { ?>
             <a href="<?php echo base_url();?>users/disable/<?php echo $user['id'] ?>" title="Disable user"><i class="mdi mdi-account" id="myIcon"></i></a>
@@ -49,22 +44,30 @@
            <a href="#" class="confirm-delete" title="Delete user"><i class="mdi mdi-delete text-danger" id="myIcon"></i></a>
             <a href="#" class="reset-password" title="Reset user's password"><i class="mdi mdi-lock text-warning" id="myIcon"></i></a>
         </td>
+        <td><?php echo $user['firstname']; ?></td>
+        <td><?php echo $user['lastname']; ?></td>
+        <td><?php echo $user['login']; ?></td>
+        <td><a href="mailto:<?php echo $user['email']; ?>"><?php echo $user['email']; ?></a></td>
+        <td><?php echo $user['roles_list']; ?></td>
+        
     </tr>
 <?php endforeach ?>
             </tbody>
         </table>
-
     </div>
-
+    </div>
 </div>
+<br>
 <div class="row-fluid">
-    <div class="col-md-12">
-      <a href="<?php echo base_url();?>users/export" class="btn btn-primary text-white"><i class="mdi mdi-file-excel"></i>&nbsp;Export this list</a>
-      &nbsp;
-      <a href="<?php echo base_url();?>users/create" class="btn btn-primary"><i class="mdi mdi-account-plus"></i>&nbsp;Create a new user</a>
+    <!-- <div class="col-md-4"></div> -->
+    <div class="col-md-12">&nbsp;&nbsp;
+        <a href="<?php echo base_url();?>users/create" class="btn btn-primary"><i class="mdi mdi-account-plus"></i>&nbsp;Create a new user</a> &nbsp;
+        <a href="<?php echo base_url();?>users/export" class="btn btn-primary text-white"><i class="mdi mdi-file-excel"></i>&nbsp;Export this list</a>
+     
+      
     </div>
 </div>
- 
+
 
 </div>
 
