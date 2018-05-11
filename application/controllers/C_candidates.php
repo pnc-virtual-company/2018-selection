@@ -14,7 +14,7 @@ Class C_candidates extends CI_Controller{
 		$this->load->view('templates/footer');
 	}
 	function allCandidate() //list all candidate of admin	
-	{ 		
+	{
 	$this->load->view('templates/header');			
 	$this->load->view('menu/index');			
 	$this->load->view('welcome');			

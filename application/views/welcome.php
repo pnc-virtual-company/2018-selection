@@ -83,24 +83,30 @@
                             <i class="mdi mdi-account-plus"></i>
                             &nbsp;New candidate
                         </a>&nbsp;&nbsp;
-                        <a href="#" class="btn btn-primary clearfix" id="exportButton">
-                            <i class="mdi mdi-file-excel"></i>
-                            &nbsp;Export to excel
-                        </a>&nbsp;&nbsp;
-                            <a href="<?php echo base_url() ?>c_student/map">
-                                <button id="mapButton" class="btn btn-primary clearfix"><i class="mdi mdi-map"></i>
+                        <a href="<?php echo base_url() ?>c_student/map">
+                            <button id="mapButton" class="btn btn-primary clearfix"><i class="mdi mdi-map"></i>
                           &nbsp;Province distribution</button>
-                            </a>
+                        </a>
                     </div>
                 </div>
             </div>
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-4">
-                  <h1 class="text-center">Distribution</h1>
-                  <br>
-                  <canvas id="pie-chart" width="900" height="450"></canvas>
+                    <h1 class="text-center">Distribution</h1>
+                    <br><br>
+                    <canvas id="pie-chart" width="900" height="800"></canvas>
+                    <br>
+                    <h1 class="text-center">Selected candidate</h1>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <canvas id="pie-chart1" width="900" height="900"></canvas>
+                        </div>
+                        <div class="col-md-6">
+                            <canvas id="pie-chart2" width="900" height="900"></canvas>
+                        </div>
+                    </div>
                 </div>
 
-            </div>
+        </div>
 </div>
 <br><br>
  <link href="<?php echo base_url();?>assets/DataTable/DataTables-1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -179,7 +185,7 @@
    
 });
 
-//pie chart
+//pie chart of grade
 new Chart(document.getElementById("pie-chart"), {
     type: 'pie',
     data: {
@@ -197,5 +203,43 @@ new Chart(document.getElementById("pie-chart"), {
       }
     }
 });
+
+// pie chart1 of gender
+new Chart(document.getElementById("pie-chart1"), {
+    type: 'pie',
+    data: {
+      labels: ["Male", "Female"],
+      datasets: [{
+        label: "Gender (distribution)",
+        backgroundColor: ["#3cba9f","#ffc107"],
+        data: [60,40]
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Gender distribution'
+      }
+    }
+});
+// pie chart2 of ngo provenance
+new Chart(document.getElementById("pie-chart2"), {
+    type: 'pie',
+    data: {
+      labels: ["Yes", "No"],
+      datasets: [{
+        label: "NGO (provenance)",
+        backgroundColor: ["#3e95cd","#c45850"],
+        data: [88,12]
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'NGO provenance'
+      }
+    }
+});
+
 
 </script>
