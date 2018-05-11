@@ -32,7 +32,16 @@ class Candidates_model extends CI_Model {
     	}else{
     		return false;
     	}
-
+    }
+    public function deleteCandidate(){
+        $id = $this->input->post('id');
+        $this->db->where('can_id', $id);
+        $this->db->delete('skeleton_tbl_candidates');
+        if($this->db->affected_rows() > 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }

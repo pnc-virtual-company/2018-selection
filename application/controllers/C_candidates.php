@@ -19,4 +19,13 @@ Class C_candidates extends CI_Controller{
 		echo json_encode($result);
 	}
 
+	public function deleteCandidate(){
+		$result = $this->m_can->deleteCandidate();
+		$msg['success'] = false;
+		if($result){
+			$msg['success'] = true;
+		}
+		echo json_encode($msg);
+	}
+
 }
