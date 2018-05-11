@@ -58,7 +58,7 @@
                 <br>
                 <div class="row">
                   <div class="table-responsive-sm">
-                    <table id="students" class="table table-striped table-bordered table-hover">
+                    <table id="students" cellpadding="0" cellspacing="0" class="table table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th>ID</th>
