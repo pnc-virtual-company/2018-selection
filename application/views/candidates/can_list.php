@@ -161,6 +161,11 @@
         });
     }
 
+    $('#showdata').on('click', '.mdi-eye', function(){
+            <?php echo "View Candidate Information"; ?>
+        });
+
+
     //Display a modal pop-up so as to confirm if a user has to be deleted or not
     //We build a complex selector because datatable does horrible things on DOM...
     //a simplier selector doesn't work when the delete is on page >1

@@ -976,31 +976,31 @@ body{
 						<div class="form-group row">
 							<label for="rice" class="col-5 col-xs-12 col-form-label">Rice:</label>
 							<div class="col-7 col-xs-12">
-								<input type="number" class="form-control fExpense" id="rice" placeholder="$" style="direction:rtl;" required>
+								<input type="number" class="form-control" id="rice" placeholder="$" style="direction:rtl;" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="food" class="col-5 col-form-label">Food:</label>
 							<div class="col-7">
-								<input type="number" class="form-control fExpense" id="food" placeholder="$" style="direction:rtl;" required>
+								<input type="number" class="form-control" id="food" placeholder="$" style="direction:rtl;" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="firewood" class="col-5 col-form-label">Firewood-Gas-Chacoal:</label>
 							<div class="col-7">
-								<input type="number" class="form-control fExpense" id="firewood" placeholder="$" style="direction:rtl;" required>
+								<input type="number" class="form-control" id="firewood" placeholder="$" style="direction:rtl;" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="loan" class="col-5 col-form-label">Loan:</label>
 							<div class="col-7">
-								<input type="number" class="form-control fExpense" id="loan" placeholder="$" style="direction:rtl;" required>
+								<input type="number" class="form-control" id="loan" placeholder="$" style="direction:rtl;" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="study" class="col-5 col-form-label">Study:</label>
 							<div class="col-7">
-								<input type="number" class="form-control fExpense" id="study" placeholder="$" style="direction:rtl;" required>
+								<input type="number" class="form-control" id="study" placeholder="$" style="direction:rtl;" required>
 							</div>
 						</div>
 					</div>
@@ -1008,32 +1008,32 @@ body{
 						<div class="form-group row">
 							<label for="medical" class="col-5 col-form-label">Medical:</label>
 							<div class="col-7">
-								<input type="number" class="form-control fExpense" id="medical" placeholder="$" style="direction:rtl;" required>
+								<input type="number" class="form-control" id="medical" placeholder="$" style="direction:rtl;" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="electricity" class="col-5 col-form-label">Electricity & Water:</label>
 							<div class="col-7">
-								<input type="number" class="form-control fExpense" id="electricity" placeholder="$" style="direction:rtl;" required>
+								<input type="number" class="form-control" id="electricity" placeholder="$" style="direction:rtl;" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="agriculture" class="col-5 col-form-label">Agriculture:</label>
 							<div class="col-7">
-								<input type="number" class="form-control fExpense" id="agriculture" placeholder="$" style="direction:rtl;" required>
+								<input type="number" class="form-control" id="agriculture" placeholder="$" style="direction:rtl;" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="wedding" class="col-5 col-form-label">Wedding 
 							& Ceremony:</label>
 							<div class="col-7">
-								<input type="number" class="form-control fExpense" id="wedding" placeholder="$" style="direction:rtl;" required>
+								<input type="number" class="form-control" id="wedding" placeholder="$" style="direction:rtl;" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="otherUtilities" class="col-5 col-form-label">Other utilities:</label>
 							<div class="col-7">
-								<input type="number" class="form-control fExpense" id="otherUtilities" placeholder="$" style="direction:rtl;" required>
+								<input type="number" class="form-control" id="otherUtilities" placeholder="$" style="direction:rtl;" required>
 							</div>
 						</div>	
 					</div>
@@ -1802,37 +1802,28 @@ body{
 
 		});
 
-		$('.form-group').on('input','.fincome',function(){
-				var totalSum = 0;
-				$('.form-group .fincome').each(function(){
-					var inputVal = $(this).val();
-					if($.isNumeric(inputVal)){
-						totalSum += parseFloat(inputVal);
-					}
-				});
-				$('#fTotal').val(totalSum);
-			});
-		$('.form-group').on('input','.cIncome',function(){
-				var cTotalSum = 0;
-				var cMonthly = $(this).val();
-				var cDaily = $(this).val();
-				var cSeasonal= $(this).val();
-				var cYearly= $(this).val();
-				cTotalSum = cMonthly + cDaily  + (cSeasonal + cYearly) / 12;
-				$('#cTotal').val(cTotalSum);
-			});
-		$('.form-group').on('input','.fExpense',function(){
-				var totalExepnseVal = 0;
-				$('.form-group .fExpense').each(function(){
-					var inputExVal = $(this).val();
-					if($.isNumeric(inputExVal)){
-						totalExepnseVal += parseFloat(inputExVal);
-					}
-				});
-				$('#totalExpense').val(totalExepnseVal);
-			});
+
 
 	});
-	
+	$('.form-group').on('input','.fincome',function(){
+			var totalSum = 0;
+			$('.form-group .fincome').each(function(){
+				var inputVal = $(this).val();
+				if($.isNumeric(inputVal)){
+					totalSum += parseFloat(inputVal);
+				}
+			});
+			$('#fTotal').val(totalSum);
+		});
+	$('.form-group').on('input','.cIncome',function(){
+			var cTotalSum = 0;
+			var cMonthly = $(this).val();
+			var cDaily = $(this).val();
+			var cSeasonal= $(this).val();
+			var cYearly= $(this).val();
+			cTotalSum = cMonthly + cDaily  + (cSeasonal + cYearly) / 12;
+			$('#cTotal').val(cTotalSum);
+		});
+
 </script>
 <!-- end form collapsed -->
