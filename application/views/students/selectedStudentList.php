@@ -52,7 +52,7 @@
                 <br>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                      <a href="<?php echo base_url() ?>c_student/allCandidate"><button class="btn btn-default clearfix">All Candidates</button></a>
+                      <a href="<?php echo base_url() ?>c_candidates/allCandidate"><button class="btn btn-default clearfix">All Candidates</button></a>&nbsp;&nbsp;
                       <a href="<?php echo base_url() ?>c_student/selectedCandidate"><button class="btn btn-primary clearfix">Selected Candidates</button></a>
                     </div>
                 </div>
