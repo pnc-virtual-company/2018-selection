@@ -66,8 +66,11 @@ class Candidates_model extends CI_Model {
         $this->db->where("can_global_grade !='Failed' ");
         $query = $this->db->get(); 
         if($query->num_rows() > 0){
-            return $query->result(); 
-
+            return $query->result();
+        }else{
+            return false;
+        }
+    }
     public function showSelected(){
         $this->db->select("skeleton_tbl_candidates.can_id, concat(skeleton_tbl_candidates.can_firstname,' ',skeleton_tbl_candidates.can_lastname) AS can_name,can_gender,can_global_grade,skeleton_tbl_provinces.pro_name AS province");   
         $this->db->from('skeleton_tbl_candidates');   
