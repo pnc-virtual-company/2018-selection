@@ -21,6 +21,8 @@ class Candidates_model extends CI_Model {
     public function __construct() {
 
     }
+
+    // function get all candidates 
     public function showAllCandidates(){
     	$this->db->select("skeleton_tbl_candidates.can_id, concat(skeleton_tbl_candidates.can_firstname,' ',skeleton_tbl_candidates.can_lastname) AS can_name,can_gender,can_global_grade,skeleton_tbl_provinces.pro_name AS province");   
     	$this->db->from('skeleton_tbl_candidates');   
@@ -33,6 +35,7 @@ class Candidates_model extends CI_Model {
     		return false;
     	}
     }
+    // function to delete candidates
     public function deleteCandidate(){
         $id = $this->input->post('id');
         $this->db->where('can_id', $id);
@@ -43,5 +46,39 @@ class Candidates_model extends CI_Model {
             return false;
         }
     }
-
+    // function to count all candidates
+    public function countCandidates(){
+        $this->db->select("count(can_id) AS total");
+        $this->db->from("skeleton_tbl_candidates");
+        $query = $this->db->get();
+        // var_dump($query);die("Hello"); 
+        if($query->num_rows() > 0){
+            return $query->result();   
+        }else{
+            return false;
+        }
+    }
+    // function to count all selected candidates
+    public function countSelectedCandidates(){
+        $this->db->select("count(can_id) AS totalSelected");
+        $this->db->from("skeleton_tbl_candidates");
+        $this->db->where("can_global_grade !='Failed' ");
+        $query = $this->db->get(); 
+        if($query->num_rows() > 0){
+            return $query->result(); 
+        }else{
+            return false;
+        }
+    }
+    // funciton to count all provinces
+    public function countProvinces(){
+        $this->db->select("count(pro_id) AS totalProvinces");
+        $this->db->from("skeleton_tbl_provinces");
+        $query = $this->db->get(); 
+        if($query->num_rows() > 0){
+            return $query->result();  
+        }else{
+            return false;
+        }
+    }
 }

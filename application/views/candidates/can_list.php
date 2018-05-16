@@ -8,7 +8,7 @@
                         <h1 class="mdi mdi-account-outline text-default" style="font-size: 50px;"></h1>
                     </div>
                     <div class="card-body text-right text-white">
-                        <h2 class="color-white">11</h2>
+                        <h2 class="color-white"><?php echo $resultCount; ?></h2>
                         <p class="m-b-0">All candidates</p>
                     </div>
                 </div>
@@ -138,6 +138,7 @@
  <script type="text/javascript">
     $(function() {
     showAllCandidates();
+    // countCandidates();
     //Transform the HTML table in a fancy datatable
     $('#students').dataTable({
         stateSave: true,
@@ -213,6 +214,8 @@
             }
         });
     }
+
+    ///function
 
     $('#showdata').on('click', '.mdi-eye', function(){
             <?php echo "View Candidate Information"; ?>
