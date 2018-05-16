@@ -135,7 +135,7 @@
 
  <script type="text/javascript">
     $(function() {
-    showAllCandidates();  /// call function showAllCandidates
+    showSelectedCandidates();  /// call function showAllCandidates
     countAllCandidates();  /// call function countAllCandidates
     countSelectedCandidates();  /// call function countSelectedCandidates
     countProvinces();   /// call function countProvinces
@@ -230,11 +230,11 @@
             });
         });
     //function to show all candidates into datatable
-    function showAllCandidates(){
+    function showSelectedCandidates(){
         $.ajax({
             type: 'ajax',
             method: 'post',
-            url: '<?php echo base_url() ?>C_candidates/showAllCandidates',
+            url: '<?php echo base_url() ?>C_candidates/showSelected',
             async: false,
             dataType: 'json',
             success: function(data){
