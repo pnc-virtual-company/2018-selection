@@ -122,6 +122,41 @@ class Users extends CI_Controller {
     }
 
     /**
+    * edit normal user
+    *@param $id user identifier
+    *@author Sopheak Rith <sopheak.riths@gmail.com>
+    */
+    public function editUser($id) {
+        $firsname = $this->input->post('firstname');
+        $lastname = $this->input->post('lastname');
+        $userName = $this->input->post('login');
+        $email = $this->input->post('email');
+
+        // $data['users_item'] = $this->users_model->getUsers($id);
+        // if (empty($data['users_item'])) {
+        //     redirect('notfound');
+        // }
+                                                             // this function is user to update for normal user
+        // if ($this->form_validation->run() === FALSE) {
+        //     $data['roles'] = $this->users_model->getRoles();
+        //     $this->load->view('templates/header', $data);
+        //     $this->load->view('menu/index', $data);
+        //     $this->load->view('users/edit', $data);
+        //     $this->load->view('templates/footer');
+        // } else {
+        //     $this->users_model->updateUsers();
+        //     $this->session->set_flashdata('msg', 'The user was successfully updated.');
+        //     if (isset($_GET['source'])) {
+        //         redirect($_GET['source']);
+        //     } else {
+        //         redirect('users');
+        //     }
+        // }
+    }
+    
+
+
+    /**
      * Delete a user. Log it as an error.
      * @param int $id User identifier
      * @author Benjamin BALET <benjamin.balet@gmail.com>
