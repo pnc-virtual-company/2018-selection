@@ -15,16 +15,18 @@ Class C_candidates extends CI_Controller{
 	}
 	function allCandidate() //list all candidate of admin	
 	{
-	$this->load->view('templates/header');			
-	$this->load->view('menu/index');			
-	$this->load->view('welcome');			
-	$this->load->view('templates/footer');		
-	}	
+		$this->load->view('templates/header');			
+		$this->load->view('menu/index');			
+		$this->load->view('welcome');			
+		$this->load->view('templates/footer');		
+	}
+
+	// function to call all Candidates
 	public function showAllCandidates(){
 		$result = $this->m_can->showAllCandidates();
 		echo json_encode($result);
 	}
-
+	// function call delete Candidate
 	public function deleteCandidate(){
 		$result = $this->m_can->deleteCandidate();
 		$msg['success'] = false;
@@ -33,40 +35,20 @@ Class C_candidates extends CI_Controller{
 		}
 		echo json_encode($msg);
 	}
-
-	public function selectedCandidates(){
-		$this->load->view('templates/header');			
-		$this->load->view('menu/index');			
-		$this->load->view('candidates/can_list');			
-		$this->load->view('templates/footer');	
+	// function call count all Candidates
+	public function countCandidates(){
+		$resultCount = $this->m_can->countCandidates();
+		echo json_encode($resultCount);
 	}
-	public function showSelected(){
-		$result = $this->m_can->showSelected();
-		echo json_encode($result);
+	// function call count selected candidates
+	public function countSelectedCandidates(){
+		$resultSelectedCount = $this->m_can->countSelectedCandidates();
+		echo json_encode($resultSelectedCount);
+	}
+	// function call count provinces
+	public function countProvinces(){
+		$resultProvincesCount = $this->m_can->countProvinces();
+		echo json_encode($resultProvincesCount);
 	}
 
-	public function addCandidate()
-	{
-		$fname = $this->input->post('firstname');
-		$lname = $this->input->post('lastname');
-		$gender = $this->input->post('gender');		
-		$class = $this->input->post('class');
-		$year = $this->input->post('year');
-		$stuid = $this->input->post('studentId');
-		$province = $this->input->post('province');		
-		$tutor = $this->input->post('tutor');
-		$query['student'] = $this->m_follow->addStudent($fname,$lname,$gender,$class,$year,$stuid,$province,$tutor);
-		if ($query == true) {
-			// $data['student'] = $this->m_follow->listStudents();	
-			// viewStudent();
-			$data['query'] = $this->m_follow->getStudent();
-			$this->load->view('template/header');
-			$this->load->view('template/menu_manager');
-			$this->load->view('training_manager/v_studentInfo',$data);
-			$this->load->view('template/footer');
-
-		} else {
-			echo "Insert Fail";
-		}
-	}
 }

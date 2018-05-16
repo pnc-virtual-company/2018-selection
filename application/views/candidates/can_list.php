@@ -8,7 +8,7 @@
                         <h1 class="mdi mdi-account-outline text-default" style="font-size: 50px;"></h1>
                     </div>
                     <div class="card-body text-right text-white">
-                        <h2 class="color-white">11</h2>
+                        <h2 class="color-white"><?php echo $resultCount; ?></h2>
                         <p class="m-b-0">All candidates</p>
                     </div>
                 </div>
@@ -118,7 +118,12 @@
 
  <script type="text/javascript">
     $(function() {
+<<<<<<< HEAD
+    showAllCandidates();
+    // countCandidates();
+=======
     selectedCandidates();
+>>>>>>> af474f7ec30dbea7a00e1e4b7971e12d3e5784bf
     //Transform the HTML table in a fancy datatable
     $('#students').dataTable({
         stateSave: true,
@@ -166,6 +171,16 @@
         });
     }
 
+<<<<<<< HEAD
+    ///function
+
+    $('#showdata').on('click', '.mdi-eye', function(){
+            <?php echo "View Candidate Information"; ?>
+        });
+
+
+=======
+>>>>>>> af474f7ec30dbea7a00e1e4b7971e12d3e5784bf
     //Display a modal pop-up so as to confirm if a user has to be deleted or not
     //We build a complex selector because datatable does horrible things on DOM...
     //a simplier selector doesn't work when the delete is on page >1
