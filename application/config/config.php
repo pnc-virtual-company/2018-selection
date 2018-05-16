@@ -531,8 +531,8 @@ $config['proxy_ips'] = '';
 
 //____________________________________________________________________________
 //default email from
-$config['from_mail'] = 'do.not@reply.me';
-$config['from_name'] = 'Skeleton';
+$config['from_mail'] = 'dakhen42@gmail.com';
+$config['from_name'] = 'Selection';
 $config['subject_prefix'] = '[Skeleton] ';
 
 //____________________________________________________________________________
