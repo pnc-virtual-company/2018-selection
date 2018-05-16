@@ -26,7 +26,9 @@ Class C_candidates extends CI_Controller{
 		$result = $this->m_can->showAllCandidates();
 		echo json_encode($result);
 	}
+
 	// function call delete Candidate
+
 	public function deleteCandidate(){
 		$result = $this->m_can->deleteCandidate();
 		$msg['success'] = false;
@@ -35,10 +37,29 @@ Class C_candidates extends CI_Controller{
 		}
 		echo json_encode($msg);
 	}
+
+
+// delete selected candidate
+	public function deleteSelectedCandidate(){
+		$result = $this->m_can->deleteCandidate();
+		$msg['success'] = false;
+		if($result){
+			$msg['success'] = true;
+		}
+		echo json_encode($msg);
+	}
+
+	public function selectedCandidates(){
+		$this->load->view('templates/header');			
+		$this->load->view('menu/index');			
+		$this->load->view('candidates/can_list');			
+		$this->load->view('templates/footer');	
+	}
 	// function call count all Candidates
 	public function countCandidates(){
 		$resultCount = $this->m_can->countCandidates();
 		echo json_encode($resultCount);
+
 	}
 	// function call count selected candidates
 	public function countSelectedCandidates(){
@@ -49,12 +70,6 @@ Class C_candidates extends CI_Controller{
 	public function countProvinces(){
 		$resultProvincesCount = $this->m_can->countProvinces();
 		echo json_encode($resultProvincesCount);
-	}
-	public function selectedCandidates(){
-	  $this->load->view('templates/header');   
-	  $this->load->view('menu/index');   
-	  $this->load->view('candidates/can_list');   
-	  $this->load->view('templates/footer'); 
 	}
 	public function showSelected(){
 	  $result = $this->m_can->showSelected();

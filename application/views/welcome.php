@@ -42,9 +42,7 @@
             </div>
 
         </div>
-    
     <br>
-    
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8">
                 <h1 class="text-center">List of candidates</h1>
@@ -114,8 +112,8 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">Confirm Delete</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
             Do you want to delete this record?
