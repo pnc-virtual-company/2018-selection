@@ -76,4 +76,8 @@ Class C_candidates extends CI_Controller{
 	  echo json_encode($result);
 	}
 
+	public function export() {
+	    $this->load->view('candidates/export');
+	}
+
 }
