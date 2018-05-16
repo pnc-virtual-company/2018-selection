@@ -50,5 +50,15 @@ Class C_candidates extends CI_Controller{
 		$resultProvincesCount = $this->m_can->countProvinces();
 		echo json_encode($resultProvincesCount);
 	}
+	public function selectedCandidates(){
+	  $this->load->view('templates/header');   
+	  $this->load->view('menu/index');   
+	  $this->load->view('candidates/can_list');   
+	  $this->load->view('templates/footer'); 
+	}
+	public function showSelected(){
+	  $result = $this->m_can->showSelected();
+	  echo json_encode($result);
+	}
 
 }
