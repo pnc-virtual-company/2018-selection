@@ -52,7 +52,7 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                       <a href="<?php echo base_url() ?>c_candidates/allCandidate"><button class="btn btn-primary clearfix">All candidates</button></a>&nbsp;&nbsp;
-                      <a href="<?php echo base_url() ?>c_student/selectedCandidate"><button class="btn btn-default clearfix">Selected candidates</button></a>
+                      <a href="<?php echo base_url() ?>c_candidates/selectedCandidates"><button class="btn btn-default clearfix">Selected candidates</button></a>
                     </div>
                 </div>
                 <br>
@@ -109,6 +109,25 @@
         </div>
 </div>
 <br><br>
+<!-- pop up delete -->
+<div id="deleteModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Confirm Delete</h4>
+      </div>
+      <div class="modal-body">
+            Do you want to delete this record?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" id="btnDelete" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /pop up delete -->
  <link href="<?php echo base_url();?>assets/DataTable/DataTables-1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
  <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
  <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
@@ -184,10 +203,39 @@
             });
         }
 
+    //function to delete candidate
+        $('#showdata').on('click', '.item-delete', function(){
+            var id = $(this).attr('data');
+            $('#deleteModal').modal('show');
+            //prevent previous handler - unbind()
+            $('#btnDelete').unbind().click(function(){
+                $.ajax({
+                    type: 'ajax',
+                    method: 'get',
+                    async: false,
+                    url: '<?php echo base_url() ?>C_candidates/deleteCandidate',
+                    data:{can_id:id},
+                    dataType: 'json',
+                    success: function(response){
+                        if(response.success){
+                            $('#deleteModal').modal('hide');
+                            $('.alert-success').html('Candidate Deleted successfully').fadeIn().delay(4000).fadeOut('slow');
+                            showAllCandidates();
+                        }else{
+                            alert('Error');
+                        }
+                    },
+                    error: function(){
+                        alert('Error deleting');
+                    }
+                });
+            });
+        });
     //function to show all candidates into datatable
     function showAllCandidates(){
         $.ajax({
             type: 'ajax',
+            method: 'post',
             url: '<?php echo base_url() ?>C_candidates/showAllCandidates',
             async: false,
             dataType: 'json',
@@ -206,7 +254,7 @@
                                 '<td>'+
                                     '<a href="javascript:;" class="mdi mdi-eye text-info" title="View candidate information" data="'+data[i].can_id+'"></a>&nbsp;'+
                                     '<a href="javascript:;" class="mdi mdi-pencil-box-outline text-success" title="Edit candidate information" data="'+data[i].can_id+'"></a>&nbsp;'+
-                                    '<a href="javascript:;" class="mdi mdi-delete text-danger" title="Delete candidate information" data="'+data[i].can_id+'"></a>'+
+                                    '<a href="javascript:;" class="mdi mdi-delete text-danger item-delete" title="Delete candidate information" data="'+data[i].can_id+'"></a>'+
                                 '</td>'+
                                 '<td>'+data[i].can_name+'</td>'+
                                 '<td>'+data[i].province+'</td>'+

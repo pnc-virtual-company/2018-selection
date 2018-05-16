@@ -51,14 +51,14 @@
                 <br>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                      <a href="<?php echo base_url() ?>c_student/allCandidate"><button class="btn btn-primary clearfix">All candidates</button></a>
-                      <a href="<?php echo base_url() ?>c_student/selectedCandidate"><button class="btn btn-default clearfix">Selected candidates</button></a>
+                      <a href="<?php echo base_url() ?>c_candidates/allCandidate"><button class="btn btn-default clearfix">All candidates</button></a>&nbsp;&nbsp;
+                      <a href="<?php echo base_url() ?>c_candidates/selectedCandidates"><button class="btn btn-primary clearfix">Selected candidates</button></a>
                     </div>
                 </div>
                 <br>
                 <div class="row">
                   <div class="table-responsive-sm">
-                    <table id="students" class="table table-striped table-bordered table-hover">
+                    <table id="students" cellpadding="0" cellspacing="0" class="table table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -76,14 +76,13 @@
                         </table>
                   </div>
                 </div>
+                <br>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
-                        <a href="<?php echo base_url() ?>c_student/view_candidate_info"">
-                            <button id="addButton" class="btn btn-primary clearfix">
-                                <i class="mdi mdi-account-plus"></i>
+                        <a href="<?php echo base_url() ?>c_student/view_candidate_info" class="btn btn-primary clearfix" id="addButton" >
+                            <i class="mdi mdi-account-plus"></i>
                             &nbsp;New candidate
-                            </button>
-                        </a>
+                        </a>&nbsp;&nbsp;
                         <a href="<?php echo base_url() ?>c_student/map">
                             <button id="mapButton" class="btn btn-primary clearfix"><i class="mdi mdi-map"></i>
                           &nbsp;Province distribution</button>
@@ -91,42 +90,24 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-4">
-                <h1 class="text-center">Distribution</h1>
-                <br>
-                <canvas id="pie-chart" width="900" height="800"></canvas>
-                <br>
-                <h1 class="text-center">Selected candidate</h1>
-                <div class="row">
-                    <div class="col-md-6">
-                        <canvas id="pie-chart1" width="900" height="800"></canvas>
-                    </div>
-                    <div class="col-md-6">
-                        <canvas id="pie-chart2" width="900" height="800"></canvas>
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-4">
+                    <h1 class="text-center">Distribution</h1>
+                    <br><br>
+                    <canvas id="pie-chart" width="900" height="800"></canvas>
+                    <br>
+                    <h1 class="text-center">Selected candidate</h1>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <canvas id="pie-chart1" width="900" height="900"></canvas>
+                        </div>
+                        <div class="col-md-6">
+                            <canvas id="pie-chart2" width="900" height="900"></canvas>
+                        </div>
                     </div>
                 </div>
-            </div>
+
         </div>
 </div>
-<!-- pop up delete -->
-<div id="deleteModal" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Confirm Delete</h4>
-      </div>
-      <div class="modal-body">
-            Do you want to delete this record?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" id="btnDelete" class="btn btn-danger">Delete</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
 <br><br>
  <link href="<?php echo base_url();?>assets/DataTable/DataTables-1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
  <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
@@ -137,47 +118,22 @@
 
  <script type="text/javascript">
     $(function() {
+<<<<<<< HEAD
     showAllCandidates();
     // countCandidates();
+=======
+    selectedCandidates();
+>>>>>>> af474f7ec30dbea7a00e1e4b7971e12d3e5784bf
     //Transform the HTML table in a fancy datatable
     $('#students').dataTable({
         stateSave: true,
     });
 
-    //delete- 
-        $('#showdata').on('click', '.item-delete', function(){
-            var id = $(this).attr('data');
-            $('#deleteModal').modal('show');
-            //prevent previous handler - unbind()
-            $('#btnDelete').unbind().click(function(){
-                $.ajax({
-                    type: 'ajax',
-                    method: 'get',
-                    async: false,
-                    url: '<?php echo base_url() ?>C_candidates/deleteCandidate',
-                    data:{id:id},
-                    dataType: 'json',
-                    success: function(response){
-                        if(response.success){
-                            $('#deleteModal').modal('hide');
-                            $('.alert-success').html('Candidate deleted successfully').fadeIn().delay(4000).fadeOut('slow');
-                            showAllEmployee();
-                        }else{
-                            alert('Error');
-                        }
-                    },
-                    error: function(){
-                        alert('Error deleting');
-                    }
-                });
-            });
-        });
-
     //function
-    function showAllCandidates(){
+    function selectedCandidates(){
         $.ajax({
             type: 'ajax',
-            url: '<?php echo base_url() ?>C_candidates/showAllCandidates',
+            url: '<?php echo base_url() ?>c_candidates/showSelected',
             async: false,
             dataType: 'json',
             success: function(data){
@@ -185,7 +141,7 @@
                 var id=1;
                 var selected = "";
                 for(i=0; i<data.length; i++){
-                    if (data[i].can_global_grade ==="Failed") {
+                    if (data[i].can_global_grade === "Failed") {
                         selected ="No";
                     }else{
                         selected = "Yes";
@@ -215,6 +171,7 @@
         });
     }
 
+<<<<<<< HEAD
     ///function
 
     $('#showdata').on('click', '.mdi-eye', function(){
@@ -222,6 +179,8 @@
         });
 
 
+=======
+>>>>>>> af474f7ec30dbea7a00e1e4b7971e12d3e5784bf
     //Display a modal pop-up so as to confirm if a user has to be deleted or not
     //We build a complex selector because datatable does horrible things on DOM...
     //a simplier selector doesn't work when the delete is on page >1
@@ -259,6 +218,7 @@ new Chart(document.getElementById("pie-chart"), {
       }
     }
 });
+
 // pie chart1 of gender
 new Chart(document.getElementById("pie-chart1"), {
     type: 'pie',
@@ -295,5 +255,6 @@ new Chart(document.getElementById("pie-chart2"), {
       }
     }
 });
+
 
 </script>
