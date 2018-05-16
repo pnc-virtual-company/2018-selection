@@ -14,7 +14,7 @@ Class C_candidates extends CI_Controller{
 		$this->load->view('templates/footer');
 	}
 	function allCandidate() //list all candidate of admin	
-	{ 		
+	{
 	$this->load->view('templates/header');			
 	$this->load->view('menu/index');			
 	$this->load->view('welcome');			
@@ -23,6 +23,15 @@ Class C_candidates extends CI_Controller{
 	public function showAllCandidates(){
 		$result = $this->m_can->showAllCandidates();
 		echo json_encode($result);
+	}
+
+	public function deleteCandidate(){
+		$result = $this->m_can->deleteCandidate();
+		$msg['success'] = false;
+		if($result){
+			$msg['success'] = true;
+		}
+		echo json_encode($msg);
 	}
 
 }

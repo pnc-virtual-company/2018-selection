@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
 <style>
 body, html {
@@ -14,7 +14,7 @@ body, html {
     position: relative;
     color: white;
     font-family: "Courier New", Courier, monospace;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .topleft {
