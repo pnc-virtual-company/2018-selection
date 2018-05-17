@@ -80,4 +80,9 @@ Class C_candidates extends CI_Controller{
      $this->load->view('candidates/export');
  }
 
+	public function exportSelectedCan()
+	{
+		$this->load->view('candidates/exportSelected');
+	}
+
 }
