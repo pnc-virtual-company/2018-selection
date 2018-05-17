@@ -7,15 +7,12 @@ body{
 </style>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 <!-- form header -->
-<br>
 <div class="container">
 	<div class="row">
-		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
-		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-8">
-			<img class="text-center" src="<?php echo base_url() ?>assets/images/background/neourng.jpg" style="width: 45%; margin-left: 27%;"/><br>
-			<p class="text-center">Nuon neourng</p>
+		<div class="col-lg-5 col-md-5 col-sm-4 col-xs-4"></div>
+		<div class="col-lg-7 col-md-7 col-sm-8 col-xs-8">
+			<img src="<?php echo base_url() ?>assets/images/background/neourng.jpg" style="width: 25%" class="text-center"><br>nuon neourng
 		</div>	
-		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
 	</div>
 	<br>
 	<div class="form-group row">
@@ -65,30 +62,31 @@ body{
 					</div><br>
 					<form action="" method="POST">
 						<div class="row">
-							<div class="col-lg-5 col-md-5">
+							<div class="col-lg-4 col-md-4">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Firstname :</label>
+									<label for="gender" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Firstname :</label>
 									<div class="col-lg-6 col-md-6 col-xs-12">
-										<input type="text" class="form-control" placeholder="Firstname">
+										<input type="text" class="form-control" placeholder="firstname">
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-7 col-md-7">
-								<div class="form-group row">
-									<div class="col-lg-2 col-md-2"></div>
-									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Lastname :</label>
-									<div class="col-lg-5 col-md-5 col-xs-12">
-										<input type="text" class="form-control" placeholder="Lastname">
-									</div>
-								</div>
-							</div>	
-						</div>
-						<div class="row">
-							<div class="col-lg-5 col-md-5">
+							<div class="col-lg-4 col-md-4">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Gender :</label>
+									<label for="gender" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Lastname :</label>
+									<div class="col-lg-6 col-md-6 col-xs-12">
+										<input type="text" class="form-control" placeholder="lastname">
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-4"></div>
+						</div>
+						<div class="row">
+							<div class="col-lg-4 col-md-4">
+								<div class="form-group row">
+									<div class="col-lg-1 col-md-1"></div>
+									<label for="gender" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Gender :</label>
 									<div class="col-lg-6 col-md-6 col-xs-12">
 										<select class="form-control" name="gender" id="gender">
 											<option value="Male">Male</option>
@@ -97,21 +95,22 @@ body{
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-7 col-md-7">
+							<div class="col-lg-4 col-md-4">
 								<div class="form-group row">
-									<div class="col-lg-2 col-md-2"></div>
-									<label for="age" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Age :</label>
-									<div class="col-lg-5 col-md-5 col-xs-12">
+									<div class="col-lg-1 col-md-1"></div>
+									<label for="age" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Age :</label>
+									<div class="col-lg-6 col-md-6 col-xs-12">
 										<input type="number" class="form-control" id="age" placeholder="Your Age " required>
 									</div>
 								</div>
 							</div>
+							<div class="col-lg-4 col-md-4"></div>
 						</div>
 						<div class="row">
-							<div class="col-lg-5 col-md-5">
+							<div class="col-lg-4 col-md-4">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="province" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Province :</label>
+									<label for="province" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Province :</label>
 									<div class="col-lg-6 col-md-6 col-xs-12">
 										<select class="form-control" name="Province" id="province">
 											<option value="Banteay MeanChey">Banteay MeanChey</option>
@@ -142,13 +141,14 @@ body{
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-7 col-md-7"></div>
+							<div class="col-lg-4 col-md-4"></div>
+							<div class="col-lg-4 col-md-4"></div>
 						</div>
 						<div class="row">
-							<div class="col-lg-5 col-md-5">
+							<div class="col-lg-4 col-md-4">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="ngo" class="col-lg-5 col-md-5 col-xs-12 col-form-label">NGO :</label>
+									<label for="ngo" class="col-lg-4 col-md-4 col-xs-12 col-form-label">NGO :</label>
 									<div class="col-lg-6 col-md-6 col-xs-12">
 										<select class="form-control" id="ngo" name="ngo">
 											<option value="PSE">PSE</option>
@@ -161,9 +161,9 @@ body{
 							</div>
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-md-2"></div>
+									<div class="col-md-1"></div>
 									<label for="ngoOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label">Other :</label>
-									<div class="col-lg-8 col-md-8 col-xs-12">
+									<div class="col-lg-9 col-md-9 col-xs-12">
 										<input type="text" class="form-control" id="ngoOther" placeholder="If other, please specify " required style="margin-left: -4px;">
 									</div>
 								</div>
@@ -171,10 +171,10 @@ body{
 							<div class="col-lg-1 col-md-1"></div>
 						</div>
 						<div class="row">
-							<div class="col-lg-5 col-md-5">
+							<div class="col-lg-4 col-md-4">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="health" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Health status :</label>
+									<label for="health" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Health status :</label>
 									<div class="col-lg-6 col-md-6 col-xs-12">
 										<select class="form-control" id="health">
 											<option value="#">Healthy</option>
@@ -186,19 +186,19 @@ body{
 							</div>
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-md-2"></div>
+									<div class="col-md-1"></div>
 									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label">Other :</label>
-									<div class="col-lg-8 col-md-8 col-xs-12">
+									<div class="col-lg-9 col-md-9 col-xs-12">
 										<input type="text" class="form-control" id="healthOther" placeholder="If some health issuses, please specify" required style="margin-left: -4px;">
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-lg-5 col-md-5">
+							<div class="col-lg-4 col-md-4">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="rankClass" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Rank in class :</label>
+									<label for="rankClass" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Rank in class :</label>
 									<div class="col-lg-6 col-md-6 col-xs-12">
 										<input type="text" class="form-control" id="rankClass" placeholder="Ex: 10/33" required>
 									</div>
@@ -206,31 +206,31 @@ body{
 							</div>		
 						</div>
 						<div class="row">
-							<div class="col-lg-5 col-md-5">
+							<div class="col-lg-4 col-md-4">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
 									<label for="activityActivity" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Extracuricular activity 
 									& achievement :</label>	
 								</div>
-							</div>
+							</div>	
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-md-2"></div>
-									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
-									<div class="col-lg-8 col-md-8 col-xs-12">
-										<input type="text" class="form-control" id="healthOther" placeholder="Please comment" required style="margin-left: -4px;">
+									<div class="col-md-1"></div>
+									<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+									<div class="col-lg-9 col-md-9 col-xs-12">
+										<input type="text" class="form-control" id="activityActivity" placeholder="please comment" required>
 									</div>
 								</div>
-							</div>
+							</div>	
 						</div>
 						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><h5>Motivation</h5></div>
 						<div class="col-lg-8 col-md-8 col-sm-10 col-xs-12"></div><br>
 						<div class="row">
-							<div class="col-lg-5 col-md-5">
+							<div class="col-lg-6 col-md-6">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">PNC choice rank :</label>
-									<div class="col-lg-6 col-md-6 col-xs-12">
+									<label for="pncChoice" class="col-lg-6 col-md-6 col-xs-12 col-form-label">PNC choice rank :</label>
+									<div class="col-lg-4 col-md-4 col-xs-12">
 										<select class="form-control" id="pncChoice">
 											<option value="#">1</option>
 											<option value="#">2</option>
@@ -240,51 +240,51 @@ body{
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-7 col-md-7">
+							<div class="col-lg-6 col-md-6">
 								<div class="form-group row">
-									<div class="col-lg-2 col-md-2"></div>
-									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Responsibility & maturity :</label>
-									<div class="col-lg-5 col-md-5 col-xs-12">
+									<div class="col-lg-1 col-md-1"></div>
+									<label for="responsibility" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Responsibility & maturity :</label>
+									<div class="col-lg-4 col-md-4 col-xs-12">
 										<input type="text" class="form-control" id="responsibility" placeholder="Ex: 18/20" required style="">
 									</div>
 								</div>
-							</div>	
+							</div>
 						</div>
 						<div class="row">
-							<div class="col-lg-5 col-md-5">
+							<div class="col-lg-6 col-md-6">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Motivation for PNC</label>
-									<div class="col-lg-6 col-md-6 col-xs-12">
+									<label for="motivation" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Motivation for PNC :</label>
+									<div class="col-lg-4 col-md-4 col-xs-12">
 										<input type="text" class="form-control" id="motivation" placeholder="Ex: 18/20" required>
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-7 col-md-7">
-								<div class="form-group row">
-									<div class="col-lg-2 col-md-2"></div>
-									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Communication :</label>
-									<div class="col-lg-5 col-md-5 col-xs-12">
-										<input type="text" class="form-control" id="motivation" placeholder="Ex: 18/20" required>
-									</div>
-								</div>
-							</div>	
-						</div>
-						<div class="row">
-							<div class="col-lg-5 col-md-5">
+							<div class="col-lg-6 col-md-6">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Other scholarship</label>
-									<div class="col-lg-6 col-md-6 col-xs-12">
-										<input type="text" class="form-control" id="scholarship" placeholder="Other" required>
+									<label for="communication" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Communication :</label>
+									<div class="col-lg-4 col-md-4 col-xs-12">
+										<input type="text" class="form-control" id="communication" placeholder="Ex: 10/10" required>
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-7 col-md-7">
+						</div>
+						<div class="row">
+							<div class="col-lg-6 col-md-6">
 								<div class="form-group row">
-									<div class="col-lg-2 col-md-2"></div>
-									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Choice rank :</label>
-									<div class="col-lg-5 col-md-5 col-xs-12">
+									<div class="col-lg-1 col-md-1"></div>
+									<label for="scholarship" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Other scholarship :</label>
+									<div class="col-lg-4 col-md-4 col-xs-12">
+										<input type="text" class="form-control" id="scholarship" placeholder="other" required>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6">
+								<div class="form-group row">
+									<div class="col-lg-1 col-md-1"></div>
+									<label for="choiceRank" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Choice Rank :</label>
+									<div class="col-lg-4 col-md-4 col-xs-12">
 										<select class="form-control" name="rank" id="choiceRank">
 											<option value="1">1</option>
 											<option value="2">2</option>
@@ -293,12 +293,11 @@ body{
 										</select>
 									</div>
 								</div>
-							</div>	
+							</div>
 						</div>
 						
-						
 						<div class="row">
-							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12"></div>
+							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
 							<div class="col-lg-4 col-md-4 col-sm-9 col-xs-12">
 								<a href="#" data-toggle="modal" data-target="#myModal">
 									<h6>
@@ -312,41 +311,41 @@ body{
 						
 						<!-- / close pop up -->
 						<div class="row">
-							<div class="col-lg-5 col-md-5">
+							<div class="col-lg-4 col-md-4">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="activityActivity" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the student :</label>	
+									<label for="studentCommit" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the student :</label>	
 								</div>
-							</div>
+							</div>	
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-md-2"></div>
-									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
-									<div class="col-lg-8 col-md-8 col-xs-12">
-										<input type="text" class="form-control" id="studentCommit" placeholder="Please comment" required>
+									<div class="col-md-1"></div>
+									<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+									<div class="col-lg-9 col-md-9 col-xs-12">
+										<input type="text" class="form-control" id="studentCommit" placeholder="please comment" required>
 									</div>
 								</div>
-							</div>
+							</div>	
 						</div>
 						<div class="row">
-							<div class="col-lg-5 col-md-5">
+							<div class="col-lg-4 col-md-4">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="activityActivity" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the parents :</label>	
+									<label for="parentsCommit" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the parents :</label>	
 								</div>
-							</div>
+							</div>	
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-md-2"></div>
-									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
-									<div class="col-lg-8 col-md-8 col-xs-12">
-										<input type="text" class="form-control" id="parentsCommit" placeholder="Please comment" required>
+									<div class="col-md-1"></div>
+									<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+									<div class="col-lg-9 col-md-9 col-xs-12">
+										<input type="text" class="form-control" id="parentsCommit" placeholder="please comment" required>
 									</div>
 								</div>
-							</div>
+							</div>	
 						</div>
 						<div class="row">
-							<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12"></div>
+							<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12"></div>
 							<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
 								<button type="button" class="btn btn-primary float-right">Save information</button><br><br>	
 							</div>
@@ -390,29 +389,24 @@ body{
 							<div class="card-body contentBody">
 								<h5>Father</h5>
 								<form action="" method="POST">
-								<div class="row">
-										<div class="col-lg-5 col-md-5 col-sm-4">
+									<div class="row">
+										<div class="col-lg-2 col-md-2 col-sm-4">
 											<div class="form-group row">
-												<div class="col-lg-1 col-md-1"></div>
 												<div class="col-lg-5 col-md-4 col-sm-4">
 													<label for="fAge" class="col-form-label">Age :</label>
 												</div>
-												<div class="col-lg-6 col-md-6 col-sm-8">
+												<div class="col-lg-7 col-md-8 col-sm-8">
 													<input type="number" name="fAge" id="fAge" class="form-control">
 												</div>
 											</div>
 										</div>
-										<div class="col-lg-7 col-md-7"></div>
-										
-								</div>
-								<div class="row">
-									<div class="col-lg-5 col-md-5 col-sm-8">
-										<div class="form-group row">
-											<div class="col-lg-1 col-md-1"></div>
-											<div class="col-lg-5 col-md-5 col-sm-4">
-												<label for="fOccupation" class="col-form-label">Occupation :</label>
+
+										<div class="col-lg-5 col-md-5 col-sm-8">
+											<div class="form-group row">
+												<div class="col-lg-5 col-md-5 col-sm-4">
+													<label for="fOccupation" class="col-form-label">Occupation :</label>
 												</div>
-												<div class="col-lg-6 col-md-6 col-sm-8">
+												<div class="col-lg-7 col-md-7 col-sm-8">
 													<select class="form-control" name="Occupation" 
 													id="fOccupation">
 													<option value="Farmer/Laborer">Farmer/Laborer</option>
@@ -425,19 +419,19 @@ body{
 											</div>
 										</div>
 									</div>
-									<div class="col-lg-1 col-md-1"></div>
-									<div class="col-lg-6 col-md-6 col-sm-12">
+									<br>
+									<div class="col-lg-5 col-md-5 col-sm-12">
 										<input type="text" name="specify" id="" class="form-control" placeholder="If other, please specify">
 									</div>
 								</div>
+								<br>
 								<div class="row">
-									<div class="col-lg-5 col-md-5 col-sm-8">
+									<div class="col-md-4">
 										<div class="form-group row">
-											<div class="col-lg-1 col-md-1"></div>
-											<div class="col-lg-5 col-md-5 col-sm-4">
-												<label for="fOccupation" class="col-form-label">Health status :</label>
-												</div>
-												<div class="col-lg-6 col-md-6 col-sm-8">
+											<div class="col-md-6">
+												<label for="fHealth" class="col-form-label">Health status :</label>
+											</div>
+											<div class="col-md-6">
 												<select name="fHealth" id="fHealth" class="form-control">
 													<option value="Healthy">Healthy</option>
 													<option value="issues">Other</option>
@@ -445,19 +439,18 @@ body{
 											</div>
 										</div>
 									</div>
-									<div class="col-lg-1 col-md-1"></div>
-									<div class="col-lg-6 col-md-6 col-sm-12">
+									<div class="col-md-8">
 										<input type="text" name="healthSpecify" id="" class="form-control" placeholder="If health issues, please specify" />
 									</div>
 								</div>
+								<br>
 								<div class="row">
-									<div class="col-md-5 col-sm-12">
+									<div class="col-md-4 col-sm-12">
 										<div class="form-group row">
-											<div class="col-lg-1 col-md-1"></div>
-											<div class="col-md-5 col-sm-4">
+											<div class="col-md-4 col-sm-4">
 												<label for="fEdu" class="col-form-label">Education :</label>
 											</div>
-											
+											<div class="col-md-2 col-sm-1"></div>
 											<div class="col-md-6 col-sm-4">
 												<select class="form-control" name="Education" 
 												id="fEdu">
@@ -484,94 +477,87 @@ body{
 							<br>
 							<h5>Mother</h5>
 							<div class="row">
-										<div class="col-lg-5 col-md-5 col-sm-4">
-											<div class="form-group row">
-												<div class="col-lg-1 col-md-1"></div>
-												<div class="col-lg-5 col-md-4 col-sm-4">
-													<label for="fAge" class="col-form-label">Age :</label>
-												</div>
-												<div class="col-lg-6 col-md-6 col-sm-8">
-													<input type="number" name="fAge" id="fAge" class="form-control">
-												</div>
-											</div>
+								<div class="col-md-2">
+									<div class="form-group row">
+										<div class="col-lg-5 col-md-4 col-sm-4">
+											<label for="mAge" class="col-form-label">Age :</label>
 										</div>
-										<div class="col-lg-7 col-md-7"></div>
-										
-								</div>
-								<div class="row">
-									<div class="col-lg-5 col-md-5 col-sm-8">
-										<div class="form-group row">
-											<div class="col-lg-1 col-md-1"></div>
-											<div class="col-lg-5 col-md-5 col-sm-4">
-												<label for="fOccupation" class="col-form-label">Occupation :</label>
-												</div>
-												<div class="col-lg-6 col-md-6 col-sm-8">
-													<select class="form-control" name="Occupation" 
-													id="fOccupation">
-													<option value="Farmer/Laborer">Farmer/Laborer</option>
-													<option value="Teacher">Teacher</option>
-													<option value="Soldier">Soldier</option>
-													<option value="Police Officer">Police Officer</option>
-													<option value="Agriculture">Agriculture</option>
-													<option value="Other">Other</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="col-lg-1 col-md-1"></div>
-									<div class="col-lg-6 col-md-6 col-sm-12">
-										<input type="text" name="specify" id="" class="form-control" placeholder="If other, please specify">
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-5 col-md-5 col-sm-8">
-										<div class="form-group row">
-											<div class="col-lg-1 col-md-1"></div>
-											<div class="col-lg-5 col-md-5 col-sm-4">
-												<label for="fOccupation" class="col-form-label">Health status :</label>
-												</div>
-												<div class="col-lg-6 col-md-6 col-sm-8">
-												<select name="fHealth" id="fHealth" class="form-control">
-													<option value="Healthy">Healthy</option>
-													<option value="issues">Other</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="col-lg-1 col-md-1"></div>
-									<div class="col-lg-6 col-md-6 col-sm-12">
-										<input type="text" name="healthSpecify" id="" class="form-control" placeholder="If health issues, please specify" />
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-5 col-sm-12">
-										<div class="form-group row">
-											<div class="col-lg-1 col-md-1"></div>
-											<div class="col-md-5 col-sm-4">
-												<label for="fEdu" class="col-form-label">Education :</label>
-											</div>
-											
-											<div class="col-md-6 col-sm-4">
-												<select class="form-control" name="Education" 
-												id="fEdu">
-												<option value="1">1</option>
-												<option value="2">2</option>
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-												<option value="6">6</option>
-												<option value="7">7</option>
-												<option value="8">8</option>
-												<option value="9">9</option>
-												<option value="10">10</option>
-												<option value="11">11</option>
-												<option value="12">12</option>
-												<option value="University">University</option>
-											</select>
+										<div class="col-lg-7 col-md-8 col-sm-8">
+											<input type="number" name="mAge" id="mAge" class="form-control">
 										</div>
 									</div>
 								</div>
-								<div class="col-md-8"></div>
+								<!-- <div class="col-md-"></div> -->
+								<div class="col-md-5">
+									<div class="form-group row">
+										<div class="col-md-5">
+											<label for="mOccupation" class="col-form-label">Occupation :</label>
+										</div>
+										<div class="col-md-7">
+											<select class="form-control" name="Occupation" 
+											id="mOccupation">
+											<option value="Farmer/Laborer">Farmer/Laborer</option>
+											<option value="Teacher">Teacher</option>
+											<option value="Soldier">Soldier</option>
+											<option value="Police Officer">Police Officer</option>
+											<option value="Agriculture">Agriculture</option>
+											<option value="Other">Other</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-5">
+								<input type="text" name="specify" id="" class="form-control" placeholder="If other, please specify">
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="form-group row">
+									<div class="col-md-6">
+										<label for="mHealth" class="col-form-label">Health status :</label>
+									</div>
+									<div class="col-md-6">
+										<select name="health" id="mHealth" class="form-control">
+											<option value="Healthy">Healthy</option>
+											<option value="issues">Other</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-8">
+								<input type="text" name="healthSpecify" id="" class="form-control" placeholder="If health issues, please specify" />
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="form-group row">
+									<div class="col-md-4">
+										<label for="mEdu" class="col-form-label">Education :</label>
+									</div>
+									<div class="col-md-2"></div>
+									<div class="col-md-6">
+										<select class="form-control" name="Education" 
+										id="mEdu">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
+										<option value="University">University</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-8"></div>
 					</div>
 					<!-- end of mother information -->
 					<!-- siblings -->
@@ -707,8 +693,8 @@ body{
 		</div>
 		<br>
 		<div class="row">
-			<div class="col-md-9 col-sm-9"></div>
-			<div class="col-md-3 col-sm-3">
+			<div class="col-md-10 col-sm-10"></div>
+			<div class="col-md-2 col-sm-2">
 				<button class="btn btn-primary btn-block" type="button">Save information</button>
 			</div>
 		</div>
@@ -912,7 +898,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="cTotal" placeholder="$" style="direction: rtl;" required>
+								<input type="number" class="form-control " id="cTotal" placeholder="$" style="direction: rtl;" required>
 							</div>
 						</div>
 					</div>	
@@ -935,7 +921,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="gTotal1" placeholder="$" style="direction: rtl;" required>
+								<input type="number" class="form-control gincome" id="gTotal1" placeholder="$" style="direction: rtl;" required>
 							</div>
 						</div>
 					</div>	
@@ -952,7 +938,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="gTotal2" placeholder="$" style="direction: rtl;" required>
+								<input type="number" class="form-control gincomein" id="gTotal2" placeholder="$" style="direction: rtl;" required>
 							</div>
 						</div>
 					</div>	
@@ -1733,8 +1719,11 @@ body{
 									<!-- button save information for home asset -->
 									<br>
 									<div class="row">
-										<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12"></div>
-										<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+										<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
+										<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
+										<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
+										<div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+										<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
 											<button class="btn btn-primary btn-block">Save information</button>
 										</div>
 									</div>
@@ -1812,26 +1801,44 @@ body{
 			$(".subUp",this).toggle();
 
 		});
+		// function calculat family income 
 
 		$('.form-group').on('input','.fincome',function(){
-				var totalSum = 0;
-				$('.form-group .fincome').each(function(){
-					var inputVal = $(this).val();
-					if($.isNumeric(inputVal)){
-						totalSum += parseFloat(inputVal);
-					}
-				});
-				$('#fTotal').val(totalSum);
+				var fTotalSum;
+				var fMonthly = $('#fMonthly').val();
+				var fDaily = $('#fDaily').val();
+				var fSeasonal= $('#fSeasonal').val();
+				var fYearly= $('#fYearly').val(); 
+				fTotalSum =Number(fMonthly)+(Number(fDaily)*30)+(Number(fSeasonal)+Number(fYearly))/12;
+				$('#fTotal').val(fTotalSum);
 			});
+
 		$('.form-group').on('input','.cIncome',function(){
-				var cTotalSum = 0;
-				var cMonthly = $(this).val();
-				var cDaily = $(this).val();
-				var cSeasonal= $(this).val();
-				var cYearly= $(this).val();
-				cTotalSum = cMonthly + cDaily  + (cSeasonal + cYearly) / 12;
+				var cTotalSum;
+				var cMonthly = $('#cMonthly').val();
+				var cDaily = $('#cDaily').val();
+				var cSeasonal= $('#cSeasonal').val();
+				var cYearly= $('#cYearly').val();
+				cTotalSum = Number(cMonthly)+(Number(cDaily)*30)+(Number(cSeasonal)+ Number(cYearly))/12;
 				$('#cTotal').val(cTotalSum);
 			});
+		$('.form-group').on('input','.gincome',function(){
+				var gTotal;
+				var fTotalSum=$('#fTotal').val();
+				var cTotalSum=$('#cTotal').val();
+				gTotal=Number(fTotalSum)+Number(cTotalSum);
+				$('#gTotal1').val(gTotal);
+		});
+		$('.form-group').on('input','.gincomein',function(){
+				var gTotalIn;
+				var fTotalSum = $('#fTotal').val();
+				var cTotalSum = $('#cTotal').val();
+				gTotalIn = Number(fTotalSum) / Number(cTotalSum);
+				$('#gTotal2').val(gTotalIn);
+		});
+
+
+		// function calculat family expense
 		$('.form-group').on('input','.fExpense',function(){
 				var totalExepnseVal = 0;
 				$('.form-group .fExpense').each(function(){
@@ -1842,8 +1849,6 @@ body{
 				});
 				$('#totalExpense').val(totalExepnseVal);
 			});
-
 	});
-	
 </script>
 <!-- end form collapsed -->
