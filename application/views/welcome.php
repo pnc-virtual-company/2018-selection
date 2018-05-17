@@ -7,8 +7,8 @@
                     <div class="card-body text-left text-white">
                         <h1 class="mdi mdi-account-outline text-default" style="font-size: 50px;"></h1>
                     </div>
-                    <div class="card-body text-right text-white">
-                        <h2 class="color-white">11</h2>
+                    <div class="card-body text-right text-white" >
+                        <h2 class="color-white" id="countCandidates"></h2>
                         <p class="m-b-0">All candidates</p>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                         <h1 class="mdi mdi-account-outline text-default" style="font-size: 50px;"></h1>
                         </div>
                         <div class="card-body text-right text-white">
-                            <h2 class="color-white">9</h2>
+                            <h2 class="color-white" id="countSelectedCandidates"></h2>
                             <p class="m-b-0">Selected candidates</p>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                             <h1 class="mdi mdi-map-marker text-default" style="font-size: 50px;"></h1>
                         </div>
                         <div class="card-body text-right text-white">
-                            <h2 class="color-white">3</h2>
+                            <h2 class="color-white" id="countProvinces"></h2>
                             <p class="m-b-0">Provinces of selected candidates</p>
                         </div>
                     </div>
@@ -42,9 +42,7 @@
             </div>
 
         </div>
-    
     <br>
-    
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8">
                 <h1 class="text-center">List of candidates</h1>
@@ -83,6 +81,10 @@
                             <i class="mdi mdi-account-plus"></i>
                             &nbsp;New candidate
                         </a>&nbsp;&nbsp;
+                        <a href="<?php echo base_url() ?>c_candidates/export" class="btn btn-primary clearfix" id="Export" >
+                            <i class="mdi mdi-file-excel"></i>
+                            &nbsp;Export this list
+                        </a>&nbsp;&nbsp;
                         <a href="<?php echo base_url() ?>c_student/map">
                             <button id="mapButton" class="btn btn-primary clearfix"><i class="mdi mdi-map"></i>
                           &nbsp;Province distribution</button>
@@ -114,8 +116,8 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">Confirm Delete</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
             Do you want to delete this record?
@@ -137,13 +139,73 @@
 
  <script type="text/javascript">
     $(function() {
-    showAllCandidates();
+    showAllCandidates();  /// call function showAllCandidates
+    countAllCandidates();  /// call function countAllCandidates
+    countSelectedCandidates();  /// call function countSelectedCandidates
+    countProvinces();   /// call function countProvinces
     //Transform the HTML table in a fancy datatable
     $('#students').dataTable({
         stateSave: true,
     });
+    //function count all candidates
+        function countAllCandidates(){
+            $.ajax({
+                type: 'ajax',
+                url: '<?php echo base_url() ?>C_candidates/countCandidates',
+                async: false,
+                dataType: 'json',
+                success: function(data){
+                    var html = '';
+                    for(i=0; i<data.length; i++){
+                        html +=data[i].total;
+                    }
+                    $('#countCandidates').html(html);
+                },
+                error: function(){
+                    alert('Could not count candidate from Database');
+                }
+            });
+        }
+        //function count selected candidates
+        function countSelectedCandidates(){
+            $.ajax({
+                type: 'ajax',
+                url: '<?php echo base_url() ?>C_candidates/countSelectedCandidates',
+                async: false,
+                dataType: 'json',
+                success: function(data){
+                    var html = '';
+                    for(i=0; i<data.length; i++){
+                        html +=data[i].totalSelected;
+                    }
+                    $('#countSelectedCandidates').html(html);
+                },
+                error: function(){
+                    alert('Could not count selected candidate from Database');
+                }
+            });
+        }
+        //function count alll provinces
+        function countProvinces(){
+            $.ajax({
+                type: 'ajax',
+                url: '<?php echo base_url() ?>C_candidates/countProvinces',
+                async: false,
+                dataType: 'json',
+                success: function(data){
+                    var html = '';
+                    for(i=0; i<data.length; i++){
+                        html +=data[i].totalProvinces;
+                    }
+                    $('#countProvinces').html(html);
+                },
+                error: function(){
+                    alert('Could not count provinces from Database');
+                }
+            });
+        }
 
-   //delete- 
+    //function to delete candidate
         $('#showdata').on('click', '.item-delete', function(){
             var id = $(this).attr('data');
             $('#deleteModal').modal('show');
@@ -171,11 +233,7 @@
                 });
             });
         });
-
-
-
-
-    //function
+    //function to show all candidates into datatable
     function showAllCandidates(){
         $.ajax({
             type: 'ajax',
@@ -217,6 +275,7 @@
             }
         });
     }
+  
 
     //Display a modal pop-up so as to confirm if a user has to be deleted or not
     //We build a complex selector because datatable does horrible things on DOM...
