@@ -76,9 +76,9 @@ body{
 							</div>
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-lg-1 col-md-1"></div>
+									<div class="col-lg-2 col-md-2"></div>
 									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Lastname :</label>
-									<div class="col-lg-6 col-md-6 col-xs-12">
+									<div class="col-lg-5 col-md-5 col-xs-12">
 										<input type="text" class="form-control" placeholder="Lastname">
 									</div>
 								</div>
@@ -99,9 +99,9 @@ body{
 							</div>
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-lg-1 col-md-1"></div>
+									<div class="col-lg-2 col-md-2"></div>
 									<label for="age" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Age :</label>
-									<div class="col-lg-6 col-md-6 col-xs-12">
+									<div class="col-lg-5 col-md-5 col-xs-12">
 										<input type="number" class="form-control" id="age" placeholder="Your Age " required>
 									</div>
 								</div>
@@ -161,9 +161,9 @@ body{
 							</div>
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-md-1"></div>
+									<div class="col-md-2"></div>
 									<label for="ngoOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label">Other :</label>
-									<div class="col-lg-9 col-md-9 col-xs-12">
+									<div class="col-lg-8 col-md-8 col-xs-12">
 										<input type="text" class="form-control" id="ngoOther" placeholder="If other, please specify " required style="margin-left: -4px;">
 									</div>
 								</div>
@@ -186,9 +186,9 @@ body{
 							</div>
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-md-1"></div>
+									<div class="col-md-2"></div>
 									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label">Other :</label>
-									<div class="col-lg-9 col-md-9 col-xs-12">
+									<div class="col-lg-8 col-md-8 col-xs-12">
 										<input type="text" class="form-control" id="healthOther" placeholder="If some health issuses, please specify" required style="margin-left: -4px;">
 									</div>
 								</div>
@@ -215,9 +215,9 @@ body{
 							</div>
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-md-1"></div>
+									<div class="col-md-2"></div>
 									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
-									<div class="col-lg-9 col-md-9 col-xs-12">
+									<div class="col-lg-8 col-md-8 col-xs-12">
 										<input type="text" class="form-control" id="healthOther" placeholder="Please comment" required style="margin-left: -4px;">
 									</div>
 								</div>
@@ -226,11 +226,11 @@ body{
 						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><h5>Motivation</h5></div>
 						<div class="col-lg-8 col-md-8 col-sm-10 col-xs-12"></div><br>
 						<div class="row">
-							<div class="col-lg-6 col-md-6">
+							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="pncChoice" class="col-lg-6 col-md-6 col-xs-12 col-form-label">PNC choice rank :</label>
-									<div class="col-lg-4 col-md-4 col-xs-12">
+									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">PNC choice rank :</label>
+									<div class="col-lg-6 col-md-6 col-xs-12">
 										<select class="form-control" id="pncChoice">
 											<option value="#">1</option>
 											<option value="#">2</option>
@@ -240,51 +240,51 @@ body{
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-6 col-md-6">
+							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-lg-1 col-md-1"></div>
-									<label for="responsibility" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Responsibility & maturity :</label>
-									<div class="col-lg-4 col-md-4 col-xs-12">
+									<div class="col-lg-2 col-md-2"></div>
+									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Responsibility & maturity :</label>
+									<div class="col-lg-5 col-md-5 col-xs-12">
 										<input type="text" class="form-control" id="responsibility" placeholder="Ex: 18/20" required style="">
 									</div>
 								</div>
-							</div>
+							</div>	
 						</div>
 						<div class="row">
-							<div class="col-lg-6 col-md-6">
+							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="motivation" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Motivation for PNC :</label>
-									<div class="col-lg-4 col-md-4 col-xs-12">
+									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Motivation for PNC</label>
+									<div class="col-lg-6 col-md-6 col-xs-12">
 										<input type="text" class="form-control" id="motivation" placeholder="Ex: 18/20" required>
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-6 col-md-6">
+							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-lg-1 col-md-1"></div>
-									<label for="communication" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Communication :</label>
-									<div class="col-lg-4 col-md-4 col-xs-12">
-										<input type="text" class="form-control" id="communication" placeholder="Ex: 10/10" required>
+									<div class="col-lg-2 col-md-2"></div>
+									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Communication :</label>
+									<div class="col-lg-5 col-md-5 col-xs-12">
+										<input type="text" class="form-control" id="motivation" placeholder="Ex: 18/20" required>
 									</div>
 								</div>
-							</div>
+							</div>	
 						</div>
 						<div class="row">
-							<div class="col-lg-6 col-md-6">
+							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="scholarship" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Other scholarship :</label>
-									<div class="col-lg-4 col-md-4 col-xs-12">
+									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Other scholarship</label>
+									<div class="col-lg-6 col-md-6 col-xs-12">
 										<input type="text" class="form-control" id="scholarship" placeholder="Other" required>
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-6 col-md-6">
+							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-lg-1 col-md-1"></div>
-									<label for="choiceRank" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Choice rank :</label>
-									<div class="col-lg-4 col-md-4 col-xs-12">
+									<div class="col-lg-2 col-md-2"></div>
+									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Choice rank :</label>
+									<div class="col-lg-5 col-md-5 col-xs-12">
 										<select class="form-control" name="rank" id="choiceRank">
 											<option value="1">1</option>
 											<option value="2">2</option>
@@ -293,11 +293,12 @@ body{
 										</select>
 									</div>
 								</div>
-							</div>
+							</div>	
 						</div>
 						
+						
 						<div class="row">
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
+							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12"></div>
 							<div class="col-lg-4 col-md-4 col-sm-9 col-xs-12">
 								<a href="#" data-toggle="modal" data-target="#myModal">
 									<h6>
@@ -311,41 +312,41 @@ body{
 						
 						<!-- / close pop up -->
 						<div class="row">
-							<div class="col-lg-4 col-md-4">
+							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="studentCommit" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the student :</label>	
+									<label for="activityActivity" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the student :</label>	
 								</div>
-							</div>	
+							</div>
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-md-1"></div>
-									<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
-									<div class="col-lg-9 col-md-9 col-xs-12">
+									<div class="col-md-2"></div>
+									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+									<div class="col-lg-8 col-md-8 col-xs-12">
 										<input type="text" class="form-control" id="studentCommit" placeholder="Please comment" required>
 									</div>
 								</div>
-							</div>	
+							</div>
 						</div>
 						<div class="row">
-							<div class="col-lg-4 col-md-4">
+							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="parentsCommit" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the parents :</label>	
+									<label for="activityActivity" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the parents :</label>	
 								</div>
-							</div>	
+							</div>
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-md-1"></div>
-									<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
-									<div class="col-lg-9 col-md-9 col-xs-12">
+									<div class="col-md-2"></div>
+									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+									<div class="col-lg-8 col-md-8 col-xs-12">
 										<input type="text" class="form-control" id="parentsCommit" placeholder="Please comment" required>
 									</div>
 								</div>
-							</div>	
+							</div>
 						</div>
 						<div class="row">
-							<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12"></div>
+							<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12"></div>
 							<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
 								<button type="button" class="btn btn-primary float-right">Save information</button><br><br>	
 							</div>
