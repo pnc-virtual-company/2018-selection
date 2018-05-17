@@ -935,7 +935,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="gTotal1" placeholder="$" style="direction: rtl;" required>
+								<input type="number" class="form-control gincome" id="gTotal1" placeholder="$" style="direction: rtl;" required>
 							</div>
 						</div>
 					</div>	
@@ -952,7 +952,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="gTotal2" placeholder="$" style="direction: rtl;" required>
+								<input type="number" class="form-control gincomein" id="gTotal2" placeholder="$" style="direction: rtl;" required>
 							</div>
 						</div>
 					</div>	
@@ -1812,26 +1812,44 @@ body{
 			$(".subUp",this).toggle();
 
 		});
+		// function calculat family income 
 
 		$('.form-group').on('input','.fincome',function(){
-				var totalSum = 0;
-				$('.form-group .fincome').each(function(){
-					var inputVal = $(this).val();
-					if($.isNumeric(inputVal)){
-						totalSum += parseFloat(inputVal);
-					}
-				});
-				$('#fTotal').val(totalSum);
+				var fTotalSum;
+				var fMonthly = $('#fMonthly').val();
+				var fDaily = $('#fDaily').val();
+				var fSeasonal= $('#fSeasonal').val();
+				var fYearly= $('#fYearly').val(); 
+				fTotalSum =Number(fMonthly)+(Number(fDaily)*30)+(Number(fSeasonal)+Number(fYearly))/12;
+				$('#fTotal').val(fTotalSum);
 			});
+
 		$('.form-group').on('input','.cIncome',function(){
-				var cTotalSum = 0;
-				var cMonthly = $(this).val();
-				var cDaily = $(this).val();
-				var cSeasonal= $(this).val();
-				var cYearly= $(this).val();
-				cTotalSum = cMonthly + cDaily  + (cSeasonal + cYearly) / 12;
+				var cTotalSum;
+				var cMonthly = $('#cMonthly').val();
+				var cDaily = $('#cDaily').val();
+				var cSeasonal= $('#cSeasonal').val();
+				var cYearly= $('#cYearly').val();
+				cTotalSum = Number(cMonthly)+(Number(cDaily)*30)+(Number(cSeasonal)+ Number(cYearly))/12;
 				$('#cTotal').val(cTotalSum);
 			});
+		$('.form-group').on('input','.gincome',function(){
+				var gTotal;
+				var fTotalSum=$('#fTotal').val();
+				var cTotalSum=$('#cTotal').val();
+				gTotal=Number(fTotalSum)+Number(cTotalSum);
+				$('#gTotal1').val(gTotal);
+		});
+		$('.form-group').on('input','.gincomein',function(){
+				var gTotalIn;
+				var fTotalSum = $('#fTotal').val();
+				var cTotalSum = $('#cTotal').val();
+				gTotalIn = Number(fTotalSum) / Number(cTotalSum);
+				$('#gTotal2').val(gTotalIn);
+		});
+
+
+		// function calculat family expense
 		$('.form-group').on('input','.fExpense',function(){
 				var totalExepnseVal = 0;
 				$('.form-group .fExpense').each(function(){
@@ -1842,8 +1860,6 @@ body{
 				});
 				$('#totalExpense').val(totalExepnseVal);
 			});
-
 	});
-	
 </script>
 <!-- end form collapsed -->
