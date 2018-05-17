@@ -143,6 +143,7 @@
     countAllCandidates();  /// call function countAllCandidates
     countSelectedCandidates();  /// call function countSelectedCandidates
     countProvinces();   /// call function countProvinces
+// editCandidate();
     //Transform the HTML table in a fancy datatable
     $('#students').dataTable({
         stateSave: true,
@@ -255,7 +256,7 @@
                                 '<td>'+id+'</td>'+
                                 '<td>'+
                                     '<a href="javascript:;" class="mdi mdi-eye text-info" title="View candidate information" data="'+data[i].can_id+'"></a>&nbsp;'+
-                                    '<a href="javascript:;" class="mdi mdi-pencil-box-outline text-success" title="Edit candidate information" data="'+data[i].can_id+'"></a>&nbsp;'+
+                                    '<a href="<?php echo base_url() ?>C_candidates/updateForm/'+data[i].can_id+'" class="mdi mdi-pencil-box-outline text-success item-edit" title="Edit candidate information" data="'+data[i].can_id+'"></a>&nbsp;'+
                                     '<a href="javascript:;" class="mdi mdi-delete text-danger item-delete" title="Delete candidate information" data="'+data[i].can_id+'"></a>'+
                                 '</td>'+
                                 '<td>'+data[i].can_name+'</td>'+
@@ -263,7 +264,6 @@
                                 '<td>'+data[i].can_gender+'</td>'+
                                 '<td>'+data[i].can_global_grade+'</td>'+
                                 '<td>'+ selected +'</td>'+
-
                             '</tr>';
                         id++;
                 }
@@ -351,6 +351,5 @@ new Chart(document.getElementById("pie-chart2"), {
       }
     }
 });
-
 
 </script>
