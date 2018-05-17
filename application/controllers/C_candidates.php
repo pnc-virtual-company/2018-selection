@@ -36,9 +36,9 @@ Class C_candidates extends CI_Controller{
 
 
 	// edit candidate function
-	public function updateForm(){
-		$this->load->model('Candidates_model');	//load model first
-		 $data['viewAll'] = $this->Candidates_model->showAllCandidates();
+	public function updateForm($id){
+		// $this->load->model('Candidates_model');	//load model first
+		// $data['viewAll'] = $this->Candidates_model->showAllCandidates($id);
 		$this->load->view('templates/header');
 		$this->load->view('menu/index');
 		$this->load->view('candidates/update_candidate');
