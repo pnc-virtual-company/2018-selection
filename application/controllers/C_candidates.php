@@ -39,15 +39,11 @@ Class C_candidates extends CI_Controller{
 	public function updateForm(){
 		$this->load->model('Candidates_model');	//load model first
 		 $data['viewAll'] = $this->Candidates_model->showAllCandidates();
-		// $id = $this->uri->segment(3);
-		// var_dump($id);
-		// die();
 		$this->load->view('templates/header');
 		$this->load->view('menu/index');
 		$this->load->view('candidates/update_candidate');
 		$this->load->view('templates/footer');
 		}
-
 
 	public function selectedCandidates(){
 		$this->load->view('templates/header');			
@@ -84,5 +80,4 @@ Class C_candidates extends CI_Controller{
 			echo "Insert Fail";
 		}
 	}
-
 }
