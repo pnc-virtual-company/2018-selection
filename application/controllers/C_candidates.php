@@ -97,4 +97,12 @@ Class C_candidates extends CI_Controller{
 		$this->load->view('candidates/exportSelected');
 	}
 
+  public function newCandidate()
+  {
+    $this->load->view('templates/header');
+    $this->load->view('menu/index');
+    $this->load->view('candidates/new_candidate');
+    $this->load->view('templates/footer');
+  }
+
 }
