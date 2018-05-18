@@ -210,6 +210,10 @@ class Users_model extends CI_Model {
         if (((int) $row->role & 1)) {
             $isAdmin = TRUE;
         }
+        $user = FALSE;
+        if (((int) $row->role & 2)) {
+            $user = TRUE;
+        }
         $newdata = array(
             'login' => $row->login,
             'id' => $row->id,
@@ -220,6 +224,7 @@ class Users_model extends CI_Model {
             'email' => $row->email,
             'nameRole' => $row->role,	
             'isAdmin' => $isAdmin,
+            'user' => $user,
             'loggedIn' => TRUE
         );
         $this->session->set_userdata($newdata);

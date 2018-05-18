@@ -8,7 +8,7 @@ Class C_candidates extends CI_Controller{
          $this->session->set_userdata('last_page', $this->uri->uri_string());
          if($this->session->loggedIn === TRUE) {
             // Allowed methods
-            if ($this->session->isAdmin) {
+            if ($this->session->isAdmin || $this->session->user) {
               //User management is reserved to admins and super admins
             } else {
               redirect('errors/privileges');
