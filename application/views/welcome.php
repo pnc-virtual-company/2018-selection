@@ -300,11 +300,11 @@
 new Chart(document.getElementById("pie-chart"), {
     type: 'pie',
     data: {
-      labels: ["A+", "A", "A-", "B+", "B","B-","Failed"],
+      labels: ["A+", "A", "A-", "B+", "B","Failed"],
       datasets: [{
         label: "Grade (distribution)",
-        backgroundColor: ["#3cba9f","#3e95cd","#8e5ea2","#1565c0","#e8c3b9","#ffc107","#c45850"],
-        data: [85 ,1267,100,784,433,200,1380]
+        backgroundColor: ["#3cba9f","#3e95cd","#8e5ea2","#1565c0","#ffc107","#c45850"],
+        data: [85 ,1267,100,784,433,1380]
       }]
     },
     options: {
