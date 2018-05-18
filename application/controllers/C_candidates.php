@@ -2,10 +2,22 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 Class C_candidates extends CI_Controller{
- function __construct(){
-  parent:: __construct();
-  $this->load->model('candidates_model', 'm_can');
+ public function __construct() {
+         parent::__construct();
+         log_message('debug', 'URI=' . $this->uri->uri_string());
+         $this->session->set_userdata('last_page', $this->uri->uri_string());
+         if($this->session->loggedIn === TRUE) {
+            // Allowed methods
+            if ($this->session->isAdmin) {
+              //User management is reserved to admins and super admins
+            } else {
+              redirect('errors/privileges');
+          }
+      } else {
+        redirect('connection/login');
+    }
 
+  $this->load->model('candidates_model', 'm_can');
  }
  function index(){
   $this->load->view('templates/header');
