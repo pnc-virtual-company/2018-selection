@@ -14,7 +14,7 @@
 		{
 			$this->load->view('templates/header');
 			$this->load->view('menu/index');
-			$this->load->view('students/Student_info');
+			$this->load->view('candidates/new_student');
 			$this->load->view('templates/footer');
 		}
 		function listSelectedstudent() //list selected candidate of home page		
@@ -32,6 +32,17 @@
 			$this->load->view('students/selectedStudentList');			
 			$this->load->view('templates/footer');		
 		}
+// add candidate
+		function addCandidate(){
+			$result = $this->m_new_student->addCandidate();
+			$msg['success'] = false;
+			$msg['type'] = 'add';
+			if($result){
+				$msg['success'] = true;
+			}
+			echo json_encode($msg);
+		}
+
 		function map() //view candidates distributtion on map
 		{
 		
