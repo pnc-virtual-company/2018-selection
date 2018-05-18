@@ -81,7 +81,7 @@
                             <i class="mdi mdi-account-plus"></i>
                             &nbsp;New candidate
                         </a>&nbsp;&nbsp;
-                        <a href="<?php echo base_url() ?>c_candidates/export" class="btn btn-primary clearfix" id="Export" >
+                        <a href="<?php echo base_url() ?>c_candidates/exportSelectedCan" class="btn btn-primary clearfix" id="Export" >
                             <i class="mdi mdi-file-excel"></i>
                             &nbsp;Export this list
                         </a>&nbsp;&nbsp;

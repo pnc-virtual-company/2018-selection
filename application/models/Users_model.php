@@ -224,7 +224,6 @@ class Users_model extends CI_Model {
             'email' => $row->email,
             'nameRole' => $row->role,	
             'isAdmin' => $isAdmin,
-            'isSuperAdmin' => $isSuperAdmin,
             'loggedIn' => TRUE
         );
         $this->session->set_userdata($newdata);
