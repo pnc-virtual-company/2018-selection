@@ -210,10 +210,6 @@ class Users_model extends CI_Model {
         if (((int) $row->role & 1)) {
             $isAdmin = TRUE;
         }
-        $isSuperAdmin = FALSE;
-        if (((int) $row->role & 25)) {
-            $isSuperAdmin = TRUE;
-        }
         $newdata = array(
             'login' => $row->login,
             'id' => $row->id,
