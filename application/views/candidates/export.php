@@ -34,14 +34,15 @@ $candidates = $this->m_can->showAllCandidates();
 
 
 $line = 2;
-
+$canID = 1;
 foreach ($candidates as $candidates) {
-    $sheet->setCellValue('A' . $line, $candidates->can_id);
+    $sheet->setCellValue('A' . $line, $canID);
     $sheet->setCellValue('B' . $line, $candidates->can_name);
     $sheet->setCellValue('C' . $line, $candidates->province);
     $sheet->setCellValue('D' . $line, $candidates->can_gender);
     $sheet->setCellValue('E' . $line, $candidates->can_global_grade);
     $line++;
+    $canID ++;
 }
 
 //Autofit
