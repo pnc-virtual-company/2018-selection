@@ -167,6 +167,26 @@ class Users_model extends CI_Model {
 
     /**
      * Update a given user in the database. Update data are coming from an HTML form
+     * @return int number of affected rows
+     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     */
+    public function updateUsersProfile() {
+        //Role field is a binary mask
+        $data = array(
+            'firstname' => $this->input->post('firstname'),
+            'lastname' => $this->input->post('lastname'),
+            'login' => $this->input->post('login'),
+            'email' => $this->input->post('email'),
+        );
+        $this->db->where('id', $this->input->post('id'));
+        $result = $this->db->update('users', $data);
+        return $result;
+    }
+
+
+
+    /**
+     * Update a given user in the database. Update data are coming from an HTML form
      * @param int $id Identifier of the user
      * @param string $password password in clear
      * @return int number of affected rows
