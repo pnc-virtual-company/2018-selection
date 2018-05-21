@@ -7,33 +7,35 @@ body{
 </style>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 <!-- form header -->
+<br>
 <div class="container">
 	<div class="row">
-		<div class="col-lg-5 col-md-5 col-sm-4 col-xs-4"></div>
-		<div class="col-lg-7 col-md-7 col-sm-8 col-xs-8">
-			<img src="<?php echo base_url() ?>assets/images/background/neourng.jpg" style="width: 25%" class="text-center"><br>nuon neourng
+		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-8">
+			<img class="text-center" src="<?php echo base_url() ?>assets/images/background/neourng.jpg" style="width: 45%; margin-left: 27%;"/><br>
+			<p class="text-center">Nuon neourng</p>
 		</div>	
+		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+			
+		</div>
 	</div>
 	<br>
 	<div class="form-group row">
+	<?php foreach ($grade as  $value) {?>
+		
 		<div class="col-lg-3 col-md-3 col-sm-2 col-xs-12"></div>
 		<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
 			<label for="mEdu" class="col-form-label">Global grade :</label>
 		</div>
 		<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
-			<select class="form-control" name="grade">
-				<option value="A+">A+</option>
-				<option value="A">A</option>
-				<option value="B+">B+</option>
-				<option value="B-">B-</option>
-				<option value="Failed">Failed</option>
-			</select>
+			<p class="form-control"><?php echo $value->can_global_grade; ?></p>
 		</div>
 		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-			<button type="button" class="btn btn-primary float-right">SAVE</button>
+			
 		</div>
 		<div class="col-lg-3 col-md-3 col-sm-2 col-xs-12"></div>
 	</div>
+	<?php } ?>
 </div>
 <!-- end form header -->
 <br>
@@ -61,296 +63,245 @@ body{
 						<h5>General information</h5>
 					</div><br>
 					<form action="" method="POST">
+				<?php foreach ($list as $value) {?>
 						<div class="row">
-							<div class="col-lg-4 col-md-4">
+
+							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="gender" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Firstname :</label>
+									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Firstname :</label>
 									<div class="col-lg-6 col-md-6 col-xs-12">
-										<input type="text" class="form-control" placeholder="firstname">
+										<p class="form-control"><?php echo $value->can_firstname; ?></p>
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-4 col-md-4">
+
+							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-lg-1 col-md-1"></div>
-									<label for="gender" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Lastname :</label>
-									<div class="col-lg-6 col-md-6 col-xs-12">
-										<input type="text" class="form-control" placeholder="lastname">
+									<div class="col-lg-2 col-md-2"></div>
+									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Lastname :</label>
+									<div class="col-lg-5 col-md-5 col-xs-12">
+										<p class="form-control"><?php  echo $value->can_lastname;?></p>
 									</div>
 								</div>
-							</div>
-							<div class="col-lg-4 col-md-4"></div>
+							</div>	
 						</div>
+				<?php } ?>
 						<div class="row">
-							<div class="col-lg-4 col-md-4">
+							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="gender" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Gender :</label>
+									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Gender :</label>
 									<div class="col-lg-6 col-md-6 col-xs-12">
-										<select class="form-control" name="gender" id="gender">
-											<option value="Male">Male</option>
-											<option value="Female">Female</option>
-										</select>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-4">
-								<div class="form-group row">
-									<div class="col-lg-1 col-md-1"></div>
-									<label for="age" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Age :</label>
-									<div class="col-lg-6 col-md-6 col-xs-12">
-										<input type="number" class="form-control" id="age" placeholder="Your Age " required>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-4"></div>
-						</div>
-						<div class="row">
-							<div class="col-lg-4 col-md-4">
-								<div class="form-group row">
-									<div class="col-lg-1 col-md-1"></div>
-									<label for="province" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Province :</label>
-									<div class="col-lg-6 col-md-6 col-xs-12">
-										<select class="form-control" name="Province" id="province">
-											<option value="Banteay MeanChey">Banteay MeanChey</option>
-											<option value="Battambang">Battambang</option>
-											<option value="Kompot">Kompot</option>
-											<option value="Keb">Keb</option>
-											<option value="Kompong Cham">Kompong Cham</option>
-											<option value="Kompong Chhnang">Kompong Chhnang</option>
-											<option value="Kompong Thom">Kompong Thom</option>
-											<option value="Kompong Speu">Kompong Speu</option>
-											<option value="Kratie">Kratie</option>
-											<option value="KohKong">KohKong</option>
-											<option value="Kondal">Kandal</option>
-											<option value="Mondolkiry">Mondolkiry</option>
-											<option value="OdorMeanChey">OdorMeanChey</option>
-											<option value="Phnom Penh">Phnom Penh</option>
-											<option value="Pursat">Pursat</option>
-											<option value="Pailen">Pailen</option>
-											<option value="Prey Veng">Prey Veng</option>
-											<option value="Preah Vihear">Preah Vihear</option>
-											<option value="Ratanakiry">Ratanakiry</option>
-											<option value="Siem Reap">Siem Reap</option>
-											<option value="Steung Treng">Steung Treng</option>
-											<option value="SvayReang">SvayReang</option>
-											<option value="Sihanoukville">Sihanoukville</option>
-											<option value="Takeo">Takeo</option>
-										</select>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-4"></div>
-							<div class="col-lg-4 col-md-4"></div>
-						</div>
-						<div class="row">
-							<div class="col-lg-4 col-md-4">
-								<div class="form-group row">
-									<div class="col-lg-1 col-md-1"></div>
-									<label for="ngo" class="col-lg-4 col-md-4 col-xs-12 col-form-label">NGO :</label>
-									<div class="col-lg-6 col-md-6 col-xs-12">
-										<select class="form-control" id="ngo" name="ngo">
-											<option value="PSE">PSE</option>
-											<option value="KBFC">KBFC</option>
-											<option value="KBFC">EDM</option>
-											<option value="Other">Other</option>
-										</select>
+										<p class="form-control"><?php echo $value->can_gender; ?></p>
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-md-1"></div>
-									<label for="ngoOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label">Other :</label>
-									<div class="col-lg-9 col-md-9 col-xs-12">
-										<input type="text" class="form-control" id="ngoOther" placeholder="If other, please specify " required style="margin-left: -4px;">
+									<div class="col-lg-2 col-md-2"></div>
+									<label for="age" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Age :</label>
+									<div class="col-lg-5 col-md-5 col-xs-12">
+										<p class="form-control"><?php  echo $value->can_age;?></p>
 									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-5 col-md-5">
+								<div class="form-group row">
+									<div class="col-lg-1 col-md-1"></div>
+									<label for="province" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Province :</label>
+									<div class="col-lg-6 col-md-6 col-xs-12">
+										<p class="form-control"><?php echo $value->pro_name; ?></p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-7 col-md-7"></div>
+						</div>
+						<div class="row">
+							<div class="col-lg-5 col-md-5">
+								<div class="form-group row">
+									<div class="col-lg-1 col-md-1"></div>
+									<label for="ngo" class="col-lg-5 col-md-5 col-xs-12 col-form-label">NGO :</label>
+									<div class="col-lg-6 col-md-6 col-xs-12">
+										<p class="form-control"><?php echo $value->ngo_name; ?></p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-7 col-md-7">
+								<div class="form-group row">
+									<div class="col-md-2"></div>
+									<!-- <label for="ngoOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label">Other :</label> -->
+									
 								</div>
 							</div>
 							<div class="col-lg-1 col-md-1"></div>
 						</div>
 						<div class="row">
-							<div class="col-lg-4 col-md-4">
+							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="health" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Health status :</label>
+									<label for="health" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Health status :</label>
 									<div class="col-lg-6 col-md-6 col-xs-12">
-										<select class="form-control" id="health">
-											<option value="#">Healthy</option>
-											<option value="#">Other</option>
-											
-										</select>
+										<p class="form-control" id="Health"><?php echo $value->can_healthy; ?></p>
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-md-1"></div>
-									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label">Other :</label>
-									<div class="col-lg-9 col-md-9 col-xs-12">
-										<input type="text" class="form-control" id="healthOther" placeholder="If some health issuses, please specify" required style="margin-left: -4px;">
+									<div class="col-md-2"></div>
+									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label"> </label>
+									<div class="col-lg-8 col-md-8 col-xs-12">
+										
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-lg-4 col-md-4">
+							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="rankClass" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Rank in class :</label>
+									<label for="rankClass" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Rank in class :</label>
 									<div class="col-lg-6 col-md-6 col-xs-12">
-										<input type="text" class="form-control" id="rankClass" placeholder="Ex: 10/33" required>
+										<p class="form-control"><?php  echo $value->can_rank_inclass;?></p>
 									</div>
 								</div>
 							</div>		
 						</div>
 						<div class="row">
-							<div class="col-lg-4 col-md-4">
+							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
 									<label for="activityActivity" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Extracuricular activity 
 									& achievement :</label>	
 								</div>
-							</div>	
+							</div>
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-md-1"></div>
-									<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
-									<div class="col-lg-9 col-md-9 col-xs-12">
-										<input type="text" class="form-control" id="activityActivity" placeholder="please comment" required>
+									<!-- <div class="col-md-2"></div> -->
+									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+									<div class="col-lg-8 col-md-8 col-xs-12">
+										<p class="form-control"><?php echo $value->can_activity_achivement; ?></p>
 									</div>
 								</div>
-							</div>	
+							</div>
 						</div>
 						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><h5>Motivation</h5></div>
 						<div class="col-lg-8 col-md-8 col-sm-10 col-xs-12"></div><br>
 						<div class="row">
-							<div class="col-lg-6 col-md-6">
+							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="pncChoice" class="col-lg-6 col-md-6 col-xs-12 col-form-label">PNC choice rank :</label>
-									<div class="col-lg-4 col-md-4 col-xs-12">
-										<select class="form-control" id="pncChoice">
-											<option value="#">1</option>
-											<option value="#">2</option>
-											<option value="#">3</option>
-											<option value="#">4</option>
-										</select>
+									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">PNC choice rank :</label>
+									<div class="col-lg-6 col-md-6 col-xs-12">
+										<p class="form-control"><?php echo $value->can_pn_choic_rank; ?></p>
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-6 col-md-6">
+							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-lg-1 col-md-1"></div>
-									<label for="responsibility" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Responsibility & maturity :</label>
-									<div class="col-lg-4 col-md-4 col-xs-12">
-										<input type="text" class="form-control" id="responsibility" placeholder="Ex: 18/20" required style="">
+									<div class="col-lg-2 col-md-2"></div>
+									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Responsibility & maturity :</label>
+									<div class="col-lg-5 col-md-5 col-xs-12">
+										<p class="form-control"><?php echo $value->can_resposibility; ?></p>
 									</div>
 								</div>
-							</div>
+							</div>	
 						</div>
 						<div class="row">
-							<div class="col-lg-6 col-md-6">
+							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="motivation" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Motivation for PNC :</label>
-									<div class="col-lg-4 col-md-4 col-xs-12">
-										<input type="text" class="form-control" id="motivation" placeholder="Ex: 18/20" required>
+									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Motivation for PNC</label>
+									<div class="col-lg-6 col-md-6 col-xs-12">
+										<p class="form-control"><?php echo $value->can_pnc_motivation; ?></p>
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-6 col-md-6">
+							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-lg-1 col-md-1"></div>
-									<label for="communication" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Communication :</label>
-									<div class="col-lg-4 col-md-4 col-xs-12">
-										<input type="text" class="form-control" id="communication" placeholder="Ex: 10/10" required>
+									<div class="col-lg-2 col-md-2"></div>
+									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Communication :</label>
+									<div class="col-lg-5 col-md-5 col-xs-12">
+										<p class="form-control"><?php echo $value->can_student_commit; ?></p>
 									</div>
 								</div>
-							</div>
+							</div>	
 						</div>
 						<div class="row">
-							<div class="col-lg-6 col-md-6">
+							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="scholarship" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Other scholarship :</label>
-									<div class="col-lg-4 col-md-4 col-xs-12">
-										<input type="text" class="form-control" id="scholarship" placeholder="other" required>
+									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Other scholarship</label>
+									<div class="col-lg-6 col-md-6 col-xs-12">
+										<p class="form-control"><?php echo $value->can_other_scholaship ?></p>
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-6 col-md-6">
+							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-lg-1 col-md-1"></div>
-									<label for="choiceRank" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Choice Rank :</label>
-									<div class="col-lg-4 col-md-4 col-xs-12">
-										<select class="form-control" name="rank" id="choiceRank">
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-										</select>
+									<div class="col-lg-2 col-md-2"></div>
+									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Choice rank :</label>
+									<div class="col-lg-5 col-md-5 col-xs-12">
+										<p class="form-control"><?php echo $value->can_other_choice_rank; ?></p>
 									</div>
 								</div>
-							</div>
+							</div>	
 						</div>
 						
+						
 						<div class="row">
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
+							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12"></div>
 							<div class="col-lg-4 col-md-4 col-sm-9 col-xs-12">
-								<a href="#" data-toggle="modal" data-target="#myModal">
-									<h6>
-										<i class="mdi mdi-plus" style="color:#000;font-size: 20px;">
-										</i>Add other scholarship
-									</h6>
-								</a>
+								
 							</div>
 						</div>
 						<!-- pop up -->
 						
 						<!-- / close pop up -->
 						<div class="row">
-							<div class="col-lg-4 col-md-4">
+							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="studentCommit" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the student :</label>	
+									<label for="activityActivity" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the student :</label>	
 								</div>
-							</div>	
+							</div>
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-md-1"></div>
-									<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
-									<div class="col-lg-9 col-md-9 col-xs-12">
-										<input type="text" class="form-control" id="studentCommit" placeholder="please comment" required>
+									<div class="col-md-2"></div>
+									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+									<div class="col-lg-8 col-md-8 col-xs-12">
+										<p class="form-control"><?php echo $value->can_student_commit; ?></p>
 									</div>
 								</div>
-							</div>	
+							</div>
 						</div>
 						<div class="row">
-							<div class="col-lg-4 col-md-4">
+							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
-									<div class="col-lg-1 col-md-1"></div>
-									<label for="parentsCommit" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the parents :</label>	
+									<!-- <div class="col-lg-1 col-md-1"></div> -->
+									<label for="activityActivity" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the parents :</label>	
 								</div>
-							</div>	
+							</div>
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<div class="col-md-1"></div>
-									<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
-									<div class="col-lg-9 col-md-9 col-xs-12">
-										<input type="text" class="form-control" id="parentsCommit" placeholder="please comment" required>
+									<!-- <div class="col-md-2"></div> -->
+									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+									<div class="col-lg-8 col-md-8 col-xs-12">
+										<p class="form-control"><?php echo $value->can_parents_commit; ?></p>
 									</div>
 								</div>
-							</div>	
+							</div>
 						</div>
 						<div class="row">
-							<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12"></div>
+							<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12"></div>
 							<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-								<button type="button" class="btn btn-primary float-right">Save information</button><br><br>	
+								
 							</div>
 						</div>
 					</form>
+					<!-- <?php //} ?> -->
 					<!-- end form student information -->
 				</div>
 			</div>
@@ -389,175 +340,138 @@ body{
 							<div class="card-body contentBody">
 								<h5>Father</h5>
 								<form action="" method="POST">
-									<div class="row">
-										<div class="col-lg-2 col-md-2 col-sm-4">
+					<?php foreach ($family as  $value) {?>
+								<div class="row">
+										<div class="col-lg-5 col-md-5 col-sm-4">
 											<div class="form-group row">
+												<div class="col-lg-1 col-md-1"></div>
 												<div class="col-lg-5 col-md-4 col-sm-4">
 													<label for="fAge" class="col-form-label">Age :</label>
 												</div>
-												<div class="col-lg-7 col-md-8 col-sm-8">
-													<input type="number" name="fAge" id="fAge" class="form-control">
+												<div class="col-lg-6 col-md-6 col-sm-8">
+													<p class="form-control"><?php echo $value->f_age; ?></p>
 												</div>
 											</div>
 										</div>
-
-										<div class="col-lg-5 col-md-5 col-sm-8">
-											<div class="form-group row">
-												<div class="col-lg-5 col-md-5 col-sm-4">
-													<label for="fOccupation" class="col-form-label">Occupation :</label>
+										<div class="col-lg-7 col-md-7"></div>
+										
+								</div>
+								<div class="row">
+									<div class="col-lg-5 col-md-5 col-sm-8">
+										<div class="form-group row">
+											<div class="col-lg-1 col-md-1"></div>
+											<div class="col-lg-5 col-md-5 col-sm-4">
+												<label for="fOccupation" class="col-form-label">Occupation :</label>
 												</div>
-												<div class="col-lg-7 col-md-7 col-sm-8">
-													<select class="form-control" name="Occupation" 
-													id="fOccupation">
-													<option value="Farmer/Laborer">Farmer/Laborer</option>
-													<option value="Teacher">Teacher</option>
-													<option value="Soldier">Soldier</option>
-													<option value="Police Officer">Police Officer</option>
-													<option value="Agriculture">Agriculture</option>
-													<option value="Other">Other</option>
-												</select>
+												<div class="col-lg-6 col-md-6 col-sm-8">
+													<p class="form-control"><?php echo $value->f_occupation; ?></p>
+												</div>
+										</div>
+									</div>
+									<div class="col-lg-1 col-md-1"></div>
+									<div class="col-lg-6 col-md-6 col-sm-12">
+										<!-- <input type="text" name="specify" id="" class="form-control" placeholder="If other, please specify"> -->
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-5 col-md-5 col-sm-8">
+										<div class="form-group row">
+											<div class="col-lg-1 col-md-1"></div>
+											<div class="col-lg-5 col-md-5 col-sm-4">
+												<label for="fOccupation" class="col-form-label">Health status :</label>
+												</div>
+												<div class="col-lg-6 col-md-6 col-sm-8">
+												<p class="form-control"><?php echo $value->f_health; ?></p>
 											</div>
 										</div>
 									</div>
-									<br>
-									<div class="col-lg-5 col-md-5 col-sm-12">
-										<input type="text" name="specify" id="" class="form-control" placeholder="If other, please specify">
+									<div class="col-lg-1 col-md-1"></div>
+									<div class="col-lg-6 col-md-6 col-sm-12">
+										<!-- <input type="text" name="healthSpecify" id="" class="form-control" placeholder="If health issues, please specify" /> -->
 									</div>
 								</div>
-								<br>
 								<div class="row">
-									<div class="col-md-4">
+									<div class="col-md-5 col-sm-12">
 										<div class="form-group row">
-											<div class="col-md-6">
-												<label for="fHealth" class="col-form-label">Health status :</label>
-											</div>
-											<div class="col-md-6">
-												<select name="fHealth" id="fHealth" class="form-control">
-													<option value="Healthy">Healthy</option>
-													<option value="issues">Other</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="col-md-8">
-										<input type="text" name="healthSpecify" id="" class="form-control" placeholder="If health issues, please specify" />
-									</div>
-								</div>
-								<br>
-								<div class="row">
-									<div class="col-md-4 col-sm-12">
-										<div class="form-group row">
-											<div class="col-md-4 col-sm-4">
+											<div class="col-lg-1 col-md-1"></div>
+											<div class="col-md-5 col-sm-4">
 												<label for="fEdu" class="col-form-label">Education :</label>
 											</div>
-											<div class="col-md-2 col-sm-1"></div>
+											
 											<div class="col-md-6 col-sm-4">
-												<select class="form-control" name="Education" 
-												id="fEdu">
-												<option value="1">1</option>
-												<option value="2">2</option>
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-												<option value="6">6</option>
-												<option value="7">7</option>
-												<option value="8">8</option>
-												<option value="9">9</option>
-												<option value="10">10</option>
-												<option value="11">11</option>
-												<option value="12">12</option>
-												<option value="University">University</option>
-											</select>
+												<p class="form-control"><?php echo $value->f_edu; ?></p>
 										</div>
 									</div>
 								</div>
 								<div class="col-md-8"></div>
 							</div>
+				<?php } ?>
 							<!-- end of father information -->
 							<br>
 							<h5>Mother</h5>
 							<div class="row">
-								<div class="col-md-2">
-									<div class="form-group row">
-										<div class="col-lg-5 col-md-4 col-sm-4">
-											<label for="mAge" class="col-form-label">Age :</label>
+										<div class="col-lg-5 col-md-5 col-sm-4">
+											<div class="form-group row">
+												<div class="col-lg-1 col-md-1"></div>
+												<div class="col-lg-5 col-md-4 col-sm-4">
+													<label for="fAge" class="col-form-label">Age :</label>
+												</div>
+												<div class="col-lg-6 col-md-6 col-sm-8">
+													<p class="form-control"><?php echo $value->m_age; ?></p>
+												</div>
+											</div>
 										</div>
-										<div class="col-lg-7 col-md-8 col-sm-8">
-											<input type="number" name="mAge" id="mAge" class="form-control">
+										<div class="col-lg-7 col-md-7"></div>
+										
+								</div>
+								<div class="row">
+									<div class="col-lg-5 col-md-5 col-sm-8">
+										<div class="form-group row">
+											<div class="col-lg-1 col-md-1"></div>
+											<div class="col-lg-5 col-md-5 col-sm-4">
+												<label for="fOccupation" class="col-form-label">Occupation :</label>
+												</div>
+												<div class="col-lg-6 col-md-6 col-sm-8">
+													<p class="form-control"><?php echo $value->m_occupation ?></p>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-1 col-md-1"></div>
+									<div class="col-lg-6 col-md-6 col-sm-12">
+										<!-- <input type="text" name="specify" id="" class="form-control" placeholder="If other, please specify"> -->
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-5 col-md-5 col-sm-8">
+										<div class="form-group row">
+											<div class="col-lg-1 col-md-1"></div>
+											<div class="col-lg-5 col-md-5 col-sm-4">
+												<label for="fOccupation" class="col-form-label">Health status :</label>
+												</div>
+												<div class="col-lg-6 col-md-6 col-sm-8">
+												<p class="form-control"><?php echo $value->m_health; ?></p>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-1 col-md-1"></div>
+									<div class="col-lg-6 col-md-6 col-sm-12">
+										<!-- <input type="text" name="healthSpecify" id="" class="form-control" placeholder="If health issues, please specify" /> -->
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-5 col-sm-12">
+										<div class="form-group row">
+											<div class="col-lg-1 col-md-1"></div>
+											<div class="col-md-5 col-sm-4">
+												<label for="fEdu" class="col-form-label">Education :</label>
+											</div>
+											
+											<div class="col-md-6 col-sm-4">
+												<p class="form-control"><?php echo $value->m_edu; ?></p>
 										</div>
 									</div>
 								</div>
-								<!-- <div class="col-md-"></div> -->
-								<div class="col-md-5">
-									<div class="form-group row">
-										<div class="col-md-5">
-											<label for="mOccupation" class="col-form-label">Occupation :</label>
-										</div>
-										<div class="col-md-7">
-											<select class="form-control" name="Occupation" 
-											id="mOccupation">
-											<option value="Farmer/Laborer">Farmer/Laborer</option>
-											<option value="Teacher">Teacher</option>
-											<option value="Soldier">Soldier</option>
-											<option value="Police Officer">Police Officer</option>
-											<option value="Agriculture">Agriculture</option>
-											<option value="Other">Other</option>
-										</select>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-5">
-								<input type="text" name="specify" id="" class="form-control" placeholder="If other, please specify">
-							</div>
-						</div>
-						<br>
-						<div class="row">
-							<div class="col-md-4">
-								<div class="form-group row">
-									<div class="col-md-6">
-										<label for="mHealth" class="col-form-label">Health status :</label>
-									</div>
-									<div class="col-md-6">
-										<select name="health" id="mHealth" class="form-control">
-											<option value="Healthy">Healthy</option>
-											<option value="issues">Other</option>
-										</select>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-8">
-								<input type="text" name="healthSpecify" id="" class="form-control" placeholder="If health issues, please specify" />
-							</div>
-						</div>
-						<br>
-						<div class="row">
-							<div class="col-md-4">
-								<div class="form-group row">
-									<div class="col-md-4">
-										<label for="mEdu" class="col-form-label">Education :</label>
-									</div>
-									<div class="col-md-2"></div>
-									<div class="col-md-6">
-										<select class="form-control" name="Education" 
-										id="mEdu">
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6</option>
-										<option value="7">7</option>
-										<option value="8">8</option>
-										<option value="9">9</option>
-										<option value="10">10</option>
-										<option value="11">11</option>
-										<option value="12">12</option>
-										<option value="University">University</option>
-									</select>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-8"></div>
+								<div class="col-md-8"></div>
 					</div>
 					<!-- end of mother information -->
 					<!-- siblings -->
@@ -571,20 +485,7 @@ body{
 									<label for="numSiblings" class="col-form-label">Number of siblings :</label>
 								</div>
 								<div class="col-md-6">
-									<select class="form-control" name="siblings" id="numSiblings">
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6</option>
-										<option value="7">7</option>
-										<option value="8">8</option>
-										<option value="9">9</option>
-										<option value="10">10</option>
-										<option value="11">11</option>
-										<option value="12">12</option>
-									</select>
+									<p class="form-control"><?php echo $value->number_sibbling; ?></p>
 								</div>
 							</div>
 						</div>
@@ -594,20 +495,7 @@ body{
 									<label for="married" class="col-form-label">Married :</label>
 								</div>
 								<div class="col-md-6">
-									<select class="form-control" name="Married" id="married">
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6</option>
-										<option value="7">7</option>
-										<option value="8">8</option>
-										<option value="9">9</option>
-										<option value="10">10</option>
-										<option value="11">11</option>
-										<option value="12">12</option>
-									</select>
+									<p class="form-control"><?php echo $value->number_maried; ?></p>
 								</div>
 							</div>
 						</div>
@@ -617,21 +505,7 @@ body{
 									<label for="separated" class="col-form-label">Separated :</label>
 								</div>
 								<div class="col-md-6">
-									<select class="form-control" name="Separated" 
-									id="separated">
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-									<option value="6">6</option>
-									<option value="7">7</option>
-									<option value="8">8</option>
-									<option value="9">9</option>
-									<option value="10">10</option>
-									<option value="11">11</option>
-									<option value="12">12</option>
-								</select>
+									<p class="form-control"><?php echo $value->number_separated; ?></p>
 							</div>
 						</div>
 					</div>
@@ -645,24 +519,7 @@ body{
 								<label for="liveInHouse" class="col-form-label">Living in the family's house (including parents) :</label>
 							</div>
 							<div class="col-md-3">
-								<select class="form-control" name="liveInHouse" 
-								id="liveInHouse">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-								<option value="7">7</option>
-								<option value="8">8</option>
-								<option value="9">9</option>
-								<option value="10">10</option>
-								<option value="11">11</option>
-								<option value="12">12</option>
-								<option value="13">13</option>
-								<option value="14">14</option>
-								<option value="15">15</option>
-							</select>
+								<p class="form-control"><?php echo $value->number_family_living; ?></p>
 						</div>
 					</div>
 				</div>
@@ -672,30 +529,16 @@ body{
 							<label for="studentRank" class="col-form-label">Student rank :</label>
 						</div>
 						<div class="col-md-6">
-							<select class="form-control" name="rank" 
-							id="studentRank">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
-						</select>
+							<p class="form-control"><?php echo $value->stu_rank; ?></p>
 					</div>
 				</div>
 			</div>
 		</div>
 		<br>
 		<div class="row">
-			<div class="col-md-10 col-sm-10"></div>
-			<div class="col-md-2 col-sm-2">
-				<button class="btn btn-primary btn-block" type="button">Save information</button>
+			<div class="col-md-9 col-sm-9"></div>
+			<div class="col-md-3 col-sm-3">
+				
 			</div>
 		</div>
 	</form>
@@ -720,6 +563,8 @@ body{
 	<div id="collapseFamilyIncome" class="collapse" aria-labelledby="familyIncome" data-parent="#subAccordion">
 		<div class="card-body contentBody">
 			<form action="" method="POST">
+	<?php foreach ($income as $value) {?>
+			
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 						<h5>Parents's income</h5>
@@ -738,7 +583,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control fincome" id="fMonthly" placeholder="$" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->f_monthly; ?></p>
 							</div>
 						</div>
 					</div>	
@@ -755,7 +600,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control fincome" id="fDaily" placeholder="$" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->f_daily; ?></p>
 							</div>
 						</div>
 					</div>	
@@ -772,7 +617,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control fincome" id="fSeasonal" placeholder="$" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->f_seasonal; ?></p>
 							</div>
 						</div>
 					</div>	
@@ -789,11 +634,12 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control fincome" id="fYearly" placeholder="$" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->f_yearly; ?></p>
 							</div>
 						</div>
 					</div>	
 				</div>
+		<?php } ?>
 				<div class="row">
 					<div class="col-lg-5 col-md-5">
 						<div class="form-group row">
@@ -806,7 +652,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="fTotal" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->f_total; ?></p>
 							</div>
 						</div>
 					</div>	
@@ -830,7 +676,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control cIncome" id="cMonthly" placeholder="$" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->c_monthly; ?></p>
 							</div>
 						</div>
 					</div>	
@@ -847,7 +693,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control cIncome" id="cDaily" placeholder="$" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->c_daily; ?></p>
 							</div>
 						</div>
 					</div>	
@@ -864,7 +710,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control cIncome" id="cSeasonal" placeholder="$" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->c_seasonal; ?></p>
 							</div>
 						</div>
 					</div>	
@@ -881,7 +727,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control cIncome" id="cYearly" placeholder="$" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->c_yearly; ?></p>
 							</div>
 						</div>
 					</div>	
@@ -898,7 +744,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="cTotal" placeholder="$" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->c_total; ?></p>
 							</div>
 						</div>
 					</div>	
@@ -921,7 +767,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="gTotal1" placeholder="$" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->g_monthly; ?></p>
 							</div>
 						</div>
 					</div>	
@@ -938,7 +784,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="gTotal2" placeholder="$" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->g_monthly_individual; ?></p>
 							</div>
 						</div>
 					</div>	
@@ -946,9 +792,8 @@ body{
 				<div class="row">
 					<div class="col-md-6"></div>
 					<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-						<button type="button" class="btn btn-primary float-right">Save information</button>	
 					</div>
-				</div>
+				</div>									
 			</form>
 		</div>
 	</div>
@@ -971,36 +816,37 @@ body{
 	<div id="collapseFamilyExpense" class="collapse" aria-labelledby="familyExpense" data-parent="#subAccordion">
 		<div class="card-body contentBody">
 			<form action="" method="POST">
+		<?php foreach ($expense as $value) {?>	
 				<div class="row">
 					<div class="col-md-6">
 						<div class="form-group row">
 							<label for="rice" class="col-5 col-xs-12 col-form-label">Rice:</label>
 							<div class="col-7 col-xs-12">
-								<input type="number" class="form-control" id="rice" placeholder="$" style="direction:rtl;" required>
+								<p class="form-control"><?php echo $value->ex_rice; ?></p>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="food" class="col-5 col-form-label">Food:</label>
 							<div class="col-7">
-								<input type="number" class="form-control" id="food" placeholder="$" style="direction:rtl;" required>
+								<p class="form-control"><?php echo $value->ex_food; ?></p>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="firewood" class="col-5 col-form-label">Firewood-Gas-Chacoal:</label>
 							<div class="col-7">
-								<input type="number" class="form-control" id="firewood" placeholder="$" style="direction:rtl;" required>
+								<p class="form-control"><?php echo $value->ex_firewood; ?></p>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="loan" class="col-5 col-form-label">Loan:</label>
 							<div class="col-7">
-								<input type="number" class="form-control" id="loan" placeholder="$" style="direction:rtl;" required>
+								<p class="form-control"><?php echo $value->ex_loan; ?></p>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="study" class="col-5 col-form-label">Study:</label>
 							<div class="col-7">
-								<input type="number" class="form-control" id="study" placeholder="$" style="direction:rtl;" required>
+								<p class="form-control"><?php echo $value->ex_study; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1008,32 +854,32 @@ body{
 						<div class="form-group row">
 							<label for="medical" class="col-5 col-form-label">Medical:</label>
 							<div class="col-7">
-								<input type="number" class="form-control" id="medical" placeholder="$" style="direction:rtl;" required>
+								<p class="form-control"><?php echo $value->ex_medical; ?></p>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="electricity" class="col-5 col-form-label">Electricity & Water:</label>
 							<div class="col-7">
-								<input type="number" class="form-control" id="electricity" placeholder="$" style="direction:rtl;" required>
+								<p class="form-control"><?php echo $value->ex_electricities_water; ?></p>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="agriculture" class="col-5 col-form-label">Agriculture:</label>
 							<div class="col-7">
-								<input type="number" class="form-control" id="agriculture" placeholder="$" style="direction:rtl;" required>
+								<p class="form-control"><?php echo $value->ex_agriculture; ?></p>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="wedding" class="col-5 col-form-label">Wedding 
 							& Ceremony:</label>
 							<div class="col-7">
-								<input type="number" class="form-control" id="wedding" placeholder="$" style="direction:rtl;" required>
+								<p class="form-control"><?php echo $value->ex_weding; ?></p>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="otherUtilities" class="col-5 col-form-label">Other utilities:</label>
 							<div class="col-7">
-								<input type="number" class="form-control" id="otherUtilities" placeholder="$" style="direction:rtl;" required>
+								<p class="form-control"><?php echo $value->ex_other_utilities; ?></p>
 							</div>
 						</div>	
 					</div>
@@ -1045,7 +891,7 @@ body{
 						<div class="form-group row">
 							<label for="totalExpense" class="col-5 col-form-label">Total expense:</label>
 							<div class="col-7">
-								<input type="number" class="form-control" id="totalExpense" placeholder="$" style="direction:rtl;" required>
+								<p class="form-control"><?php echo $value->ex_total; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1056,9 +902,10 @@ body{
 					<div class="col-md-4"></div>
 					<div class="col-md-4"></div>
 					<div class="col-md-4">
-						<button type="button" class="btn btn-primary float-right">Save information</button>
+						<!-- <button type="button" class="btn btn-primary float-right">Save information</button> -->
 					</div>
 				</div>
+			<?php }?>
 			</form>
 		</div>
 	</div>
@@ -1085,12 +932,13 @@ body{
 			</div>
 			<br>
 			<form action="" method="POST">
+		<?php foreach ($loan as $value) {?>					
 				<div class="row">
 					<div class="col-lg-4 col-md-4">
 						<div class="form-group row">
-							<label for="amount" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Initial amount :</label>
-							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input id="amount" type="number" class="form-control" placeholder="$" style="direction:rtl;" required>
+							<label for="amount" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Initial amount :</label>
+							<div class="col-lg-6 col-md-6 col-xs-12">
+								<p class="form-control"><?php echo $value->ld_initial_amount; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1099,16 +947,16 @@ body{
 							<label for="institution" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Institution :
 							</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input id="institution" type="number" class="form-control" placeholder="$" style="direction:rtl;" required>
+								<p class="form-control"><?php echo $value->ld_instritution; ?></p>
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-4">
 						<div class="form-group row">
-							<label for="interest" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Interest rates :
+							<label for="interest" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Interest rates :
 							</label>
-							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" id="interest" class="form-control" placeholder="$" style="direction:rtl;" required>
+							<div class="col-lg-6 col-md-6 col-xs-12">
+								<p class="form-control"><?php echo $value->ld_interest_tates; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1118,7 +966,7 @@ body{
 						<div class="form-group row">
 							<label for="reason" class="col-lg-2 col-md-2 col-xs-12 col-form-label">Reason :</label>
 							<div class="col-lg-10 col-md-10 col-xs-12">
-								<input type="text" id="reason" class="form-control" placeholder="Please comment"  required>
+								<p class="form-control"><?php echo $value->ld_reason; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1132,7 +980,7 @@ body{
 						<div class="form-group row">
 							<label for="monthly" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Monthly :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" id="monthly" class="form-control" placeholder="$" style="direction:rtl;" required>
+								<p class="form-control"><?php echo $value->ld_monthly; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1140,7 +988,7 @@ body{
 						<div class="form-group row">
 							<label for="trimester" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Trimester :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" id="trimester" class="form-control" placeholder="$" style="direction:rtl;" required>
+								<p class="form-control"><?php echo $value->ld_trimester; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1148,7 +996,7 @@ body{
 						<div class="form-group row">
 							<label for="semester" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Semester :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" id="semester" class="form-control" placeholder="$" style="direction:rtl;" required>
+								<p class="form-control"><?php echo $value->ld_semester; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1158,7 +1006,7 @@ body{
 						<div class="form-group row">
 							<label for="capital" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Capital :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" id="capital" class="form-control" placeholder="$" style="direction:rtl;" required>
+								<p class="form-control"><?php echo $value->ld_capital; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1167,9 +1015,10 @@ body{
 				<div class="row">
 					<div class="col-lg-10 col-md-10 col-sm-8 col-xs-8"></div>
 					<div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-						<button type="button" class="btn btn-primary float-right">Save information</button>
+						
 					</div>
 				</div>
+		<?php } ?>
 			</form>
 		</div>
 	</div>
@@ -1192,17 +1041,13 @@ body{
 	<div id="collapseResidence" class="collapse" aria-labelledby="residence" data-parent="#subAccordion">
 		<div class="card-body contentBody">
 			<form action="" method="POST">
+		<?php foreach ($residenc as $value) {?>	
 				<div class="row">
 					<div class="col-lg-4 col-md-4">
 						<div class="form-group row">
 							<label for="status" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Status :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<select name="" id="status" class="form-control">
-									<option value="">Inherited</option>
-									<option value="">Shared</option>
-									<option value="">Purchased</option>
-									<option value="">Rent</option>
-								</select>
+								<p class="form-control"><?php echo $value->re_status; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1210,17 +1055,7 @@ body{
 						<div class="form-group row">
 							<label for="residenceAge" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Age :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<select name="age" id="residenceAge" class="form-control">
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-									<option value="6">6</option>
-									<option value="7">7</option>
-									<option value="8">8</option>
-									<option value="9">9</option>
-								</select>
+								<p class="form-control"><?php echo $value->re_age; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1228,13 +1063,7 @@ body{
 						<div class="form-group row">
 							<label for="rating" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Rating scale :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<select name="Rating_scal" id="rating" class="form-control">
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-								</select>
+								<p class="form-control"><?php echo $value->re_rating_scale; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1244,9 +1073,10 @@ body{
 					<div class="col-md-4 col-md-4 col-sm-4 col-xs-12"></div>
 					<div class="col-md-4 col-md-4 col-sm-4 col-xs-12"></div>
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-						<button type="button" class="btn btn-primary float-right">Save information</button>
+						<!-- <button type="button" class="btn btn-primary float-right">Save information</button> -->
 					</div>
 				</div>
+		<?php } ?>
 			</form>
 		</div>
 	</div>
@@ -1270,6 +1100,7 @@ body{
 		<div class="card-body contentBody">
 			<h5>Appliances</h5>
 			<form action="" method="POST">
+		<?php foreach ($home_assets as $value) {?>
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 						<div class="row">
@@ -1293,7 +1124,7 @@ body{
 						<div class="form-group row">
 							<label for="refrigerator" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Refrigerator :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control" placeholder="Quantity" name="refrigerator" id="refrigerator" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->h_refrigerator; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1301,7 +1132,7 @@ body{
 						<div class="form-group row">
 							<label for="radio" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Radio :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control" placeholder="Quantity " name="refrigerator" id="radio" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->h_radio; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1311,7 +1142,7 @@ body{
 						<div class="form-group row">
 							<label for="conditioner" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Air conditioner :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control" placeholder="Quantity" name="refrigerator" id="conditioner" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->h_air_condictioner; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1319,7 +1150,7 @@ body{
 						<div class="form-group row">
 							<label for="ricecooker" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Ricecooker :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control" placeholder="Quantity" name="refrigerator" id="ricecooker" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->h_electrical_cooker; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1329,7 +1160,7 @@ body{
 						<div class="form-group row">
 							<label for="lcdTV" class="col-lg-5 col-md-5 col-xs-12 col-form-label">LCD TV :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control" placeholder="Quantity" name="refrigerator" id="lcdTV" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->h_lcd_tv; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1337,7 +1168,7 @@ body{
 						<div class="form-group row">
 							<label for="colorTV" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Color TV :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control" placeholder="Quantity" name="refrigerator" id="colorTV" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->h_color_tv; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1347,7 +1178,7 @@ body{
 						<div class="form-group row">
 							<label for="computer1" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Computer > 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control" placeholder="Quantity" name="refrigerator" id="computer1" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->h_computer_smal_100; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1355,7 +1186,7 @@ body{
 						<div class="form-group row">
 							<label for="computer2" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Computer > 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control" placeholder="Quantity" name="refrigerator" id="computer2" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->h_computer_big_100; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1365,7 +1196,7 @@ body{
 						<div class="form-group row">
 							<label for="furnished" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Furnished cabinet > 300$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control" placeholder="Quantity" name="refrigerator" id="furnished" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->h_furnished_big_300; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1373,7 +1204,7 @@ body{
 						<div class="form-group row">
 							<label for="dvdPlayer" class="col-lg-5 col-md-5 col-xs-12 col-form-label">DVD player :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control" placeholder="Quantity" name="refrigerator" id="dvdPlayer" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->h_dvd_player; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1383,7 +1214,7 @@ body{
 						<div class="form-group row">
 							<label for="smartphone" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Smartphone > 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control" placeholder="Quantity" name="refrigerator" id="smartphone" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->h_smartphone_big_100; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1391,7 +1222,7 @@ body{
 						<div class="form-group row">
 							<label for="phone" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Phone < 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control" placeholder="Quantity" name="refrigerator" id="phone" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->h_phone_smal_100; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1401,7 +1232,7 @@ body{
 						<div class="form-group row">
 							<label for="camara1" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Camera > 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control" placeholder="Quantity" name="refrigerator" id="camara1" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->h_camera_big_100; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1409,7 +1240,7 @@ body{
 						<div class="form-group row">
 							<label for="camara2" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Camera < 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control" placeholder="Quantity" name="refrigerator" id="camara2" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->h_camara_smal_100; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1419,7 +1250,7 @@ body{
 						<div class="form-group row">
 							<label for="sofa1" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Sofa > 300$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control" placeholder="Quantity" name="refrigerator" id="sofa1" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->h_sofa_big_300; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1427,7 +1258,7 @@ body{
 						<div class="form-group row">
 							<label for="sofa2" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Sofa < 300$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control" placeholder="Quantity" name="refrigerator" id="sofa2" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->h_sofa_smal_300; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1438,7 +1269,7 @@ body{
 						<div class="form-group row">
 							<label for="gascooker" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Gascooker :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control" placeholder="Quantity" name="refrigerator" id="gascooker" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->h_gascooker; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1449,7 +1280,7 @@ body{
 						<div class="form-group row">
 							<label for="fruit" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Fruit blender :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control" placeholder="Quantity" name="refrigerator" id="fruit" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->h_fruit_blender; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1460,7 +1291,7 @@ body{
 						<div class="form-group row">
 							<label for="electrical" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Electrical cooker :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control" placeholder="Quantity" name="refrigerator" id="electrical" style="direction: rtl;" required>
+								<p class="form-control"><?php echo $value->h_electrical_cooker; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1486,7 +1317,7 @@ body{
 								<div class="form-group row">
 									<label for="motobike" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Motobike > 500 :</label>
 									<div class="col-lg-7 col-md-7 col-xs-12">
-										<input type="number" class="form-control" placeholder="Quantity" name="motobike" id="motobike" style="direction: rtl;" required>
+										<p class="form-control"><?php echo $value->h_motobike_big_500; ?></p>
 									</div>
 								</div>
 							</div>
@@ -1497,7 +1328,7 @@ body{
 								<div class="form-group row">
 									<label for="farming" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Farming machine :</label>
 									<div class="col-lg-7 col-md-7 col-xs-12">
-										<input type="number" class="form-control" placeholder="Quantity" name="farming" id="farming" style="direction: rtl;" required>
+										<p class="form-control"><?php echo $value->h_farming_machine; ?></p>
 									</div>
 								</div>
 							</div>
@@ -1508,16 +1339,17 @@ body{
 								<div class="form-group row">
 									<label for="car" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Car / Truck :</label>
 									<div class="col-lg-7 col-md-7 col-xs-12">
-										<input type="number" class="form-control" placeholder="Quantity" name="car" id="car" style="direction: rtl;" required>
+										<p class="form-control"><?php echo $value->h_car_truck; ?></p>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-6 col-md-6">
-						<textarea name="" id="" cols="66" rows="6" class="form-control" placeholder="Please specify if you have any comment" style="line-height: 22px;"></textarea>
+						<p class="form-control"><?php echo $value->h_vehicles_comment; ?></p>
 					</div>
 				</div>
+	<?php } ?>
 				<!-- end of vehicles -->
 				<h3>Animal</h3>
 				<!-- start animal -->
@@ -1540,7 +1372,7 @@ body{
 								<div class="form-group row">
 									<label for="cow" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Cow :</label>
 									<div class="col-lg-7 col-md-7 col-xs-12">
-										<input type="number" class="form-control" placeholder="Quantity" name="cow" id="cow" style="direction: rtl;" required>
+										<p class="form-control"><?php echo $value->h_cow; ?></p>
 									</div>
 								</div>
 							</div>
@@ -1551,7 +1383,7 @@ body{
 								<div class="form-group row">
 									<label for="buffaloe" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Buffaloe :</label>
 									<div class="col-lg-7 col-md-7 col-xs-12">
-										<input type="number" class="form-control" placeholder="Quantity" name="buffaloe" id="buffaloe" style="direction: rtl;" required>
+										<p class="form-control"><?php echo $value->h_buffaloe; ?></p>
 									</div>
 								</div>
 							</div>
@@ -1562,14 +1394,14 @@ body{
 								<div class="form-group row">
 									<label for="pig" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Pig :</label>
 									<div class="col-lg-7 col-md-7 col-xs-12">
-										<input type="number" class="form-control" placeholder="Quantity" name="pig" id="pig" style="direction: rtl;" required>
+										<p class="form-control"><?php echo $value->h_pig; ?></p>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-6 col-md-6">
-						<textarea name="" id="" cols="66" rows="6" class="form-control" placeholder="Please specify if you have any comment" style="line-height: 22px;"></textarea>
+						<p class="form-control"><?php echo $value->h_animals_comment; ?></p>
 					</div>
 				</div>
 				<!-- end of animal -->
@@ -1583,14 +1415,14 @@ body{
 								<div class="form-group row">
 									<label for="size" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Size :</label>
 									<div class="col-lg-7 col-md-7 col-xs-12">
-										<input type="number" class="form-control" placeholder="Quantity" name="pig" id="size" style="direction: rtl;" required>
+										<p class="form-control"><?php echo $value->h_farm_size; ?></p>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<textarea name="" id="" cols="66" rows="1" class="form-control" placeholder="Please specify if you have any comment"></textarea>
+						<p class="form-control"><?php echo $value->h_farm_comment;?></p>
 					</div>
 				</div>
 				<!-- start of resutl -->
@@ -1615,7 +1447,7 @@ body{
 										</div>
 									</div>
 									<div class="col-lg-7 col-md-7 col-xs-12">
-										<input type="number" class="form-control" name="sumQuantity5" id="sumQuantity5" style="direction: rtl;" required style="direction: rtl;" required>
+										<p class="form-control"><?php echo $value->h_total_x5; ?></p>
 									</div>
 									<!-- <div class="col-lg-2 col-md-1"></div> -->
 								</div>
@@ -1643,7 +1475,7 @@ body{
 														</div>
 													</div>
 													<div class="col-lg-7 col-md-7 col-xs-12">
-														<input type="number" class="form-control" name="sumQuantity3" id="sumQuantity3" style="direction: rtl;" required>
+														<p class="form-control"><?php echo $value->h_total_x3; ?></p>
 													</div>
 												</div>
 											</div>
@@ -1665,7 +1497,7 @@ body{
 															<label for="globalAsset" style="line-height: 2.5;"><b>Asset global total: </b></label>
 														</div>
 														<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-															<input class="form-control" type="number" placeholder="$" name="globalAsset" id="globalAsset" style="direction: rtl;">
+															<p class="form-control"><?php echo $value->h_glbal_total; ?></p>
 														</div>
 														<!-- </div> -->
 													</div>
@@ -1692,10 +1524,7 @@ body{
 													<label for="certificate">Poverty certificate</label>
 												</div>
 												<div class="col-md-4 col-sm-12">
-													<select class="form-control" name="certificate" id="certificate">
-														<option value="Yes">Yes</option>
-														<option value="No">Other</option>
-													</select>
+													<p class="form-control"><?php echo $value->h_poverty_certificate; ?></p>
 												</div>
 											</div>
 										</div>
@@ -1705,11 +1534,7 @@ body{
 													<label for="specifyLevel" style="line-height: 2.5;">If yes, please specify the level:</label>
 												</div>
 												<div class="col-md-3 col-sm-12">
-													<select class="form-control" name="specifyLevel" id="specifyLevel">
-														<option value="1">1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
-													</select>
+													<p class="form-control"><?php echo $value->h_level; ?></p>
 												</div>
 												<div class="col-md-2 col-sm-12"></div>
 											</div>
@@ -1719,12 +1544,9 @@ body{
 									<!-- button save information for home asset -->
 									<br>
 									<div class="row">
-										<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
-										<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
-										<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
-										<div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
-										<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-											<button class="btn btn-primary btn-block">Save information</button>
+										<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12"></div>
+										<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+											<!-- <button class="btn btn-primary btn-block">Save information</button> -->
 										</div>
 									</div>
 								</form>
@@ -1782,48 +1604,8 @@ body{
         
       </div>
     </div>
-  </div>
-  
+  </div> 
 </div>
-
 </body>
 </html>
-
-
-<script>
-	$(document).ready(function(){
-		$( ".formHeading" ).click(function() {
-			$(".down",this).toggle();
-			$(".up",this).toggle();
-		});
-		$( ".subHeading" ).click(function() {
-			$(".subDown",this).toggle();
-			$(".subUp",this).toggle();
-
-		});
-
-
-
-	});
-	$('.form-group').on('input','.fincome',function(){
-			var totalSum = 0;
-			$('.form-group .fincome').each(function(){
-				var inputVal = $(this).val();
-				if($.isNumeric(inputVal)){
-					totalSum += parseFloat(inputVal);
-				}
-			});
-			$('#fTotal').val(totalSum);
-		});
-	$('.form-group').on('input','.cIncome',function(){
-			var cTotalSum = 0;
-			var cMonthly = $(this).val();
-			var cDaily = $(this).val();
-			var cSeasonal= $(this).val();
-			var cYearly= $(this).val();
-			cTotalSum = cMonthly + cDaily  + (cSeasonal + cYearly) / 12;
-			$('#cTotal').val(cTotalSum);
-		});
-
-</script>
 <!-- end form collapsed -->
