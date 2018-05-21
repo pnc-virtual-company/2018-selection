@@ -10,8 +10,8 @@ body{
 <br>
 <div class="container">
 	<div class="row">
-	  <div class="col-lg-5 col-md-5 col-sm-4 col-xs-4"></div>
-	  <div class="col-lg-7 col-md-7 col-sm-8 col-xs-8">
+	  <div class="col-lg-5 col-md-5 col-sm-3 col-xs-3"></div>
+	  <div class="col-lg-7 col-md-7 col-sm-9 col-xs-9">
 	   	<img id="blah" src="http://placehold.it/180" alt="your image" class="img-responsive" style="width: 25%;">
 	   	<br>
 	   	<br>
@@ -163,12 +163,20 @@ body{
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-7 col-md-7">
+							<div class="col-lg-1 col-md-1">
+							<?php if($this->session->loggedIn === TRUE) { ?>
+								<?php $role =$this->session->nameRole;?>
+								<?php if ($role == 1): ?>
+									<a data-toggle="modal" data-target="#theModal">
+										<i class="mdi mdi-pencil" title="Edit NGO"></i>
+									</a>
+								<?php endif ?>
+							</div>
+							<div class="col-lg-6 col-md-6">
 								<div class="form-group row">
-									<div class="col-md-2"></div>
-									<label for="ngoOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label">Other :</label>
-									<div class="col-lg-8 col-md-8 col-xs-12">
-										<input type="text" class="form-control" id="ngoOther" placeholder="If other, please specify " required style="margin-left: -4px;">
+									<label for="ngoOther" class="col-lg-3 col-md-3 col-xs-12 col-form-label" style="margin-left: 14px;">Other :</label>
+									<div class="col-lg-7 col-md-7 col-xs-12">
+										<input type="text" class="form-control" id="ngoOther" placeholder="If other, please specify " required style="margin-left: -32px;width: 136%;">
 									</div>
 								</div>
 							</div>
@@ -1764,8 +1772,8 @@ body{
 		</form>	
 	</div>
 </div>
+<!-- pop up scholaship -->
 <div class="container">
-
   <!-- The Modal -->
   <div class="modal" id="myModal">
     <div class="modal-dialog">
@@ -1792,10 +1800,151 @@ body{
       </div>
     </div>
   </div>
-  
+</div><!-- pop up scholaship -->
+<div class="container">
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Add New Scholarship</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <input type="text" class="form-control" placeholder="new scholarship here">
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" data-dismiss="modal">
+          	<i class="mdi mdi-plus"></i>&nbsp;Add</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
 </div>
-<script>
+<!-- pop up scholaship -->
+<div class="container">
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Add New Scholarship</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <input type="text" class="form-control" placeholder="new scholarship here">
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" data-dismiss="modal">
+          	<i class="mdi mdi-plus"></i>&nbsp;Add</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!-- pop up scholaship -->
+<div class="container">
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Add New Scholarship</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <input type="text" class="form-control" placeholder="new scholarship here">
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" data-dismiss="modal">
+          	<i class="mdi mdi-plus"></i>&nbsp;Add</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!-- pop up ngo -->
+<div class="container">
+  <!-- The Modal -->
+  <div class="modal" id="theModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Edit NGO</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+        	<table id="students" cellpadding="0" cellspacing="0" class="table table table-striped table-bordered table-hover">
+        		<thead>
+        			<tr>
+        				<th>Name</th>
+        			</tr>
+        		</thead>
+        		<tbody id="showdata">
+					<tr>
+						<td>
+							<div class="row">
+								<div class="col-md-1">
+									<a href="" class="mdi mdi-delete text-danger" title="Delete NGO" style="font-size: 25px;"></a>
+								</div>
+								<div class="col-md-7">
+									<input type="text" class="form-control" id="ngo" name="ngo" value="">
+								</div>
+								<div class="col-md-4"></div>
+							</div>
+						</td>
+					</tr>
+        		</tbody>
+        	</table>
+        	<button type="submit" class="btn btn-primary" data-dismiss="modal">
+          	<i class="mdi mdi-plus"></i>&nbsp;Add NGO</button>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" data-dismiss="modal">Save list
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
+<link href="<?php echo base_url();?>assets/DataTable/DataTables-1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+ <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
+ <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+<script>
+	$('#students').dataTable({
+        stateSave: true,
+    });
 	function readURL(input) {
 		if (input.files && input.files[0]) {
 			var reader = new FileReader();
@@ -1927,4 +2076,5 @@ body{
 		});
 	});
 </script>
+<?php } ?>
 <!-- end form collapsed -->
