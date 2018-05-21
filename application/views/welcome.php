@@ -77,7 +77,7 @@
                 <br>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
-                        <a href="<?php echo base_url() ?>c_student/view_candidate_info" class="btn btn-primary clearfix" id="addButton" >
+                        <a href="<?php echo base_url() ?>c_candidates/newCandidate" class="btn btn-primary clearfix" id="addButton" >
                             <i class="mdi mdi-account-plus"></i>
                             &nbsp;New candidate
                         </a>&nbsp;&nbsp;
@@ -143,7 +143,6 @@
     countAllCandidates();  /// call function countAllCandidates
     countSelectedCandidates();  /// call function countSelectedCandidates
     countProvinces();   /// call function countProvinces
-// editCandidate();
     //Transform the HTML table in a fancy datatable
     $('#students').dataTable({
         stateSave: true,
@@ -255,8 +254,10 @@
                     html +='<tr>'+
                                 '<td>'+id+'</td>'+
                                 '<td>'+
+
                                     '<a href="<?php echo base_url() ?>C_candidates/view_can_detail/'+data[i].can_id+'" class="mdi mdi-eye text-info" title="View candidate information" data="'+data[i].can_id+'"></a>&nbsp;'+
                                     '<a href="<?php echo base_url() ?>C_candidates/updateForm/'+data[i].can_id+'" class="mdi mdi-pencil-box-outline text-success item-edit" title="Edit candidate information" data="'+data[i].can_id+'"></a>&nbsp;'+
+
                                     '<a href="javascript:;" class="mdi mdi-delete text-danger item-delete" title="Delete candidate information" data="'+data[i].can_id+'"></a>'+
                                 '</td>'+
                                 '<td>'+data[i].can_name+'</td>'+
@@ -264,6 +265,7 @@
                                 '<td>'+data[i].can_gender+'</td>'+
                                 '<td>'+data[i].can_global_grade+'</td>'+
                                 '<td>'+ selected +'</td>'+
+
                             '</tr>';
                         id++;
                 }
@@ -300,11 +302,11 @@
 new Chart(document.getElementById("pie-chart"), {
     type: 'pie',
     data: {
-      labels: ["A+", "A", "A-", "B+", "B","B-","Failed"],
+      labels: ["A+", "A", "A-", "B+", "B","Failed"],
       datasets: [{
         label: "Grade (distribution)",
-        backgroundColor: ["#3cba9f","#3e95cd","#8e5ea2","#1565c0","#e8c3b9","#ffc107","#c45850"],
-        data: [85 ,1267,100,784,433,200,1380]
+        backgroundColor: ["#3cba9f","#3e95cd","#8e5ea2","#1565c0","#ffc107","#c45850"],
+        data: [85 ,1267,100,784,433,1380]
       }]
     },
     options: {
@@ -351,5 +353,4 @@ new Chart(document.getElementById("pie-chart2"), {
       }
     }
 });
-
 </script>
