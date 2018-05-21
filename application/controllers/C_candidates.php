@@ -92,6 +92,27 @@ Class C_candidates extends CI_Controller{
      $this->load->view('candidates/export');
  }
 
+
+ // function call view detail candidate 
+ public	function view_can_detail($id){
+ 	$this->load->model('candidates_model');
+ 	$result['grade'] = $this->candidates_model->globle_grade($id);
+ 	$result['list'] = $this->candidates_model->view_can($id);
+ 	$result['family'] = $this->candidates_model->view_can_family($id);
+ 	$result['income'] = $this->candidates_model->view_income($id);
+ 	$result['expense'] = $this->candidates_model->view_exspense($id);
+ 	$result['loan'] = $this->candidates_model->view_loan($id);
+ 	$result['residenc'] = $this->candidates_model->view_residence($id);
+ 	$result['home_assets'] = $this->candidates_model->view_home_assets($id);
+ 	// var_dump($result['home_assets']);
+ 	// die();
+	$this->load->view('templates/header');   
+  	$this->load->view('menu/index');   
+  	$this->load->view('candidates/view_can_detail',$result);   
+  	$this->load->view('templates/footer'); 
+
+ 	}
+
 	public function exportSelectedCan()
 	{
 		$this->load->view('candidates/exportSelected');

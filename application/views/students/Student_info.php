@@ -1908,7 +1908,6 @@ body{
 
 		});
 		// function calculat family income 
-
 		$('.form-group').on('input','.fincome',function(){
 				var fTotalSum;
 				var fMonthly = $('#fMonthly').val();
@@ -1942,7 +1941,6 @@ body{
 				gTotalIn = Number(fTotalSum) / Number(cTotalSum);
 				$('#gTotal2').val(gTotalIn);
 		});
-
 
 		// function calculat family expense
 		$('.form-group').on('input','.fExpense',function(){
