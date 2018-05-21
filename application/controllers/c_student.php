@@ -59,15 +59,12 @@
 			}
 			echo json_encode($msg);
 		}
-
-		function map() //view candidates distributtion on map
-		{
-		
-		$this->load->view('templates/header');
-		$this->load->view('menu/index');
-		$this->load->view('province');
-		$this->load->view('templates/footer');
-
+//view candidates distributtion on map
+		function map(){ 
+			$this->load->view('templates/header');
+			$this->load->view('menu/index');
+			$this->load->view('province');
+			$this->load->view('templates/footer');
 		}	
 		
 	}

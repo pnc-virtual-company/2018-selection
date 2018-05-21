@@ -22,7 +22,7 @@
 
             <?php
             $attributes = array('class' => 'form-horizontal');
-            echo form_open('users/edit/' . $users_item['id'], $attributes);
+            echo form_open('users/editUser/' . $users_item['id'], $attributes);
             ?>
 
                 <input type="hidden" name="id" value="<?php echo $users_item['id']; ?>" />
@@ -47,14 +47,6 @@
                   <input type="email" class="form-control" id="email" name="email" value="<?php echo $users_item['email']; ?>" required />
                 </div>
 
-                <div class="control-group">
-                  <label class="control-label" for="role[]">Role</label>
-                  <select class="form-control" name="role[]">
-                  <?php foreach ($roles as $roles_item): ?>
-                      <option value="<?php echo $roles_item['id'] ?>"<?php if ((((int)$roles_item['id']) & ((int) $users_item['role']))) echo "selected"?>><?php echo $roles_item['name'] ?></option>
-                  <?php endforeach ?>
-                  </select>
-                </div>
                   <br>
                   <div class="form-group">
                       <button type="submit" class="btn btn-primary"><i class="mdi mdi-pencil"></i>&nbsp;Update</button>
@@ -69,8 +61,6 @@
        </div>
      </div>
      <div class="col-md-3"></div>
-
 </div>
-
 </div>
 <br>
