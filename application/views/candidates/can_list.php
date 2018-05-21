@@ -333,6 +333,7 @@ new Chart(document.getElementById("pie-chart1"), {
       }
     }
 });
+
 // pie chart2 of ngo provenance
 new Chart(document.getElementById("pie-chart2"), {
     type: 'pie',
