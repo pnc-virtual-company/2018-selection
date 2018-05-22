@@ -358,6 +358,16 @@
     // pie chart1 of gender selected candidates
     new Chart(document.getElementById("pie-chart1"), 
     {
+        <?php foreach ($maleCount as $maleCount):?>
+        <?php 
+            $male = $maleCount->countMale;
+        ?>  
+        <?php endforeach ?>
+        <?php foreach ($femaleCount as $femaleCount):?>
+        <?php 
+            $female = $femaleCount->countFemale;
+        ?>  
+        <?php endforeach ?>
         type: 'pie',
         data: 
         {
@@ -367,13 +377,15 @@
                 label: "Gender (distribution)",
                 backgroundColor: ["#3cba9f","#ffc107"],
                 data:
-                [
-                    <?php foreach ($maleCount as $maleCount):?>
-                    <?php echo $maleCount->countMale; ?>  
-                    <?php endforeach ?>,
-                    <?php foreach ($femaleCount as $femaleCount):?>
-                    <?php echo $femaleCount->countFemale; ?>  
-                    <?php endforeach ?>
+                [   
+                    <?php 
+                         $percenMale = ($male * 100)/($male+$female);
+                        echo $percenMale;
+                    ?>,
+                    <?php 
+                        $percenFemale = ($female * 100)/($male+$female);
+                        echo $percenFemale;
+                    ?>
                 ]
             }]
         },
@@ -389,6 +401,16 @@
     // pie chart2 of ngo provenance selected candidates
     new Chart(document.getElementById("pie-chart2"), 
     {
+        <?php foreach ($ngo as $ngo):?>
+        <?php 
+            $formNgo = $ngo->FromNGO;
+        ?>  
+        <?php endforeach ?>
+        <?php foreach ($notNgo as $notNgo):?>
+        <?php 
+            $notFromNgo = $notNgo->NotFromNGO;
+        ?>  
+        <?php endforeach ?>
         type: 'pie',
         data: 
         {
@@ -399,12 +421,14 @@
                 backgroundColor: ["#3e95cd","#c45850"],
                 data: 
                 [
-                    <?php foreach ($ngo as $ngo):?>
-                    <?php echo $ngo->FromNGO; ?>  
-                    <?php endforeach ?>,
-                    <?php foreach ($notNgo as $notNgo):?>
-                    <?php echo $notNgo->NotFromNGO; ?>  
-                    <?php endforeach ?>
+                    <?php 
+                         $percenFromNGO = ($formNgo * 100)/($formNgo+$notFromNgo);
+                        echo $percenFromNGO;
+                    ?>,
+                    <?php 
+                        $percenNotFromNGO = ($notFromNgo * 100)/($formNgo+$notFromNgo);
+                        echo $percenNotFromNGO;
+                    ?>
                 ]
             }]
         },
