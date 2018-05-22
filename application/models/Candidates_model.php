@@ -23,7 +23,8 @@ class Candidates_model extends CI_Model {
     }
 
     // function get all candidates 
-    public function showAllCandidates(){
+    public function showAllCandidates()
+    {
         $id = $this->uri->segment(3);
     	$this->db->select("skeleton_tbl_candidates.can_id, concat(skeleton_tbl_candidates.can_firstname,' ',skeleton_tbl_candidates.can_lastname) AS can_name,can_gender,can_global_grade,skeleton_tbl_provinces.pro_name AS province");
     	$this->db->from('skeleton_tbl_candidates');   
@@ -38,7 +39,8 @@ class Candidates_model extends CI_Model {
     }
 
     // function to delete candidates
-    function deleteCandidate(){
+    function deleteCandidate()
+    {
         $id = $this->input->get('can_id');
         $this->db->where('can_id', $id);
         $this->db->delete('skeleton_tbl_candidates');
@@ -49,7 +51,8 @@ class Candidates_model extends CI_Model {
         }
     }
     // function to count all candidates
-    public function countCandidates(){
+    public function countCandidates()
+    {
         $this->db->select("count(can_id) AS total");
         $this->db->from("skeleton_tbl_candidates");
         $query = $this->db->get();
@@ -61,7 +64,8 @@ class Candidates_model extends CI_Model {
         }
     }
     // function to count all selected candidates
-    public function countSelectedCandidates(){
+    public function countSelectedCandidates()
+    {
         $this->db->select("count(can_id) AS totalSelected");
         $this->db->from("skeleton_tbl_candidates");
         $this->db->where("can_global_grade !='Failed' ");
@@ -72,7 +76,93 @@ class Candidates_model extends CI_Model {
             return false;
         }
     }
-    public function showSelected(){
+    // function to count male selected candidates
+    public function countMale()
+    {
+        $this->db->select("COUNT(skeleton_tbl_candidates.can_gender) AS countMale");
+        $this->db->from('skeleton_tbl_candidates');
+        $this->db->where('skeleton_tbl_candidates.can_gender', 'Male');
+        $this->db->where_not_in('skeleton_tbl_candidates.can_global_grade','Failed');
+        $count = $this->db->get(); 
+        return $count->result();
+    }
+    // function to count female candidates
+    public function countFemale()
+    {
+        $this->db->select("COUNT(skeleton_tbl_candidates.can_gender) AS countFemale");
+        $this->db->from('skeleton_tbl_candidates');
+        $this->db->where('skeleton_tbl_candidates.can_gender', 'Female');
+        $this->db->where_not_in('skeleton_tbl_candidates.can_global_grade','Failed');
+        $count = $this->db->get(); 
+        return $count->result();
+    }
+    // function to count grade A plus selected candidates
+    public function getGradeAPlus()
+    {
+        $this->db->select("COUNT(skeleton_tbl_candidates.can_global_grade) AS GradeAPlus");
+        $count =  $this->db->get_where('skeleton_tbl_candidates',array('skeleton_tbl_candidates.can_global_grade'=>'A+'));
+        return $count->result();
+    }
+    // function to count grade A candidates
+    public function getGradeA()
+    {
+        $this->db->select("COUNT(skeleton_tbl_candidates.can_global_grade) AS GradeA");
+        $count =  $this->db->get_where('skeleton_tbl_candidates',array('skeleton_tbl_candidates.can_global_grade'=>'A'));
+        return $count->result();
+    }
+    // function to count grade A minus candidates
+    public function getGradeAMinus()
+    {
+        $this->db->select("COUNT(skeleton_tbl_candidates.can_global_grade) AS GradeAMinus");
+        $count =  $this->db->get_where('skeleton_tbl_candidates',array('skeleton_tbl_candidates.can_global_grade'=>'A-'));
+        return $count->result();
+    }
+    // function to count grade B plus candidates
+    public function getGradeBPlus()
+    {
+        $this->db->select("COUNT(skeleton_tbl_candidates.can_global_grade) AS GradeBPlus");
+        $count =  $this->db->get_where('skeleton_tbl_candidates',array('skeleton_tbl_candidates.can_global_grade'=>'B+'));
+        return $count->result();
+    }
+    // function to count grade B candidates
+    public function getGradeB()
+    {
+        $this->db->select("COUNT(skeleton_tbl_candidates.can_global_grade) AS GradeB");
+        $count =  $this->db->get_where('skeleton_tbl_candidates',array('skeleton_tbl_candidates.can_global_grade'=>'B'));
+        return $count->result();
+    }
+    // function to count grade failed candidates
+    public function getGradeFailed()
+    {
+        $this->db->select("COUNT(skeleton_tbl_candidates.can_global_grade) AS GradeFailed");
+        $count =  $this->db->get_where('skeleton_tbl_candidates',array('skeleton_tbl_candidates.can_global_grade'=>'Failed'));
+        return $count->result();
+    }
+    // function to count selected candidates from NGO
+    public function fromNGO()
+    {
+        $this->db->select("COUNT(skeleton_tbl_candidates.ngo_id) AS FromNGO");
+        $this->db->from("skeleton_tbl_candidates");
+        $this->db->join('skeleton_tbl_ngo', 'skeleton_tbl_ngo.ngo_id = skeleton_tbl_candidates.ngo_id','INNER');
+        $this->db->where_not_in('skeleton_tbl_ngo.ngo_name','Other');
+        $this->db->where_not_in('skeleton_tbl_candidates.can_global_grade','Failed');
+        $count = $this->db->get(); 
+        return $count->result();
+    }
+    // function to count selected candidates not from NGO
+    public function notFromNGO()
+    {
+        $this->db->select("COUNT(skeleton_tbl_candidates.ngo_id) AS NotFromNGO");
+        $this->db->from("skeleton_tbl_candidates");
+        $this->db->join('skeleton_tbl_ngo', 'skeleton_tbl_ngo.ngo_id = skeleton_tbl_candidates.ngo_id','INNER');
+        $this->db->where('skeleton_tbl_ngo.ngo_name','Other');
+        $this->db->where_not_in('skeleton_tbl_candidates.can_global_grade','Failed');
+        $count = $this->db->get(); 
+        return $count->result();
+    }
+    // function to get selected candidates
+    public function showSelected()
+    {
         $this->db->select("skeleton_tbl_candidates.can_id, concat(skeleton_tbl_candidates.can_firstname,' ',skeleton_tbl_candidates.can_lastname) AS can_name,can_gender,can_global_grade,skeleton_tbl_provinces.pro_name AS province");   
         $this->db->from('skeleton_tbl_candidates');   
         $this->db->join('skeleton_tbl_provinces', 'skeleton_tbl_provinces.pro_id = skeleton_tbl_candidates.pro_id','INNER');
@@ -85,7 +175,8 @@ class Candidates_model extends CI_Model {
         }
     }
     // funciton to count all provinces
-    public function countProvinces(){
+    public function countProvinces()
+    {
         $this->db->select("count(pro_id) AS totalProvinces");
         $this->db->from("skeleton_tbl_provinces");
         $query = $this->db->get(); 
@@ -95,34 +186,37 @@ class Candidates_model extends CI_Model {
             return false;
         }
     }
-    function addStudent($fname,$lname,$gender,$class,$year,$stuid,$province,$tutor){
-            $data = array(
-                'stu_firstname' => $fname,
-                'stu_lastname' => $lname,
-                'gender' => $gender,
-                'class' => $class,
-                'year' => $year,
-                'idnumber' => $stuid,
-                'province' => $province,
-                'userid' => $tutor
-            );
-            $insert = $this->db->insert('tblstudents',$data);
-            if ($this->db->affected_rows() > 0) {
-                return true;
-            } else {
-                return false;
-            }
+    function addStudent($fname,$lname,$gender,$class,$year,$stuid,$province,$tutor)
+    {
+        $data = array(
+            'stu_firstname' => $fname,
+            'stu_lastname' => $lname,
+            'gender' => $gender,
+            'class' => $class,
+            'year' => $year,
+            'idnumber' => $stuid,
+            'province' => $province,
+            'userid' => $tutor
+        );
+        $insert = $this->db->insert('tblstudents',$data);
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
         }
-        //function call globale grad
-    function globle_grade($id){
+    }
+    //function call globale grad
+    function globle_grade($id)
+    {
         $this->db->select('*');
         $this->db->from('skeleton_tbl_candidates');
         $this->db->where('skeleton_tbl_candidates.can_id',$id);
         $query=$this->db->get();
         return $query->result();
     } 
-        // function call view candidate detail 
-    function view_can($id){
+    // function call view candidate detail 
+    function view_can($id)
+    {
         $this->db->select('*'); 
         $this->db->from('skeleton_tbl_candidates'); 
         $this->db->join('skeleton_tbl_provinces', 'skeleton_tbl_provinces.pro_id = skeleton_tbl_candidates.pro_id');
@@ -134,7 +228,8 @@ class Candidates_model extends CI_Model {
         return $query->result();
     } 
     // function call family information
-    function view_can_family($id){
+    function view_can_family($id)
+    {
         $this->db->select('*'); 
         $this->db->from('skeleton_tbl_family'); 
         $this->db->join('skeleton_tbl_profile', 'skeleton_tbl_profile.p_id=
@@ -144,7 +239,8 @@ class Candidates_model extends CI_Model {
         return $query->result();
     }
     // function call family income
-    function view_income($id){
+    function view_income($id)
+    {
         $this->db->select('*');
         $this->db->from('skeleton_tbl_family');
         $this->db->join('skeleton_tbl_income','skeleton_tbl_income.in_id = skeleton_tbl_family.tbl_income_in_id','INNER');
@@ -153,7 +249,8 @@ class Candidates_model extends CI_Model {
         return $query->result();
     } 
      // function call family exspend
-    function view_exspense($id){
+    function view_exspense($id)
+    {
         $this->db->select('*');
         $this->db->from('skeleton_tbl_family');
         $this->db->join('skeleton_tbl_expense','skeleton_tbl_expense.ex_id = 
@@ -163,7 +260,8 @@ class Candidates_model extends CI_Model {
         return $query->result();
     }
     // function call view_loan and dets
-    function view_loan($id){
+    function view_loan($id)
+    {
         $this->db->select('*');
         $this->db->from('skeleton_tbl_family');
         $this->db->join('skeleton_tbl_loan_debt','skeleton_tbl_loan_debt.ld_id = 
@@ -173,7 +271,8 @@ class Candidates_model extends CI_Model {
         return $query->result();
     }
     // function call view skeleton_tbl_residence
-    function view_residence($id){
+    function view_residence($id)
+    {
         $this->db->select('*');
         $this->db->from('skeleton_tbl_family');
         $this->db->join('skeleton_tbl_residence','skeleton_tbl_residence.re_id = 
@@ -183,7 +282,8 @@ class Candidates_model extends CI_Model {
         return $query->result();
     } 
     // function call view home assets
-    function view_home_assets($id){
+    function view_home_assets($id)
+    {
         $this->db->select('*');
         $this->db->from('skeleton_tbl_family');
         $this->db->join('skeleton_tbl_home_asset','skeleton_tbl_home_asset.h_id = 

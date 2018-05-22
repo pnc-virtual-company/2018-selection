@@ -1176,9 +1176,9 @@ body{
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 						<div class="form-group row">
-							<label for="computer1" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Computer > 100$ :</label>
+							<label for="computer1" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Computer < 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<p class="form-control"><?php echo $value->h_computer_smal_100; ?></p>
+								<p class="form-control"><?php echo $value->h_computer_small_100; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1222,7 +1222,7 @@ body{
 						<div class="form-group row">
 							<label for="phone" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Phone < 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<p class="form-control"><?php echo $value->h_phone_smal_100; ?></p>
+								<p class="form-control"><?php echo $value->h_phone_small_100; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1240,7 +1240,7 @@ body{
 						<div class="form-group row">
 							<label for="camara2" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Camera < 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<p class="form-control"><?php echo $value->h_camara_smal_100; ?></p>
+								<p class="form-control"><?php echo $value->h_camera_small_100; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1258,7 +1258,7 @@ body{
 						<div class="form-group row">
 							<label for="sofa2" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Sofa < 300$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<p class="form-control"><?php echo $value->h_sofa_smal_300; ?></p>
+								<p class="form-control"><?php echo $value->h_sofa_small_300; ?></p>
 							</div>
 						</div>
 					</div>
