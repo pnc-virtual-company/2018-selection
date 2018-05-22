@@ -28,10 +28,11 @@ class Users extends CI_Controller {
            if ($this->session->isAdmin || $this->session->isSuperAdmin) {
              //User management is reserved to admins and super admins
            } else {
-             redirect('errors/privileges');
+             // redirect('errors/privileges');
+
            }
          } else {
-           // redirect('connection/login');
+           redirect('connection/login');
          }
         $this->load->model('users_model');
     }
@@ -99,7 +100,7 @@ class Users extends CI_Controller {
         $this->form_validation->set_rules('email', 'Email', 'required|strip_tags');
         $this->form_validation->set_rules('role[]', 'Role', 'required');
 
-        $data['users_item'] = $this->users_model->getUsers($id);
+        $data['users_item'] = $this->users_model->getUser($id);
         if (empty($data['users_item'])) {
             redirect('notfound');
         }
@@ -162,34 +163,37 @@ class Users extends CI_Controller {
     /**
     * edit normal user
     *@param $id user identifier
-    *@author Sopheak Rith <sopheak.riths@gmail.com>
+    *@author Nuon Neourng <nuon.neourng@gmail.com>
     */
     public function editUser($id) {
-        $firsname = $this->input->post('firstname');
-        $lastname = $this->input->post('lastname');
-        $userName = $this->input->post('login');
-        $email = $this->input->post('email');
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        $data['page_title'] = 'Edit a user';
+        $data['activeLink'] = 'users';
 
-        // $data['users_item'] = $this->users_model->getUsers($id);
-        // if (empty($data['users_item'])) {
-        //     redirect('notfound');
-        // }
-                                                             // this function is user to update for normal user
-        // if ($this->form_validation->run() === FALSE) {
-        //     $data['roles'] = $this->users_model->getRoles();
-        //     $this->load->view('templates/header', $data);
-        //     $this->load->view('menu/index', $data);
-        //     $this->load->view('users/edit', $data);
-        //     $this->load->view('templates/footer');
-        // } else {
-        //     $this->users_model->updateUsers();
-        //     $this->session->set_flashdata('msg', 'The user was successfully updated.');
-        //     if (isset($_GET['source'])) {
-        //         redirect($_GET['source']);
-        //     } else {
-        //         redirect('users');
-        //     }
-        // }
+        $this->form_validation->set_rules('firstname', 'Firstname', 'required|strip_tags');
+        $this->form_validation->set_rules('lastname', 'Lastname', 'required|strip_tags');
+        $this->form_validation->set_rules('login', 'Login', 'required|strip_tags');
+        $this->form_validation->set_rules('email', 'Email', 'required|strip_tags');
+
+        $data['users_item'] = $this->users_model->getUsers($id);
+        if (empty($data['users_item'])) {
+            redirect('notfound');
+        }
+
+        if ($this->form_validation->run() === FALSE) {
+            $data['roles'] = $this->users_model->getRoles();
+            $this->load->view('templates/header', $data);
+            $this->load->view('menu/index', $data);
+            $this->load->view('users/editNormalUser', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $result = $this->users_model->updateUser();
+            $this->session->set_flashdata('msg', 'The user was successfully updated.');
+            if($result){
+              redirect('c_candidates');
+            }
+        }
     }
     
 

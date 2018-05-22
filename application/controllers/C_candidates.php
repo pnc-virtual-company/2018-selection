@@ -128,11 +128,46 @@ Class C_candidates extends CI_Controller{
 		$this->load->view('candidates/exportSelected');
 	}
 	// function to load form add candidates
-	public function newCandidate()
-	{
-	    $this->load->view('templates/header');
-	    $this->load->view('menu/index');
-	    $this->load->view('candidates/new_candidate');
-	    $this->load->view('templates/footer');
-	}
+  	public function newCandidate()
+  	{
+    $data['provinces'] = $this->m_can->getAllProvince();
+    $data['ngoes'] = $this->m_can->getAllngo();
+    $this->load->view('templates/header');
+    $this->load->view('menu/index');
+    $this->load->view('candidates/new_candidate',$data);
+    $this->load->view('templates/footer');
+  	}
+
+  	// add new candidate
+  	public function addCandidate()
+  	{
+	    $globalGrade = $this->input->post('globalGrade');
+	    $fname = $this->input->post('firstname');
+	    $lname = $this->input->post('lastname');
+	    $gender = $this->input->post('gender');   
+	    $age = $this->input->post('age');
+	    $province = $this->input->post('province');   
+	    $ngo = $this->input->post('ngo');
+	    $health = $this->input->post('health');
+	    $rankClass = $this->input->post('rankClass');
+	    $achivement = $this->input->post('achivement');
+	    $pncChoice = $this->input->post('pncChoice');
+	    $responsibility = $this->input->post('responsibility');
+	    $motivate = $this->input->post('motivate');
+	    $communication = $this->input->post('communication');
+	    $scholarship = $this->input->post('otherScholarship');
+	    $otherChoiceRank = $this->input->post('otherChoiceRank');
+	    $stuCommite = $this->input->post('studentCommit');
+	    $parCommite = $this->input->post('parentsCommit');
+	    $ngoComment = $this->input->post('ngoComment');
+	    $healthComment = $this->input->post('healthComment');
+	    $result['student'] = $this->m_can->addCandidate($fname,$lname,$gender,$age,$province,$ngo,$health,$rankClass,$achivement,$pncChoice,$responsibility,$motivate,$communication,$scholarship,$otherChoiceRank,$stuCommite,$parCommite,$globalGrade,$ngoComment,$healthComment);
+	    $msg['success'] = false;
+	    $msg['type'] = 'add';
+	    if($result){
+	      $msg['success'] = true;
+	    }
+    echo json_encode($msg);   
+  }
+
 }

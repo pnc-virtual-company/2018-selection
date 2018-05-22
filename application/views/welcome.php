@@ -151,7 +151,7 @@
         {
             $.ajax({
                 type: 'ajax',
-                url: '<?php echo base_url() ?>C_candidates/countCandidates',
+                url: '<?php echo base_url() ?>C_candidates/countCandidates',    
                 async: false,
                 dataType: 'json',
                 success: function(data)
