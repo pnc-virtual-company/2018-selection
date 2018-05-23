@@ -38,6 +38,23 @@ class Users_model extends CI_Model {
         return $query->row_array();
     }
 
+    // /**
+    //  * Get the list of users or one user
+    //  * @param int $id optional id of one user
+    //  * @return array record of users
+    //  * @author vuthy pouk <vuthy.pouk@gmail.com>
+    //  */    
+    // public function getPass($id = 0) {
+    //     $this->db->select('users.password');
+    //     if ($id === 0) {
+    //         $query = $this->db->get('users');
+    //         return $query->result_array();
+    //     }
+    //     $query = $this->db->get_where('users', array('users.id' => $id));
+    //     return $query->row_array();
+    // }
+
+
     /**
      * Get the list of users and their roles
      * @return array record of users
@@ -358,5 +375,20 @@ class Users_model extends CI_Model {
           $rnd .= chr(hexdec($sha[$char].$sha[$char+1]));
         }
         return $rnd;
+    }
+
+     // function call user change password
+    public function getPass($id,$com_password){
+        $data = array('password' => $com_password,);
+        $this->db->set($data);
+        $this->db->where('skeleton_users',$com_password);
+        $this->db->update('skeleton_users');
+    }
+    
+    public function changePass($id,$newPass){
+        // $this->load->library('encryption');
+        $data = array('password' => $newPass);
+        $this->db->where('skeleton_users.id',$id);
+        $this->db->update('skeleton_users',$data);
     }
 }

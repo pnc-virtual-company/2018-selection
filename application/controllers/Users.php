@@ -28,7 +28,7 @@ class Users extends CI_Controller {
            if ($this->session->isAdmin || $this->session->isSuperAdmin) {
              //User management is reserved to admins and super admins
            } else {
-             redirect('errors/privileges');
+             // redirect('errors/privileges');
            }
          } else {
            // redirect('connection/login');
@@ -158,6 +158,22 @@ class Users extends CI_Controller {
             }
         }
     }
+// function change get password user 
+    function change_pass($id){
+        $this->load->helper('form');
+        $this->load->library('encrypt');
+        $this->load->library('form_validation');
+        $encrypted_password = 'r5WEX++ZKggg7d6fQYAZfFOm/z3nTJmxQA00zVWhhn7cvmrSrIm/NYI51o9372qf6JtYQEil72b4JzszVo+oPg==';
+        $key = 'secret-key-in-config';
+        $decrypted_string = $this->encrypt->decode($encrypted_password, $key);
+        $data['page_title'] = 'Chang password';
+        $data['activeLink'] = 'skeleton_users';
+        $this->form_validation->set_rules('com_password', 'Com_Password', 'required|strip_tags');
+        $data['users_item'] = $this->users_model->changePass($id);
+        if (empty($data['users_item'])) {
+            redirect('notfound');
+        }
+    }
 
     /**
     * edit normal user
@@ -192,8 +208,6 @@ class Users extends CI_Controller {
         // }
     }
     
-
-
     /**
      * Delete a user. Log it as an error.
      * @param int $id User identifier
@@ -369,5 +383,16 @@ class Users extends CI_Controller {
      */
     public function export() {
         $this->load->view('users/export');
+    }
+    public function changePassUser($id){
+      $this->load->helper('form');
+      $this->load->library('encrypt');
+      $this->load->library('form_validation');
+      $encrypted_password = 'r5WEX++ZKggg7d6fQYAZfFOm/z3nTJmxQA00zVWhhn7cvmrSrIm/NYI51o9372qf6JtYQEil72b4JzszVo+oPg==';
+      $key = 'secret-key-in-config';
+      $decrypted_string = $this->encrypt->decode($encrypted_password, $key);
+      $newPass = $this->input->post('com_password');
+      $data = $this->Users_model->changePass($id,$newPass);
+      echo json_encode($data);
     }
 }

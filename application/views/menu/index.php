@@ -38,7 +38,7 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
 								<div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
 									<a class="dropdown-item waves-effect waves-light" href="#" data-toggle="modal" data-target="#profile">My account</a>
 									<a class="dropdown-item waves-effect waves-light" href="<?php echo base_url() ?>Users/edit/<?php echo $this->session->id ?>">Edit profile</a>
-									<a href="#" class="dropdown-item waves-effect waves-light" data-toggle="modal" data-target="#changePwd">Change password</a>
+									<a class="dropdown-item waves-effect waves-light" href="<?php echo base_url() ?>Users/changePassUser/<?php echo $this->session->id ?>" data-toggle="modal" data-target="#changePwd" id="change">Change password</a>	
 								</div>
 							</li>
 							<li class="nav-item">
@@ -101,35 +101,50 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
 							<h4 class="modal-title text-justify">Change password</h4>
 						</div>
 						<div class="modal-body">
-							<form action="">
+							<form method="post" class="changePass" id="myForm">
 								<li class="list-group-item">
-											<div class="form-group">
-												Old password : <input class="form-control" 
-																								type="password" 
-																								name="password" 
-																								id="" 
-																								value="">
-											</div>
-										</li>
-										<li class="list-group-item">
-											<div class="form-group">
-												New password : <input class="form-control" type="password" name="password" id="" value="">
-											</div>
-										</li>
-										<li class="list-group-item">
-											<div class="form-group">
-												Confirm password : <input class="form-control" type="password" name="password" id="" value="">
-											</div>
-										</li>
+									<div class="form-group">
+										Old password : <input class="form-control" type="password" 
+										name="old_password" value="">
+									</div>
+								</li>
+								<li class="list-group-item">
+									<div class="form-group">
+										New password : <input class="form-control" type="password" name="new_password" value="">
+									</div>
+								</li>
+								<li class="list-group-item">
+									<div class="form-group">
+										Confirm password : <input class="form-control" type="password" name="com_password" value="">
+									</div>
+								</li>
 							</form>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-primary" data-dismiss="modal"><i class="mdi mdi-pencil"></i>&nbsp;Change</button>
-								<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="mdi mdi-cancel"></i>&nbsp;Cancel</button>
+								<button type="submit" class="btn btn-primary" data-dismiss="modal" id="btn_change_pass"><i class="mdi mdi-pencil" ></i>&nbsp;Change</button>
+								<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="mdi mdi-cancel"></i>&nbsp; Cancel</button>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
-			<?php } ?>
+		<?php } ?>
+<script>
+	$(document).ready(function(){
+		$('#btn_change_pass').click(function(){
+			var id = <?php echo $this->session->id;?>;
+			$.ajax({
+				type: 'POST',
+				url: '<?php echo base_url();?>User/change_pass/'+id,
+				data: $('form.changePass').serialize(),
+				success:function(msg){
+					alert("Your password have been changed");
+				},
+				error:function(){
+					alert("Cannot change password");
+				}
+			});
+			// alert(id);
+		});
+	});
+</script>	
