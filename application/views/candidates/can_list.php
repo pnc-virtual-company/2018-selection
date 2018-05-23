@@ -317,13 +317,21 @@
         $("#formResetPwd").prop("action", link);
         $('#frmResetPwd').modal('show');
     });
-    //pie chart of grade all candidates
-    new Chart(document.getElementById("pie-chart"), 
+        //pie chart of grade all candidates
+    new Chart(document.getElementById("pie-chart"),
     {
         type: 'pie',
         data: 
         {
-            labels: ["A+", "A", "A-", "B+", "B","Failed"],
+            labels: 
+            [
+                "A+: “Parents/Guardians are unable to support the student’s higher education and are well below the poverty level (<1.5$/day/ind. in rural areas / < 3$/day/ind. in urban areas)” ",
+                "A: “Parents/Guardians are unable to support the student’s higher education and are slightly below the poverty level (1.5-2$/day/ind. in rural areas / 3-4$/day/ind. in urban areas)” ",
+                "A-: “Parents/Guardians have severe difficulties to support the student’s higher education and can’t find any external support” ",
+                "B+: “Parents/Guardians have severe difficulties to support the student’s higher education but are able to find external support” ",
+                "B: “Parents/Guardians have major difficulties to support the student’s higher education but can use some family’s assets” ",
+                "Failed: “Parents/Guardians have minor or no difficulty to support the student’s higher education“ "
+                ],
             datasets: 
             [{
                 label: "Grade (distribution)",
@@ -353,14 +361,19 @@
         },
         options: 
         {
-            title:
+            title: 
             {
                 display: true,
                 text: 'Grade distribution'
-            }
+                
+            },
+            legend: {
+            display: false
+         },
+         
         }
     });
-    // pie chart1 of gender all selected candidates
+    // pie chart1 of gender selected candidates
     new Chart(document.getElementById("pie-chart1"), 
     {
         <?php foreach ($maleCount as $maleCount):?>
@@ -384,12 +397,10 @@
                 data:
                 [   
                     <?php 
-                         $percenMale = ($male * 100)/($male+$female);
-                        echo $percenMale;
+                        echo $male;
                     ?>,
-                    <?php 
-                        $percenFemale = ($female * 100)/($male+$female);
-                        echo $percenFemale;
+                    <?php
+                        echo $female;
                     ?>
                 ]
             }]
@@ -401,16 +412,6 @@
                 display: true,
                 text: 'Gender distribution'
             },
-            tooltips: 
-            {
-                callbacks: 
-                {
-                    label: function(tooltipItem, chartData) 
-                    {
-                        return chartData.labels[tooltipItem.index] + ': ' + chartData.datasets[0].data[tooltipItem.index] + '%';
-                    }
-                }
-            }
         }
     });
     // pie chart2 of ngo provenance selected candidates
@@ -436,13 +437,11 @@
                 backgroundColor: ["#3e95cd","#c45850"],
                 data: 
                 [
-                    <?php 
-                         $percenFromNGO = ($formNgo * 100)/($formNgo+$notFromNgo);
-                        echo $percenFromNGO;
+                    <?php
+                        echo $formNgo;
                     ?>,
-                    <?php 
-                        $percenNotFromNGO = ($notFromNgo * 100)/($formNgo+$notFromNgo);
-                        echo $percenNotFromNGO;
+                    <?php
+                        echo $notFromNgo;
                     ?>
                 ]
             }]
@@ -454,18 +453,7 @@
                 display: true,
                 text: 'NGO provenance'
             },
-            tooltips: 
-            {
-                callbacks: 
-                {
-                    label: function(tooltipItem, chartData) 
-                    {
-                        return chartData.labels[tooltipItem.index] + ': ' + chartData.datasets[0].data[tooltipItem.index] + '%';
-                    }
-                }
-            }
         }
     });
-
 });
 </script>
