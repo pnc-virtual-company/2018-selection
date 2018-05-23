@@ -159,4 +159,72 @@ Class C_candidates extends CI_Controller{
     }
     echo json_encode($msg);   
   }
+  // function to add new family profile
+  public function addFamilyProfile()
+  {
+    $fatherAge = $this->input->post('fatherAge');
+    $fatherOccupation = $this->input->post('fatherOccupation');
+    $fatherSpecify = $this->input->post('fatherSpecify');
+    $fatherHealth = $this->input->post('fatherHealth');
+    $fatherHealthSpecify = $this->input->post('fatherHealthSpecify');
+    $fatherEdu = $this->input->post('fatherEdu');
+
+    $motherAge = $this->input->post('motherAge');
+    $motherOccupation = $this->input->post('motherOccupation');
+    $motherSpecify = $this->input->post('motherSpecify');
+    $motherhealthStatus = $this->input->post('motherhealthStatus');
+    $motherHealthSpecify = $this->input->post('motherHealthSpecify');
+    $motherEducation = $this->input->post('motherEducation');
+
+    $numSiblings = $this->input->post('numSiblings');
+    $marriedStatus = $this->input->post('marriedStatus');
+    $separated = $this->input->post('separated');
+    $numberFamilyLiving = $this->input->post('member');
+    $studentRank = $this->input->post('studentRank');
+
+    $resultFamily['familyProfile'] = $this->m_can->addFamilyProfile($fatherAge,$fatherOccupation,$fatherSpecify,$fatherHealth,$fatherHealthSpecify,$fatherEdu,$motherAge,$motherOccupation,$motherSpecify,$motherhealthStatus,$motherHealthSpecify,$motherEducation,$numSiblings,$marriedStatus,$separated,$numberFamilyLiving,$studentRank);
+
+    $msg['success'] = false;
+    $msg['type'] = 'add';
+
+    if($resultFamily){
+      $msg['success'] = true;
+    }
+    echo json_encode($msg); 
+
+  }
+  // end function add new family profile
+
+  // start function add family income resource
+    public function addFamilyIncome()
+    {
+      $paMonthIncome = $this->input->post('monthlyIncome');
+      $paDailyIncome = $this->input->post('paDailyIncome');
+      $paSesIncome = $this->input->post('seasonalIncome');
+      $paYearIncome = $this->input->post('yearIncome');
+      $paTotalIncome = $this->input->post('parentTotalIncome');
+
+      $chMonthIncome = $this->input->post('montlyChildAssiss');
+      $chDailyIncome = $this->input->post('ChildDailyIncome');
+      $chSeasonIncome = $this->input->post('ChildSeasonalIncome');
+      $chYearIncome = $this->input->post('ChildYearIncome');
+      $chTotalIncome = $this->input->post('childTotalIncome');
+
+      $totalIncome = $this->input->post('totalMonthIncome');
+      $totalIncomeId = $this->input->post('incomeIndividual');
+
+      var_dump($paMonthIncome,$paDailyIncome,$paSesIncome,$paYearIncome,$paTotalIncome,$chMonthIncome,$chDailyIncome,$chSeasonIncome,$chYearIncome,$chTotalIncome,$totalIncome,$totalIncomeId);
+      die();
+
+      $result['familyProfile'] = $this->m_can->addFamilyIncome($paMonthIncome,$paDailyIncome,$paSesIncome,$paYearIncome,$paTotalIncome,$chMonthIncome,$chDailyIncome,$chSeasonIncome,$chYearIncome,$chTotalIncome,$totalIncome,$totalIncomeId);
+      
+      $msg['success'] = false;
+      $msg['type'] = 'add';
+
+      if($resultFamily){
+        $msg['success'] = true;
+      }
+      echo json_encode($msg);
+    }
+  // end function add family income resource
 }

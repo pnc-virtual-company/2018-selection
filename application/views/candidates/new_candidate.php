@@ -9,8 +9,10 @@ body{
 <!-- form header -->
 <br>
 <div class="container">
+	  	<div class="alert alert-success" style="display: none;"></div>
 	<div class="row">
-	  <div class="col-lg-5 col-md-5 col-sm-3 col-xs-3"></div>
+	  <div class="col-lg-5 col-md-5 col-sm-3 col-xs-3">
+	  </div>
 	  <div class="col-lg-7 col-md-7 col-sm-9 col-xs-9">
 	   	<img id="blah" src="http://placehold.it/180" alt="your image" class="img-responsive" style="width: 25%;">
 	   	<br>
@@ -29,7 +31,7 @@ body{
 <div class="container">
 	<div id="accordion">
 		<!-- form collapsed One -->
-		<section>
+		<div class="card">
 			<div id="headingOne">
 				<h5 class="mb-0">
 					<button class="btn btn-primary collapsed btn-block text-left formHeading" id="FirstSection" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="height: 60px;">
@@ -344,9 +346,10 @@ body{
 					<!-- end form student information -->
 				</div>
 			</div>		
-	</section>
+	</div>
 		<!-- end form collapsed One -->
-		<div class="card">
+	<div class="card">
+		<div>
 			<div id="headingTwo">
 				<h5 class="mb-0">
 					<button class="btn btn-primary collapsed  btn-block text-left formHeading" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="height: 60px;">
@@ -362,7 +365,7 @@ body{
 			<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 				<div id="subAccordion">
 					<!-- form family profile -->
-					<section>
+					<div class="card">
 						<div id="familyPro">
 							<h5 class="mb-0">
 								<button class="btn btn-default collapsed btn-block text-left subHeading" data-toggle="collapse" data-target="#collapseFamilyPro" aria-expanded="false" aria-controls="collapseFamilyPro" style="height: 60px;border-bottom: 2px solid #fff;background-color: #f8f9fa; ">
@@ -377,17 +380,17 @@ body{
 						</div>
 						<div id="collapseFamilyPro" class="collapse" aria-labelledby="familyPro" data-parent="#subAccordion">
 							<div class="card-body contentBody">
+								<form id="familyProForm" action="" method="post">
 								<h5>Father</h5>
-								<form action="" method="POST">
 								<div class="row">
 										<div class="col-lg-5 col-md-5 col-sm-4">
 											<div class="form-group row">
 												<div class="col-lg-1 col-md-1"></div>
 												<div class="col-lg-5 col-md-4 col-sm-4">
-													<label for="fAge" class="col-form-label">Age :</label>
+													<label for="fatherAge" class="col-form-label">Age :</label>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-8">
-													<input type="number" name="fAge" id="fAge" class="form-control">
+													<input type="number" name="fatherAge" id="fAge" class="form-control" placeholder="Father's age">
 												</div>
 											</div>
 										</div>
@@ -399,10 +402,10 @@ body{
 										<div class="form-group row">
 											<div class="col-lg-1 col-md-1"></div>
 											<div class="col-lg-5 col-md-5 col-sm-4">
-												<label for="fOccupation" class="col-form-label">Occupation :</label>
+												<label for="fatherOccupation" class="col-form-label">Occupation :</label>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-8">
-													<select class="form-control" name="Occupation" 
+													<select class="form-control" name="fatherOccupation" 
 													id="fOccupation">
 													<option value="Farmer/Laborer">Farmer/Laborer</option>
 													<option value="Teacher">Teacher</option>
@@ -416,7 +419,7 @@ body{
 									</div>
 									<div class="col-lg-1 col-md-1"></div>
 									<div class="col-lg-6 col-md-6 col-sm-12">
-										<input type="text" name="specify" id="" class="form-control" placeholder="If other, please specify">
+										<input type="text" name="fatherSpecify" id="" class="form-control" placeholder="If other, please specify">
 									</div>
 								</div>
 								<div class="row">
@@ -424,10 +427,10 @@ body{
 										<div class="form-group row">
 											<div class="col-lg-1 col-md-1"></div>
 											<div class="col-lg-5 col-md-5 col-sm-4">
-												<label for="fOccupation" class="col-form-label">Health status :</label>
+												<label for="fatherHealth" class="col-form-label">Health status :</label>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-8">
-												<select name="fHealth" id="fHealth" class="form-control">
+												<select name="fatherHealth" id="fHealth" class="form-control">
 													<option value="Healthy">Healthy</option>
 													<option value="issues">Other</option>
 												</select>
@@ -436,7 +439,7 @@ body{
 									</div>
 									<div class="col-lg-1 col-md-1"></div>
 									<div class="col-lg-6 col-md-6 col-sm-12">
-										<input type="text" name="healthSpecify" id="" class="form-control" placeholder="If health issues, please specify" />
+										<input type="text" name="fatherHealthSpecify" id="" class="form-control" placeholder="If health issues, please specify" />
 									</div>
 								</div>
 								<div class="row">
@@ -444,11 +447,11 @@ body{
 										<div class="form-group row">
 											<div class="col-lg-1 col-md-1"></div>
 											<div class="col-md-5 col-sm-4">
-												<label for="fEdu" class="col-form-label">Education :</label>
+												<label for="fatherEdu" class="col-form-label">Education :</label>
 											</div>
 											
 											<div class="col-md-6 col-sm-4">
-												<select class="form-control" name="Education" 
+												<select class="form-control" name="fatherEdu" 
 												id="fEdu">
 												<option value="1">1</option>
 												<option value="2">2</option>
@@ -477,10 +480,10 @@ body{
 											<div class="form-group row">
 												<div class="col-lg-1 col-md-1"></div>
 												<div class="col-lg-5 col-md-4 col-sm-4">
-													<label for="fAge" class="col-form-label">Age :</label>
+													<label for="motherAge" class="col-form-label">Age :</label>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-8">
-													<input type="number" name="fAge" id="fAge" class="form-control">
+													<input type="number" name="motherAge" id="fAge" class="form-control" placeholder="Mother's age">
 												</div>
 											</div>
 										</div>
@@ -492,10 +495,10 @@ body{
 										<div class="form-group row">
 											<div class="col-lg-1 col-md-1"></div>
 											<div class="col-lg-5 col-md-5 col-sm-4">
-												<label for="fOccupation" class="col-form-label">Occupation :</label>
+												<label for="motherOccupation" class="col-form-label">Occupation :</label>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-8">
-													<select class="form-control" name="Occupation" 
+													<select class="form-control" name="motherOccupation" 
 													id="fOccupation">
 													<option value="Farmer/Laborer">Farmer/Laborer</option>
 													<option value="Teacher">Teacher</option>
@@ -509,7 +512,7 @@ body{
 									</div>
 									<div class="col-lg-1 col-md-1"></div>
 									<div class="col-lg-6 col-md-6 col-sm-12">
-										<input type="text" name="specify" id="" class="form-control" placeholder="If other, please specify">
+										<input type="text" name="motherSpecify" id="" class="form-control" placeholder="If other, please specify">
 									</div>
 								</div>
 								<div class="row">
@@ -517,10 +520,10 @@ body{
 										<div class="form-group row">
 											<div class="col-lg-1 col-md-1"></div>
 											<div class="col-lg-5 col-md-5 col-sm-4">
-												<label for="fOccupation" class="col-form-label">Health status :</label>
+												<label for="healthStatus" class="col-form-label">Health status :</label>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-8">
-												<select name="fHealth" id="fHealth" class="form-control">
+												<select name="motherhealthStatus" id="MHealth" class="form-control">
 													<option value="Healthy">Healthy</option>
 													<option value="issues">Other</option>
 												</select>
@@ -529,7 +532,7 @@ body{
 									</div>
 									<div class="col-lg-1 col-md-1"></div>
 									<div class="col-lg-6 col-md-6 col-sm-12">
-										<input type="text" name="healthSpecify" id="" class="form-control" placeholder="If health issues, please specify" />
+										<input type="text" name="motherHealthSpecify" id="" class="form-control" placeholder="If health issues, please specify" />
 									</div>
 								</div>
 								<div class="row">
@@ -537,11 +540,11 @@ body{
 										<div class="form-group row">
 											<div class="col-lg-1 col-md-1"></div>
 											<div class="col-md-5 col-sm-4">
-												<label for="fEdu" class="col-form-label">Education :</label>
+												<label for="motherEducation" class="col-form-label">Education :</label>
 											</div>
 											
 											<div class="col-md-6 col-sm-4">
-												<select class="form-control" name="Education" 
+												<select class="form-control" name="motherEducation" 
 												id="fEdu">
 												<option value="1">1</option>
 												<option value="2">2</option>
@@ -574,7 +577,7 @@ body{
 									<label for="numSiblings" class="col-form-label">Number of siblings :</label>
 								</div>
 								<div class="col-md-6">
-									<select class="form-control" name="siblings" id="numSiblings">
+									<select class="form-control" name="numSiblings" id="numSiblings">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -597,7 +600,8 @@ body{
 									<label for="married" class="col-form-label">Married :</label>
 								</div>
 								<div class="col-md-6">
-									<select class="form-control" name="Married" id="married">
+									<select class="form-control" name="marriedStatus" id="married">
+										<option value="0">0</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -620,8 +624,9 @@ body{
 									<label for="separated" class="col-form-label">Separated :</label>
 								</div>
 								<div class="col-md-6">
-									<select class="form-control" name="Separated" 
+									<select class="form-control" name="separated" 
 									id="separated">
+									<option value="0">0</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -645,10 +650,10 @@ body{
 					<div class="col-md-8">
 						<div class="form-group row">
 							<div class="col-md-9">
-								<label for="liveInHouse" class="col-form-label">Living in the family's house (including parents) :</label>
+								<label for="member" class="col-form-label">Living in the family's house (including parents) :</label>
 							</div>
 							<div class="col-md-3">
-								<select class="form-control" name="liveInHouse" 
+								<select class="form-control" name="member" 
 								id="liveInHouse">
 								<option value="1">1</option>
 								<option value="2">2</option>
@@ -675,7 +680,7 @@ body{
 							<label for="studentRank" class="col-form-label">Student rank :</label>
 						</div>
 						<div class="col-md-6">
-							<select class="form-control" name="rank" 
+							<select class="form-control" name="studentRank" 
 							id="studentRank">
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -698,13 +703,13 @@ body{
 		<div class="row">
 			<div class="col-md-9 col-sm-9"></div>
 			<div class="col-md-3 col-sm-3">
-				<button class="btn btn-primary btn-block" type="button">Save information</button>
+				<button class="btn btn-primary btn-block" id="btnSaveFamilyPro" type="submit">Save information</button>
 			</div>
 		</div>
 	</form>
 </div>
 </div>
-</section>
+</div>
 <!-- end form family profile -->
 <!-- form family income -->
 <div class="card">
@@ -720,9 +725,10 @@ body{
 			</button>
 		</h5>
 	</div>
+
 	<div id="collapseFamilyIncome" class="collapse" aria-labelledby="familyIncome" data-parent="#subAccordion">
 		<div class="card-body contentBody">
-			<form action="" method="POST">
+			<form id="formFamilyIncome" action="" method="post">
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 						<h5>Parents's income</h5>
@@ -741,7 +747,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control fincome" id="fMonthly" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control fincome" id="fMonthly" name="monthlyIncome" placeholder="$" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>	
@@ -758,7 +764,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control fincome" id="fDaily" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control fincome" id="fDaily" name="paDailyIncome" placeholder="$" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>	
@@ -775,7 +781,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control fincome" id="fSeasonal" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control fincome" id="fSeasonal" name="seasonalIncome" placeholder="$" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>	
@@ -792,7 +798,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control fincome" id="fYearly" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control fincome" id="fYearly" name="yearIncome" placeholder="$" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>	
@@ -809,7 +815,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="fTotal" style="text-align:right;" required placeholder="$">
+								<input type="number" class="form-control" id="fTotal" name="parentTotalIncome" style="text-align:right;" required placeholder="$">
 							</div>
 						</div>
 					</div>	
@@ -833,7 +839,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control cIncome" id="cMonthly" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control cIncome" id="cMonthly" name="montlyChildAssiss" placeholder="$" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>	
@@ -850,7 +856,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control cIncome" id="cDaily" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control cIncome" id="cDaily" name="ChildDailyIncome" placeholder="$" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>	
@@ -867,7 +873,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control cIncome" id="cSeasonal" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control cIncome" id="cSeasonal" placeholder="$" name ="ChildSeasonalIncome" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>	
@@ -884,7 +890,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control cIncome" id="cYearly" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control cIncome" id="cYearly" name="ChildYearIncome" placeholder="$" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>	
@@ -901,7 +907,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="cTotal" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control" id="cTotal" name="childTotalIncome" placeholder="$" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>	
@@ -924,7 +930,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control gincome" id="gTotal1" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control gincome" id="gTotal1" name="totalMonthIncome" placeholder="$" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>	
@@ -941,7 +947,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control gincomein" id="gTotal2" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control gincomein" name="incomeIndividual" id="gTotal2" placeholder="$" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>	
@@ -949,7 +955,7 @@ body{
 				<div class="row">
 					<div class="col-md-6"></div>
 					<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-						<button type="button" class="btn btn-primary float-right">Save information</button>	
+						<button type="submit" class="btn btn-primary float-right" id="btnSaveFamilyIncome">Save information</button>	
 					</div>
 				</div>
 			</form>
@@ -2043,7 +2049,6 @@ body{
 				$('#totalExpense').val(totalExepnseVal);
 			});
 // Start function add new candidate
-	// var id = <?php //echo $this->uri->segment(3); ?>;
 	$('#btnSaveFirstSection').click(function(){
 		$('#canForm').attr('action', '<?php echo base_url() ?>c_candidates/addCandidate/');
 	});
@@ -2067,7 +2072,7 @@ body{
 						}else if(response.type=='update'){
 							var type ="updated"
 						}
-						header('location:http://localhost/skeleton/c_candidates');
+						$('.alert-success').html('Candidate '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
 					}else{
 						alert('Error');
 					}
@@ -2079,6 +2084,79 @@ body{
 		
 	});
 // End function add 
+// Function to add Family Profile
+	$('#btnSaveFamilyPro').click(function(){
+		$('#familyProForm').attr('action', '<?php echo base_url() ?>c_candidates/addFamilyProfile/');
+	});
+	// start to save
+	$('#btnSaveFamilyPro').click(function(){
+		var url = $('#familyProForm').attr('action');
+		var data = $('#familyProForm').serialize();
+		//validate form
+			$.ajax({
+				type: 'ajax',
+				method: 'post',
+				url: url,
+				data: data,
+				async: false,
+				dataType: 'json',
+				success: function(response){
+					if(response.success){
+						$('#familyProForm')[0].reset();
+						if(response.type=='add'){
+							var type = 'added'
+						}else if(response.type=='update'){
+							var type ="updated"
+						}
+						$('.alert-success').html('Candidate'+type+'successfully').fadeIn().delay(4000).fadeOut('slow');
+					}else{
+						alert('Error');
+					}
+				},
+				error: function(){
+					alert('Could not add data');
+				}
+			});
+		
+	});
+// End Family Profile
+// Start function add new family income source
+	$('#btnSaveFamilyIncome').click(function(){
+		$('#formFamilyIncome').attr('action', '<?php echo base_url() ?>c_candidates/addFamilyIncome/');
+	});
+	// start to save
+	$('#btnSaveFamilyIncome').click(function(){
+		var url = $('#formFamilyIncome').attr('action');
+		var data = $('#formFamilyIncome').serialize();
+		//validate form
+			$.ajax({
+				type: 'ajax',
+				method: 'post',
+				url: url,
+				data: data,
+				async: false,
+				dataType: 'json',
+				success: function(response){
+					if(response.success){
+						$('#formFamilyIncome')[0].reset();
+						if(response.type=='add'){
+							var type = 'added'
+						}else if(response.type=='update'){
+							var type ="updated"
+						}
+						$('.alert-success').html('Candidate'+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
+					}else{
+						alert('Error');
+					}
+				},
+				error: function(){
+					alert('Could not add data');
+				}
+			});
+		
+	});
+// End function add 
+
 // function to get data
 
 		// function calculate home asset coef x5

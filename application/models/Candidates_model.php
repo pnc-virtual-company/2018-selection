@@ -270,4 +270,75 @@ class Candidates_model extends CI_Model {
         $query=$this->db->get();
         return $query->result();
     }  
+
+    // function to add data to family profile
+    public function addFamilyProfile($fatherAge,$fatherOccupation,$fatherSpecify,$fatherHealth,$fatherHealthSpecify,$fatherEdu,$motherAge,$motherOccupation,$motherSpecify,$motherhealthStatus,$motherHealthSpecify,$motherEducation,$numSiblings,$marriedStatus,$separated,$numberFamilyLiving,$studentRank)
+    {
+        $data = array(
+            'f_age' => $fatherAge,
+            'f_occupation' => $fatherOccupation,
+            'f_health' => $fatherHealth,
+            'f_edu' => $fatherEdu,
+            'm_age' => $motherAge,
+            'm_occupation' => $motherOccupation,
+            'm_health' => $motherhealthStatus,
+            'm_edu' => $motherEducation,
+            'number_sibbling' => $numSiblings,
+            'number_maried' => $marriedStatus,
+            'number_separated' => $separated,
+            'number_family_living' => $numberFamilyLiving,
+            'stu_rank' => $studentRank,
+            'f_occupation_comment' => $fatherSpecify,
+            'm_occupation_comment' => $motherSpecify,
+            'f_health_comment' => $fatherHealthSpecify,
+            'm_health_comment' => $motherHealthSpecify
+        );
+
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
+        $insert = $this->db->insert('skeleton_tbl_profile',$data);
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
+
+        if ($this->db->affected_rows() > 0) {
+           return true;
+        } else {
+            return false;
+        }
+    }
+    // end function that add on family profile
+
+    // model for add family income resource
+    public function addFamilyIncome($paMonthIncome,$paDailyIncome,$paSesIncome,$paYearIncome,$paTotalIncome,$chMonthIncome,$chDailyIncome,$chSeasonIncome,$chYearIncome,$chTotalIncome,$totalIncome,$totalIncomeId)
+    {
+        $data = array(
+            'f_monthly'=>$paMonthIncome,
+            'f_daily'=>$paDailyIncome,
+            'f_seasonal'=>$paSesIncome,
+            'f_yearly'=>$paYearIncome,
+            'f_total'=>$paTotalIncome,
+            'c_monthly'=>$chMonthIncome,
+            'c_daily'=>$chDailyIncome,
+            'c_seasonal'=>$chSeasonIncome,
+            'c_yearly'=>$chYearIncome,
+            'c_total'=>$chTotalIncome,
+            'g_monthly'=>$totalIncome,
+            'g_monthly_individual'=>$totalIncomeId
+        );
+
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
+        $insert = $this->db->insert('skeleton_tbl_income',$data);
+        if ($this->db->affected_rows() > 0) {
+            $this->db->select("MAX(can_id)");
+            $this->db->from("skeleton_tbl_candidates");
+            $query = $this->db->get(); 
+            if($query->num_rows() > 0){
+                return $query->result();  
+            }else{
+                return false;
+            }
+        } else {
+            return false;
+        }
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
+    }
+    // end family income resource
  }   
