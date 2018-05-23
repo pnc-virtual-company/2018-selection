@@ -400,6 +400,16 @@
             {
                 display: true,
                 text: 'Gender distribution'
+            },
+            tooltips: 
+            {
+                callbacks: 
+                {
+                    label: function(tooltipItem, chartData) 
+                    {
+                        return chartData.labels[tooltipItem.index] + ': ' + chartData.datasets[0].data[tooltipItem.index] + '%';
+                    }
+                }
             }
         }
     });
@@ -443,6 +453,16 @@
             {
                 display: true,
                 text: 'NGO provenance'
+            },
+            tooltips: 
+            {
+                callbacks: 
+                {
+                    label: function(tooltipItem, chartData) 
+                    {
+                        return chartData.labels[tooltipItem.index] + ': ' + chartData.datasets[0].data[tooltipItem.index] + '%';
+                    }
+                }
             }
         }
     });
