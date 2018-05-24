@@ -177,8 +177,9 @@ class Candidates_model extends CI_Model {
     // funciton to count all provinces
     public function countProvinces()
     {
-        $this->db->select("count(pro_id) AS totalProvinces");
-        $this->db->from("skeleton_tbl_provinces");
+        $this->db->select("count(DISTINCT pro_id) AS totalProvinces");
+        $this->db->from("skeleton_tbl_candidates");
+        $this->db->where_not_in('skeleton_tbl_candidates.can_global_grade','Failed');
         $query = $this->db->get(); 
         if($query->num_rows() > 0){
             return $query->result();  
@@ -209,14 +210,16 @@ class Candidates_model extends CI_Model {
     //function to get all province
     public function getAllProvince()
     {
-       $this->db->select("*");
-       $this->db->from("skeleton_tbl_provinces");
-       $query = $this->db->get(); 
-       if($query->num_rows() > 0){
+        $this->db->select('*');
+        $this->db->from("skeleton_tbl_provinces");
+        $this->db->order_by("pro_name", "ASC");
+        $query = $this->db->get();
+        return $query->result(); 
+        if($query->num_rows() > 0){
            return $query->result();  
-       }else{
+        }else{
            return false;
-       }
+        }
     }
     //End  
     //function to get NGO
@@ -296,19 +299,50 @@ class Candidates_model extends CI_Model {
             $this->db->select("MAX(sc.can_id)");
             $this->db->from("skeleton_tbl_candidates");
             $query = $this->db->get(); 
-            if($query->num_rows() > 0){
+            if($query->num_rows() > 0)
+            {
                 return $query->result();  
             }else{
                 return false;
             }
-
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
         }
+    // // function to get the candidate
+    // public function getCandidate()
+    // {
+    //     $this->db->select("skeleton_tbl_candidates.can_id, concat(skeleton_tbl_candidates.can_firstname,' ',skeleton_tbl_candidates.can_lastname) AS can_name,can_gender,can_global_grade,skeleton_tbl_provinces.pro_name AS province");   
+    //     $this->db->from('skeleton_tbl_candidates');   
+    //     $this->db->join('skeleton_tbl_provinces', 'skeleton_tbl_provinces.pro_id = skeleton_tbl_candidates.pro_id','INNER');
+    //     $this->db->where('skeleton_tbl_candidates.can_global_grade !=',"$canId");
+    //     $query = $this->db->get(); 
+    //     if($query->num_rows() > 0)
+    //     {
+    //         return $query->result();
+    //     }else{
+    //         return false;
+    //     }
+    // }
+    // get the max id of the candidate
+    // public function getLastId()
+    // {
+    //     $this->db->select("MAX(sc.can_id)");
+    //     $this->db->from("skeleton_tbl_candidates");
+    //     $query = $this->db->get(); 
+    //     if($query->num_rows() > 0){
+    //         return $query->result();  
+    //     }else{
+    //         return false;
+    //     }
+
+    // }
         // end function get max candidate
         // all update function and list out ------------------------------------
     //list all provinces
         public function listProvinces(){
             $this->db->select('*');
-            $query = $this->db->get('skeleton_tbl_provinces');
+            $this->db->from("skeleton_tbl_provinces");
+             $this->db->order_by("pro_name", "ASC");
+            $query = $this->db->get();
             return $query->result();
         }
 

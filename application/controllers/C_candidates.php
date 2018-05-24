@@ -37,13 +37,13 @@ Class C_candidates extends CI_Controller{
 	// 	$this->load->view('welcome');
 	// 	$this->load->view('templates/footer');
 	// }
- function allCandidate() //list all candidate of admin 
- {
- 	$this->load->view('templates/header');   
- 	$this->load->view('menu/index');   
- 	$this->load->view('welcome');   
- 	$this->load->view('templates/footer');  
- }
+ // function allCandidate() //list all candidate of admin 
+ // {
+ // 	$this->load->view('templates/header');   
+ // 	$this->load->view('menu/index');   
+ // 	$this->load->view('welcome');   
+ // 	$this->load->view('templates/footer');  
+ // }
 
  // function to call all Candidates
  // public function showAllCandidates(){
@@ -170,12 +170,12 @@ Class C_candidates extends CI_Controller{
 	// function to load form add candidates
   	public function newCandidate()
   	{
-    $data['provinces'] = $this->m_can->getAllProvince();
-    $data['ngoes'] = $this->m_can->getAllngo();
-    $this->load->view('templates/header');
-    $this->load->view('menu/index');
-    $this->load->view('candidates/new_candidate',$data);
-    $this->load->view('templates/footer');
+	    $data['provinces'] = $this->m_can->getAllProvince();
+	    $data['ngoes'] = $this->m_can->getAllngo();
+	    $this->load->view('templates/header');
+	    $this->load->view('menu/index');
+	    $this->load->view('candidates/new_candidate',$data);
+	    $this->load->view('templates/footer');
   	}
 
   	// add new candidate
@@ -207,9 +207,8 @@ Class C_candidates extends CI_Controller{
 	    if($result){
 	      $msg['success'] = true;
 	    }
-    echo json_encode($msg);   
+    	echo json_encode($msg);   
   }
-
   // function to add new family profile
   public function addFamilyProfile()
   {
@@ -285,21 +284,21 @@ Class C_candidates extends CI_Controller{
 
 // just like to update form
 	function updateForm($id) {		// link to form update with old info
-	$this->load->model('Candidates_model');
-	$data['value'] = $this->Candidates_model->listInfo($id); 	//get old value
-	$data['invesCon'] = $this->Candidates_model->investiCon($id);
-	$data['provinces'] = $this->Candidates_model->listProvinces();
-	$data['ngo'] = $this->Candidates_model->listNGO();
-	$data['homeAsset'] = $this->Candidates_model->listHomeAsset($id);
-	$data['parent'] = $this->Candidates_model->parentPro($id);
-	$data['income'] = $this->Candidates_model->income($id);
-	$data['expense'] = $this->Candidates_model->expense($id);
-	$data['loadAndDebt'] = $this->Candidates_model->loadsAndDebts($id);
-	$data['residence'] = $this->Candidates_model->residence($id);
-	$this->load->view('templates/header');
-	$this->load->view('menu/index');   
-	$this->load->view('candidates/update_candidate', $data);
-	$this->load->view('templates/footer');
+		$this->load->model('Candidates_model');
+		$data['value'] = $this->Candidates_model->listInfo($id); 	//get old value
+		$data['invesCon'] = $this->Candidates_model->investiCon($id);
+		$data['provinces'] = $this->Candidates_model->listProvinces();
+		$data['ngo'] = $this->Candidates_model->listNGO();
+		$data['homeAsset'] = $this->Candidates_model->listHomeAsset($id);
+		$data['parent'] = $this->Candidates_model->parentPro($id);
+		$data['income'] = $this->Candidates_model->income($id);
+		$data['expense'] = $this->Candidates_model->expense($id);
+		$data['loadAndDebt'] = $this->Candidates_model->loadsAndDebts($id);
+		$data['residence'] = $this->Candidates_model->residence($id);
+		$this->load->view('templates/header');
+		$this->load->view('menu/index');   
+		$this->load->view('candidates/update_candidate', $data);
+		$this->load->view('templates/footer');
 	}
 	public function updateCandidateGrade($id) {			//function update global grade
 		$this->load->model('Candidates_model');

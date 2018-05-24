@@ -32,8 +32,9 @@ body{
 						<?php foreach ($value as $values) { ?>
 							<option value="A+" <?php if($values->can_global_grade == 'A+') echo 'selected="selected"'; ?>>A+</option>
 							<option value="A" <?php if($values->can_global_grade == 'A') echo 'selected="selected"'; ?>>A</option>
+							<option value="A-" <?php if($values->can_global_grade == 'A-') echo 'selected="selected"'; ?>>A-</option>
 							<option value="B+" <?php if($values->can_global_grade == 'B+') echo 'selected="selected"'; ?>>B+</option>
-							<option value="B-" <?php if($values->can_global_grade == 'B-') echo 'selected="selected"'; ?>>B-</option>
+							<option value="B" <?php if($values->can_global_grade == 'B') echo 'selected="selected"'; ?>>B</option>
 							<option value="Failed" <?php if($values->can_global_grade == 'Failed') echo 'selected="selected"'; ?>>Failed</option>
 						<?php } ?>
 					</select>
