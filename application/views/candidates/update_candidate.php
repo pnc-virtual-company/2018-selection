@@ -6,38 +6,23 @@ body{
 }
 </style>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
+	<br>
 	<!-- form header -->
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-5 col-md-5 col-sm-4 col-xs-4"></div>
-			<div class="col-lg-7 col-md-7 col-sm-8 col-xs-8">
-				<img src="<?php echo base_url() ?>assets/images/background/neourng.jpg" style="width: 25%" class="text-center"><br>
-			</div>	
+
+			<div class="col-lg-5 col-md-5 col-sm-3 col-xs-3"></div>
+			<div class="col-lg-7 col-md-7 col-sm-9 col-xs-9">
+				<img id="blah" src="http://placehold.it/180" alt="your image" class="img-responsive" style="width: 25%;">
+				<br>
+				<br>
+				<div class="row">
+					<input type='file' onchange="readURL(this);" />
+				</div>
+			</div> 
 		</div>
 		<br>
-		<form method="post" class="ggrade">
-			<div class="form-group row">
-				<div class="col-lg-3 col-md-3 col-sm-2 col-xs-12"></div>
-				<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
-					<label for="mEdu" class="col-form-label">Global grade :</label>
-				</div>
-				<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12 updateGrade">
-					<select class="form-control" name="grade" id="globalGrade">
-						<?php foreach ($value as $values) { ?>
-							<option value="A+" <?php if($values->can_global_grade == 'A+') echo 'selected="selected"'; ?>>A+</option>
-							<option value="A" <?php if($values->can_global_grade == 'A') echo 'selected="selected"'; ?>>A</option>
-							<option value="B+" <?php if($values->can_global_grade == 'B+') echo 'selected="selected"'; ?>>B+</option>
-							<option value="B-" <?php if($values->can_global_grade == 'B-') echo 'selected="selected"'; ?>>B-</option>
-							<option value="Failed" <?php if($values->can_global_grade == 'Failed') echo 'selected="selected"'; ?>>Failed</option>
-						<?php } ?>
-					</select>
-				</div>
-				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-					<button type="button" id="uglobalGrade" class="btn btn-primary float-right">SAVE</button>
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-2 col-xs-12"></div>
-			</div>
-		</form>
+
 	</div>
 	<!-- end form header -->
 	<br>
@@ -67,31 +52,49 @@ body{
 						<form method="POST" class="gInfo">
 							<?php foreach ($value as $values) { ?>	<!-- start loop all information -->
 							<div class="row">
-								<div class="col-lg-4 col-md-4">
+								<div class="col-lg-5 col-md-5">
 									<div class="form-group row">
 										<div class="col-lg-1 col-md-1"></div>
-										<label for="gender" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Firstname :</label>
+										<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Global grade :</label>
+										<div class="col-lg-6 col-md-6 col-xs-12">
+											<select class="form-control" name="grade" id="globalGrade">
+												<?php foreach ($value as $values) { ?>
+													<option value="A+" <?php if($values->can_global_grade == 'A+') echo 'selected="selected"'; ?>>A+</option>
+													<option value="A" <?php if($values->can_global_grade == 'A') echo 'selected="selected"'; ?>>A</option>
+													<option value="B+" <?php if($values->can_global_grade == 'B+') echo 'selected="selected"'; ?>>B+</option>
+													<option value="B-" <?php if($values->can_global_grade == 'B-') echo 'selected="selected"'; ?>>B-</option>
+													<option value="Failed" <?php if($values->can_global_grade == 'Failed') echo 'selected="selected"'; ?>>Failed</option>
+												<?php } ?>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-5 col-md-5">
+									<div class="form-group row">
+										<div class="col-lg-1 col-md-1"></div>
+										<label for="fname" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Firstname :</label>
 										<div class="col-lg-6 col-md-6 col-xs-12">
 											<input type="text" name="fname" id="fname" class="form-control" value="<?php echo $values->can_firstname; ?>" placeholder="firstname">
 										</div>
 									</div>
 								</div>
-								<div class="col-lg-4 col-md-4">
+								<div class="col-lg-7 col-md-7">
 									<div class="form-group row">
-										<div class="col-lg-1 col-md-1"></div>
-										<label for="gender" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Lastname :</label>
-										<div class="col-lg-6 col-md-6 col-xs-12">
+										<div class="col-lg-2 col-md-2"></div>
+										<label for="lname" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Lastname :</label>
+										<div class="col-lg-5 col-md-5 col-xs-12">
 											<input type="text" name="lname" id="lname" class="form-control" value="<?php echo $values->can_lastname; ?>" placeholder="lastname">
 										</div>
 									</div>
-								</div>
-								<div class="col-lg-4 col-md-4"></div>
+								</div>	
 							</div>
 							<div class="row">
-								<div class="col-lg-4 col-md-4">
+								<div class="col-lg-5 col-md-5">
 									<div class="form-group row">
 										<div class="col-lg-1 col-md-1"></div>
-										<label for="gender" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Gender :</label>
+										<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Gender :</label>
 										<div class="col-lg-6 col-md-6 col-xs-12">
 											<select class="form-control" name="gender" id="gender">
 												<option value="Male" <?php if ($values->can_gender == 'Male') echo 'selected="selected"'; ?>>Male</option>
@@ -100,22 +103,21 @@ body{
 										</div>
 									</div>
 								</div>
-								<div class="col-lg-4 col-md-4">
+								<div class="col-lg-7 col-md-7">
 									<div class="form-group row">
-										<div class="col-lg-1 col-md-1"></div>
-										<label for="age" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Age :</label>
-										<div class="col-lg-6 col-md-6 col-xs-12">
+										<div class="col-lg-2 col-md-2"></div>
+										<label for="age" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Age :</label>
+										<div class="col-lg-5 col-md-5 col-xs-12">
 											<input type="number" name="canAge" class="form-control" value="<?php echo $values->can_age ?>" id="age" placeholder="Your Age " required>
 										</div>
 									</div>
 								</div>
-								<div class="col-lg-4 col-md-4"></div>
 							</div>
 							<div class="row">
-								<div class="col-lg-4 col-md-4">
+								<div class="col-lg-5 col-md-5">
 									<div class="form-group row">
 										<div class="col-lg-1 col-md-1"></div>
-										<label for="province" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Province :</label>
+										<label for="province" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Province :</label>
 										<div class="col-lg-6 col-md-6 col-xs-12">
 											<select class="form-control" name="province" id="province">
 												<?php
@@ -137,14 +139,13 @@ body{
 										</div>
 									</div>
 								</div>
-								<div class="col-lg-4 col-md-4"></div>
-								<div class="col-lg-4 col-md-4"></div>
+								<div class="col-lg-7 col-md-7"></div>
 							</div>
 							<div class="row">
-								<div class="col-lg-4 col-md-4">
+								<div class="col-lg-5 col-md-5">
 									<div class="form-group row">
 										<div class="col-lg-1 col-md-1"></div>
-										<label for="ngo" class="col-lg-4 col-md-4 col-xs-12 col-form-label">NGO :</label>
+										<label for="ngo" class="col-lg-5 col-md-5 col-xs-12 col-form-label">NGO :</label>
 										<div class="col-lg-6 col-md-6 col-xs-12">
 											<select class="form-control" id="ngo" name="ngo">
 												<?php foreach ($ngo as $ngos) { ?>
@@ -160,554 +161,573 @@ body{
 										</div>
 									</div>
 								</div>
-								<div class="col-lg-7 col-md-7">
-									<div class="form-group row">
-										<div class="col-md-1"></div>
-										<label for="ngoOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label">Other :</label>
-										<div class="col-lg-9 col-md-9 col-xs-12">
-											<input type="text" name="ngoComment" class="form-control" id="ngoOther" value="<?php echo $values->can_ngo_comment; ?>" placeholder="If other, please specify " required style="margin-left: -4px;">
+								<div class="col-lg-1 col-md-1">
+									<?php if($this->session->loggedIn === TRUE) { ?>
+										<?php $role =$this->session->nameRole;?>
+										<?php if ($role == 1): ?>
+											<a data-toggle="modal" data-target="#theModal">
+												<i class="mdi mdi-pencil" title="Edit NGO"></i>
+											</a>	
+										<?php endif ?>
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<div class="form-group row">
+											<label for="ngoOther" class="col-lg-3 col-md-3 col-xs-12 col-form-label" style="margin-left: 3%;">Other :</label>
+											<div class="col-lg-6 col-md-7 col-xs-12">
+												<input type="text" name="ngoComment" class="form-control" id="ngoOther" value="<?php echo $values->can_ngo_comment; ?>" placeholder="If other, please specify " required style="margin-left: -32px;width: 161%;">
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-1 col-md-1"></div>
+								</div>
+								<div class="row">
+									<div class="col-lg-5 col-md-5">
+										<div class="form-group row">
+											<div class="col-lg-1 col-md-1"></div>
+											<label for="health" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Health status :</label>
+											<div class="col-lg-6 col-md-6 col-xs-12">
+												<select class="form-control" id="health" name="can_health">
+													<?php if ($values->can_healthy == 'Healthy') { ?>
+														<option value="Healthy" selected="selected">Healthy</option>
+														<option value="Other">Other</option>
+														<?php
+													}else{
+														?>
+														<option value="Healthy">Healthy</option>
+														<option value="Other" selected="selected">Other</option>
+													<?php } ?>										
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-7 col-md-7">
+										<div class="form-group row">
+											<div class="col-md-2"></div>
+											<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label">Other :</label>
+											<div class="col-lg-8 col-md-8 col-xs-12">
+												<input type="text" class="form-control" name="healthIssues" value="<?php echo $values->can_health_comment; ?>" id="healthOther" placeholder="If some health issuses, please specify" required style="margin-left: -4px;">
+											</div>
 										</div>
 									</div>
 								</div>
-								<div class="col-lg-1 col-md-1"></div>
-							</div>
-							<div class="row">
-								<div class="col-lg-4 col-md-4">
-									<div class="form-group row">
-										<div class="col-lg-1 col-md-1"></div>
-										<label for="health" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Health status :</label>
-										<div class="col-lg-6 col-md-6 col-xs-12">
-											<select class="form-control" id="health" name="can_health">
-												<?php if ($values->can_healthy == 'Healthy') { ?>
-													<option value="Healthy" selected="selected">Healthy</option>
-													<option value="Other">Other</option>
-													<?php
-												}else{
-													?>
-													<option value="Healthy">Healthy</option>
-													<option value="Other" selected="selected">Other</option>
-												<?php } ?>										
-											</select>
+								<div class="row">
+									<div class="col-lg-5 col-md-5">
+										<div class="form-group row">
+											<div class="col-lg-1 col-md-1"></div>
+											<label for="rankClass" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Rank in class :</label>
+											<div class="col-lg-6 col-md-6 col-xs-12">
+												<input type="text" class="form-control" name="canRankClass" value="<?php echo $values->can_rank_inclass; ?>" id="rankClass" placeholder="Ex: 10/33" required>
+											</div>
+										</div>
+									</div>		
+								</div>
+								<div class="row">
+									<div class="col-lg-5 col-md-5">
+										<div class="form-group row">
+											<div class="col-lg-1 col-md-1"></div>
+											<label for="activityActivity" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Extracuricular activity 
+											& achievement :</label>	
+										</div>
+									</div>
+									<div class="col-lg-7 col-md-7">
+										<div class="form-group row">
+											<div class="col-md-2"></div>
+											<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+											<div class="col-lg-8 col-md-8 col-xs-12">
+												<input type="text" class="form-control" name="canAchivement" value="<?php echo $values->can_activity_achivement; ?>" id="activityActivity" placeholder="please comment" style="margin-left: -4px;" required>
+											</div>
 										</div>
 									</div>
 								</div>
-								<div class="col-lg-7 col-md-7">
-									<div class="form-group row">
-										<div class="col-md-1"></div>
-										<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label">Other :</label>
-										<div class="col-lg-9 col-md-9 col-xs-12">
-											<input type="text" class="form-control" name="healthIssues" value="<?php echo $values->can_health_comment; ?>" id="healthOther" placeholder="If some health issuses, please specify" required style="margin-left: -4px;">
+								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><h5>Motivation</h5></div>
+								<div class="col-lg-8 col-md-8 col-sm-10 col-xs-12"></div><br>
+								<div class="row">
+									<div class="col-lg-6 col-md-6">
+										<div class="form-group row">
+											<div class="col-lg-1 col-md-1"></div>
+											<label for="pncChoice" class="col-lg-6 col-md-6 col-xs-12 col-form-label">PNC choice rank :</label>
+											<div class="col-lg-4 col-md-4 col-xs-12">
+												<select class="form-control" id="pncChoice" name="canPncRank">
+													<option value="1" <?php if($values->can_pn_choic_rank == '1') echo 'selected="selected"'; ?>>1</option>
+													<option value="2" <?php if($values->can_pn_choic_rank == '2') echo 'selected="selected"'; ?>>2</option>
+													<option value="3" <?php if($values->can_pn_choic_rank == '3') echo 'selected="selected"'; ?>>3</option>
+													<option value="4" <?php if($values->can_pn_choic_rank == '4') echo 'selected="selected"'; ?>>4</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<div class="form-group row">
+											<div class="col-lg-1 col-md-1"></div>
+											<label for="responsibility" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Responsibility & maturity :</label>
+											<div class="col-lg-4 col-md-4 col-xs-12">
+												<input type="text" class="form-control" name="responsibilityMaturity" value="<?php echo $values->can_resposibility ?>" id="responsibility" placeholder="Ex: 18/20" required style="">
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-4 col-md-4">
-									<div class="form-group row">
-										<div class="col-lg-1 col-md-1"></div>
-										<label for="rankClass" class="col-lg-4 col-md-4 col-xs-12 col-form-label">Rank in class :</label>
-										<div class="col-lg-6 col-md-6 col-xs-12">
-											<input type="text" class="form-control" name="canRankClass" value="<?php echo $values->can_rank_inclass; ?>" id="rankClass" placeholder="Ex: 10/33" required>
+								<div class="row">
+									<div class="col-lg-6 col-md-6">
+										<div class="form-group row">
+											<div class="col-lg-1 col-md-1"></div>
+											<label for="motivation" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Motivation for PNC :</label>
+											<div class="col-lg-4 col-md-4 col-xs-12">
+												<input type="text" class="form-control" name="motivatForPnc" value="<?php echo $values->can_pnc_motivation ?>" id="motivation" placeholder="Ex: 18/20" required>
+											</div>
 										</div>
 									</div>
-								</div>		
-							</div>
-							<div class="row">
-								<div class="col-lg-4 col-md-4">
-									<div class="form-group row">
-										<div class="col-lg-1 col-md-1"></div>
-										<label for="activityActivity" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Extracuricular activity 
-										& achievement :</label>	
-									</div>
-								</div>	
-								<div class="col-lg-7 col-md-7">
-									<div class="form-group row">
-										<div class="col-md-1"></div>
-										<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
-										<div class="col-lg-9 col-md-9 col-xs-12">
-											<input type="text" class="form-control" name="canAchivement" value="<?php echo $values->can_activity_achivement; ?>" id="activityActivity" placeholder="please comment" required>
-										</div>
-									</div>
-								</div>	
-							</div>
-							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><h5>Motivation</h5></div>
-							<div class="col-lg-8 col-md-8 col-sm-10 col-xs-12"></div><br>
-							<div class="row">
-								<div class="col-lg-6 col-md-6">
-									<div class="form-group row">
-										<div class="col-lg-1 col-md-1"></div>
-										<label for="pncChoice" class="col-lg-6 col-md-6 col-xs-12 col-form-label">PNC choice rank :</label>
-										<div class="col-lg-4 col-md-4 col-xs-12">
-											<select class="form-control" id="pncChoice" name="canPncRank">
-												<option value="1" <?php if($values->can_pn_choic_rank == '1') echo 'selected="selected"'; ?>>1</option>
-												<option value="2" <?php if($values->can_pn_choic_rank == '2') echo 'selected="selected"'; ?>>2</option>
-												<option value="3" <?php if($values->can_pn_choic_rank == '3') echo 'selected="selected"'; ?>>3</option>
-												<option value="4" <?php if($values->can_pn_choic_rank == '4') echo 'selected="selected"'; ?>>4</option>
-											</select>
+									<div class="col-lg-6 col-md-6">
+										<div class="form-group row">
+											<div class="col-lg-1 col-md-1"></div>
+											<label for="communication" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Communication :</label>
+											<div class="col-lg-4 col-md-4 col-xs-12">
+												<input type="text" class="form-control" name="canCommunicate" value="<?php echo $values->can_communicate ?>" id="communication" placeholder="Ex: 10/10" required>
+											</div>
 										</div>
 									</div>
 								</div>
-								<div class="col-lg-6 col-md-6">
-									<div class="form-group row">
-										<div class="col-lg-1 col-md-1"></div>
-										<label for="responsibility" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Responsibility & maturity :</label>
-										<div class="col-lg-4 col-md-4 col-xs-12">
-											<input type="text" class="form-control" name="responsibilityMaturity" value="<?php echo $values->can_resposibility ?>" id="responsibility" placeholder="Ex: 18/20" required style="">
+								<div class="row">
+									<div class="col-lg-6 col-md-6">
+										<div class="form-group row">
+											<div class="col-lg-1 col-md-1"></div>
+											<label for="scholarship" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Other scholarship :</label>
+											<div class="col-lg-4 col-md-4 col-xs-12">
+												<input type="text" class="form-control" name="otherScholarship" value="<?php echo $values->can_other_scholaship ?>" id="scholarship" placeholder="other" required>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<div class="form-group row">
+											<div class="col-lg-1 col-md-1"></div>
+											<label for="choiceRank" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Choice Rank :</label>
+											<div class="col-lg-4 col-md-4 col-xs-12">
+												<select class="form-control" id="pncOtherChoice" name="canChoiceRank">
+													<option value="1" <?php if ($values->can_other_choice_rank == 1) echo 'selected="selected"'; ?>>1</option>
+													<option value="2" <?php if ($values->can_other_choice_rank == 2) echo 'selected="selected"'; ?>>2</option>
+													<option value="3" <?php if ($values->can_other_choice_rank == 3) echo 'selected="selected"'; ?>>3</option>
+													<option value="4" <?php if ($values->can_other_choice_rank == 4) echo 'selected="selected"'; ?>>4</option>
+												</select>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-6 col-md-6">
-									<div class="form-group row">
-										<div class="col-lg-1 col-md-1"></div>
-										<label for="motivation" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Motivation for PNC :</label>
-										<div class="col-lg-4 col-md-4 col-xs-12">
-											<input type="text" class="form-control" name="motivatForPnc" value="<?php echo $values->can_pnc_motivation ?>" id="motivation" placeholder="Ex: 18/20" required>
-										</div>
+								<div class="row">
+									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
+									<div class="col-lg-4 col-md-4 col-sm-9 col-xs-12">
+										<a href="#" data-toggle="modal" data-target="#myModal">
+											<h6>
+												<i class="mdi mdi-plus" style="color:#000;font-size: 20px;">
+												</i>Add other scholarship
+											</h6>
+										</a>
 									</div>
 								</div>
-								<div class="col-lg-6 col-md-6">
-									<div class="form-group row">
-										<div class="col-lg-1 col-md-1"></div>
-										<label for="communication" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Communication :</label>
-										<div class="col-lg-4 col-md-4 col-xs-12">
-											<input type="text" class="form-control" name="canCommunicate" value="<?php echo $values->can_communicate ?>" id="communication" placeholder="Ex: 10/10" required>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-6 col-md-6">
-									<div class="form-group row">
-										<div class="col-lg-1 col-md-1"></div>
-										<label for="scholarship" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Other scholarship :</label>
-										<div class="col-lg-4 col-md-4 col-xs-12">
-											<input type="text" class="form-control" name="otherScholarship" value="<?php echo $values->can_other_scholaship ?>" id="scholarship" placeholder="other" required>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6">
-									<div class="form-group row">
-										<div class="col-lg-1 col-md-1"></div>
-										<label for="choiceRank" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Choice Rank :</label>
-										<div class="col-lg-4 col-md-4 col-xs-12">
-											<select class="form-control" id="pncOtherChoice" name="canChoiceRank">
-												<option value="1" <?php if ($values->can_other_choice_rank == 1) echo 'selected="selected"'; ?>>1</option>
-												<option value="2" <?php if ($values->can_other_choice_rank == 2) echo 'selected="selected"'; ?>>2</option>
-												<option value="3" <?php if ($values->can_other_choice_rank == 3) echo 'selected="selected"'; ?>>3</option>
-												<option value="4" <?php if ($values->can_other_choice_rank == 4) echo 'selected="selected"'; ?>>4</option>
-											</select>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
-								<div class="col-lg-4 col-md-4 col-sm-9 col-xs-12">
-									<a href="#" data-toggle="modal" data-target="#myModal">
-										<h6>
-											<i class="mdi mdi-plus" style="color:#000;font-size: 20px;">
-											</i>Add other scholarship
-										</h6>
-									</a>
-								</div>
-							</div>
-							<!-- pop up -->
+								<!-- pop up -->
 
-							<!-- / close pop up -->
-							<div class="row">
-								<div class="col-lg-4 col-md-4">
-									<div class="form-group row">
-										<div class="col-lg-1 col-md-1"></div>
-										<label for="studentCommit" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the student :</label>
-									</div>
-								</div>	
-								<div class="col-lg-7 col-md-7">
-									<div class="form-group row">
-										<div class="col-md-1"></div>
-										<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
-										<div class="col-lg-9 col-md-9 col-xs-12">
-											<input type="text" name="CanCommitment" class="form-control" value="<?php echo $values->can_student_commit ?>" id="studentCommit" placeholder="please comment" required>
+								<!-- / close pop up -->
+								<div class="row">
+									<div class="col-lg-4 col-md-4">
+										<div class="form-group row">
+											<div class="col-lg-1 col-md-1"></div>
+											<label for="studentCommit" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the student :</label>
+										</div>
+									</div>	
+									<div class="col-lg-7 col-md-7">
+										<div class="form-group row">
+											<div class="col-md-1"></div>
+											<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+											<div class="col-lg-9 col-md-9 col-xs-12">
+												<input type="text" name="CanCommitment" class="form-control" value="<?php echo $values->can_student_commit ?>" id="studentCommit" placeholder="please comment" required>
+											</div>
+										</div>
+									</div>	
+								</div>
+								<div class="row">
+									<div class="col-lg-4 col-md-4">
+										<div class="form-group row">
+											<div class="col-lg-1 col-md-1"></div>
+											<label for="parentsCommit" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the parents :</label>
 										</div>
 									</div>
-								</div>	
-							</div>
-							<div class="row">
-								<div class="col-lg-4 col-md-4">
-									<div class="form-group row">
-										<div class="col-lg-1 col-md-1"></div>
-										<label for="parentsCommit" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the parents :</label>
-									</div>
-								</div>
-								<div class="col-lg-7 col-md-7">
-									<div class="form-group row">
-										<div class="col-md-1"></div>
-										<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
-										<div class="col-lg-9 col-md-9 col-xs-12">
-											<input type="text" class="form-control" name="canParentCommitment" value="<?php echo $values->can_parents_commit ?>" id="parentsCommit" placeholder="please comment" required>
+									<div class="col-lg-7 col-md-7">
+										<div class="form-group row">
+											<div class="col-md-1"></div>
+											<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+											<div class="col-lg-9 col-md-9 col-xs-12">
+												<input type="text" class="form-control" name="canParentCommitment" value="<?php echo $values->can_parents_commit ?>" id="parentsCommit" placeholder="please comment" required>
+											</div>
 										</div>
-									</div>
-								</div>	
-							</div>
-							<?php } ?> <!-- end of loop array-->
-							<div class="row">
-								<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12"></div>
-								<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-									<button type="button" class="btn btn-primary float-right" id="UpCanInfo">Update information</button><br><br>	
+									</div>	
 								</div>
-							</div>
-						</form>		<!-- for student information is work perfectly with update -->
-						<!-- end form student information -->
+								<?php } ?> <!-- end of loop array-->
+								<div class="row">
+									<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12"></div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+										<button type="button" class="btn btn-primary float-right" id="UpCanInfo">Update information</button><br><br>	
+									</div>
+								</div>
+							</form>		<!-- for student information is work perfectly with update -->
+							<!-- end form student information -->
+						</div>
 					</div>
 				</div>
-			</div>
-			<!-- end form collapsed One -->
-			<div class="card">
-				<div id="headingTwo">
-					<h5 class="mb-0">
-						<button class="btn btn-primary collapsed  btn-block text-left formHeading" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="height: 60px;">
-							<h4>Family information
-								<i class="mdi mdi-chevron-down float-right down" style="color:#fff; font-size: 35px;">
-								</i>
-								<i class="mdi mdi-chevron-up float-right up" style="color:#fff; font-size: 35px;display: none;">
-								</i>
-							</h4>
-						</button>
-					</h5>
-				</div>
-				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-					<div id="subAccordion">
-						<!-- form family profile -->
-						<div class="card">
-							<div id="familyPro">
-								<h5 class="mb-0">
-									<button class="btn btn-default collapsed btn-block text-left subHeading" data-toggle="collapse" data-target="#collapseFamilyPro" aria-expanded="false" aria-controls="collapseFamilyPro" style="height: 60px;border-bottom: 2px solid #fff;background-color: #f8f9fa; ">
-										<h5 class="subCollapse">Family profile
-											<i class="mdi mdi-chevron-down float-right subDown" style="color:#000; font-size: 30px;">
-											</i>
-											<i class="mdi mdi-chevron-up float-right subUp" style="color:#000; font-size: 30px;display: none;">
-											</i>
-										</h5>
-									</button>
-								</h5>
-							</div>
-							<div id="collapseFamilyPro" class="collapse" aria-labelledby="familyPro" data-parent="#subAccordion">
-								<div class="card-body contentBody">
-									<h5>Father</h5>
-									<form method="P0ST" class="familyProfile">
-										<?php foreach ($parent as $value) { ?>	<!-- start get old value from database to input -->
-										<div class="row">
-											<div class="col-lg-2 col-md-2 col-sm-4">
-												<div class="form-group row">
-													<div class="col-lg-5 col-md-4 col-sm-4">
-														<label for="fAge" class="col-form-label">Age :</label>
+				<!-- end form collapsed One -->
+				<div class="card">
+					<div id="headingTwo">
+						<h5 class="mb-0">
+							<button class="btn btn-primary collapsed  btn-block text-left formHeading" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="height: 60px;">
+								<h4>Family information
+									<i class="mdi mdi-chevron-down float-right down" style="color:#fff; font-size: 35px;">
+									</i>
+									<i class="mdi mdi-chevron-up float-right up" style="color:#fff; font-size: 35px;display: none;">
+									</i>
+								</h4>
+							</button>
+						</h5>
+					</div>
+					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+						<div id="subAccordion">
+							<!-- form family profile -->
+							<div class="card">
+								<div id="familyPro">
+									<h5 class="mb-0">
+										<button class="btn btn-default collapsed btn-block text-left subHeading" data-toggle="collapse" data-target="#collapseFamilyPro" aria-expanded="false" aria-controls="collapseFamilyPro" style="height: 60px;border-bottom: 2px solid #fff;background-color: #f8f9fa; ">
+											<h5 class="subCollapse">Family profile
+												<i class="mdi mdi-chevron-down float-right subDown" style="color:#000; font-size: 30px;">
+												</i>
+												<i class="mdi mdi-chevron-up float-right subUp" style="color:#000; font-size: 30px;display: none;">
+												</i>
+											</h5>
+										</button>
+									</h5>
+								</div>
+								<div id="collapseFamilyPro" class="collapse" aria-labelledby="familyPro" data-parent="#subAccordion">
+									<div class="card-body contentBody">
+										<h5>Father</h5>
+										<form method="P0ST" class="familyProfile">
+											<?php foreach ($parent as $value) { ?>	<!-- start get old value from database to input -->
+											<div class="row">
+												<div class="col-lg-5 col-md-5 col-sm-4">
+													<div class="form-group row">
+														<div class="col-lg-1 col-md-1"></div>
+														<div class="col-lg-5 col-md-4 col-sm-4">
+															<label for="fatherAge" class="col-form-label">Age :</label>
+														</div>
+														<div class="col-lg-6 col-md-6 col-sm-8">
+															<input type="number" value="<?php echo $value->f_age ?>" name="fAge" id="fAge" class="form-control">
+														</div>
 													</div>
-													<div class="col-lg-7 col-md-8 col-sm-8">
-														<input type="number" value="<?php echo $value->f_age ?>" name="fAge" id="fAge" class="form-control">
+												</div>
+												<div class="col-lg-7 col-md-7"></div>
+											</div>
+											<div class="row">
+												<div class="col-lg-5 col-md-5 col-sm-8">
+													<div class="form-group row">
+														<div class="col-lg-1 col-md-1"></div>
+														<div class="col-lg-5 col-md-5 col-sm-4">
+															<label for="fatherOccupation" class="col-form-label">Occupation :</label>
+														</div>
+														<div class="col-lg-6 col-md-6 col-sm-8">
+															<select class="form-control" name="fOccupation" 
+															id="fOccupation">
+															<option value="Farmer/Laborer" <?php if($value->f_occupation == 'Farmer/Laborer') echo 'selected="selected"'; ?>>Farmer/Laborer</option>
+															<option value="Teacher" <?php if ($value->f_occupation == 'Teacher') echo 'selected="selected"'; ?>>Teacher</option>
+															<option value="Soldier" <?php if($value->f_occupation == 'Soldier') echo 'selected="selected"'; ?>>Soldier</option>
+															<option value="Police Officer" <?php if($value->f_occupation == 'Police Officer') echo 'selected="selected"'; ?>>Police Officer</option>
+															<option value="Agriculture" <?php if($value->f_occupation == 'Agriculture') echo 'selected="selected"'; ?>>Agriculture</option>
+															<option value="Other" <?php if($value->f_occupation == 'Other') echo 'selected="selected"'; ?>>Other</option>
+														</select>
 													</div>
 												</div>
 											</div>
+											<div class="col-lg-1 col-md-1"></div>
+											<div class="col-lg-6 col-md-6 col-sm-12">
+												<input type="text" name="fotherOccupationSpecify" id="otherOccupation" value="<?php echo $value->f_occupation_comment; ?>" class="form-control" placeholder="If other, please specify">
+											</div>
+										</div>
+										<div class="row">
 											<div class="col-lg-5 col-md-5 col-sm-8">
 												<div class="form-group row">
+													<div class="col-lg-1 col-md-1"></div>
 													<div class="col-lg-5 col-md-5 col-sm-4">
-														<label for="fOccupation" class="col-form-label">Occupation :</label>
+														<label for="fatherHealth" class="col-form-label">Health status :</label>
 													</div>
-													<div class="col-lg-7 col-md-7 col-sm-8">
-														<select class="form-control" name="fOccupation" 
-														id="fOccupation">
-														<option value="Farmer/Laborer" <?php if($value->f_occupation == 'Farmer/Laborer') echo 'selected="selected"'; ?>>Farmer/Laborer</option>
-														<option value="Teacher" <?php if ($value->f_occupation == 'Teacher') echo 'selected="selected"'; ?>>Teacher</option>
-														<option value="Soldier" <?php if($value->f_occupation == 'Soldier') echo 'selected="selected"'; ?>>Soldier</option>
-														<option value="Police Officer" <?php if($value->f_occupation == 'Police Officer') echo 'selected="selected"'; ?>>Police Officer</option>
-														<option value="Agriculture" <?php if($value->f_occupation == 'Agriculture') echo 'selected="selected"'; ?>>Agriculture</option>
-														<option value="Other" <?php if($value->f_occupation == 'Other') echo 'selected="selected"'; ?>>Other</option>
+													<div class="col-lg-6 col-md-6 col-sm-8">
+														<select name="fHealth" id="fHealth" class="form-control">
+															<option value="Healthy" <?php if($value->f_health == 'Healthy') echo 'selected="selected"'; ?>>Healthy</option>
+															<option value="Health issues" <?php if($value->f_health == 'Health issues') echo 'selected="selected"'; ?>>Health issues</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-1 col-md-1"></div>
+											<div class="col-lg-6 col-md-6 col-sm-12">
+												<input type="text" id="fatherHealth" name="fatherhealthIssues" value="<?php echo $value->f_health_comment; ?>" class="form-control" placeholder="If health issues, please specify" />
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-5 col-sm-12">
+												<div class="form-group row">
+													<div class="col-lg-1 col-md-1"></div>
+													<div class="col-md-5 col-sm-4">
+														<label for="fatherEdu" class="col-form-label">Education :</label>
+													</div>
+													
+													<div class="col-md-6 col-sm-4">
+														<select class="form-control" name="fEducation" id="fEdu">
+															<option value="1" <?php if($value->f_edu == 1) echo 'selected="selected"'; ?>>1</option>
+															<option value="2" <?php if($value->f_edu == 2) echo 'selected="selected"'; ?>>2</option>
+															<option value="3" <?php if($value->f_edu == 3) echo 'selected="selected"'; ?>>3</option>
+															<option value="4" <?php if($value->f_edu == 4) echo 'selected="selected"'; ?>>4</option>
+															<option value="5" <?php if($value->f_edu == 5) echo 'selected="selected"'; ?>>5</option>
+															<option value="6" <?php if($value->f_edu == 6) echo 'selected="selected"'; ?>>6</option>
+															<option value="7" <?php if($value->f_edu == 7) echo 'selected="selected"'; ?>>7</option>
+															<option value="8" <?php if($value->f_edu == 8) echo 'selected="selected"'; ?>>8</option>
+															<option value="9" <?php if($value->f_edu == 9) echo 'selected="selected"'; ?>>9</option>
+															<option value="10" <?php if($value->f_edu == 10) echo 'selected="selected"'; ?>>10</option>
+															<option value="11" <?php if($value->f_edu == 11) echo 'selected="selected"'; ?>>11</option>
+															<option value="12" <?php if($value->f_edu == 12) echo 'selected="selected"'; ?>>12</option>
+															<option value="University" <?php if($value->f_edu == 'University') echo 'selected="selected"'; ?>>University</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-8"></div>
+										</div>
+										<h5>Mother</h5>
+										<div class="row">
+											<div class="col-lg-5 col-md-5 col-sm-4">
+												<div class="form-group row">
+													<div class="col-lg-1 col-md-1"></div>
+													<div class="col-lg-5 col-md-4 col-sm-4">
+														<label for="motherAge" class="col-form-label">Age :</label>
+													</div>
+													<div class="col-lg-6 col-md-6 col-sm-8">
+														<input type="number" value="<?php echo $value->m_age; ?>" name="mAge" id="mAge" class="form-control">
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-7 col-md-7"></div>
+										</div>
+										<div class="row">
+											<div class="col-lg-5 col-md-5 col-sm-8">
+												<div class="form-group row">
+													<div class="col-lg-1 col-md-1"></div>
+													<div class="col-lg-5 col-md-5 col-sm-4">
+														<label for="motherOccupation" class="col-form-label">Occupation :</label>
+													</div>
+													<div class="col-lg-6 col-md-6 col-sm-8">
+														<select class="form-control" name="mOccupation" 
+														id="mOccupation">
+														<option value="Farmer/Laborer" <?php if($value->m_occupation == 'Farmer/Laborer') echo 'selected="selected"'; ?>>Farmer/Laborer</option>
+														<option value="Teacher" <?php if($value->m_occupation == 'Teacher') echo 'selected="selected"'; ?>>Teacher</option>
+														<option value="Soldier" <?php if($value->m_occupation == 'Soldier') echo 'selected="selected"'; ?>>Soldier</option>
+														<option value="Police Officer" <?php if($value->m_occupation == 'Police Officer') echo 'selected="selected"'; ?>>Police Officer</option>
+														<option value="Agriculture" <?php if($value->m_occupation == 'Agriculture') echo 'selected="selected"'; ?>>Agriculture</option>
+														<option value="Other" <?php if($value->m_occupation == 'Other') echo 'selected="selected"'; ?>>Other</option>
 													</select>
 												</div>
 											</div>
 										</div>
-										<br>
-										<div class="col-lg-5 col-md-5 col-sm-12">
-											<input type="text" name="fotherOccupationSpecify" id="otherOccupation" value="<?php echo $value->f_occupation_comment; ?>" class="form-control" placeholder="If other, please specify">
-										</div>	<!-- not yet waiting for database -->
+										<div class="col-lg-1 col-md-1"></div>
+										<div class="col-lg-6 col-md-6 col-sm-12">
+											<input type="text" name="mOccupationSpecify" id="" value="<?php echo $value->m_occupation_comment; ?>" class="form-control" placeholder="If other, please specify">
+										</div>
 									</div>
-									<br>
 									<div class="row">
-										<div class="col-md-4">
+										<div class="col-lg-5 col-md-5 col-sm-8">
 											<div class="form-group row">
-												<div class="col-md-6">
-													<label for="fHealth" class="col-form-label">Health status :</label>
+												<div class="col-lg-1 col-md-1"></div>
+												<div class="col-lg-5 col-md-5 col-sm-4">
+													<label for="healthStatus" class="col-form-label">Health status :</label>
 												</div>
-												<div class="col-md-6">
-													<select name="fHealth" id="fHealth" class="form-control">
-														<option value="Healthy" <?php if($value->f_health == 'Healthy') echo 'selected="selected"'; ?>>Healthy</option>
-														<option value="Health issues" <?php if($value->f_health == 'Health issues') echo 'selected="selected"'; ?>>Health issues</option>
+												<div class="col-lg-6 col-md-6 col-sm-8">
+													<select name="mhealth" id="mHealth" class="form-control">
+														<option value="Healthy" <?php if($value->m_health == "Healthy") echo 'selected="selected"'; ?>>Healthy</option>
+														<option value="Health issues" <?php if($value->m_health == "Health issues") echo 'selected="selected"'; ?>>Health issues</option>
 													</select>
 												</div>
 											</div>
 										</div>
-										<div class="col-md-8">
-											<input type="text" id="fatherHealth" name="fatherhealthIssues" value="<?php echo $value->f_health_comment; ?>" class="form-control" placeholder="If health issues, please specify" />
+										<div class="col-lg-1 col-md-1"></div>
+										<div class="col-lg-6 col-md-6 col-sm-12">
+											<input type="text" value="<?php echo $value->m_health_comment; ?>" name="mhealthSpecify" id="motherHealth" class="form-control" placeholder="If health issues, please specify" />
 										</div>
 									</div>
-									<br>
 									<div class="row">
-										<div class="col-md-4 col-sm-12">
+										<div class="col-md-5 col-sm-12">
 											<div class="form-group row">
-												<div class="col-md-4 col-sm-4">
-													<label for="fEdu" class="col-form-label">Education :</label>
+												<div class="col-lg-1 col-md-1"></div>
+												<div class="col-md-5 col-sm-4">
+													<label for="mEdu" class="col-form-label">Education :</label>
 												</div>
-												<div class="col-md-2 col-sm-1"></div>
+												
 												<div class="col-md-6 col-sm-4">
-													<select class="form-control" name="fEducation" id="fEdu">
-														<option value="1" <?php if($value->f_edu == 1) echo 'selected="selected"'; ?>>1</option>
-														<option value="2" <?php if($value->f_edu == 2) echo 'selected="selected"'; ?>>2</option>
-														<option value="3" <?php if($value->f_edu == 3) echo 'selected="selected"'; ?>>3</option>
-														<option value="4" <?php if($value->f_edu == 4) echo 'selected="selected"'; ?>>4</option>
-														<option value="5" <?php if($value->f_edu == 5) echo 'selected="selected"'; ?>>5</option>
-														<option value="6" <?php if($value->f_edu == 6) echo 'selected="selected"'; ?>>6</option>
-														<option value="7" <?php if($value->f_edu == 7) echo 'selected="selected"'; ?>>7</option>
-														<option value="8" <?php if($value->f_edu == 8) echo 'selected="selected"'; ?>>8</option>
-														<option value="9" <?php if($value->f_edu == 9) echo 'selected="selected"'; ?>>9</option>
-														<option value="10" <?php if($value->f_edu == 10) echo 'selected="selected"'; ?>>10</option>
-														<option value="11" <?php if($value->f_edu == 11) echo 'selected="selected"'; ?>>11</option>
-														<option value="12" <?php if($value->f_edu == 12) echo 'selected="selected"'; ?>>12</option>
-														<option value="University" <?php if($value->f_edu == 'University') echo 'selected="selected"'; ?>>University</option>
+													<select class="form-control" name="mEducation" id="mEdu">
+														<option value="1" <?php if($value->m_edu == '1') echo 'selected="selected"'; ?>>1</option>
+														<option value="2" <?php if($value->m_edu == '2') echo 'selected="selected"'; ?>>2</option>
+														<option value="3" <?php if($value->m_edu == '3') echo 'selected="selected"'; ?>>3</option>
+														<option value="4" <?php if($value->m_edu == '4') echo 'selected="selected"'; ?>>4</option>
+														<option value="5" <?php if($value->m_edu == '5') echo 'selected="selected"'; ?>>5</option>
+														<option value="6" <?php if($value->m_edu == '6') echo 'selected="selected"'; ?>>6</option>
+														<option value="7" <?php if($value->m_edu == '7') echo 'selected="selected"'; ?>>7</option>
+														<option value="8" <?php if($value->m_edu == '8') echo 'selected="selected"'; ?>>8</option>
+														<option value="9" <?php if($value->m_edu == '9') echo 'selected="selected"'; ?>>9</option>
+														<option value="10" <?php if($value->m_edu == '10') echo 'selected="selected"'; ?>>10</option>
+														<option value="11" <?php if($value->m_edu == '11') echo 'selected="selected"'; ?>>11</option>
+														<option value="12" <?php if($value->m_edu == '12') echo 'selected="selected"'; ?>>12</option>
+														<option value="University" <?php if($value->m_edu == 'University') echo 'selected="selected"'; ?>>University</option>
 													</select>
 												</div>
 											</div>
 										</div>
 										<div class="col-md-8"></div>
 									</div>
-									<!-- end of father information -->
+
+									<!-- end of mother information -->
+									<!-- siblings -->
 									<br>
-									<h5>Mother</h5>
+									<h4>Siblings</h4>
+									<br>
 									<div class="row">
-										<div class="col-md-2">
+										<div class="col-md-4">
 											<div class="form-group row">
-												<div class="col-lg-5 col-md-4 col-sm-4">
-													<label for="mAge" class="col-form-label">Age :</label>
+												<div class="col-md-6">
+													<label for="numSiblings" class="col-form-label">Number of siblings :</label>
 												</div>
-												<div class="col-lg-7 col-md-8 col-sm-8">
-													<input type="number" value="<?php echo $value->m_age; ?>" name="mAge" id="mAge" class="form-control">
+												<div class="col-md-6">
+													<select class="form-control" name="siblings" id="numSiblings">
+														<option value="1" <?php if($value->number_sibbling == '1') echo 'selected="selected"'; ?>>1</option>
+														<option value="2" <?php if($value->number_sibbling == '2') echo 'selected="selected"'; ?>>2</option>
+														<option value="3" <?php if($value->number_sibbling == '3') echo 'selected="selected"'; ?>>3</option>
+														<option value="4" <?php if($value->number_sibbling == '4') echo 'selected="selected"'; ?>>4</option>
+														<option value="5" <?php if($value->number_sibbling == '5') echo 'selected="selected"'; ?>>5</option>
+														<option value="6" <?php if($value->number_sibbling == '6') echo 'selected="selected"'; ?>>6</option>
+														<option value="7" <?php if($value->number_sibbling == '7') echo 'selected="selected"'; ?>>7</option>
+														<option value="8" <?php if($value->number_sibbling == '8') echo 'selected="selected"'; ?>>8</option>
+														<option value="9" <?php if($value->number_sibbling == '9') echo 'selected="selected"'; ?>>9</option>
+														<option value="10" <?php if($value->number_sibbling == '10') echo 'selected="selected"'; ?>>10</option>
+														<option value="11" <?php if($value->number_sibbling == '11') echo 'selected="selected"'; ?>>11</option>
+														<option value="12" <?php if($value->number_sibbling == '12') echo 'selected="selected"'; ?>>12</option>
+													</select>
 												</div>
 											</div>
 										</div>
-										<!-- <div class="col-md-"></div> -->
-										<div class="col-md-5">
+										<div class="col-md-4">
 											<div class="form-group row">
-												<div class="col-md-5">
-													<label for="mOccupation" class="col-form-label">Occupation :</label>
+												<div class="col-md-6">
+													<label for="married" class="col-form-label">Married :</label>
 												</div>
-												<div class="col-md-7">
-													<select class="form-control" name="mOccupation" 
-													id="mOccupation">
-													<option value="Farmer/Laborer" <?php if($value->m_occupation == 'Farmer/Laborer') echo 'selected="selected"'; ?>>Farmer/Laborer</option>
-													<option value="Teacher" <?php if($value->m_occupation == 'Teacher') echo 'selected="selected"'; ?>>Teacher</option>
-													<option value="Soldier" <?php if($value->m_occupation == 'Soldier') echo 'selected="selected"'; ?>>Soldier</option>
-													<option value="Police Officer" <?php if($value->m_occupation == 'Police Officer') echo 'selected="selected"'; ?>>Police Officer</option>
-													<option value="Agriculture" <?php if($value->m_occupation == 'Agriculture') echo 'selected="selected"'; ?>>Agriculture</option>
-													<option value="Other" <?php if($value->m_occupation == 'Other') echo 'selected="selected"'; ?>>Other</option>
+												<div class="col-md-6">
+													<select class="form-control" name="Married" id="married">
+														<option value="1" <?php if($value->number_maried == '1') echo 'selected="selected"'; ?>>1</option>
+														<option value="2" <?php if($value->number_maried == '2') echo 'selected="selected"'; ?>>2</option>
+														<option value="3" <?php if($value->number_maried == '3') echo 'selected="selected"'; ?>>3</option>
+														<option value="4" <?php if($value->number_maried == '4') echo 'selected="selected"'; ?>>4</option>
+														<option value="5" <?php if($value->number_maried == '5') echo 'selected="selected"'; ?>>5</option>
+														<option value="6" <?php if($value->number_maried == '6') echo 'selected="selected"'; ?>>6</option>
+														<option value="7" <?php if($value->number_maried == '7') echo 'selected="selected"'; ?>>7</option>
+														<option value="8" <?php if($value->number_maried == '8') echo 'selected="selected"'; ?>>8</option>
+														<option value="9" <?php if($value->number_maried == '9') echo 'selected="selected"'; ?>>9</option>
+														<option value="10" <?php if($value->number_maried == '10') echo 'selected="selected"'; ?>>10</option>
+														<option value="11" <?php if($value->number_maried == '11') echo 'selected="selected"'; ?>>11</option>
+														<option value="12" <?php if($value->number_maried == '12') echo 'selected="selected"'; ?>>12</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="form-group row">
+												<div class="col-md-6">
+													<label for="separated" class="col-form-label">Separated :</label>
+												</div>
+												<div class="col-md-6">
+													<select class="form-control" name="Separated" 
+													id="separated">
+													<option value="1" <?php if($value->number_separated == '1') echo 'selected="selected"' ;?>>1</option>
+													<option value="2" <?php if($value->number_separated == '2') echo 'selected="selected"'; ?>>2</option>
+													<option value="3" <?php if($value->number_separated == '3') echo 'selected="selected"'; ?>>3</option>
+													<option value="4" <?php if($value->number_separated == '4') echo 'selected="selected"'; ?>>4</option>
+													<option value="5" <?php if($value->number_separated == '5') echo 'selected="selected"'; ?>>5</option>
+													<option value="6" <?php if($value->number_separated == '6') echo 'selected="selected"'; ?>>6</option>
+													<option value="7" <?php if($value->number_separated == '7') echo 'selected="selected"'; ?>>7</option>
+													<option value="8" <?php if($value->number_separated == '8') echo 'selected="selected"'; ?>>8</option>
+													<option value="9" <?php if($value->number_separated == '9') echo 'selected="selected"'; ?>>9</option>
+													<option value="10" <?php if($value->number_separated == '10') echo 'selected="selected"'; ?>>10</option>
+													<option value="11" <?php if($value->number_separated == '11') echo 'selected="selected"'; ?>>11</option>
+													<option value="12" <?php if($value->number_separated == '12') echo 'selected="selected"'; ?>>12</option>
 												</select>
 											</div>
 										</div>
-									</div>
-									<div class="col-md-5">
-										<input type="text" name="mOccupationSpecify" id="" value="<?php echo $value->m_occupation_comment; ?>" class="form-control" placeholder="If other, please specify">
 									</div>
 								</div>
+								<!-- end of sibling information -->
 								<br>
 								<div class="row">
-									<div class="col-md-4">
-										<div class="form-group row">
-											<div class="col-md-6">
-												<label for="mHealth" class="col-form-label">Health status :</label>
-											</div>
-											<div class="col-md-6">
-												<select name="mhealth" id="mHealth" class="form-control">
-													<option value="Healthy" <?php if($value->m_health == "Healthy") echo 'selected="selected"'; ?>>Healthy</option>
-													<option value="Health issues" <?php if($value->m_health == "Health issues") echo 'selected="selected"'; ?>>Health issues</option>
-												</select>
-											</div>
-										</div>
-									</div>
 									<div class="col-md-8">
-										<input type="text" value="<?php echo $value->m_health_comment; ?>" name="mhealthSpecify" id="motherHealth" class="form-control" placeholder="If health issues, please specify" />
-									</div>
-								</div>
-								<br>
-								<div class="row">
-									<div class="col-md-4">
 										<div class="form-group row">
-											<div class="col-md-4">
-												<label for="mEdu" class="col-form-label">Education :</label>
+											<div class="col-md-9">
+												<label for="liveInHouse" class="col-form-label">Living in the family's house (including parents) :</label>
 											</div>
-											<div class="col-md-2"></div>
-											<div class="col-md-6">
-												<select class="form-control" name="mEducation" id="mEdu">
-													<option value="1" <?php if($value->m_edu == '1') echo 'selected="selected"'; ?>>1</option>
-													<option value="2" <?php if($value->m_edu == '2') echo 'selected="selected"'; ?>>2</option>
-													<option value="3" <?php if($value->m_edu == '3') echo 'selected="selected"'; ?>>3</option>
-													<option value="4" <?php if($value->m_edu == '4') echo 'selected="selected"'; ?>>4</option>
-													<option value="5" <?php if($value->m_edu == '5') echo 'selected="selected"'; ?>>5</option>
-													<option value="6" <?php if($value->m_edu == '6') echo 'selected="selected"'; ?>>6</option>
-													<option value="7" <?php if($value->m_edu == '7') echo 'selected="selected"'; ?>>7</option>
-													<option value="8" <?php if($value->m_edu == '8') echo 'selected="selected"'; ?>>8</option>
-													<option value="9" <?php if($value->m_edu == '9') echo 'selected="selected"'; ?>>9</option>
-													<option value="10" <?php if($value->m_edu == '10') echo 'selected="selected"'; ?>>10</option>
-													<option value="11" <?php if($value->m_edu == '11') echo 'selected="selected"'; ?>>11</option>
-													<option value="12" <?php if($value->m_edu == '12') echo 'selected="selected"'; ?>>12</option>
-													<option value="University" <?php if($value->m_edu == 'University') echo 'selected="selected"'; ?>>University</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="col-md-8"></div>
-								</div>
-								<!-- end of mother information -->
-								<!-- siblings -->
-								<br>
-								<h4>Siblings</h4>
-								<br>
-								<div class="row">
-									<div class="col-md-4">
-										<div class="form-group row">
-											<div class="col-md-6">
-												<label for="numSiblings" class="col-form-label">Number of siblings :</label>
-											</div>
-											<div class="col-md-6">
-												<select class="form-control" name="siblings" id="numSiblings">
-													<option value="1" <?php if($value->number_sibbling == '1') echo 'selected="selected"'; ?>>1</option>
-													<option value="2" <?php if($value->number_sibbling == '2') echo 'selected="selected"'; ?>>2</option>
-													<option value="3" <?php if($value->number_sibbling == '3') echo 'selected="selected"'; ?>>3</option>
-													<option value="4" <?php if($value->number_sibbling == '4') echo 'selected="selected"'; ?>>4</option>
-													<option value="5" <?php if($value->number_sibbling == '5') echo 'selected="selected"'; ?>>5</option>
-													<option value="6" <?php if($value->number_sibbling == '6') echo 'selected="selected"'; ?>>6</option>
-													<option value="7" <?php if($value->number_sibbling == '7') echo 'selected="selected"'; ?>>7</option>
-													<option value="8" <?php if($value->number_sibbling == '8') echo 'selected="selected"'; ?>>8</option>
-													<option value="9" <?php if($value->number_sibbling == '9') echo 'selected="selected"'; ?>>9</option>
-													<option value="10" <?php if($value->number_sibbling == '10') echo 'selected="selected"'; ?>>10</option>
-													<option value="11" <?php if($value->number_sibbling == '11') echo 'selected="selected"'; ?>>11</option>
-													<option value="12" <?php if($value->number_sibbling == '12') echo 'selected="selected"'; ?>>12</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="col-md-4">
-										<div class="form-group row">
-											<div class="col-md-6">
-												<label for="married" class="col-form-label">Married :</label>
-											</div>
-											<div class="col-md-6">
-												<select class="form-control" name="Married" id="married">
-													<option value="1" <?php if($value->number_maried == '1') echo 'selected="selected"'; ?>>1</option>
-													<option value="2" <?php if($value->number_maried == '2') echo 'selected="selected"'; ?>>2</option>
-													<option value="3" <?php if($value->number_maried == '3') echo 'selected="selected"'; ?>>3</option>
-													<option value="4" <?php if($value->number_maried == '4') echo 'selected="selected"'; ?>>4</option>
-													<option value="5" <?php if($value->number_maried == '5') echo 'selected="selected"'; ?>>5</option>
-													<option value="6" <?php if($value->number_maried == '6') echo 'selected="selected"'; ?>>6</option>
-													<option value="7" <?php if($value->number_maried == '7') echo 'selected="selected"'; ?>>7</option>
-													<option value="8" <?php if($value->number_maried == '8') echo 'selected="selected"'; ?>>8</option>
-													<option value="9" <?php if($value->number_maried == '9') echo 'selected="selected"'; ?>>9</option>
-													<option value="10" <?php if($value->number_maried == '10') echo 'selected="selected"'; ?>>10</option>
-													<option value="11" <?php if($value->number_maried == '11') echo 'selected="selected"'; ?>>11</option>
-													<option value="12" <?php if($value->number_maried == '12') echo 'selected="selected"'; ?>>12</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="col-md-4">
-										<div class="form-group row">
-											<div class="col-md-6">
-												<label for="separated" class="col-form-label">Separated :</label>
-											</div>
-											<div class="col-md-6">
-												<select class="form-control" name="Separated" 
-												id="separated">
-												<option value="1" <?php if($value->number_separated == '1') echo 'selected="selected"' ;?>>1</option>
-												<option value="2" <?php if($value->number_separated == '2') echo 'selected="selected"'; ?>>2</option>
-												<option value="3" <?php if($value->number_separated == '3') echo 'selected="selected"'; ?>>3</option>
-												<option value="4" <?php if($value->number_separated == '4') echo 'selected="selected"'; ?>>4</option>
-												<option value="5" <?php if($value->number_separated == '5') echo 'selected="selected"'; ?>>5</option>
-												<option value="6" <?php if($value->number_separated == '6') echo 'selected="selected"'; ?>>6</option>
-												<option value="7" <?php if($value->number_separated == '7') echo 'selected="selected"'; ?>>7</option>
-												<option value="8" <?php if($value->number_separated == '8') echo 'selected="selected"'; ?>>8</option>
-												<option value="9" <?php if($value->number_separated == '9') echo 'selected="selected"'; ?>>9</option>
-												<option value="10" <?php if($value->number_separated == '10') echo 'selected="selected"'; ?>>10</option>
-												<option value="11" <?php if($value->number_separated == '11') echo 'selected="selected"'; ?>>11</option>
-												<option value="12" <?php if($value->number_separated == '12') echo 'selected="selected"'; ?>>12</option>
+											<div class="col-md-3">
+												<select class="form-control" name="liveInHouse" 
+												id="liveInHouse">
+												<option value="1" <?php if($value->number_family_living == '1') echo 'selected="selected"'; ?>>1</option>
+												<option value="2" <?php if($value->number_family_living == '2') echo 'selected="selected"'; ?>>2</option>
+												<option value="3" <?php if($value->number_family_living == '3') echo 'selected="selected"'; ?>>3</option>
+												<option value="4" <?php if($value->number_family_living == '4') echo 'selected="selected"'; ?>>4</option>
+												<option value="5" <?php if($value->number_family_living == '5') echo 'selected="selected"'; ?>>5</option>
+												<option value="6" <?php if($value->number_family_living == '6') echo 'selected="selected"'; ?>>6</option>
+												<option value="7" <?php if($value->number_family_living == '7') echo 'selected="selected"'; ?>>7</option>
+												<option value="8" <?php if($value->number_family_living == '8') echo 'selected="selected"'; ?>>8</option>
+												<option value="9" <?php if($value->number_family_living == '9') echo 'selected="selected"'; ?>>9</option>
+												<option value="10" <?php if($value->number_family_living == '10') echo 'selected="selected"'; ?>>10</option>
+												<option value="11" <?php if($value->number_family_living == '11') echo 'selected="selected"'; ?>>11</option>
+												<option value="12" <?php if($value->number_family_living == '12') echo 'selected="selected"'; ?>>12</option>
+												<option value="13" <?php if($value->number_family_living == '13') echo 'selected="selected"'; ?>>13</option>
+												<option value="14" <?php if($value->number_family_living == '14') echo 'selected="selected"'; ?>>14</option>
+												<option value="15" <?php if($value->number_family_living == '15') echo 'selected="selected"'; ?>>15</option>
 											</select>
 										</div>
 									</div>
 								</div>
-							</div>
-							<!-- end of sibling information -->
-							<br>
-							<div class="row">
-								<div class="col-md-8">
+								<div class="col-md-4">
 									<div class="form-group row">
-										<div class="col-md-9">
-											<label for="liveInHouse" class="col-form-label">Living in the family's house (including parents) :</label>
+										<div class="col-md-6">
+											<label for="studentRank" class="col-form-label">Student rank :</label>
 										</div>
-										<div class="col-md-3">
-											<select class="form-control" name="liveInHouse" 
-											id="liveInHouse">
-											<option value="1" <?php if($value->number_family_living == '1') echo 'selected="selected"'; ?>>1</option>
-											<option value="2" <?php if($value->number_family_living == '2') echo 'selected="selected"'; ?>>2</option>
-											<option value="3" <?php if($value->number_family_living == '3') echo 'selected="selected"'; ?>>3</option>
-											<option value="4" <?php if($value->number_family_living == '4') echo 'selected="selected"'; ?>>4</option>
-											<option value="5" <?php if($value->number_family_living == '5') echo 'selected="selected"'; ?>>5</option>
-											<option value="6" <?php if($value->number_family_living == '6') echo 'selected="selected"'; ?>>6</option>
-											<option value="7" <?php if($value->number_family_living == '7') echo 'selected="selected"'; ?>>7</option>
-											<option value="8" <?php if($value->number_family_living == '8') echo 'selected="selected"'; ?>>8</option>
-											<option value="9" <?php if($value->number_family_living == '9') echo 'selected="selected"'; ?>>9</option>
-											<option value="10" <?php if($value->number_family_living == '10') echo 'selected="selected"'; ?>>10</option>
-											<option value="11" <?php if($value->number_family_living == '11') echo 'selected="selected"'; ?>>11</option>
-											<option value="12" <?php if($value->number_family_living == '12') echo 'selected="selected"'; ?>>12</option>
-											<option value="13" <?php if($value->number_family_living == '13') echo 'selected="selected"'; ?>>13</option>
-											<option value="14" <?php if($value->number_family_living == '14') echo 'selected="selected"'; ?>>14</option>
-											<option value="15" <?php if($value->number_family_living == '15') echo 'selected="selected"'; ?>>15</option>
+										<div class="col-md-6">
+											<select class="form-control" name="sRank" 
+											id="studentRank">
+											<option value="1" <?php if($value->stu_rank == '1') echo 'selected="selected"'; ?>>1</option>
+											<option value="2" <?php if($value->stu_rank == '2') echo 'selected="selected"'; ?>>2</option>
+											<option value="3" <?php if($value->stu_rank == '3') echo 'selected="selected"'; ?>>3</option>
+											<option value="4" <?php if($value->stu_rank == '4') echo 'selected="selected"'; ?>>4</option>
+											<option value="5" <?php if($value->stu_rank == '5') echo 'selected="selected"'; ?>>5</option>
+											<option value="6" <?php if($value->stu_rank == '6') echo 'selected="selected"'; ?>>6</option>
+											<option value="7" <?php if($value->stu_rank == '7') echo 'selected="selected"'; ?>>7</option>
+											<option value="8" <?php if($value->stu_rank == '8') echo 'selected="selected"' ;?>>8</option>
+											<option value="9" <?php if($value->stu_rank == '9') echo 'selected="selected"'; ?>>9</option>
+											<option value="10" <?php if($value->stu_rank == '10') echo 'selected="selected"'; ?>>10</option>
+											<option value="11" <?php if($value->stu_rank == '11') echo 'selected="selected"'; ?>>11</option>
+											<option value="12" <?php if($value->stu_rank == '12') echo 'selected="selected"'; ?>>12</option>
 										</select>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-4">
-								<div class="form-group row">
-									<div class="col-md-6">
-										<label for="studentRank" class="col-form-label">Student rank :</label>
-									</div>
-									<div class="col-md-6">
-										<select class="form-control" name="sRank" 
-										id="studentRank">
-										<option value="1" <?php if($value->stu_rank == '1') echo 'selected="selected"'; ?>>1</option>
-										<option value="2" <?php if($value->stu_rank == '2') echo 'selected="selected"'; ?>>2</option>
-										<option value="3" <?php if($value->stu_rank == '3') echo 'selected="selected"'; ?>>3</option>
-										<option value="4" <?php if($value->stu_rank == '4') echo 'selected="selected"'; ?>>4</option>
-										<option value="5" <?php if($value->stu_rank == '5') echo 'selected="selected"'; ?>>5</option>
-										<option value="6" <?php if($value->stu_rank == '6') echo 'selected="selected"'; ?>>6</option>
-										<option value="7" <?php if($value->stu_rank == '7') echo 'selected="selected"'; ?>>7</option>
-										<option value="8" <?php if($value->stu_rank == '8') echo 'selected="selected"' ;?>>8</option>
-										<option value="9" <?php if($value->stu_rank == '9') echo 'selected="selected"'; ?>>9</option>
-										<option value="10" <?php if($value->stu_rank == '10') echo 'selected="selected"'; ?>>10</option>
-										<option value="11" <?php if($value->stu_rank == '11') echo 'selected="selected"'; ?>>11</option>
-										<option value="12" <?php if($value->stu_rank == '12') echo 'selected="selected"'; ?>>12</option>
-									</select>
-								</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-9 col-sm-9"></div>
+							<div class="col-md-3 col-sm-3">
+								<button class="btn btn-primary btn-block" id="familyProfile" type="button">Update information</button>
 							</div>
 						</div>
-					</div>
-					<br>
-					<div class="row">
-						<div class="col-md-9 col-sm-9"></div>
-						<div class="col-md-3 col-sm-3">
-							<button class="btn btn-primary btn-block" id="familyProfile" type="button">Update information</button>
-						</div>
-					</div>
-					<?php } ?> <!-- end of old value to put in input form -->
-				</form>
+						<?php } ?> <!-- end of old value to put in input form -->
+					</form>
+				</div>
 			</div>
 		</div>
-	</div>
 		<script>				//script for update family profile
 		$(document).ready(function(){
 			$('#familyProfile').click(function(){
@@ -1383,10 +1403,9 @@ body{
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 								<div class="row">
-									<!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"></div> -->
+									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"></div>
+									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 										<label for="">Coef x3</label>
-									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-										
 									</div>
 								</div>
 							</div>
@@ -1851,13 +1870,13 @@ body{
 <div class="conclustion">
 	<form method="POST" class="investigationConclusion">
 		<?php foreach ($invesCon as $investiCon) { ?>
-		<div class="row">
-			<div class="col-md-12">
-				<h4 style="color: #000;">Investigator's conclusion</h4>
-				<textarea name="invesCon" id="inVesConclus" rows="5" class="form-control" placeholder="Please comment"><?php echo $investiCon->can_investigator_conclusion; ?></textarea>
+			<div class="row">
+				<div class="col-md-12">
+					<h4 style="color: #000;">Investigator's conclusion</h4>
+					<textarea name="invesCon" id="inVesConclus" rows="5" class="form-control" placeholder="Please comment"><?php echo $investiCon->can_investigator_conclusion; ?></textarea>
+				</div>
 			</div>
-		</div>
-	<?php } ?>
+		<?php } ?>
 		<br>
 		<div class="row">
 			<div class="col-lg-10 col-md-10"></div>
@@ -1967,22 +1986,6 @@ body{
   	});
   	$('#totalExpense').val(totalExepnseVal);
   });
-  //update candidate information
-  $('#uglobalGrade').click(function(){
-  	var id = <?php echo $this->uri->segment(3); ?>;		///get id from url
-  	$.ajax({
-  		type: 'POST',
-  		url: '<?php echo base_url() ?>C_candidates/updateCandidateGrade/'+id,
-  		data: $('form.ggrade').serialize(),
-  		success: function(msg) {
-  			alert("Global grade was updated.");
-  		},
-  		error: function(){
-  			alert('Error update global grade.');
-  		}
-  	});
-  	// alert(globalGrade);
-  });
   $('#UpCanInfo').click(function(){
   	var id = <?php echo $this->uri->segment(3); ?>;	
   	$.ajax({
@@ -2000,3 +2003,4 @@ body{
   // end of function update ----
 });
 </script>
+<?php } ?>

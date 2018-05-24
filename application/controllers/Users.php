@@ -20,22 +20,22 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function __construct() {
-        parent::__construct();
-        log_message('debug', 'URI=' . $this->uri->uri_string());
-        $this->session->set_userdata('last_page', $this->uri->uri_string());
-        if($this->session->loggedIn === TRUE) {
+      parent::__construct();
+      log_message('debug', 'URI=' . $this->uri->uri_string());
+      $this->session->set_userdata('last_page', $this->uri->uri_string());
+      if($this->session->loggedIn === TRUE) {
            // Allowed methods
-           if ($this->session->isAdmin || $this->session->isSuperAdmin) {
+       if ($this->session->isAdmin || $this->session->isSuperAdmin) {
              //User management is reserved to admins and super admins
-           } else {
+       } else {
              // redirect('errors/privileges');
 
-           }
-         } else {
-           redirect('connection/login');
-         }
-        $this->load->model('users_model');
-    }
+       }
+     } else {
+       redirect('connection/login');
+     }
+     $this->load->model('users_model');
+   }
 
     /**
      * Display the list of all users
@@ -43,14 +43,14 @@ class Users extends CI_Controller {
      */
     public function index() {
         // $this->load->helper('form');
-        $data['users'] = $this->users_model->getUsersAndRoles();
-        $data['page_title'] = 'List of users';
-        $data['activeLink'] = 'users';
-        $data['flashPartialView'] = $this->load->view('templates/flash', $data, TRUE);
-        $this->load->view('templates/header', $data);
-        $this->load->view('menu/index', $data);
-        $this->load->view('users/index', $data);
-        $this->load->view('templates/footer', $data);
+      $data['users'] = $this->users_model->getUsersAndRoles();
+      $data['page_title'] = 'List of users';
+      $data['activeLink'] = 'users';
+      $data['flashPartialView'] = $this->load->view('templates/flash', $data, TRUE);
+      $this->load->view('templates/header', $data);
+      $this->load->view('menu/index', $data);
+      $this->load->view('users/index', $data);
+      $this->load->view('templates/footer', $data);
     }
 
     /**
@@ -60,10 +60,25 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function active($id, $active) {
-        $this->users_model->setActive($id, $active);
-        $this->session->set_flashdata('msg', 'The user was successfully modified');
-        redirect('users');
+      $this->users_model->setActive($id, $active);
+      $this->session->set_flashdata('msg', 'The user was successfully modified');
+      redirect('users');
     }
+/**
+* function for send mail
+*@author Sopheak RITH <sopheak.rith>
+*/
+  // function sendMail(){
+  //  $config = array(
+  //   'protocol' => 'smtp',
+  //   'smtp_host' => 'ssl://smtp.googlemail.com',
+  //   'smtp_port' => 465,
+  //   'smtp_user' => 'sopheak.rith@student.passerellesnumeriques.org',
+  //   'smtp_pass' => 'sopheak2018',
+  //    'charset' => 'utf-8',
+  //  'wordwrap' => TRUE,
+  //  'newline' => "\r\n"
+  //  );
 
     /**
      * Enable a user
@@ -71,7 +86,7 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function enable($id) {
-        $this->active($id, TRUE);
+      $this->active($id, TRUE);
     }
 
     /**
@@ -80,7 +95,7 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function disable($id) {
-        $this->active($id, FALSE);
+      $this->active($id, FALSE);
     }
 
     /**
@@ -89,37 +104,37 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function edit($id) {
-        $this->load->helper('form');
-        $this->load->library('form_validation');
-        $data['page_title'] = 'Edit a user';
-        $data['activeLink'] = 'users';
+      $this->load->helper('form');
+      $this->load->library('form_validation');
+      $data['page_title'] = 'Edit a user';
+      $data['activeLink'] = 'users';
 
-        $this->form_validation->set_rules('firstname', 'Firstname', 'required|strip_tags');
-        $this->form_validation->set_rules('lastname', 'Lastname', 'required|strip_tags');
-        $this->form_validation->set_rules('login', 'Login', 'required|strip_tags');
-        $this->form_validation->set_rules('email', 'Email', 'required|strip_tags');
-        $this->form_validation->set_rules('role[]', 'Role', 'required');
+      $this->form_validation->set_rules('firstname', 'Firstname', 'required|strip_tags');
+      $this->form_validation->set_rules('lastname', 'Lastname', 'required|strip_tags');
+      $this->form_validation->set_rules('login', 'Login', 'required|strip_tags');
+      $this->form_validation->set_rules('email', 'Email', 'required|strip_tags');
+      $this->form_validation->set_rules('role[]', 'Role', 'required');
 
-        $data['users_item'] = $this->users_model->getUser($id);
-        if (empty($data['users_item'])) {
-            redirect('notfound');
-        }
+      $data['users_item'] = $this->users_model->getUser($id);
+      if (empty($data['users_item'])) {
+        redirect('notfound');
+      }
 
-        if ($this->form_validation->run() === FALSE) {
-            $data['roles'] = $this->users_model->getRoles();
-            $this->load->view('templates/header', $data);
-            $this->load->view('menu/index', $data);
-            $this->load->view('users/edit', $data);
-            $this->load->view('templates/footer');
+      if ($this->form_validation->run() === FALSE) {
+        $data['roles'] = $this->users_model->getRoles();
+        $this->load->view('templates/header', $data);
+        $this->load->view('menu/index', $data);
+        $this->load->view('users/edit', $data);
+        $this->load->view('templates/footer');
+      } else {
+        $this->users_model->updateUsers();
+        $this->session->set_flashdata('msg', 'The user was successfully updated.');
+        if (isset($_GET['source'])) {
+          redirect($_GET['source']);
         } else {
-            $this->users_model->updateUsers();
-            $this->session->set_flashdata('msg', 'The user was successfully updated.');
-            if (isset($_GET['source'])) {
-                redirect($_GET['source']);
-            } else {
-                redirect('users');
-            }
+          redirect('users');
         }
+      }
     }
     /**
      * Display a for that allows updating a given user
@@ -127,37 +142,37 @@ class Users extends CI_Controller {
      * @author Dakhen SOK <Dakhen42@gmail.com>
      */
     public function UpdateProfile($id) {
-        $this->load->helper('form');
-        $this->load->library('form_validation');
-        $data['page_title'] = 'Edit a user';
-        $data['activeLink'] = 'users';
+      $this->load->helper('form');
+      $this->load->library('form_validation');
+      $data['page_title'] = 'Edit a user';
+      $data['activeLink'] = 'users';
 
-        $this->form_validation->set_rules('firstname', 'Firstname', 'required|strip_tags');
-        $this->form_validation->set_rules('lastname', 'Lastname', 'required|strip_tags');
-        $this->form_validation->set_rules('login', 'Login', 'required|strip_tags');
-        $this->form_validation->set_rules('email', 'Email', 'required|strip_tags');
-        $this->form_validation->set_rules('role[]', 'Role', 'required');
+      $this->form_validation->set_rules('firstname', 'Firstname', 'required|strip_tags');
+      $this->form_validation->set_rules('lastname', 'Lastname', 'required|strip_tags');
+      $this->form_validation->set_rules('login', 'Login', 'required|strip_tags');
+      $this->form_validation->set_rules('email', 'Email', 'required|strip_tags');
+      $this->form_validation->set_rules('role[]', 'Role', 'required');
 
-        $data['users_item'] = $this->users_model->getUsers($id);
-        if (empty($data['users_item'])) {
-            redirect('notfound');
-        }
+      $data['users_item'] = $this->users_model->getUsers($id);
+      if (empty($data['users_item'])) {
+        redirect('notfound');
+      }
 
-        if ($this->form_validation->run() === FALSE) {
-            $data['roles'] = $this->users_model->getRoles();
-            $this->load->view('templates/header', $data);
-            $this->load->view('menu/index', $data);
-            $this->load->view('users/UpdateProfile', $data);
-            $this->load->view('templates/footer');
+      if ($this->form_validation->run() === FALSE) {
+        $data['roles'] = $this->users_model->getRoles();
+        $this->load->view('templates/header', $data);
+        $this->load->view('menu/index', $data);
+        $this->load->view('users/UpdateProfile', $data);
+        $this->load->view('templates/footer');
+      } else {
+        $this->users_model->updateUsers();
+        $this->session->set_flashdata('msg', 'The user was successfully updated.');
+        if (isset($_GET['source'])) {
+          redirect($_GET['source']);
         } else {
-            $this->users_model->updateUsers();
-            $this->session->set_flashdata('msg', 'The user was successfully updated.');
-            if (isset($_GET['source'])) {
-                redirect($_GET['source']);
-            } else {
-                redirect('c_candidates');
-            }
+          redirect('c_candidates');
         }
+      }
     }
 
     /**
@@ -166,34 +181,34 @@ class Users extends CI_Controller {
     *@author Nuon Neourng <nuon.neourng@gmail.com>
     */
     public function editUser($id) {
-        $this->load->helper('form');
-        $this->load->library('form_validation');
-        $data['page_title'] = 'Edit a user';
-        $data['activeLink'] = 'users';
+      $this->load->helper('form');
+      $this->load->library('form_validation');
+      $data['page_title'] = 'Edit a user';
+      $data['activeLink'] = 'users';
 
-        $this->form_validation->set_rules('firstname', 'Firstname', 'required|strip_tags');
-        $this->form_validation->set_rules('lastname', 'Lastname', 'required|strip_tags');
-        $this->form_validation->set_rules('login', 'Login', 'required|strip_tags');
-        $this->form_validation->set_rules('email', 'Email', 'required|strip_tags');
+      $this->form_validation->set_rules('firstname', 'Firstname', 'required|strip_tags');
+      $this->form_validation->set_rules('lastname', 'Lastname', 'required|strip_tags');
+      $this->form_validation->set_rules('login', 'Login', 'required|strip_tags');
+      $this->form_validation->set_rules('email', 'Email', 'required|strip_tags');
 
-        $data['users_item'] = $this->users_model->getUsers($id);
-        if (empty($data['users_item'])) {
-            redirect('notfound');
+      $data['users_item'] = $this->users_model->getUsers($id);
+      if (empty($data['users_item'])) {
+        redirect('notfound');
+      }
+
+      if ($this->form_validation->run() === FALSE) {
+        $data['roles'] = $this->users_model->getRoles();
+        $this->load->view('templates/header', $data);
+        $this->load->view('menu/index', $data);
+        $this->load->view('users/editNormalUser', $data);
+        $this->load->view('templates/footer');
+      } else {
+        $result = $this->users_model->updateUser();
+        $this->session->set_flashdata('msg', 'The user was successfully updated.');
+        if($result){
+          redirect('c_candidates');
         }
-
-        if ($this->form_validation->run() === FALSE) {
-            $data['roles'] = $this->users_model->getRoles();
-            $this->load->view('templates/header', $data);
-            $this->load->view('menu/index', $data);
-            $this->load->view('users/editNormalUser', $data);
-            $this->load->view('templates/footer');
-        } else {
-            $result = $this->users_model->updateUser();
-            $this->session->set_flashdata('msg', 'The user was successfully updated.');
-            if($result){
-              redirect('c_candidates');
-            }
-        }
+      }
     }
     
 
@@ -205,15 +220,15 @@ class Users extends CI_Controller {
      */
     public function delete($id) {
         //Test if user exists
-        $data['users_item'] = $this->users_model->getUsers($id);
-        if (empty($data['users_item'])) {
-            redirect('notfound');
-        } else {
-            $this->users_model->deleteUser($id);
-        }
-        log_message('error', 'User #' . $id . ' has been deleted by user #' . $this->session->userdata('id'));
-        $this->session->set_flashdata('msg', 'The user was successfully deleted');
-        redirect('users');
+      $data['users_item'] = $this->users_model->getUsers($id);
+      if (empty($data['users_item'])) {
+        redirect('notfound');
+      } else {
+        $this->users_model->deleteUser($id);
+      }
+      log_message('error', 'User #' . $id . ' has been deleted by user #' . $this->session->userdata('id'));
+      $this->session->set_flashdata('msg', 'The user was successfully deleted');
+      redirect('users');
     }
 
     /**
@@ -225,54 +240,54 @@ class Users extends CI_Controller {
     public function reset($id) {
 
         //Test if user exists
-        $data['users_item'] = $this->users_model->getUsers($id);
-        if (empty($data['users_item'])) {
-          log_message('debug', '{controllers/users/reset} user not found');
-          redirect('notfound');
-        } else {
-          log_message('debug', 'Reset the password of user #' . $id);
-          $this->users_model->resetPassword($id, $this->input->post('password'));
+      $data['users_item'] = $this->users_model->getUsers($id);
+      if (empty($data['users_item'])) {
+        log_message('debug', '{controllers/users/reset} user not found');
+        redirect('notfound');
+      } else {
+        log_message('debug', 'Reset the password of user #' . $id);
+        $this->users_model->resetPassword($id, $this->input->post('password'));
 
           //Send an e-mail to the user so as to inform that its password has been changed
-          $user = $this->users_model->getUsers($id);
-          $this->load->library('email');
-          $this->load->library('parser');
-          $data = array(
-              'Title' => 'Your password was reset',
-              'Firstname' => $user['firstname'],
-              'Lastname' => $user['lastname']
-          );
-          $message = $this->parser->parse('emails/password_reset', $data, TRUE);
+        $user = $this->users_model->getUsers($id);
+        $this->load->library('email');
+        $this->load->library('parser');
+        $data = array(
+          'Title' => 'Your password was reset',
+          'Firstname' => $user['firstname'],
+          'Lastname' => $user['lastname']
+        );
+        $message = $this->parser->parse('emails/password_reset', $data, TRUE);
 
-          if ($this->config->item('from_mail') != FALSE && $this->config->item('from_name') != FALSE ) {
-              $this->email->from($this->config->item('from_mail'), $this->config->item('from_name'));
-          } else {
-              $this->email->from('do.not@reply.me', 'LMS');
-          }
-          $this->email->to($user['email']);
-          $subject = $this->config->item('subject_prefix');
-          $this->email->subject($subject . 'Your password was reset');
-          $this->email->message($message);
-          log_message('debug', 'Sending the reset email');
-          if ($this->config->item('log_threshold') > 1) {
-            $this->email->send(FALSE);
-            $debug = $this->email->print_debugger(array('headers'));
-            log_message('debug', 'print_debugger = ' . $debug);
-          } else {
-            $this->email->send();
-          }
+        if ($this->config->item('from_mail') != FALSE && $this->config->item('from_name') != FALSE ) {
+          $this->email->from($this->config->item('from_mail'), $this->config->item('from_name'));
+        } else {
+          $this->email->from('do.not@reply.me', 'LMS');
+        }
+        $this->email->to($user['email']);
+        $subject = $this->config->item('subject_prefix');
+        $this->email->subject($subject . 'Your password was reset');
+        $this->email->message($message);
+        log_message('debug', 'Sending the reset email');
+        if ($this->config->item('log_threshold') > 1) {
+          $this->email->send(FALSE);
+          $debug = $this->email->print_debugger(array('headers'));
+          log_message('debug', 'print_debugger = ' . $debug);
+        } else {
+          $this->email->send();
+        }
 
           //Inform back the user by flash message
-          $this->session->set_flashdata('msg', 'The password was successfully reset');
-          if ($this->session->isAdmin || $this->session->isSuperAdmin) {
-            log_message('debug', 'Redirect to list of users page');
-            redirect('users');
-          }
-          else {
-            log_message('debug', 'Redirect to homepage');
-            redirect('home');
-          }
+        $this->session->set_flashdata('msg', 'The password was successfully reset');
+        if ($this->session->isAdmin || $this->session->isSuperAdmin) {
+          log_message('debug', 'Redirect to list of users page');
+          redirect('users');
         }
+        else {
+          log_message('debug', 'Redirect to homepage');
+          redirect('home');
+        }
+      }
     }
 
     /**
@@ -280,64 +295,102 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function create() {
-        $this->load->helper('form');
-        $this->load->library('form_validation');
-        $data['page_title'] = 'Create a new user';
-        $data['activeLink'] = 'users';
-        $data['roles'] = $this->users_model->getRoles();
+      $this->load->helper('form');
+      $this->load->library('form_validation');
+      $data['page_title'] = 'Create a new user';
+      $data['activeLink'] = 'users';
+      $data['roles'] = $this->users_model->getRoles();
 
-        $this->form_validation->set_rules('firstname', 'Firstname', 'required|strip_tags');
-        $this->form_validation->set_rules('lastname', 'Lastname', 'required|strip_tags');
-        $this->form_validation->set_rules('login', 'Login', 'required|callback_checkLogin|strip_tags');
-        $this->form_validation->set_rules('email', 'Email', 'required|strip_tags');
-        $this->form_validation->set_rules('role[]', 'Role', 'required');
+      $this->form_validation->set_rules('firstname', 'Firstname', 'required|strip_tags');
+      $this->form_validation->set_rules('lastname', 'Lastname', 'required|strip_tags');
+      $this->form_validation->set_rules('login', 'Login', 'required|callback_checkLogin|strip_tags');
+      $this->form_validation->set_rules('email', 'Email', 'required|strip_tags');
+      $this->form_validation->set_rules('role[]', 'Role', 'required');
 
-        if ($this->form_validation->run() === FALSE) {
-            $this->load->view('templates/header', $data);
-            $this->load->view('menu/index', $data);
-            $this->load->view('users/create', $data);
-            $this->load->view('templates/footer');
-        } else {
-            $password = $this->users_model->setUsers();
+      if ($this->form_validation->run() === FALSE) {
+        $this->load->view('templates/header', $data);
+        $this->load->view('menu/index', $data);
+        $this->load->view('users/create', $data);
+        $this->load->view('templates/footer');
+      } else {
+        $password = $this->users_model->setUsers();
+        $firstname = $this->input->post('firstname');
+        $lastname = $this->input->post('lastname');
+        $userName = $this->input->post('login');
+        $email = $this->input->post('email');
+        $password = $this->input->post('password');
             //Send an e-mail to the user so as to inform that its account has been created
-            $this->load->library('email');
-            $this->load->library('parser');
-            $data = array(
-                'Title' => 'User account to the Skeleton application',
-                'BaseURL' => base_url(),
-                'Firstname' => $this->input->post('firstname'),
-                'Lastname' => $this->input->post('lastname'),
-                'Login' => $this->input->post('login'),
-                'Password' => $password
-            );
-            $message = $this->parser->parse('emails/new_user', $data, TRUE);
+        $config = array(
+          'protocol' => 'smtp',
+          'smtp_host' => 'ssl://smtp.googlemail.com',
+          'smtp_port' => 465,
+          'smtp_user' => 'sopheak.rith@student.passerellesnumeriques.org',
+          'smtp_pass' => 'sopheak2018',
+          'charset' => 'utf-8',
+          'wordwrap' => TRUE,
+          'newline' => "\r\n"
+        );
 
-            if ($this->config->item('from_mail') != FALSE && $this->config->item('from_name') != FALSE ) {
-                $this->email->from($this->config->item('from_mail'), $this->config->item('from_name'));
-            } else {
-               $this->email->from('do.not@reply.me', 'Skeleton app');
-            }
-            $this->email->to($this->input->post('email'));
-            if ($this->config->item('subject_prefix') != FALSE) {
-                $subject = $this->config->item('subject_prefix');
-            } else {
-               $subject = '[Skeleton] ';
-            }
-            $this->email->subject($subject . 'Your account is created');
-            $this->email->message($message);
-            log_message('debug', 'Sending the user creation email');
-            if ($this->config->item('log_threshold') > 1) {
-              $this->email->send(FALSE);
-              $debug = $this->email->print_debugger(array('headers'));
-              log_message('debug', 'print_debugger = ' . $debug);
-            } else {
-              $this->email->send();
-            }
-
-            $this->session->set_flashdata('msg', 'The user was successfully created');
-            redirect('users');
+        $this->load->library('email',$config);
+        $this->email->set_newline("\r\n");
+        $this->email->from('sopheak.rith@student.passerellesnumeriques.org','Admin Selection Committee');
+        $this->email->to($email);
+        $this->email->subject('Create an account');
+        $this->email->message('Dear '.$firstname.' '.$lastname.', '."\r\n".
+          'I would like to inform you that your account was created successfully'.
+          ' you can login to Selection committee application by username '.$userName.' and password '.$password.''."\r\n".
+          'best regards,'."\r\n".
+          'Admin'
+        );
+        if ($this->email->send()) 
+        {
+          $this->session->set_flashdata('msg', 'The user was successfully created');
+          redirect('users');
         }
-    }
+        else {
+         show_error($this->email->print_debugger());    
+       }
+
+
+
+            // $this->load->library('email');
+            // $this->load->library('parser');
+            // $data = array(
+            //     'Title' => 'User account to the Skeleton application',
+            //     'BaseURL' => base_url(),
+            //     'Firstname' => $this->input->post('firstname'),
+            //     'Lastname' => $this->input->post('lastname'),
+            //     'Login' => $this->input->post('login'),
+            //     'Password' => $password
+            // );
+            // $message = $this->parser->parse('emails/new_user', $data, TRUE);
+
+            // if ($this->config->item('from_mail') != FALSE && $this->config->item('from_name') != FALSE ) {
+            //     $this->email->from($this->config->item('from_mail'), $this->config->item('from_name'));
+            // } else {
+            //    $this->email->from('do.not@reply.me', 'Skeleton app');
+            // }
+            // $this->email->to($this->input->post('email'));
+            // if ($this->config->item('subject_prefix') != FALSE) {
+            //     $subject = $this->config->item('subject_prefix');
+            // } else {
+            //    $subject = '[Skeleton] ';
+            // }
+            // $this->email->subject($subject . 'Your account is created');
+            // $this->email->message($message);
+            // log_message('debug', 'Sending the user creation email');
+            // if ($this->config->item('log_threshold') > 1) {
+            //   $this->email->send(FALSE);
+            //   $debug = $this->email->print_debugger(array('headers'));
+            //   log_message('debug', 'print_debugger = ' . $debug);
+            // } else {
+            //   $this->email->send();
+            // }
+
+            // $this->session->set_flashdata('msg', 'The user was successfully created');
+            // redirect('users');
+     }
+   }
 
     /**
      * Form validation callback : prevent from login duplication
@@ -346,12 +399,12 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function checkLogin($login) {
-        if (!$this->users_model->isLoginAvailable($login)) {
-            $this->form_validation->set_message('checkLogin', lang('users_create_checkLogin'));
-            return FALSE;
-        } else {
-            return TRUE;
-        }
+      if (!$this->users_model->isLoginAvailable($login)) {
+        $this->form_validation->set_message('checkLogin', lang('users_create_checkLogin'));
+        return FALSE;
+      } else {
+        return TRUE;
+      }
     }
 
     /**
@@ -359,12 +412,12 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function checkLoginByAjax() {
-        $this->output->set_content_type('text/plain');
-        if ($this->users_model->isLoginAvailable($this->input->post('login'))) {
-            $this->output->set_output('true');
-        } else {
-            $this->output->set_output('false');
-        }
+      $this->output->set_content_type('text/plain');
+      if ($this->users_model->isLoginAvailable($this->input->post('login'))) {
+        $this->output->set_output('true');
+      } else {
+        $this->output->set_output('false');
+      }
     }
 
     /**
@@ -372,6 +425,6 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function export() {
-        $this->load->view('users/export');
+      $this->load->view('users/export');
     }
-}
+  }
