@@ -301,12 +301,6 @@ Class C_candidates extends CI_Controller{
 	$this->load->view('candidates/update_candidate', $data);
 	$this->load->view('templates/footer');
 	}
-	public function updateCandidateGrade($id) {			//function update global grade
-		$this->load->model('Candidates_model');
-		$grade = $this->input->post('grade');
-		$data = $this->Candidates_model->uGlobal($id,$grade);
-		echo json_encode($data);
-	}
 	public function uInvestiCon($id) {		//function to update investigation conclusion 
 		$this->load->model('Candidates_model');
 		$investi = $this->input->post('invesCon');
@@ -321,6 +315,7 @@ Class C_candidates extends CI_Controller{
 		$canAge = $this->input->post('canAge');
 		$province = $this->input->post('province');
 		$ngo = $this->input->post('ngo');
+		$grade = $this->input->post('grade');
 		$ngoComment = $this->input->post('ngoComment');
 		$can_health = $this->input->post('can_health');
 		$healthIssues = $this->input->post('healthIssues');
@@ -334,7 +329,7 @@ Class C_candidates extends CI_Controller{
 		$canChoiceRank = $this->input->post('canChoiceRank');
 		$CanCommitment = $this->input->post('CanCommitment');
 		$canParentCommitment = $this->input->post('canParentCommitment');
-		$data = $this->Candidates_model->uCanInfo($id,$fname,$lname,$gender,$canAge,$province,$ngo,$ngoComment,$can_health,$healthIssues,$canRankClass,$canAchivement,$canPncRank,$responsibilityMaturity,$motivatForPnc,$canCommunicate,$otherScholarship,$canChoiceRank,$CanCommitment,$canParentCommitment);
+		$data = $this->Candidates_model->uCanInfo($id,$fname,$lname,$gender,$canAge,$province,$ngo,$grade,$ngoComment,$can_health,$healthIssues,$canRankClass,$canAchivement,$canPncRank,$responsibilityMaturity,$motivatForPnc,$canCommunicate,$otherScholarship,$canChoiceRank,$CanCommitment,$canParentCommitment);
 		echo json_encode($data);
 	}
 	//controller for update family profile
