@@ -423,12 +423,6 @@ class Candidates_model extends CI_Model {
         return $query->result();
     }
 
-    //query update for global grade
-    public function uGlobal($id,$grade) {
-        $data = array('can_global_grade' => $grade);
-        $this->db->where('can_id',$id);
-        $this->db->update('skeleton_tbl_candidates',$data);
-    }
     //code for update form input -> investigation conclusion
     public function upInvesCon($id,$investi) {
         $data = array('can_investigator_conclusion' => $investi);
@@ -436,7 +430,7 @@ class Candidates_model extends CI_Model {
         $this->db->update('skeleton_tbl_candidates',$data);
     }
     // function for update candidate information
-    public function uCanInfo($id,$fname,$lname,$gender,$canAge,$province,$ngo,$ngoComment,$can_health,$healthIssues,$canRankClass,$canAchivement,$canPncRank,$responsibilityMaturity,$motivatForPnc,$canCommunicate,$otherScholarship,$canChoiceRank,$CanCommitment,$canParentCommitment) {
+    public function uCanInfo($id,$fname,$lname,$gender,$canAge,$province,$ngo,$grade,$ngoComment,$can_health,$healthIssues,$canRankClass,$canAchivement,$canPncRank,$responsibilityMaturity,$motivatForPnc,$canCommunicate,$otherScholarship,$canChoiceRank,$CanCommitment,$canParentCommitment) {
         $data = array(
             'can_firstname' => $fname,
             'can_lastname'  => $lname,
@@ -453,6 +447,7 @@ class Candidates_model extends CI_Model {
             'can_other_scholaship' => $otherScholarship,
             'can_student_commit' => $CanCommitment,
             'can_parents_commit' => $canParentCommitment,
+            'can_global_grade' => $grade,
             'can_ngo_comment' => $ngoComment,
             'can_health_comment' => $healthIssues,
             'pro_id' => $province,

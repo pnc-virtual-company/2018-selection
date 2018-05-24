@@ -153,7 +153,7 @@ body{
 							</div>
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group row">
-									<label for="ngoOther" class="col-lg-3 col-md-3 col-xs-12 col-form-label" style="    margin-left: 3%;">Other :</label>
+									<label for="ngoOther" class="col-lg-3 col-md-3 col-xs-12 col-form-label" style="margin-left: 3%;">Other :</label>
 									<div class="col-lg-6 col-md-7 col-xs-12">
 										<input type="text" class="form-control" id="ngoOther" placeholder="If other, please specify " style="margin-left: -32px;width: 161%;">
 									</div>
