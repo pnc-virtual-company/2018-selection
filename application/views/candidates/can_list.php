@@ -1,4 +1,19 @@
 <br>
+<style>
+    #chartjs-tooltip 
+    {
+        opacity: 1;
+        position: absolute;
+        background: rgba(0, 0, 0, .7);
+        color: #fff;
+        border-radius: 3px;
+        -webkit-transition: all .1s ease;
+        transition: all .1s ease;
+        pointer-events: none;
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+    }
+</style>
 <div class="container myContainer">
     <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -93,9 +108,12 @@
             </div>
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-4">
                     <h1 class="text-center">Distribution</h1>
-                    <br><br>
-                    <canvas id="pie-chart" width="900" height="800"></canvas>
+                    <br><br><br><br>
+                    <canvas id="pie-chart" width="900" height="900"></canvas>
                     <br>
+                    <div id="chartjs-tooltip">
+                       <table></table>
+                    </div>
                     <h1 class="text-center">Selected candidate</h1>
                     <div class="row">
                         <div class="col-md-6">
@@ -276,7 +294,6 @@
                         html +='<tr>'+
                                     '<td>'+id+'</td>'+
                                     '<td>'+
-
                                         '<a href="<?php echo base_url() ?>C_candidates/view_can_detail/'+data[i].can_id+'" class="mdi mdi-eye text-info" title="View candidate information" data="'+data[i].can_id+'"></a>&nbsp;'+
                                         '<a href="<?php echo base_url() ?>C_candidates/updateForm/'+data[i].can_id+'" class="mdi mdi-pencil-box-outline text-success item-edit" title="Edit candidate information" data="'+data[i].can_id+'"></a>&nbsp;'+
 
@@ -287,12 +304,10 @@
                                     '<td>'+data[i].can_gender+'</td>'+
                                     '<td>'+data[i].can_global_grade+'</td>'+
                                     '<td>'+ selected +'</td>'+
-
                                 '</tr>';
                             id++;
                     }
                     $('#showdata').html(html);
-                    
                 },
                 error: function()
                 {
@@ -317,7 +332,64 @@
         $("#formResetPwd").prop("action", link);
         $('#frmResetPwd').modal('show');
     });
-        //pie chart of grade all candidates
+    //pie chart of grade all candidates
+    Chart.defaults.global.tooltips.custom = function(tooltip) {
+    // Tooltip Element
+    var tooltipEl = document.getElementById('chartjs-tooltip');
+    // Hide if no tooltip
+    if (tooltip.opacity === 0) 
+    {
+        tooltipEl.style.opacity = 0;
+        return;
+    }
+    // Set caret Position
+    tooltipEl.classList.remove('above', 'below', 'no-transform');
+    if (tooltip.yAlign) 
+    {
+        tooltipEl.classList.add(tooltip.yAlign);
+    } else {
+        tooltipEl.classList.add('no-transform');
+    }
+    function getBody(bodyItem) {
+        return bodyItem.lines;
+    }
+    // Set Text
+    if (tooltip.body) 
+    {
+        var titleLines = tooltip.title || [];
+        var bodyLines = tooltip.body.map(getBody);
+        var innerHtml = '<thead>';
+
+        titleLines.forEach(function(title) {
+        innerHtml += '<tr><th>' + title + '</th></tr>';
+    });
+        innerHtml += '</thead><tbody>';
+
+        bodyLines.forEach(function(body, i) 
+        {
+            var colors = tooltip.labelColors[i];
+            var style = 'background:' + colors.backgroundColor;
+            style += '; border-color:' + colors.borderColor;
+            style += '; border-width: 5px';
+            var span = '<span class="chartjs-tooltip-key" style="' + style + '"></span>';
+            innerHtml += '<tr><td>' + span + body + '</td></tr>';
+        });
+        innerHtml += '</tbody>';
+        var tableRoot = tooltipEl.querySelector('table');
+        tableRoot.innerHTML = innerHtml;
+    }
+        var positionY = this._chart.canvas.offsetTop;
+        var positionX = this._chart.canvas.offsetLeft;
+       // Display, position, and set styles for font
+        tooltipEl.style.opacity = 1;
+        tooltipEl.style.left = positionX + tooltip.caretX + 'px';
+        tooltipEl.style.top = positionY + tooltip.caretY + 'px';
+        tooltipEl.style.fontFamily = tooltip._bodyFontFamily;
+        tooltipEl.style.fontSize = tooltip.bodyFontSize;
+        tooltipEl.style.fontStyle = tooltip._bodyFontStyle;
+        tooltipEl.style.padding = tooltip.yPadding + 'px ' + tooltip.xPadding + 'px';
+    };
+
     new Chart(document.getElementById("pie-chart"),
     {
         type: 'pie',
@@ -332,6 +404,7 @@
                 "B: “Parents/Guardians have major difficulties to support the student’s higher education but can use some family’s assets” ",
                 "Failed: “Parents/Guardians have minor or no difficulty to support the student’s higher education“ "
                 ],
+
             datasets: 
             [{
                 label: "Grade (distribution)",
@@ -357,30 +430,38 @@
                     <?php echo $gradeFailed->GradeFailed; ?>  
                     <?php endforeach ?>
                 ]
-            }]
+            }],       
         },
         options: 
-        {
+        {   
             title: 
             {
                 display: true,
                 text: 'Grade distribution'
-                
             },
             legend: {
-            display: false
-         },
-         
-        }
+            display: false  /// disable labels
+            },
+            tooltips: 
+            {
+                enabled: false  /// disabled tooltips
+            }
+        },
     });
+        window.onload = function() {
+        var ctx = document.getElementById('pie-chart').getContext('2d');
+        window.myPie = new Chart(ctx, config);
+    };
     // pie chart1 of gender selected candidates
     new Chart(document.getElementById("pie-chart1"), 
     {
+        /// count number of male selected candidates
         <?php foreach ($maleCount as $maleCount):?>
         <?php 
             $male = $maleCount->countMale;
         ?>  
         <?php endforeach ?>
+        /// count number of female selected candidates
         <?php foreach ($femaleCount as $femaleCount):?>
         <?php 
             $female = $femaleCount->countFemale;
@@ -397,10 +478,10 @@
                 data:
                 [   
                     <?php 
-                        echo $male;
+                        echo $male;     /// show number of male selected
                     ?>,
                     <?php
-                        echo $female;
+                        echo $female;   /// show number of female selected
                     ?>
                 ]
             }]
@@ -412,16 +493,22 @@
                 display: true,
                 text: 'Gender distribution'
             },
+            legend: 
+            {
+                display: false  /// disabled labels
+            }
         }
     });
     // pie chart2 of ngo provenance selected candidates
     new Chart(document.getElementById("pie-chart2"), 
     {
+        /// count number of selected candidates from NGO
         <?php foreach ($ngo as $ngo):?>
         <?php 
             $formNgo = $ngo->FromNGO;
         ?>  
         <?php endforeach ?>
+        /// count number of selected candidates not from NGO
         <?php foreach ($notNgo as $notNgo):?>
         <?php 
             $notFromNgo = $notNgo->NotFromNGO;
@@ -438,10 +525,10 @@
                 data: 
                 [
                     <?php
-                        echo $formNgo;
+                        echo $formNgo;      /// show number from NGO
                     ?>,
                     <?php
-                        echo $notFromNgo;
+                        echo $notFromNgo;   /// show number not from NGO
                     ?>
                 ]
             }]
@@ -453,6 +540,10 @@
                 display: true,
                 text: 'NGO provenance'
             },
+            legend: 
+            {
+            display: false  /// disabled labels
+            }
         }
     });
 });
