@@ -13,7 +13,7 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Candidates</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" href="<?php echo base_url() ?>c_candidates">List of candidates</a>
-					<a class="dropdown-item" href="<?php echo base_url() ?>c_student/view_candidate_info">New candidate</a>
+					<a class="dropdown-item" href="<?php echo base_url() ?>c_candidates/newCandidate">New candidate</a>
 					<a class="dropdown-item" href="<?php echo base_url() ?>c_student/map">Province distribution</a>
 				</div>
 			</li>
@@ -37,7 +37,12 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
 								<i class="mdi mdi-account"></i>Profile</a>
 								<div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
 									<a class="dropdown-item waves-effect waves-light" href="#" data-toggle="modal" data-target="#profile">My account</a>
+								<?php if ($role == 1){ ?>
 									<a class="dropdown-item waves-effect waves-light" href="<?php echo base_url() ?>Users/edit/<?php echo $this->session->id ?>">Edit profile</a>
+								<?php }elseif ($role == 2) {?>
+									<a class="dropdown-item waves-effect waves-light" href="<?php echo base_url() ?>Users/editUser/<?php echo $this->session->id ?>">Edit profile</a>
+								<?php
+								} ?>
 									<a href="#" class="dropdown-item waves-effect waves-light" data-toggle="modal" data-target="#changePwd">Change password</a>
 								</div>
 							</li>

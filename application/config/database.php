@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> 'mysql:host=localhost; dbname=selection_committee_db; charset=utf8;',
-	'hostname' => 'http://http://localhost',
+	'hostname' => 'http://localhost',
 	'username' => 'root',
 	'password' => '',
-	'database' => 'selection_committee_db',
+	'database' => '	',
 	'dbdriver' => 'pdo',
 	'dbprefix' => 'skeleton_',
 	'pconnect' => FALSE,

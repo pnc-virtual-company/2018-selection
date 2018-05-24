@@ -39,6 +39,22 @@ class Users_model extends CI_Model {
     }
 
     /**
+     * Get the list of users or one user
+     * @param int $id optional id of one user
+     * @return array record of users
+     * @author Nuon NEOURNG <nuon.neuorng@gmail.com>
+     */
+    public function getUser($id = 0) {
+        $this->db->select('users.firstname','users.lastname','users.login','users.email');
+        if ($id === 0) {
+            $query = $this->db->get('users');
+            return $query->result_array();
+        }
+        $query = $this->db->get_where('users', array('users.id' => $id));
+        return $query->row_array();
+    }
+
+    /**
      * Get the list of users and their roles
      * @return array record of users
      * @author Benjamin BALET <benjamin.balet@gmail.com>
@@ -167,6 +183,48 @@ class Users_model extends CI_Model {
 
     /**
      * Update a given user in the database. Update data are coming from an HTML form
+     * @return int number of affected rows
+     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     */
+    public function updateUser() {
+        //Role field is a binary mask
+        $role = 0;
+        foreach($this->input->post("role") as $role_bit){
+            $role = $role | $role_bit;
+        }
+        $data = array(
+            'firstname' => $this->input->post('firstname'),
+            'lastname' => $this->input->post('lastname'),
+            'login' => $this->input->post('login'),
+            'email' => $this->input->post('email'),
+        );
+        $this->db->where('id', $this->input->post('id'));
+        $result = $this->db->update('users', $data);
+        return $result;
+    }
+
+    /**
+     * Update a given user in the database. Update data are coming from an HTML form
+     * @return int number of affected rows
+     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     */
+    public function updateUsersProfile() {
+        //Role field is a binary mask
+        $data = array(
+            'firstname' => $this->input->post('firstname'),
+            'lastname' => $this->input->post('lastname'),
+            'login' => $this->input->post('login'),
+            'email' => $this->input->post('email'),
+        );
+        $this->db->where('id', $this->input->post('id'));
+        $result = $this->db->update('users', $data);
+        return $result;
+    }
+
+
+
+    /**
+     * Update a given user in the database. Update data are coming from an HTML form
      * @param int $id Identifier of the user
      * @param string $password password in clear
      * @return int number of affected rows
@@ -210,9 +268,9 @@ class Users_model extends CI_Model {
         if (((int) $row->role & 1)) {
             $isAdmin = TRUE;
         }
-        $isSuperAdmin = FALSE;
-        if (((int) $row->role & 25)) {
-            $isSuperAdmin = TRUE;
+        $user = FALSE;
+        if (((int) $row->role & 2)) {
+            $user = TRUE;
         }
         $newdata = array(
             'login' => $row->login,
@@ -224,7 +282,7 @@ class Users_model extends CI_Model {
             'email' => $row->email,
             'nameRole' => $row->role,	
             'isAdmin' => $isAdmin,
-            'isSuperAdmin' => $isSuperAdmin,
+            'user' => $user,
             'loggedIn' => TRUE
         );
         $this->session->set_userdata($newdata);

@@ -159,12 +159,19 @@ body{
 									</div>
 								</div>
 							</div>
-							<div class="col-lg-7 col-md-7">
-								<div class="form-group row">
-									<div class="col-md-2"></div>
-									<label for="ngoOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label">Other :</label>
-									<div class="col-lg-8 col-md-8 col-xs-12">
-										<input type="text" class="form-control" id="ngoOther" placeholder="If other, please specify " required style="margin-left: -4px;">
+							<div class="col-lg-1 col-md-1">
+							<?php if($this->session->loggedIn === TRUE) { ?>
+							<?php $role_user =$this->session->nameRole;?>
+							<?php if ($role_user == 1): ?>
+								<div class="mdi mdi-pencil text-secondary" title="Edit NGO" data-toggle="modal" data-target="#theModal"></div>
+							<?php endif ?>
+							</div>		
+							<div class="col-lg-6 col-md-6">
+								<div class="form-group row" id="other">
+									<!-- <div class="col-md-2"></div>	 -->
+									<label for="ngoOther" class="col-lg-3 col-md-3 col-xs-12 col-form-label" style="margin-left: 12px;">Other :</label>
+									<div class="col-lg-10 col-md-10 col-xs-12">
+										<input type="text" class="form-control" id="ngoOther" placeholder="If other, please specify " required style="margin: -33px 0px 0px 111px;width: 380px;">
 									</div>
 								</div>
 							</div>
@@ -935,7 +942,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="gTotal1" placeholder="$" style="direction: rtl;" required>
+								<input type="number" class="form-control gincome" id="gTotal1" placeholder="$" style="direction: rtl;" required>
 							</div>
 						</div>
 					</div>	
@@ -952,7 +959,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="gTotal2" placeholder="$" style="direction: rtl;" required>
+								<input type="number" class="form-control gincomein" id="gTotal2" placeholder="$" style="direction: rtl;" required>
 							</div>
 						</div>
 					</div>	
@@ -1796,13 +1803,101 @@ body{
   </div>
   
 </div>
+<!-- pop up edit ngo -->
+<div class="container">
 
+  <!-- The Modal -->
+  <div class="modal" id="theModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Edit the list of NGOs</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          	<div class="row">
+          			<table id="students" cellpadding="0" cellspacing="0" class="table table-striped table-bordered table-hover" style="input[type=search]{width: 67%;}">
+          		    	<thead>
+          		        	<tr>
+          		            	<th>Name</th>
+          		        	</tr>
+          		    	</thead>
+          		    	<tbody id="showdata">
+          		        	<tr>
+          		        		<td>
+          		        			<div class="row">
+          		        				<div class="col-md-1">
+          		        					<i class="mdi mdi-delete text-danger item-delete" title="delete NGO" style="font-size: 25px;"></i>
+          		        				</div>
+          		        				<div class="col-md-6">
+          		        					<input type="text" value="" class="form-control">
+          		        				</div>
+          		        				<div class="col-md-5"></div>
+          		        			</div>
+          		        		</td>
+          		        	</tr>
+          		        	<tr>
+          		        		<td>
+          		        			<div class="row">
+          		        				<div class="col-md-1">
+          		        					<i class="mdi mdi-delete text-danger item-delete" title="delete NGO" style="font-size: 25px;"></i>
+          		        				</div>
+          		        				<div class="col-md-6">
+          		        					<input type="text" value="" class="form-control">
+          		        				</div>
+          		        				<div class="col-md-5"></div>
+          		        			</div>
+          		        		</td>
+          		        	</tr>
+          		        	<tr>
+          		        		<td>
+          		        			<div class="row">
+          		        				<div class="col-md-1">
+          		        					<i class="mdi mdi-delete text-danger item-delete" title="delete NGO" style="font-size: 25px;"></i>
+          		        				</div>
+          		        				<div class="col-md-6">
+          		        					<input type="text" value="" class="form-control">
+          		        				</div>
+          		        				<div class="col-md-5"></div>
+          		        			</div>
+          		        		</td>
+          		        	</tr>
+          		    	</tbody>
+          		  </table>
+          	</div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <a href="" class="btn btn-primary clearfix" id="addButton" >
+                <i class="mdi mdi-plus"></i>&nbsp;Add NGO
+            </a>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Save list</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
 </body>
 </html>
 
-
+<link href="<?php echo base_url();?>assets/DataTable/DataTables-1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+ <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
+ <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
 <script>
+
 	$(document).ready(function(){
+		$('#students').dataTable({
+        stateSave: true,
+    	});
+
 		$( ".formHeading" ).click(function() {
 			$(".down",this).toggle();
 			$(".up",this).toggle();
@@ -1812,26 +1907,42 @@ body{
 			$(".subUp",this).toggle();
 
 		});
-
+		// function calculat family income 
 		$('.form-group').on('input','.fincome',function(){
-				var totalSum = 0;
-				$('.form-group .fincome').each(function(){
-					var inputVal = $(this).val();
-					if($.isNumeric(inputVal)){
-						totalSum += parseFloat(inputVal);
-					}
-				});
-				$('#fTotal').val(totalSum);
+				var fTotalSum;
+				var fMonthly = $('#fMonthly').val();
+				var fDaily = $('#fDaily').val();
+				var fSeasonal= $('#fSeasonal').val();
+				var fYearly= $('#fYearly').val(); 
+				fTotalSum =Number(fMonthly)+(Number(fDaily)*30)+(Number(fSeasonal)+Number(fYearly))/12;
+				$('#fTotal').val(fTotalSum);
 			});
+
 		$('.form-group').on('input','.cIncome',function(){
-				var cTotalSum = 0;
-				var cMonthly = $(this).val();
-				var cDaily = $(this).val();
-				var cSeasonal= $(this).val();
-				var cYearly= $(this).val();
-				cTotalSum = cMonthly + cDaily  + (cSeasonal + cYearly) / 12;
+				var cTotalSum;
+				var cMonthly = $('#cMonthly').val();
+				var cDaily = $('#cDaily').val();
+				var cSeasonal= $('#cSeasonal').val();
+				var cYearly= $('#cYearly').val();
+				cTotalSum = Number(cMonthly)+(Number(cDaily)*30)+(Number(cSeasonal)+ Number(cYearly))/12;
 				$('#cTotal').val(cTotalSum);
 			});
+		$('.form-group').on('input','.gincome',function(){
+				var gTotal;
+				var fTotalSum=$('#fTotal').val();
+				var cTotalSum=$('#cTotal').val();
+				gTotal=Number(fTotalSum)+Number(cTotalSum);
+				$('#gTotal1').val(gTotal);
+		});
+		$('.form-group').on('input','.gincomein',function(){
+				var gTotalIn;
+				var fTotalSum = $('#fTotal').val();
+				var cTotalSum = $('#cTotal').val();
+				gTotalIn = Number(fTotalSum) / Number(cTotalSum);
+				$('#gTotal2').val(gTotalIn);
+		});
+
+		// function calculat family expense
 		$('.form-group').on('input','.fExpense',function(){
 				var totalExepnseVal = 0;
 				$('.form-group .fExpense').each(function(){
@@ -1842,8 +1953,7 @@ body{
 				});
 				$('#totalExpense').val(totalExepnseVal);
 			});
-
 	});
-	
 </script>
 <!-- end form collapsed -->
+	<?php } ?>

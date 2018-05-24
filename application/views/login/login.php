@@ -15,7 +15,6 @@ $langCode= (isset($langCode)) ? $langCode :  "en";
   <!-- Custom style //-->
   <link rel="stylesheet" href="<?php echo base_url();?>assets/css/skeleton-1.0.0.css">
   <link rel="stylesheet" href="<?php echo base_url();?>assets/css/formStuInfo.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
   <script src="<?php echo base_url();?>assets/js/jquery-3.2.1.min.js"></script>
   <script src="<?php echo base_url();?>assets/tether-1.4.3/js/tether.min.js"></script>
   <script src="<?php echo base_url();?>assets/js/popper-1.12.9..min.js"></script>
@@ -46,14 +45,8 @@ $langCode= (isset($langCode)) ? $langCode :  "en";
 							    		<div class="form-group">
 							    			<input class="form-control" placeholder="Password" name="password" type="password">
 							    		</div>
-							    			<div class="checkbox">
-							    		    	<label class="custom-control custom-checkbox">
-							    		    		<input type="checkbox" class="custom-control-input">
-							    		    		    <span class="custom-control-indicator"></span>
-							    		    		    <span class="custom-control-description">Remember me</span>
-							    		    	</label>
-							    		    </div>
 							    		<input class="btn btn-lg btn-primary btn-block" type="submit" value="Login">
+                      <a href="#"><span class="float-right">Forgot your password?</span></a>
 							    	</fieldset>
 							      	</form>
 							    </div>

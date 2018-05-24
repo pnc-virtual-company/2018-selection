@@ -40,7 +40,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     <br>
         <div class="row">
@@ -49,14 +48,14 @@
                 <br>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                      <a href="<?php echo base_url() ?>c_candidates/allCandidate"><button class="btn btn-primary clearfix">All candidates</button></a>&nbsp;&nbsp;
+                      <a href="<?php echo base_url() ?>c_candidates/index"><button class="btn btn-primary clearfix">All candidates</button></a>&nbsp;&nbsp;
                       <a href="<?php echo base_url() ?>c_candidates/selectedCandidates"><button class="btn btn-default clearfix">Selected candidates</button></a>
                     </div>
                 </div>
                 <br>
                 <div class="row">
-                  <div class="table-responsive-sm">
-                    <table id="students" cellpadding="0" cellspacing="0" class="table table table-striped table-bordered table-hover">
+                    <div class="table-responsive-sm">
+                        <table id="students" cellpadding="0" cellspacing="0" class="table table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -72,12 +71,12 @@
                             
                         </tbody>
                         </table>
-                  </div>
+                    </div>
                 </div>
                 <br>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
-                        <a href="<?php echo base_url() ?>c_student/view_candidate_info" class="btn btn-primary clearfix" id="addButton" >
+                        <a href="<?php echo base_url() ?>c_candidates/newCandidate" class="btn btn-primary clearfix" id="addButton" >
                             <i class="mdi mdi-account-plus"></i>
                             &nbsp;New candidate
                         </a>&nbsp;&nbsp;
@@ -100,34 +99,35 @@
                     <h1 class="text-center">Selected candidate</h1>
                     <div class="row">
                         <div class="col-md-6">
-                            <canvas id="pie-chart1" width="900" height="900"></canvas>
+                            <canvas id="pie-chart1" width="900" height="900">  
+                            </canvas>
                         </div>
                         <div class="col-md-6">
-                            <canvas id="pie-chart2" width="900" height="900"></canvas>
+                            <canvas id="pie-chart2" width="900" height="900">
+                            </canvas>
                         </div>
                     </div>
                 </div>
-
         </div>
 </div>
 <br><br>
 <!-- pop up delete -->
 <div id="deleteModal" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Confirm Delete</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body">
-            Do you want to delete this record?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" id="btnDelete" class="btn btn-danger">Delete</button>
-      </div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Confirm Delete</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                Do you want to delete this record?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="btnDelete" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 <!-- /pop up delete -->
  <link href="<?php echo base_url();?>assets/DataTable/DataTables-1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -135,83 +135,94 @@
  <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
  <!--We just need a JS file //-->
  <script src="<?php echo base_url();?>assets/js/Chart-2.7.1.min.js"></script>
-
-
  <script type="text/javascript">
-    $(function() {
+    $(function() 
+    {
     showAllCandidates();  /// call function showAllCandidates
     countAllCandidates();  /// call function countAllCandidates
     countSelectedCandidates();  /// call function countSelectedCandidates
-    countProvinces();   /// call function countProvinces
-// editCandidate();
+    countProvinces(); /// call function countProvinces
     //Transform the HTML table in a fancy datatable
     $('#students').dataTable({
         stateSave: true,
     });
-    //function count all candidates
-        function countAllCandidates(){
+        //function count all candidates
+        function countAllCandidates()
+        {
             $.ajax({
                 type: 'ajax',
-                url: '<?php echo base_url() ?>C_candidates/countCandidates',
+                url: '<?php echo base_url() ?>C_candidates/countCandidates',    
                 async: false,
                 dataType: 'json',
-                success: function(data){
+                success: function(data)
+                {
                     var html = '';
-                    for(i=0; i<data.length; i++){
+                    for(i=0; i<data.length; i++)
+                    {
                         html +=data[i].total;
                     }
                     $('#countCandidates').html(html);
                 },
-                error: function(){
+                error: function()
+                {
                     alert('Could not count candidate from Database');
                 }
             });
         }
         //function count selected candidates
-        function countSelectedCandidates(){
+        function countSelectedCandidates()
+        {
             $.ajax({
                 type: 'ajax',
                 url: '<?php echo base_url() ?>C_candidates/countSelectedCandidates',
                 async: false,
                 dataType: 'json',
-                success: function(data){
+                success: function(data)
+                {
                     var html = '';
-                    for(i=0; i<data.length; i++){
+                    for(i=0; i<data.length; i++)
+                    {
                         html +=data[i].totalSelected;
                     }
                     $('#countSelectedCandidates').html(html);
                 },
-                error: function(){
+                error: function()
+                {
                     alert('Could not count selected candidate from Database');
                 }
             });
         }
-        //function count alll provinces
-        function countProvinces(){
+        //function count all provinces
+        function countProvinces()
+        {
             $.ajax({
                 type: 'ajax',
                 url: '<?php echo base_url() ?>C_candidates/countProvinces',
                 async: false,
                 dataType: 'json',
-                success: function(data){
+                success: function(data)
+                {
                     var html = '';
-                    for(i=0; i<data.length; i++){
+                    for(i=0; i<data.length; i++)
+                    {
                         html +=data[i].totalProvinces;
                     }
                     $('#countProvinces').html(html);
                 },
-                error: function(){
+                error: function()
+                {
                     alert('Could not count provinces from Database');
                 }
             });
         }
-
-    //function to delete candidate
-        $('#showdata').on('click', '.item-delete', function(){
+        //function to delete candidate
+        $('#showdata').on('click', '.item-delete', function()
+        {
             var id = $(this).attr('data');
             $('#deleteModal').modal('show');
             //prevent previous handler - unbind()
-            $('#btnDelete').unbind().click(function(){
+            $('#btnDelete').unbind().click(function()
+            {
                 $.ajax({
                     type: 'ajax',
                     method: 'get',
@@ -219,8 +230,10 @@
                     url: '<?php echo base_url() ?>C_candidates/deleteCandidate',
                     data:{can_id:id},
                     dataType: 'json',
-                    success: function(response){
-                        if(response.success){
+                    success: function(response)
+                    {
+                        if(response.success)
+                        {
                             $('#deleteModal').modal('hide');
                             $('.alert-success').html('Candidate Deleted successfully').fadeIn().delay(4000).fadeOut('slow');
                             showAllCandidates();
@@ -228,128 +241,225 @@
                             alert('Error');
                         }
                     },
-                    error: function(){
+                    error: function()
+                    {
                         alert('Error deleting');
                     }
                 });
             });
         });
-    //function to show all candidates into datatable
-    function showAllCandidates(){
-        $.ajax({
-            type: 'ajax',
-            method: 'post',
-            url: '<?php echo base_url() ?>C_candidates/showAllCandidates',
-            async: false,
-            dataType: 'json',
-            success: function(data){
-                var html = '';
-                var id=1;
-                var selected = "";
-                for(i=0; i<data.length; i++){
-                    if (data[i].can_global_grade ==="Failed") {
-                        selected ="No";
-                    }else{
-                        selected = "Yes";
-                    }
-                    html +='<tr>'+
-                                '<td>'+id+'</td>'+
-                                '<td>'+
-                                    '<a href="javascript:;" class="mdi mdi-eye text-info" title="View candidate information" data="'+data[i].can_id+'"></a>&nbsp;'+
-                                    '<a href="<?php echo base_url() ?>C_candidates/updateForm/'+data[i].can_id+'" class="mdi mdi-pencil-box-outline text-success item-edit" title="Edit candidate information" data="'+data[i].can_id+'"></a>&nbsp;'+
-                                    '<a href="javascript:;" class="mdi mdi-delete text-danger item-delete" title="Delete candidate information" data="'+data[i].can_id+'"></a>'+
-                                '</td>'+
-                                '<td>'+data[i].can_name+'</td>'+
-                                '<td>'+data[i].province+'</td>'+
-                                '<td>'+data[i].can_gender+'</td>'+
-                                '<td>'+data[i].can_global_grade+'</td>'+
-                                '<td>'+ selected +'</td>'+
-                            '</tr>';
-                        id++;
-                }
-                $('#showdata').html(html);
-                
-            },
-            error: function(){
-                alert('Could not get Data from Database');
-            }
-        });
-    }
-  
+        //function to show all candidates into datatable
+        function showAllCandidates()
+        {
+            $.ajax({
+                type: 'ajax',
+                method: 'post',
+                url: '<?php echo base_url() ?>C_candidates/showAllCandidates',
+                async: false,
+                dataType: 'json',
+                success: function(data)
+                {
+                    var html = '';
+                    var id=1;
+                    var selected = "";
+                    for(i=0; i<data.length; i++){
+                        if (data[i].can_global_grade ==="Failed") 
+                        {
+                            selected ="No";
+                        }else{
+                            selected = "Yes";
+                        }
+                        html +='<tr>'+
+                                    '<td>'+id+'</td>'+
+                                    '<td>'+
+                                        '<a href="<?php echo base_url() ?>C_candidates/view_can_detail/'+data[i].can_id+'" class="mdi mdi-eye text-info" title="View candidate information" data="'+data[i].can_id+'"></a>&nbsp;'+
+                                        '<a href="<?php echo base_url() ?>C_candidates/updateForm/'+data[i].can_id+'" class="mdi mdi-pencil-box-outline text-success item-edit" title="Edit candidate information" data="'+data[i].can_id+'"></a>&nbsp;'+
 
+                                        '<a href="javascript:;" class="mdi mdi-delete text-danger item-delete" title="Delete candidate information" data="'+data[i].can_id+'"></a>'+
+                                    '</td>'+
+                                    '<td>'+data[i].can_name+'</td>'+
+                                    '<td>'+data[i].province+'</td>'+
+                                    '<td>'+data[i].can_gender+'</td>'+
+                                    '<td>'+data[i].can_global_grade+'</td>'+
+                                    '<td>'+ selected +'</td>'+
+                                '</tr>';
+                            id++;
+                    }
+                    $('#showdata').html(html);
+                    
+                },
+                error: function()
+                {
+                    alert('Could not get Data from Database');
+                }
+            });
+        }
     //Display a modal pop-up so as to confirm if a user has to be deleted or not
     //We build a complex selector because datatable does horrible things on DOM...
     //a simplier selector doesn't work when the delete is on page >1
-    $("#users tbody").on('click', '.confirm-delete',  function(){
+    $("#users tbody").on('click', '.confirm-delete',  function()
+    {
         var id = $(this).parent().data('id');
         var link = "<?php echo base_url();?>users/delete/" + id;
         $("#lnkDeleteUser").attr('href', link);
         $('#frmConfirmDelete').modal('show');
     });
 
-    $("#users tbody").on('click', '.reset-password',  function(){
+    $("#users tbody").on('click', '.reset-password',  function()
+    {
         var id = $(this).parent().data('id');
         var link = "<?php echo base_url();?>users/reset/" + id;
         $("#formResetPwd").prop("action", link);
         $('#frmResetPwd').modal('show');
     });
-   
+    //pie chart of grade all candidates
+    new Chart(document.getElementById("pie-chart"),
+    {
+        type: 'pie',
+        data: 
+        {
+            labels: ["A+", "A", "A-", "B+", "B","Failed"],
+            datasets: 
+            [{
+                label: "Grade (distribution)",
+                backgroundColor: ["#3cba9f","#1565c0","#8e5ea2","#3e95cd","#ffc107","#c45850"],
+                data: 
+                [
+                    <?php foreach ($gradeAPlus as $gradeAPlus):?>
+                    <?php echo $gradeAPlus->GradeAPlus; ?>  
+                    <?php endforeach ?>,
+                    <?php foreach ($gradeA as $gradeA):?>
+                    <?php echo $gradeA->GradeA; ?>  
+                    <?php endforeach ?>,
+                    <?php foreach ($gradeAMinus as $gradeAMinus):?>
+                    <?php echo $gradeAMinus->GradeAMinus; ?>  
+                    <?php endforeach ?>,
+                    <?php foreach ($gradeBPlus as $gradeBPlus):?>
+                    <?php echo $gradeBPlus->GradeBPlus; ?>  
+                    <?php endforeach ?>,
+                    <?php foreach ($gradeB as $gradeB):?>
+                    <?php echo $gradeB->GradeB; ?>  
+                    <?php endforeach ?>,
+                    <?php foreach ($gradeFailed as $gradeFailed):?>
+                    <?php echo $gradeFailed->GradeFailed; ?>  
+                    <?php endforeach ?>
+                ]
+            }]
+        },
+        options: 
+        {
+            title: 
+            {
+                display: true,
+                text: 'Grade distribution'
+            }
+        }
+    });
+    // pie chart1 of gender selected candidates
+    new Chart(document.getElementById("pie-chart1"), 
+    {
+        <?php foreach ($maleCount as $maleCount):?>
+        <?php 
+            $male = $maleCount->countMale;
+        ?>  
+        <?php endforeach ?>
+        <?php foreach ($femaleCount as $femaleCount):?>
+        <?php 
+            $female = $femaleCount->countFemale;
+        ?>  
+        <?php endforeach ?>
+        type: 'pie',
+        data: 
+        {
+            labels: ["Male", "Female"],
+            datasets: 
+            [{
+                label: "Gender (distribution)",
+                backgroundColor: ["#3cba9f","#ffc107"],
+                data:
+                [   
+                    <?php 
+                         $percenMale = ($male * 100)/($male+$female);
+                        echo $percenMale;
+                    ?>,
+                    <?php 
+                        $percenFemale = ($female * 100)/($male+$female);
+                        echo $percenFemale;
+                    ?>
+                ]
+            }]
+        },
+        options: 
+        {
+            title: 
+            {
+                display: true,
+                text: 'Gender distribution'
+            },
+            tooltips: 
+            {
+                callbacks: 
+                {
+                    label: function(tooltipItem, chartData) 
+                    {
+                        return chartData.labels[tooltipItem.index] + ': ' + chartData.datasets[0].data[tooltipItem.index] + '%';
+                    }
+                }
+            }
+        }
+    });
+    // pie chart2 of ngo provenance selected candidates
+    new Chart(document.getElementById("pie-chart2"), 
+    {
+        <?php foreach ($ngo as $ngo):?>
+        <?php 
+            $formNgo = $ngo->FromNGO;
+        ?>  
+        <?php endforeach ?>
+        <?php foreach ($notNgo as $notNgo):?>
+        <?php 
+            $notFromNgo = $notNgo->NotFromNGO;
+        ?>  
+        <?php endforeach ?>
+        type: 'pie',
+        data: 
+        {
+            labels: ["Yes", "No"],
+            datasets: 
+            [{
+                label: "NGO (provenance)",
+                backgroundColor: ["#3e95cd","#c45850"],
+                data: 
+                [
+                    <?php 
+                         $percenFromNGO = ($formNgo * 100)/($formNgo+$notFromNgo);
+                        echo $percenFromNGO;
+                    ?>,
+                    <?php 
+                        $percenNotFromNGO = ($notFromNgo * 100)/($formNgo+$notFromNgo);
+                        echo $percenNotFromNGO;
+                    ?>
+                ]
+            }]
+        },
+        options: 
+        {
+            title: 
+            {
+                display: true,
+                text: 'NGO provenance'
+            },
+            tooltips: 
+            {
+                callbacks: 
+                {
+                    label: function(tooltipItem, chartData) 
+                    {
+                        return chartData.labels[tooltipItem.index] + ': ' + chartData.datasets[0].data[tooltipItem.index] + '%';
+                    }
+                }
+            }
+        }
+    });
 });
-
-//pie chart of grade
-new Chart(document.getElementById("pie-chart"), {
-    type: 'pie',
-    data: {
-      labels: ["A+", "A", "A-", "B+", "B","B-","Failed"],
-      datasets: [{
-        label: "Grade (distribution)",
-        backgroundColor: ["#3cba9f","#3e95cd","#8e5ea2","#1565c0","#e8c3b9","#ffc107","#c45850"],
-        data: [85 ,1267,100,784,433,200,1380]
-      }]
-    },
-    options: {
-      title: {
-        display: true,
-        text: 'Grade distribution'
-      }
-    }
-});
-
-// pie chart1 of gender
-new Chart(document.getElementById("pie-chart1"), {
-    type: 'pie',
-    data: {
-      labels: ["Male", "Female"],
-      datasets: [{
-        label: "Gender (distribution)",
-        backgroundColor: ["#3cba9f","#ffc107"],
-        data: [60,40]
-      }]
-    },
-    options: {
-      title: {
-        display: true,
-        text: 'Gender distribution'
-      }
-    }
-});
-// pie chart2 of ngo provenance
-new Chart(document.getElementById("pie-chart2"), {
-    type: 'pie',
-    data: {
-      labels: ["Yes", "No"],
-      datasets: [{
-        label: "NGO (provenance)",
-        backgroundColor: ["#3e95cd","#c45850"],
-        data: [88,12]
-      }]
-    },
-    options: {
-      title: {
-        display: true,
-        text: 'NGO provenance'
-      }
-    }
-});
-
 </script>

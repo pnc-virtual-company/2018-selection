@@ -14,7 +14,7 @@
      <div class="col-md-6">
        <div class="card">
          <div class="card-header bg-primary text-white">
-           <h2 class="text-center">Edit user #<?php echo $users_item['firstname']; ?></h2>
+           <h2 class="text-center">Welcome <?php echo $users_item['firstname']; ?></h2>
          </div>
          <div class="card-body">
           <!-- start form -->
@@ -49,11 +49,9 @@
 
                 <div class="control-group">
                   <label class="control-label" for="role[]">Role</label>
-                  <select class="form-control" name="role[]">
-                  <?php foreach ($roles as $roles_item): ?>
-                      <option value="<?php echo $roles_item['id'] ?>"<?php if ((((int)$roles_item['id']) & ((int) $users_item['role']))) echo "selected"?>><?php echo $roles_item['name'] ?></option>
-                  <?php endforeach ?>
-                  </select>
+                  
+                      <input type="email" class="form-control" id="email" name="email" value="<?php echo $users_item['name'] ?>" />
+                  
                 </div>
                   <br>
                   <div class="form-group">
