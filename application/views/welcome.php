@@ -1,4 +1,19 @@
 <br>
+<style>
+    #chartjs-tooltip 
+    {
+        opacity: 1;
+        position: absolute;
+        background: rgba(0, 0, 0, .7);
+        color: #fff;
+        border-radius: 3px;
+        -webkit-transition: all .1s ease;
+        transition: all .1s ease;
+        pointer-events: none;
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0);
+    }
+</style>
 <div class="container myContainer">
     <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -93,8 +108,11 @@
             </div>
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-4">
                     <h1 class="text-center">Distribution</h1>
-                    <br><br>
-                    <canvas id="pie-chart" width="900" height="800"></canvas>
+                    <br><br><br><br>
+                    <canvas id="pie-chart" width="900" height="900"></canvas>
+                    <div id="chartjs-tooltip">
+                       <table></table>
+                    </div>
                     <br>
                     <h1 class="text-center">Selected candidate</h1>
                     <div class="row">
@@ -313,12 +331,78 @@
         $('#frmResetPwd').modal('show');
     });
     //pie chart of grade all candidates
+    Chart.defaults.global.tooltips.custom = function(tooltip) {
+    // Tooltip Element
+    var tooltipEl = document.getElementById('chartjs-tooltip');
+    // Hide if no tooltip
+    if (tooltip.opacity === 0) 
+    {
+        tooltipEl.style.opacity = 0;
+        return;
+    }
+    // Set caret Position
+    tooltipEl.classList.remove('above', 'below', 'no-transform');
+    if (tooltip.yAlign) 
+    {
+        tooltipEl.classList.add(tooltip.yAlign);
+    } else {
+        tooltipEl.classList.add('no-transform');
+    }
+    function getBody(bodyItem) {
+        return bodyItem.lines;
+    }
+    // Set Text
+    if (tooltip.body) 
+    {
+        var titleLines = tooltip.title || [];
+        var bodyLines = tooltip.body.map(getBody);
+        var innerHtml = '<thead>';
+
+        titleLines.forEach(function(title) {
+        innerHtml += '<tr><th>' + title + '</th></tr>';
+    });
+        innerHtml += '</thead><tbody>';
+
+        bodyLines.forEach(function(body, i) 
+        {
+            var colors = tooltip.labelColors[i];
+            var style = 'background:' + colors.backgroundColor;
+            style += '; border-color:' + colors.borderColor;
+            style += '; border-width: 5px';
+            var span = '<span class="chartjs-tooltip-key" style="' + style + '"></span>';
+            innerHtml += '<tr><td>' + span + body + '</td></tr>';
+        });
+        innerHtml += '</tbody>';
+        var tableRoot = tooltipEl.querySelector('table');
+        tableRoot.innerHTML = innerHtml;
+    }
+        var positionY = this._chart.canvas.offsetTop;
+        var positionX = this._chart.canvas.offsetLeft;
+       // Display, position, and set styles for font
+        tooltipEl.style.opacity = 1;
+        tooltipEl.style.left = positionX + tooltip.caretX + 'px';
+        tooltipEl.style.top = positionY + tooltip.caretY + 'px';
+        tooltipEl.style.fontFamily = tooltip._bodyFontFamily;
+        tooltipEl.style.fontSize = tooltip.bodyFontSize;
+        tooltipEl.style.fontStyle = tooltip._bodyFontStyle;
+        tooltipEl.style.padding = tooltip.yPadding + 'px ' + tooltip.xPadding + 'px';
+    };
+
     new Chart(document.getElementById("pie-chart"),
     {
         type: 'pie',
         data: 
         {
-            labels: ["A+", "A", "A-", "B+", "B","Failed"],
+            labels: 
+            [
+                "A+: “Parents/Guardians are unable to support the student’s higher education and are well below the poverty level (<1.5$/day/ind. in rural areas / < 3$/day/ind. in urban areas)” ",
+                "A: “Parents/Guardians are unable to support the student’s higher education and are slightly below the poverty level (1.5-2$/day/ind. in rural areas / 3-4$/day/ind. in urban areas)” ",
+                "A-: “Parents/Guardians have severe difficulties to support the student’s higher education and can’t find any external support” ",
+                "B+: “Parents/Guardians have severe difficulties to support the student’s higher education but are able to find external support” ",
+                "B: “Parents/Guardians have major difficulties to support the student’s higher education but can use some family’s assets” ",
+                "Failed: “Parents/Guardians have minor or no difficulty to support the student’s higher education“ "
+                ],
+
             datasets: 
             [{
                 label: "Grade (distribution)",
@@ -344,28 +428,44 @@
                     <?php echo $gradeFailed->GradeFailed; ?>  
                     <?php endforeach ?>
                 ]
-            }]
+            }],       
         },
+
         options: 
-        {
+        {   
             title: 
             {
                 display: true,
-                text: 'Grade distribution'
+                text: 'Grade distribution'  
+            },
+            legend: 
+            {
+            display: false  /// disabled label on pie chart
+            },
+            tooltips: 
+            {
+                enabled: false   /// enabled tooltips don't show 
             }
-        }
+        },
     });
-    // pie chart1 of gender selected candidates
+        window.onload = function() {
+        var ctx = document.getElementById('pie-chart').getContext('2d');
+        window.myPie = new Chart(ctx, config);
+    };
+    /// pie chart1 of gender selected candidates
     new Chart(document.getElementById("pie-chart1"), 
     {
+        /// count the number of male selected candidates for display
+
         <?php foreach ($maleCount as $maleCount):?>
         <?php 
             $male = $maleCount->countMale;
         ?>  
         <?php endforeach ?>
+        /// count the number of female selected candidates for display
         <?php foreach ($femaleCount as $femaleCount):?>
         <?php 
-            $female = $femaleCount->countFemale;
+            $female = $femaleCount->countFemale; 
         ?>  
         <?php endforeach ?>
         type: 'pie',
@@ -379,12 +479,10 @@
                 data:
                 [   
                     <?php 
-                         $percenMale = ($male * 100)/($male+$female);
-                        echo $percenMale;
+                        echo $male;     //// show the number male into pie chart
                     ?>,
-                    <?php 
-                        $percenFemale = ($female * 100)/($male+$female);
-                        echo $percenFemale;
+                    <?php
+                        echo $female;   /// show the number of female into pie chart
                     ?>
                 ]
             }]
@@ -396,26 +494,23 @@
                 display: true,
                 text: 'Gender distribution'
             },
-            tooltips: 
+            legend: 
             {
-                callbacks: 
-                {
-                    label: function(tooltipItem, chartData) 
-                    {
-                        return chartData.labels[tooltipItem.index] + ': ' + chartData.datasets[0].data[tooltipItem.index] + '%';
-                    }
-                }
+                display: false
             }
         }
     });
     // pie chart2 of ngo provenance selected candidates
     new Chart(document.getElementById("pie-chart2"), 
     {
+        /// count the number of selected candidate from NGO
+
         <?php foreach ($ngo as $ngo):?>
         <?php 
             $formNgo = $ngo->FromNGO;
         ?>  
         <?php endforeach ?>
+        /// count the number of selected candidate not from NGO
         <?php foreach ($notNgo as $notNgo):?>
         <?php 
             $notFromNgo = $notNgo->NotFromNGO;
@@ -431,13 +526,11 @@
                 backgroundColor: ["#3e95cd","#c45850"],
                 data: 
                 [
-                    <?php 
-                         $percenFromNGO = ($formNgo * 100)/($formNgo+$notFromNgo);
-                        echo $percenFromNGO;
+                    <?php
+                        echo $formNgo;  /// show number of selected candidates from NGO
                     ?>,
-                    <?php 
-                        $percenNotFromNGO = ($notFromNgo * 100)/($formNgo+$notFromNgo);
-                        echo $percenNotFromNGO;
+                    <?php
+                        echo $notFromNgo;   /// show number of selected candidates not from NGO
                     ?>
                 ]
             }]
@@ -449,17 +542,15 @@
                 display: true,
                 text: 'NGO provenance'
             },
-            tooltips: 
+            legend: 
             {
-                callbacks: 
-                {
-                    label: function(tooltipItem, chartData) 
-                    {
-                        return chartData.labels[tooltipItem.index] + ': ' + chartData.datasets[0].data[tooltipItem.index] + '%';
-                    }
-                }
+            display: false
             }
         }
     });
 });
 </script>
+
+
+ 
+  
