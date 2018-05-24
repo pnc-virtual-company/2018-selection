@@ -194,7 +194,7 @@ Class C_candidates extends CI_Controller{
     $studentRank = $this->input->post('studentRank');
 
     $resultFamily['familyProfile'] = $this->m_can->addFamilyProfile($fatherAge,$fatherOccupation,$fatherSpecify,$fatherHealth,$fatherHealthSpecify,$fatherEdu,$motherAge,$motherOccupation,$motherSpecify,$motherhealthStatus,$motherHealthSpecify,$motherEducation,$numSiblings,$marriedStatus,$separated,$numberFamilyLiving,$studentRank);
-
+   
     $msg['success'] = false;
     $msg['type'] = 'add';
 
@@ -224,18 +224,90 @@ Class C_candidates extends CI_Controller{
       $totalIncome = $this->input->post('totalMonthIncome');
       $totalIncomeId = $this->input->post('incomeIndividual');
 
-      var_dump($paMonthIncome,$paDailyIncome,$paSesIncome,$paYearIncome,$paTotalIncome,$chMonthIncome,$chDailyIncome,$chSeasonIncome,$chYearIncome,$chTotalIncome,$totalIncome,$totalIncomeId);
-      die();
+      // var_dump($paMonthIncome,$paDailyIncome,$paSesIncome,$paYearIncome,$paTotalIncome,$chMonthIncome,$chDailyIncome,$chSeasonIncome,$chYearIncome,$chTotalIncome,$totalIncome,$totalIncomeId);
+      // die();
 
-      $result['familyProfile'] = $this->m_can->addFamilyIncome($paMonthIncome,$paDailyIncome,$paSesIncome,$paYearIncome,$paTotalIncome,$chMonthIncome,$chDailyIncome,$chSeasonIncome,$chYearIncome,$chTotalIncome,$totalIncome,$totalIncomeId);
+      $result['familyIncome'] = $this->m_can->addFamilyIncome($paMonthIncome,$paDailyIncome,$paSesIncome,$paYearIncome,$paTotalIncome,$chMonthIncome,$chDailyIncome,$chSeasonIncome,$chYearIncome,$chTotalIncome,$totalIncome,$totalIncomeId);
       
       $msg['success'] = false;
       $msg['type'] = 'add';
 
-      if($resultFamily){
+      if($result){
         $msg['success'] = true;
       }
       echo json_encode($msg);
     }
   // end function add family income resource
+
+   // function add loan & Debts
+    public function addLoan()
+    {
+    	$amount = $this->input->post('initAmount');
+    	$institution = $this->input->post('instit');
+    	$interest = $this->input->post('interRates');
+    	$reason = $this->input->post('reason');
+    	$monthly = $this->input->post('monthly');
+    	$trimester = $this->input->post('trimester');
+    	$semester = $this->input->post('semester');
+    	$capital = $this->input->post('capital');
+
+
+    	$result['familyLoan'] = $this->m_can->addLoan($amount,$institution,$interest,$reason,$monthly,$trimester,$semester,$capital);
+    	
+    	$msg['success'] = false;
+    	$msg['type'] = 'add';
+
+    	if($result){
+    	  $msg['success'] = true;
+    	}
+    	echo json_encode($msg);
+
+    }
+   // End funciton add loan & Debts
+    // function add family expense
+    public function addExpense()
+    {
+    	$rice = $this->input->post('rice');
+    	$food = $this->input->post('food');
+    	$firewood = $this->input->post('firewood');
+    	$loan = $this->input->post('loan');
+    	$study = $this->input->post('study');
+    	$medical = $this->input->post('medical');
+    	$electric = $this->input->post('electric');
+    	$agriculture = $this->input->post('agriculture');
+    	$wedding = $this->input->post('wedding');
+    	$other = $this->input->post('other');
+    	$totalExpense = $this->input->post('totalExpense');
+
+    	$result['familyExpense'] = $this->m_can->addExpense($rice,$food,$firewood,$loan,$study,$medical,$electric,$agriculture,$wedding,$other,$totalExpense);
+
+    	$msg['success'] = false;
+    	$msg['type'] = 'add';
+
+    	if($result){
+    	  $msg['success'] = true;
+    	}
+    	echo json_encode($msg);
+    }
+    // end function add family expense
+
+    // function add family residence status
+    public function addResidence()
+    {
+    	$status = $this->input->post('status');
+    	$age = $this->input->post('age');
+    	$rating = $this->input->post('rating');
+
+    	$result['formExpense'] = $this->m_can->addResidence($status,$age,$rating);
+
+    	$msg['success'] = false;
+    	$msg['type'] = 'add';
+    	if($result){
+
+    	  $msg['success'] = true;
+    	// redirect('C_candidates/newCandidate');
+    	}
+    	echo json_encode($msg);
+    }
+    // end function add family residence status
 }
