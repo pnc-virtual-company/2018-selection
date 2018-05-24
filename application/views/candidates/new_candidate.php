@@ -2145,7 +2145,7 @@ body{
 						}else if(response.type=='update'){
 							var type ="updated"
 						}
-						$('.alert-success').html('Candidate '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
+						$('.alert-success').html('Form family income '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
 					}else{
 						alert('Error');
 					}
@@ -2182,7 +2182,7 @@ $('#saveExpense').click(function(){
 					}else if(response.type=='update'){
 						var type ="updated"
 					}
-					$('.alert-success').html('Data '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
+					$('.alert-success').html('Form family expense '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
 				}else{	
 					alert('Error');
 				}
