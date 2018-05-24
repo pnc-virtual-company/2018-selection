@@ -6,13 +6,19 @@ body{
 }
 </style>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
+	<br>
 	<!-- form header -->
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-5 col-md-5 col-sm-4 col-xs-4"></div>
-			<div class="col-lg-7 col-md-7 col-sm-8 col-xs-8">
-				<img src="<?php echo base_url() ?>assets/images/background/neourng.jpg" style="width: 25%" class="text-center"><br>
-			</div>	
+			<div class="col-lg-7 col-md-7 col-sm-9 col-xs-9">
+	   	<img id="blah" src="http://placehold.it/180" alt="your image" class="img-responsive" style="width: 25%;">
+	   	<br>
+	   	<br>
+	   	<div class="row">
+	    	<input type='file' onchange="readURL(this);" />
+	  	</div>
+	  </div> 
 		</div>
 		<br>
 		<form method="post" class="ggrade">
