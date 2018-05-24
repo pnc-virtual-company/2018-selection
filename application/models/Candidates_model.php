@@ -414,13 +414,14 @@ class Candidates_model extends CI_Model {
 
         $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
         $insert = $this->db->insert('skeleton_tbl_profile',$data);
-        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
-
         if ($this->db->affected_rows() > 0) {
            return true;
         } else {
             return false;
         }
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
+
+        
     }
     // end function that add on family profile
 
@@ -459,4 +460,72 @@ class Candidates_model extends CI_Model {
         $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
     }
     // end family income resource
+    // function add family loan and debts
+    public function addLoan($amount,$institution,$interest,$reason,$monthly,$trimester,$semester,$capital)
+    {
+        $data = array(
+            'ld_initial_amount' => $amount,
+            'ld_instritution' => $institution,
+            'ld_interest_tates' => $interest,
+            'ld_reason' => $reason,
+            'ld_monthly' => $monthly,
+            'ld_trimester' => $trimester,
+            'ld_semester' => $semester,
+            'ld_capital' => $capital
+        );
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
+        $insert = $this->db->insert('skeleton_tbl_loan_debt',$data);
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
+    }
+    // end function add loan and debts
+    // function add family expense
+    public function addExpense($rice,$food,$firewood,$loan,$study,$medical,$electric,$agriculture,$wedding,$other,$totalExpense)
+    {
+        $data = array(
+            'ex_rice' => $rice,
+            'ex_food' => $food,
+            'ex_firewood' => $firewood,
+            'ex_loan' => $loan,
+            'ex_study' => $study,
+            'ex_medical' => $medical,
+            'ex_electricities_water' => $electric,
+            'ex_agriculture' => $agriculture,
+            'ex_weding' => $wedding,
+            'ex_other_utilities' => $other,
+            'ex_total' => $totalExpense
+        );
+    
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
+        $insert = $this->db->insert('skeleton_tbl_expense',$data);
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
+    }
+
+    public function addResidence($status,$age,$rating)
+    {
+        $data = array(
+            're_status' => $status, 
+            're_age' => $age, 
+            're_rating_scale' => $rating
+        );
+        
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
+        $insert = $this->db->insert('skeleton_tbl_residence',$data);
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
+    }
+    // end function add family expense
  }   

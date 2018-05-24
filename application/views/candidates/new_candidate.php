@@ -339,7 +339,7 @@ body{
 						<div class="row">
 							<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12"></div>
 							<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-								<button type="submit" id="btnSaveFirstSection" class="btn btn-primary float-right" name="FirstSection">Save information</button><br><br>	
+								<button type="submit" id="btnSaveFirstSection" class="btn btn-primary float-right">Save information</button><br><br>	
 							</div>
 						</div>
 					</form>
@@ -380,7 +380,7 @@ body{
 						</div>
 						<div id="collapseFamilyPro" class="collapse" aria-labelledby="familyPro" data-parent="#subAccordion">
 							<div class="card-body contentBody">
-								<form id="familyProForm" action="" method="post">
+								<form id="fProForm" action="" method="post">
 								<h5>Father</h5>
 								<div class="row">
 										<div class="col-lg-5 col-md-5 col-sm-4">
@@ -703,7 +703,7 @@ body{
 		<div class="row">
 			<div class="col-md-9 col-sm-9"></div>
 			<div class="col-md-3 col-sm-3">
-				<button class="btn btn-primary btn-block" id="btnSaveFamilyPro" type="submit">Save information</button>
+				<button type="submit" class="btn btn-primary btn-block" id="SaveFamilyPro" >Save information</button>
 			</div>
 		</div>
 	</form>
@@ -815,7 +815,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="fTotal" name="parentTotalIncome" style="text-align:right;" required placeholder="$">
+								<input type="number" class="form-control" id="fTotal" name="parentTotalIncome" style="text-align:right;" placeholder="$">
 							</div>
 						</div>
 					</div>	
@@ -907,7 +907,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="cTotal" name="childTotalIncome" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control" id="cTotal" name="childTotalIncome" placeholder="$" style="text-align:right;">
 							</div>
 						</div>
 					</div>	
@@ -930,7 +930,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control gincome" id="gTotal1" name="totalMonthIncome" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control gincome" id="gTotal1" name="totalMonthIncome" placeholder="$" style="text-align:right;">
 							</div>
 						</div>
 					</div>	
@@ -947,7 +947,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control gincomein" name="incomeIndividual" id="gTotal2" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control gincomein" name="incomeIndividual" id="gTotal2" placeholder="$" style="text-align:right;">
 							</div>
 						</div>
 					</div>	
@@ -979,37 +979,37 @@ body{
 	</div>
 	<div id="collapseFamilyExpense" class="collapse" aria-labelledby="familyExpense" data-parent="#subAccordion">
 		<div class="card-body contentBody">
-			<form action="" method="POST">
+			<form id="formExpense" action="" method="post">
 				<div class="row">
 					<div class="col-md-6">
 						<div class="form-group row">
 							<label for="rice" class="col-5 col-xs-12 col-form-label">Rice:</label>
 							<div class="col-7 col-xs-12">
-								<input type="number" class="form-control fExpense" id="rice" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control fExpense" id="rice" placeholder="$" name="rice" style="text-align:right;" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="food" class="col-5 col-form-label">Food:</label>
 							<div class="col-7">
-								<input type="number" class="form-control fExpense" id="food" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control fExpense" id="food" placeholder="$" name="food" style="text-align:right;" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="firewood" class="col-5 col-form-label">Firewood-Gas-Chacoal:</label>
 							<div class="col-7">
-								<input type="number" class="form-control fExpense" id="firewood" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control fExpense" id="firewood" placeholder="$" name="firewood" style="text-align:right;" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="loan" class="col-5 col-form-label">Loan:</label>
 							<div class="col-7">
-								<input type="number" class="form-control fExpense" id="loan" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control fExpense" id="loan" placeholder="$" name="loan" style="text-align:right;" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="study" class="col-5 col-form-label">Study:</label>
 							<div class="col-7">
-								<input type="number" class="form-control fExpense" id="study" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control fExpense" id="study" placeholder="$" name="study" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1017,32 +1017,32 @@ body{
 						<div class="form-group row">
 							<label for="medical" class="col-5 col-form-label">Medical:</label>
 							<div class="col-7">
-								<input type="number" class="form-control fExpense" id="medical" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control fExpense" id="medical" placeholder="$" name="medical" style="text-align:right;" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="electricity" class="col-5 col-form-label">Electricity & Water:</label>
 							<div class="col-7">
-								<input type="number" class="form-control fExpense" id="electricity" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control fExpense" id="electricity" placeholder="$" name="electric" style="text-align:right;" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="agriculture" class="col-5 col-form-label">Agriculture:</label>
 							<div class="col-7">
-								<input type="number" class="form-control fExpense" id="agriculture" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control fExpense" id="agriculture" placeholder="$" name="agriculture" style="text-align:right;" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="wedding" class="col-5 col-form-label">Wedding 
 							& Ceremony:</label>
 							<div class="col-7">
-								<input type="number" class="form-control fExpense" id="wedding" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control fExpense" id="wedding" placeholder="$" name="wedding" style="text-align:right;" required>
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="otherUtilities" class="col-5 col-form-label">Other utilities:</label>
 							<div class="col-7">
-								<input type="number" class="form-control fExpense" id="otherUtilities" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control fExpense" id="otherUtilities" placeholder="$" name="other" style="text-align:right;" required>
 							</div>
 						</div>	
 					</div>
@@ -1054,7 +1054,7 @@ body{
 						<div class="form-group row">
 							<label for="totalExpense" class="col-5 col-form-label">Total expense:</label>
 							<div class="col-7">
-								<input type="number" class="form-control" id="totalExpense" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control" id="totalExpense" placeholder="$" name="totalExpense" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1065,7 +1065,7 @@ body{
 					<div class="col-md-4"></div>
 					<div class="col-md-4"></div>
 					<div class="col-md-4">
-						<button type="button" class="btn btn-primary float-right">Save information</button>
+						<button type="submit" id="saveExpense" class="btn btn-primary float-right">Save information</button>
 					</div>
 				</div>
 			</form>
@@ -1093,13 +1093,13 @@ body{
 				<h5>General information</h5>
 			</div>
 			<br>
-			<form action="" method="POST">
+			<form id="formLoan" action="" method="post">
 				<div class="row">
 					<div class="col-lg-4 col-md-4">
 						<div class="form-group row">
 							<label for="amount" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Initial amount :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input id="amount" type="number" class="form-control" placeholder="$" style="text-align:right;" required>
+								<input id="amount" type="number" class="form-control" name="initAmount" placeholder="$" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1108,7 +1108,7 @@ body{
 							<label for="institution" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Institution :
 							</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input id="institution" type="number" class="form-control" placeholder="$" style="text-align:right;" required>
+								<input id="institution" type="number" class="form-control" name="instit" placeholder="$" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1117,7 +1117,7 @@ body{
 							<label for="interest" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Interest rates :
 							</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" id="interest" class="form-control" placeholder="$" style="text-align:right;" required>
+								<input type="number" id="interest" class="form-control" name="interRates" placeholder="$" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1127,7 +1127,7 @@ body{
 						<div class="form-group row">
 							<label for="reason" class="col-lg-2 col-md-2 col-xs-12 col-form-label">Reason :</label>
 							<div class="col-lg-10 col-md-10 col-xs-12">
-								<input type="text" id="reason" class="form-control" placeholder="Please comment"  required>
+								<input type="text" id="reason" class="form-control" placeholder="Please comment" name="reason" required>
 							</div>
 						</div>
 					</div>
@@ -1141,7 +1141,7 @@ body{
 						<div class="form-group row">
 							<label for="monthly" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Monthly :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" id="monthly" class="form-control" placeholder="$" style="text-align:right;" required>
+								<input type="number" id="monthly" class="form-control" name="monthly" placeholder="$" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1149,7 +1149,7 @@ body{
 						<div class="form-group row">
 							<label for="trimester" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Trimester :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" id="trimester" class="form-control" placeholder="$" style="text-align:right;" required>
+								<input type="number" id="trimester" class="form-control" placeholder="$" name="trimester" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1157,7 +1157,7 @@ body{
 						<div class="form-group row">
 							<label for="semester" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Semester :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" id="semester" class="form-control" placeholder="$" style="text-align:right;" required>
+								<input type="number" id="semester" class="form-control" placeholder="$" name="semester" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1167,7 +1167,7 @@ body{
 						<div class="form-group row">
 							<label for="capital" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Capital :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" id="capital" class="form-control" placeholder="$" style="text-align:right;" required>
+								<input type="number" id="capital" name="capital" class="form-control" placeholder="$" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1176,7 +1176,7 @@ body{
 				<div class="row">
 					<div class="col-lg-10 col-md-10 col-sm-8 col-xs-8"></div>
 					<div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-						<button type="button" class="btn btn-primary float-right">Save information</button>
+						<button type="submit" id="saveLoan" class="btn btn-primary float-right">Save information</button>
 					</div>
 				</div>
 			</form>
@@ -1200,17 +1200,17 @@ body{
 	</div>
 	<div id="collapseResidence" class="collapse" aria-labelledby="residence" data-parent="#subAccordion">
 		<div class="card-body contentBody">
-			<form action="" method="POST">
+			<form id="residenceForm" action="" method="POST">
 				<div class="row">
 					<div class="col-lg-4 col-md-4">
 						<div class="form-group row">
 							<label for="status" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Status :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<select name="" id="status" class="form-control">
-									<option value="">Inherited</option>
-									<option value="">Shared</option>
-									<option value="">Purchased</option>
-									<option value="">Rent</option>
+								<select name="status" id="status" class="form-control">
+									<option value="Inherited">Inherited</option>
+									<option value="Shared">Shared</option>
+									<option value="Purchased">Purchased</option>
+									<option value="Rent">Rent</option>
 								</select>
 							</div>
 						</div>
@@ -1237,7 +1237,7 @@ body{
 						<div class="form-group row">
 							<label for="rating" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Rating scale :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<select name="Rating_scal" id="rating" class="form-control">
+								<select name="rating" id="rating" class="form-control">
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -1253,7 +1253,7 @@ body{
 					<div class="col-md-4 col-md-4 col-sm-4 col-xs-12"></div>
 					<div class="col-md-4 col-md-4 col-sm-4 col-xs-12"></div>
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-						<button type="button" class="btn btn-primary float-right">Save information</button>
+						<button type="submit" class="btn btn-primary float-right" id="saveResidence">Save information</button>
 					</div>
 				</div>
 			</form>
@@ -2085,13 +2085,14 @@ body{
 	});
 // End function add 
 // Function to add Family Profile
-	$('#btnSaveFamilyPro').click(function(){
-		$('#familyProForm').attr('action', '<?php echo base_url() ?>c_candidates/addFamilyProfile/');
+	
+	$('#SaveFamilyPro').click(function(){
+		$('#fProForm').attr('action', '<?php echo base_url() ?>c_candidates/addFamilyProfile/');
 	});
-	// start to save
-	$('#btnSaveFamilyPro').click(function(){
-		var url = $('#familyProForm').attr('action');
-		var data = $('#familyProForm').serialize();
+	// start to save	
+	$('#SaveFamilyPro').click(function(){
+		var url = $('#fProForm').attr('action');
+		var data = $('#fProForm').serialize();
 		//validate form
 			$.ajax({
 				type: 'ajax',
@@ -2102,13 +2103,13 @@ body{
 				dataType: 'json',
 				success: function(response){
 					if(response.success){
-						$('#familyProForm')[0].reset();
+						$('#fProForm')[0].reset();
 						if(response.type=='add'){
 							var type = 'added'
 						}else if(response.type=='update'){
 							var type ="updated"
 						}
-						$('.alert-success').html('Candidate'+type+'successfully').fadeIn().delay(4000).fadeOut('slow');
+						$('.alert-success').html('Data '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
 					}else{
 						alert('Error');
 					}
@@ -2124,7 +2125,7 @@ body{
 	$('#btnSaveFamilyIncome').click(function(){
 		$('#formFamilyIncome').attr('action', '<?php echo base_url() ?>c_candidates/addFamilyIncome/');
 	});
-	// start to save
+	// start to save	
 	$('#btnSaveFamilyIncome').click(function(){
 		var url = $('#formFamilyIncome').attr('action');
 		var data = $('#formFamilyIncome').serialize();
@@ -2144,7 +2145,7 @@ body{
 						}else if(response.type=='update'){
 							var type ="updated"
 						}
-						$('.alert-success').html('Candidate'+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
+						$('.alert-success').html('Candidate '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
 					}else{
 						alert('Error');
 					}
@@ -2156,7 +2157,116 @@ body{
 		
 	});
 // End function add 
+// function add family expense
 
+$('#saveExpense').click(function(){
+	$('#formExpense').attr('action', '<?php echo base_url() ?>c_candidates/addExpense/');
+});
+// start to save	
+$('#saveExpense').click(function(){
+	var url = $('#formExpense').attr('action');
+	var data = $('#formExpense').serialize();
+	//validate form
+		$.ajax({
+			type: 'ajax',
+			method: 'post',
+			url: url,
+			data: data,
+			async: false,
+			dataType: 'json',
+			success: function(response){
+				if(response.success){
+					$('#formExpense')[0].reset();
+					if(response.type=='add'){
+						var type = 'added'
+					}else if(response.type=='update'){
+						var type ="updated"
+					}
+					$('.alert-success').html('Data '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
+				}else{	
+					alert('Error');
+				}
+			},
+			error: function(){
+				alert('Could not add data');
+			}
+		});
+	
+});
+// end function add expense
+// Function start to add loan and debts
+$('#saveLoan').click(function(){
+	$('#formLoan').attr('action', '<?php echo base_url() ?>c_candidates/addLoan/');
+});
+// start to save	
+$('#saveLoan').click(function(){
+	var url = $('#formLoan').attr('action');
+	var data = $('#formLoan').serialize();
+	//validate form
+		$.ajax({
+			type: 'ajax',
+			method: 'post',
+			url: url,
+			data: data,
+			async: false,
+			dataType: 'json',
+			success: function(response){
+				if(response.success){
+					$('#formLoan')[0].reset();
+					if(response.type=='add'){
+						var type = 'added'
+					}else if(response.type=='update'){
+						var type ="updated"
+					}
+					$('.alert-success').html('Data '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
+				}else{
+					alert('Error');
+				}
+			},
+			error: function(){
+				alert('Could not add data');
+			}
+		});
+	
+});
+// End function add loan and debts
+// function add call residence status
+	
+	$('#saveResidence').click(function(){
+		$('#residenceForm').attr('action', '<?php echo base_url() ?>c_candidates/addResidence/');
+	});
+	// start to save	
+	$('#saveResidence').click(function(){
+		var url = $('#residenceForm').attr('action');
+		var data = $('#residenceForm').serialize();
+		//validate form
+			$.ajax({
+				type: 'ajax',
+				method: 'post',
+				url: url,
+				data: data,
+				async: false,
+				dataType: 'json',
+				success: function(response){
+					if(response.success){
+						$('#residenceForm')[0].reset();
+						if(response.type=='add'){
+							var type = 'added'
+						}else if(response.type=='update'){
+							var type ="updated"
+						}
+						$('.alert-success').html('Data '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
+					}else{
+						alert('Error');
+					}
+				},
+				error: function(){
+					alert('Could not add data');
+				}
+			});
+		
+	});
+// end function call residence status
 // function to get data
 
 		// function calculate home asset coef x5
