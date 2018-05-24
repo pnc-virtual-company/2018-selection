@@ -304,8 +304,6 @@ class Candidates_model extends CI_Model {
 
         }
         // end function get max candidate
-// <<<<<<< HEAD
-
         // all update function and list out ------------------------------------
     //list all provinces
         public function listProvinces(){
