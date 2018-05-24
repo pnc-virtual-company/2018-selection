@@ -423,12 +423,6 @@ class Candidates_model extends CI_Model {
         return $query->result();
     }
 
-    //query update for global grade
-    public function uGlobal($id,$grade) {
-        $data = array('can_global_grade' => $grade);
-        $this->db->where('can_id',$id);
-        $this->db->update('skeleton_tbl_candidates',$data);
-    }
     //code for update form input -> investigation conclusion
     public function upInvesCon($id,$investi) {
         $data = array('can_investigator_conclusion' => $investi);
@@ -436,7 +430,7 @@ class Candidates_model extends CI_Model {
         $this->db->update('skeleton_tbl_candidates',$data);
     }
     // function for update candidate information
-    public function uCanInfo($id,$fname,$lname,$gender,$canAge,$province,$ngo,$ngoComment,$can_health,$healthIssues,$canRankClass,$canAchivement,$canPncRank,$responsibilityMaturity,$motivatForPnc,$canCommunicate,$otherScholarship,$canChoiceRank,$CanCommitment,$canParentCommitment) {
+    public function uCanInfo($id,$fname,$lname,$gender,$canAge,$province,$ngo,$grade,$ngoComment,$can_health,$healthIssues,$canRankClass,$canAchivement,$canPncRank,$responsibilityMaturity,$motivatForPnc,$canCommunicate,$otherScholarship,$canChoiceRank,$CanCommitment,$canParentCommitment) {
         $data = array(
             'can_firstname' => $fname,
             'can_lastname'  => $lname,
@@ -453,6 +447,7 @@ class Candidates_model extends CI_Model {
             'can_other_scholaship' => $otherScholarship,
             'can_student_commit' => $CanCommitment,
             'can_parents_commit' => $canParentCommitment,
+            'can_global_grade' => $grade,
             'can_ngo_comment' => $ngoComment,
             'can_health_comment' => $healthIssues,
             'pro_id' => $province,
@@ -562,10 +557,10 @@ class Candidates_model extends CI_Model {
     function view_can_family($id)
     {
         $this->db->select('*'); 
-        $this->db->from('skeleton_tbl_family'); 
-        $this->db->join('skeleton_tbl_profile', 'skeleton_tbl_profile.p_id=
-            skeleton_tbl_family.tbl_profile_p_id','INNER');
-        $this->db->where('skeleton_tbl_family.family_id',$id);
+        $this->db->from('skeleton_tbl_profile'); 
+        $this->db->join('skeleton_tbl_candidates', 'skeleton_tbl_candidates.can_id=
+            skeleton_tbl_profile.tbl_candidates_can_id','INNER');
+        $this->db->where('skeleton_tbl_profile.p_id',$id);
         $query=$this->db->get();
         return $query->result();
     }
@@ -573,9 +568,9 @@ class Candidates_model extends CI_Model {
     function view_income($id)
     {
         $this->db->select('*');
-        $this->db->from('skeleton_tbl_family');
-        $this->db->join('skeleton_tbl_income','skeleton_tbl_income.in_id = skeleton_tbl_family.tbl_income_in_id','INNER');
-        $this->db->where('skeleton_tbl_family.family_id',$id);
+        $this->db->from('skeleton_tbl_income');
+        $this->db->join('skeleton_tbl_candidates','skeleton_tbl_candidates.can_id = skeleton_tbl_income.tbl_candidates_can_id','INNER');
+        $this->db->where('skeleton_tbl_income.in_id',$id);
         $query=$this->db->get();
         return $query->result();
     } 
@@ -583,10 +578,10 @@ class Candidates_model extends CI_Model {
     function view_exspense($id)
     {
         $this->db->select('*');
-        $this->db->from('skeleton_tbl_family');
-        $this->db->join('skeleton_tbl_expense','skeleton_tbl_expense.ex_id = 
-            skeleton_tbl_family.tbl_income_in_id','INNER');
-        $this->db->where('skeleton_tbl_family.family_id',$id);
+        $this->db->from('skeleton_tbl_expense');
+        $this->db->join('skeleton_tbl_candidates','skeleton_tbl_candidates.can_id = 
+            skeleton_tbl_expense.tbl_candidates_can_id','INNER');
+        $this->db->where('skeleton_tbl_expense.ex_id',$id);
         $query=$this->db->get();
         return $query->result();
     }
@@ -594,10 +589,10 @@ class Candidates_model extends CI_Model {
     function view_loan($id)
     {
         $this->db->select('*');
-        $this->db->from('skeleton_tbl_family');
-        $this->db->join('skeleton_tbl_loan_debt','skeleton_tbl_loan_debt.ld_id = 
-            skeleton_tbl_family.tbl_loan_debt_ld_id','INNER');
-        $this->db->where('skeleton_tbl_family.family_id',$id);
+        $this->db->from('skeleton_tbl_loan_debt');
+        $this->db->join('skeleton_tbl_candidates','skeleton_tbl_candidates.can_id = 
+            skeleton_tbl_loan_debt.tbl_candidates_can_id','INNER');
+        $this->db->where('skeleton_tbl_loan_debt.ld_id',$id);
         $query=$this->db->get();
         return $query->result();
     }
@@ -605,10 +600,10 @@ class Candidates_model extends CI_Model {
     function view_residence($id)
     {
         $this->db->select('*');
-        $this->db->from('skeleton_tbl_family');
-        $this->db->join('skeleton_tbl_residence','skeleton_tbl_residence.re_id = 
-            skeleton_tbl_family.tbl_residence_re_id','INNER');
-        $this->db->where('skeleton_tbl_family.family_id',$id);
+        $this->db->from('skeleton_tbl_residence');
+        $this->db->join('skeleton_tbl_candidates','skeleton_tbl_candidates.can_id = 
+            skeleton_tbl_residence.tbl_candidates_can_id','INNER');
+        $this->db->where('skeleton_tbl_residence.re_id',$id);
         $query=$this->db->get();
         return $query->result();
     } 
@@ -616,10 +611,10 @@ class Candidates_model extends CI_Model {
     function view_home_assets($id)
     {
         $this->db->select('*');
-        $this->db->from('skeleton_tbl_family');
-        $this->db->join('skeleton_tbl_home_asset','skeleton_tbl_home_asset.h_id = 
-            skeleton_tbl_family.tbl_home_asset_h_id','INNER');
-        $this->db->where('skeleton_tbl_family.family_id',$id);
+        $this->db->from('skeleton_tbl_home_asset');
+        $this->db->join('skeleton_tbl_candidates','skeleton_tbl_candidates.can_id = 
+            skeleton_tbl_home_asset.tbl_candidates_can_id','INNER');
+        $this->db->where('skeleton_tbl_home_asset.h_id',$id);
         $query=$this->db->get();
         return $query->result();
     }  
