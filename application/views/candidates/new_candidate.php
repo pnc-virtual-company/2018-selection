@@ -223,10 +223,13 @@ body{
 									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">PNC choice rank :</label>
 									<div class="col-lg-6 col-md-6 col-xs-12">
 										<select class="form-control" name="pncChoice" id="pncChoice">
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
+											<?php 
+												for ($i=1; $i <=4 ; $i++) { 
+												?>
+												<option value="1"><?php echo $i ?></option>
+												<?php	
+												}
+											 ?>
 										</select>
 									</div>
 								</div>
@@ -277,10 +280,13 @@ body{
 									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Choice rank :</label>
 									<div class="col-lg-5 col-md-5 col-xs-12">
 										<select class="form-control" name="otherChoiceRank" id="choiceRank">
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
+											<?php 
+												for ($i=1; $i <=4 ; $i++) { 
+												?>
+												<option value="1"><?php echo $i ?></option>
+											<?php		
+												}
+											 ?>
 										</select>
 									</div>
 								</div>
@@ -453,18 +459,13 @@ body{
 											<div class="col-md-6 col-sm-4">
 												<select class="form-control" name="fatherEdu" 
 												id="fEdu">
-												<option value="1">1</option>
-												<option value="2">2</option>
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-												<option value="6">6</option>
-												<option value="7">7</option>
-												<option value="8">8</option>
-												<option value="9">9</option>
-												<option value="10">10</option>
-												<option value="11">11</option>
-												<option value="12">12</option>
+												<?php 
+													for ($i=0; $i <=12 ; $i++) { 
+												?>
+													<option value="1"><?php echo $i; ?></option>
+												<?php		
+													}
+												 ?>
 												<option value="University">University</option>
 											</select>
 										</div>
@@ -546,18 +547,13 @@ body{
 											<div class="col-md-6 col-sm-4">
 												<select class="form-control" name="motherEducation" 
 												id="fEdu">
-												<option value="1">1</option>
-												<option value="2">2</option>
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-												<option value="6">6</option>
-												<option value="7">7</option>
-												<option value="8">8</option>
-												<option value="9">9</option>
-												<option value="10">10</option>
-												<option value="11">11</option>
-												<option value="12">12</option>
+												<?php 
+													for ($i=0; $i <=12 ; $i++) { 
+												?>
+												<option value="1"><?php echo $i; ?></option>		
+												<?php 		
+													}
+												 ?>
 												<option value="University">University</option>
 											</select>
 										</div>
@@ -577,19 +573,14 @@ body{
 									<label for="numSiblings" class="col-form-label">Number of siblings :</label>
 								</div>
 								<div class="col-md-6">
-									<select class="form-control" name="numSiblings" id="numSiblings">
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6</option>
-										<option value="7">7</option>
-										<option value="8">8</option>
-										<option value="9">9</option>
-										<option value="10">10</option>
-										<option value="11">11</option>
-										<option value="12">12</option>
+									<select class="form-control gincomein" name="numSiblings" id="numSiblings">
+										<?php 
+											for ($i=1; $i <=12 ; $i++) { 
+										?>
+											<option value="1"><?php echo $i; ?></option>
+										<?php	
+											}
+										 ?>
 									</select>
 								</div>
 							</div>
@@ -601,19 +592,13 @@ body{
 								</div>
 								<div class="col-md-6">
 									<select class="form-control" name="marriedStatus" id="married">
-										<option value="0">0</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6</option>
-										<option value="7">7</option>
-										<option value="8">8</option>
-										<option value="9">9</option>
-										<option value="10">10</option>
-										<option value="11">11</option>
-										<option value="12">12</option>
+										<?php 
+											for ($i=0; $i <10 ; $i++) { 
+											?>
+											<option value="1"><?php echo $i; ?></option>
+											<?php 
+											}
+										?>
 									</select>
 								</div>
 							</div>
@@ -626,19 +611,13 @@ body{
 								<div class="col-md-6">
 									<select class="form-control" name="separated" 
 									id="separated">
-									<option value="0">0</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-									<option value="6">6</option>
-									<option value="7">7</option>
-									<option value="8">8</option>
-									<option value="9">9</option>
-									<option value="10">10</option>
-									<option value="11">11</option>
-									<option value="12">12</option>
+									<?php 
+										for ($i=0; $i <10 ; $i++) { 
+									?>
+									<option value="1"><?php echo $i; ?></option>
+									<?php 
+										}
+									?>
 								</select>
 							</div>
 						</div>
@@ -653,23 +632,15 @@ body{
 								<label for="member" class="col-form-label">Living in the family's house (including parents) :</label>
 							</div>
 							<div class="col-md-3">
-								<select class="form-control" name="member" 
+								<select class="form-control gincomein" name="member" 
 								id="liveInHouse">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-								<option value="7">7</option>
-								<option value="8">8</option>
-								<option value="9">9</option>
-								<option value="10">10</option>
-								<option value="11">11</option>
-								<option value="12">12</option>
-								<option value="13">13</option>
-								<option value="14">14</option>
-								<option value="15">15</option>
+								<?php 
+									for ($i=1; $i <=15 ; $i++) { 		
+								?>
+								<option value="1"><?php echo $i ?></option>
+								<?php
+									}
+								 ?>
 							</select>
 						</div>
 					</div>
@@ -682,18 +653,13 @@ body{
 						<div class="col-md-6">
 							<select class="form-control" name="studentRank" 
 							id="studentRank">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
+							<?php 
+								for ($i=1; $i <12 ; $i++) { 
+								?>
+								<option value="1"><?php echo $i; ?></option>
+								<?php 
+								}
+							?>
 						</select>
 					</div>
 				</div>
@@ -747,7 +713,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control fincome" id="fMonthly" name="monthlyIncome" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control fincome gincome gincomein" id="fMonthly" name="monthlyIncome" placeholder="$" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>	
@@ -764,7 +730,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control fincome" id="fDaily" name="paDailyIncome" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control fincome gincome gincomein" id="fDaily" name="paDailyIncome" placeholder="$" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>	
@@ -781,7 +747,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control fincome" id="fSeasonal" name="seasonalIncome" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control fincome gincome gincomein" id="fSeasonal" name="seasonalIncome" placeholder="$" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>	
@@ -798,7 +764,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control fincome" id="fYearly" name="yearIncome" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control fincome gincome gincomein" id="fYearly" name="yearIncome" placeholder="$" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>	
@@ -815,7 +781,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="fTotal" name="parentTotalIncome" style="text-align:right;" placeholder="$">
+								<input type="number" class="form-control gincome gincomein" id="fTotal" name="parentTotalIncome" style="text-align:right;" placeholder="$">
 							</div>
 						</div>
 					</div>	
@@ -839,7 +805,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control cIncome" id="cMonthly" name="montlyChildAssiss" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control cIncome gincome gincomein" id="cMonthly" name="montlyChildAssiss" placeholder="$" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>	
@@ -856,7 +822,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control cIncome" id="cDaily" name="ChildDailyIncome" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control cIncome gincome gincomein" id="cDaily" name="ChildDailyIncome" placeholder="$" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>	
@@ -873,7 +839,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control cIncome" id="cSeasonal" placeholder="$" name ="ChildSeasonalIncome" style="text-align:right;" required>
+								<input type="number" class="form-control cIncome gincome gincomein" id="cSeasonal" placeholder="$" name ="ChildSeasonalIncome" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>	
@@ -890,7 +856,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control cIncome" id="cYearly" name="ChildYearIncome" placeholder="$" style="text-align:right;" required>
+								<input type="number" class="form-control cIncome gincome gincomein " id="cYearly" name="ChildYearIncome" placeholder="$" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>	
@@ -907,7 +873,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control" id="cTotal" name="childTotalIncome" placeholder="$" style="text-align:right;">
+								<input type="number" class="form-control gincome gincomein" id="cTotal" name="childTotalIncome" placeholder="$" style="text-align:right;">
 							</div>
 						</div>
 					</div>	
@@ -930,7 +896,7 @@ body{
 							<div class="col-md-1"></div>
 							<label for="" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 							<div class="col-lg-9 col-md-9 col-xs-12">
-								<input type="number" class="form-control gincome" id="gTotal1" name="totalMonthIncome" placeholder="$" style="text-align:right;">
+								<input type="number" class="form-control gincome gincomein" id="gTotal1" name="totalMonthIncome" placeholder="$" style="text-align:right;">
 							</div>
 						</div>
 					</div>	
@@ -1302,7 +1268,7 @@ body{
 						<div class="form-group row">
 							<label for="refrigerator" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Refrigerator :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x5" placeholder="Quantity" name="refrigerator" id="refrigerator" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="refrigerator" id="refrigerator" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1310,7 +1276,7 @@ body{
 						<div class="form-group row">
 							<label for="radio" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Radio :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x3" placeholder="Quantity " name="radio" id="radio" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity " name="radio" id="radio" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1320,7 +1286,7 @@ body{
 						<div class="form-group row">
 							<label for="conditioner" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Air conditioner :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x5" placeholder="Quantity" name="refrigerator" id="conditioner" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="refrigerator" id="conditioner" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1328,7 +1294,7 @@ body{
 						<div class="form-group row">
 							<label for="ricecooker" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Ricecooker :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x3" placeholder="Quantity" name="refrigerator" id="ricecooker" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="refrigerator" id="ricecooker" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1338,7 +1304,7 @@ body{
 						<div class="form-group row">
 							<label for="lcdTV" class="col-lg-5 col-md-5 col-xs-12 col-form-label">LCD TV :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x5" placeholder="Quantity" name="refrigerator" id="lcdTV" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="refrigerator" id="lcdTV" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1346,7 +1312,7 @@ body{
 						<div class="form-group row">
 							<label for="colorTV" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Color TV :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x3" placeholder="Quantity" name="refrigerator" id="colorTV" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="refrigerator" id="colorTV" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1356,7 +1322,7 @@ body{
 						<div class="form-group row">
 							<label for="computer1" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Computer < 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x5" placeholder="Quantity" name="refrigerator" id="computer1" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="refrigerator" id="computer1" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1364,7 +1330,7 @@ body{
 						<div class="form-group row">
 							<label for="computer2" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Computer > 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x3" placeholder="Quantity" name="refrigerator" id="computer2" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="refrigerator" id="computer2" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1374,7 +1340,7 @@ body{
 						<div class="form-group row">
 							<label for="furnished" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Furnished cabinet > 300$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x5" placeholder="Quantity" name="refrigerator" id="furnished" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="refrigerator" id="furnished" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1382,7 +1348,7 @@ body{
 						<div class="form-group row">
 							<label for="dvdPlayer" class="col-lg-5 col-md-5 col-xs-12 col-form-label">DVD player :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x3" placeholder="Quantity" name="refrigerator" id="dvdPlayer" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="refrigerator" id="dvdPlayer" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1392,7 +1358,7 @@ body{
 						<div class="form-group row">
 							<label for="smartphone" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Smartphone > 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x5" placeholder="Quantity" name="refrigerator" id="smartphone" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="refrigerator" id="smartphone" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1400,7 +1366,7 @@ body{
 						<div class="form-group row">
 							<label for="phone" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Phone < 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x3" placeholder="Quantity" name="refrigerator" id="phone" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="refrigerator" id="phone" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1410,7 +1376,7 @@ body{
 						<div class="form-group row">
 							<label for="camera1" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Camera > 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x5" placeholder="Quantity" name="refrigerator" id="camera1" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="refrigerator" id="camera1" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1418,7 +1384,7 @@ body{
 						<div class="form-group row">
 							<label for="camera2" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Camera < 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x3" placeholder="Quantity" name="refrigerator" id="camera2" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="refrigerator" id="camera2" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1428,7 +1394,7 @@ body{
 						<div class="form-group row">
 							<label for="sofa1" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Sofa > 300$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x5" placeholder="Quantity" name="refrigerator" id="sofa1" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="refrigerator" id="sofa1" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1436,7 +1402,7 @@ body{
 						<div class="form-group row">
 							<label for="sofa2" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Sofa < 300$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x3" placeholder="Quantity" name="refrigerator" id="sofa2" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="refrigerator" id="sofa2" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1447,7 +1413,7 @@ body{
 						<div class="form-group row">
 							<label for="gascooker" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Gascooker :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x3" placeholder="Quantity" name="refrigerator" id="gascooker" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="refrigerator" id="gascooker" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1458,7 +1424,7 @@ body{
 						<div class="form-group row">
 							<label for="fruit" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Fruit blender :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x3" placeholder="Quantity" name="refrigerator" id="fruit" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="refrigerator" id="fruit" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1469,7 +1435,7 @@ body{
 						<div class="form-group row">
 							<label for="electrical" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Electrical cooker :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x3" placeholder="Quantity" name="refrigerator" id="electrical" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="refrigerator" id="electrical" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1495,7 +1461,7 @@ body{
 								<div class="form-group row">
 									<label for="motobike" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Motobike > 500 :</label>
 									<div class="col-lg-7 col-md-7 col-xs-12">
-										<input type="number" class="form-control coef_x5" placeholder="Quantity" name="motobike" id="motobike" style="text-align:right;" required>
+										<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="motobike" id="motobike" style="text-align:right;" required>
 									</div>
 								</div>
 							</div>
@@ -1506,7 +1472,7 @@ body{
 								<div class="form-group row">
 									<label for="farming" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Farming machine :</label>
 									<div class="col-lg-7 col-md-7 col-xs-12">
-										<input type="number" class="form-control coef_x5" placeholder="Quantity" name="farming" id="farming" style="text-align:right;" required>
+										<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="farming" id="farming" style="text-align:right;" required>
 									</div>
 								</div>
 							</div>
@@ -1517,7 +1483,7 @@ body{
 								<div class="form-group row">
 									<label for="car" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Car / Truck :</label>
 									<div class="col-lg-7 col-md-7 col-xs-12">
-										<input type="number" class="form-control coef_x5" placeholder="Quantity" name="car" id="car" style="text-align:right;" required>
+										<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="car" id="car" style="text-align:right;" required>
 									</div>
 								</div>
 							</div>
@@ -1549,7 +1515,7 @@ body{
 								<div class="form-group row">
 									<label for="cow" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Cow :</label>
 									<div class="col-lg-7 col-md-7 col-xs-12">
-										<input type="number" class="form-control coef_x5" placeholder="Quantity" name="cow" id="cow" style="text-align:right;" required>
+										<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="cow" id="cow" style="text-align:right;" required>
 									</div>
 								</div>
 							</div>
@@ -1560,7 +1526,7 @@ body{
 								<div class="form-group row">
 									<label for="buffaloe" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Buffaloe :</label>
 									<div class="col-lg-7 col-md-7 col-xs-12">
-										<input type="number" class="form-control coef_x5" placeholder="Quantity" name="buffaloe" id="buffaloe" style="text-align:right;" required>
+										<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="buffaloe" id="buffaloe" style="text-align:right;" required>
 									</div>
 								</div>
 							</div>
@@ -1571,14 +1537,14 @@ body{
 								<div class="form-group row">
 									<label for="pig" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Pig :</label>
 									<div class="col-lg-7 col-md-7 col-xs-12">
-										<input type="number" class="form-control coef_x5" placeholder="Quantity" name="pig" id="pig" style="text-align:right;" required>
+										<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="pig" id="pig" style="text-align:right;" required>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-6 col-md-6">
-						<textarea name="" id="" cols="66" rows="6" class="form-control" placeholder="Please specify if you have any comment" style="line-height: 22px;"></textarea>
+						<textarea name="" id="" cols="66" rows="6" class="form-control assetGlobal" placeholder="Please specify if you have any comment" style="line-height: 22px;"></textarea>
 					</div>
 				</div>
 				<!-- end of animal -->
@@ -1592,14 +1558,14 @@ body{
 								<div class="form-group row">
 									<label for="size" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Size :</label>
 									<div class="col-lg-7 col-md-7 col-xs-12">
-										<input type="number" class="form-control" placeholder="Quantity" name="pig" id="farmSize" style="text-align:right;" required>
+										<input type="number" class="form-control assetGlobal" placeholder="Quantity" name="pig" id="farmSize" style="text-align:right;" required>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<textarea name="" id="" cols="66" rows="1" class="form-control" placeholder="Please specify if you have any comment"></textarea>
+						<textarea name="" id="" cols="66" rows="1" class="form-control assetGlobal" placeholder="Please specify if you have any comment"></textarea>
 					</div>
 				</div>
 				<!-- start of resutl -->
@@ -1624,7 +1590,7 @@ body{
 										</div>
 									</div>
 									<div class="col-lg-7 col-md-7 col-xs-12">
-										<input type="number" class="form-control" name="sumQuantity5" id="sumQuantity5" style="text-align:right;" required >
+										<input type="number" class="form-control assetGlobal" name="sumQuantity5" id="sumQuantity5" style="text-align:right;" required >
 									</div>
 									<!-- <div class="col-lg-2 col-md-1"></div> -->
 								</div>
@@ -1652,7 +1618,7 @@ body{
 														</div>
 													</div>
 													<div class="col-lg-7 col-md-7 col-xs-12">
-														<input type="number" class="form-control" name="sumQuantity3" id="sumQuantity3" style="text-align:right;" required>
+														<input type="number" class="form-control assetGlobal" name="sumQuantity3" id="sumQuantity3" style="text-align:right;" required>
 													</div>
 												</div>
 											</div>
@@ -2031,9 +1997,9 @@ body{
 		});
 		$('.form-group').on('input','.gincomein',function(){
 				var gTotalIn;
-				var fTotalSum = $('#fTotal').val();
-				var cTotalSum = $('#cTotal').val();
-				gTotalIn = Number(fTotalSum) / Number(cTotalSum);
+				var gTotal = $('#gTotal1').val();
+				var liveInHouse = $('#liveInHouse').val();
+				gTotalIn = Number(gTotal) / Number(liveInHouse);
 				$('#gTotal2').val(gTotalIn);
 		});
 
@@ -2286,6 +2252,7 @@ $('#saveLoan').click(function(){
 				var cow = $('#cow').val();
 				var buffaloe = $('#buffaloe').val();
 				var pig = $('#pig').val();
+				var farmSize = $('#farmSize').val();
 				$farmSize = $('#farmSize').val();
 
 				if ($farmSize > 10000) {
@@ -2301,6 +2268,7 @@ $('#saveLoan').click(function(){
 		$('.form-group').on('input','.coef_x3',function(){
 				
 				$farmSize = $('#farmSize').val();
+				var farmSize = $('#farmSize').val();
 				var sumTotalCoefx3 = 0;
 				var radio = $('#radio').val();
 				var ricecooker = $('#ricecooker').val();
