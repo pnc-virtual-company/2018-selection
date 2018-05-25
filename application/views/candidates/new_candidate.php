@@ -1741,35 +1741,7 @@ body{
         <!-- Modal footer -->
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary" data-dismiss="modal">
-          	<i class="mdi mdi-plus"></i>&nbsp;Add</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-</div><!-- pop up scholaship -->
-<div class="container">
-  <!-- The Modal -->
-  <div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Add New Scholarship</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-          <input type="text" class="form-control" placeholder="new scholarship here">
-        </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary" data-dismiss="modal">
-          	<i class="mdi mdi-plus"></i>&nbsp;Add</button>
+          	<i class="mdi mdi-plus-circle"></i>&nbsp;Add</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
         
@@ -1777,65 +1749,7 @@ body{
     </div>
   </div>
 </div>
-<!-- pop up scholaship -->
-<div class="container">
-  <!-- The Modal -->
-  <div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Add New Scholarship</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-          <input type="text" class="form-control" placeholder="new scholarship here">
-        </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary" data-dismiss="modal">
-          	<i class="mdi mdi-plus"></i>&nbsp;Add</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-</div>
-<!-- pop up scholaship -->
-<div class="container">
-  <!-- The Modal -->
-  <div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Add New Scholarship</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-          <input type="text" class="form-control" placeholder="new scholarship here">
-        </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary" data-dismiss="modal">
-          	<i class="mdi mdi-plus"></i>&nbsp;Add</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-</div>
-<!-- pop up ngo -->
+
 <div class="container">
   <!-- The Modal -->
   <div class="modal" id="theModal">
@@ -1850,30 +1764,29 @@ body{
         
         <!-- Modal body -->
         <div class="modal-body">
-        	<table id="students" cellpadding="0" cellspacing="0" class="table table table-striped table-bordered table-hover">
+        	<table class="table table-bordered table-hover table-sortable" id="tab_logic">
         		<thead>
-        			<tr>
-        				<th>Name</th>
+        			<tr >
+        				<th class="text-center">
+        					Action
+        				</th>
+        				<th class="text-center">
+        					Name
+        				</th>
         			</tr>
         		</thead>
-        		<tbody id="showdata">
-					<tr>
-						<td>
-							<div class="row">
-								<div class="col-md-1">
-									<a href="" class="mdi mdi-delete text-danger" title="Delete NGO" style="font-size: 25px;"></a>
-								</div>
-								<div class="col-md-7">
-									<input type="text" class="form-control" id="ngoModel" name="ngo" value="">
-								</div>
-								<div class="col-md-4"></div>
-							</div>
-						</td>
-					</tr>
+        		<tbody>
+        			<tr id='addr0' data-id="0" class="hidden">
+        				<td data-name="del">
+        					<button nam"del0" class='btn btn-danger mdi mdi-close-circle row-remove'></button>
+        				</td>
+        				<td data-name="name">
+        					<input type="text" name='name0' class="form-control"/>
+        				</td>
+        			</tr>
         		</tbody>
         	</table>
-        	<button type="submit" class="btn btn-primary" data-dismiss="modal">
-          	<i class="mdi mdi-plus"></i>&nbsp;Add NGO</button>
+        	<a id="add_row" class="btn btn-primary pull-right text-white"><i class="mdi mdi-plus-circle"></i>&nbsp;Add NGO</a>
         </div>
         
         <!-- Modal footer -->
@@ -1885,15 +1798,12 @@ body{
     </div>
   </div>
 </div>
+<!--/ ngo modal -->
 </body>
-</html>
 <link href="<?php echo base_url();?>assets/DataTable/DataTables-1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
  <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
  <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
 <script>
-	$('#students').dataTable({
-        stateSave: true,
-    });
 	function readURL(input) {
 		if (input.files && input.files[0]) {
 			var reader = new FileReader();
@@ -2319,6 +2229,83 @@ $('#saveConclude').click(function(){
 				$('#globalAsset').val(totalGlobal);
 
 		});
+
+	// fuction add row
+			$('#tab_logic').DataTable();
+		    $("#add_row").on("click", function() {
+		        // Dynamic Rows Code
+		        
+		        // Get max row id and set new id
+		        var newid = 0;
+		        $.each($("#tab_logic tr"), function() {
+		            if (parseInt($(this).data("id")) > newid) {
+		                newid = parseInt($(this).data("id"));
+		            }
+		        });
+		        newid++;
+		        
+		        var tr = $("<tr></tr>", {
+		            id: "addr"+newid,
+		            "data-id": newid
+		        });
+		        
+		        // loop through each td and create new elements with name of newid
+		        $.each($("#tab_logic tbody tr:nth(0) td"), function() {
+		            var cur_td = $(this);
+		            
+		            var children = cur_td.children();
+		            
+		            // add new td and element if it has a nane
+		            if ($(this).data("name") != undefined) {
+		                var td = $("<td></td>", {
+		                    "data-name": $(cur_td).data("name")
+		                });
+		                
+		                var c = $(cur_td).find($(children[0]).prop('tagName')).clone().val("");
+		                c.attr("name", $(cur_td).data("name") + newid);
+		                c.appendTo($(td));
+		                td.appendTo($(tr));
+		            } else {
+		                var td = $("<td></td>", {
+		                    'text': $('#tab_logic tr').length
+		                }).appendTo($(tr));
+		            }
+		        });
+		        
+		        // add the new row
+		        $(tr).appendTo($('#tab_logic'));
+		        
+		        $(tr).find("td button.row-remove").on("click", function() {
+		             $(this).closest("tr").remove();
+		        });
+		});
+
+
+
+
+		    // Sortable Code
+		    var fixHelperModified = function(e, tr) {
+		        var $originals = tr.children();
+		        var $helper = tr.clone();
+		    
+		        $helper.children().each(function(index) {
+		            $(this).width($originals.eq(index).width())
+		        });
+		        
+		        return $helper;
+		    };
+		  
+		    $(".table-sortable tbody").sortable({
+		        helper: fixHelperModified      
+		    }).disableSelection();
+
+		    $(".table-sortable thead").disableSelection();
+
+
+
+		    $("#add_row").trigger("click");
+	// fuction add row //
+
 	});
 </script>
 <?php } ?>
