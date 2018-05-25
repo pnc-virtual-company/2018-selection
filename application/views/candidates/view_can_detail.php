@@ -22,7 +22,6 @@ body{
 	<br>
 	<div class="form-group row">
 	<?php foreach ($grade as  $value) {?>
-		
 		<div class="col-lg-3 col-md-3 col-sm-2 col-xs-12"></div>
 		<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
 			<label for="mEdu" class="col-form-label">Global grade :</label>
@@ -370,7 +369,7 @@ body{
 									</div>
 									<div class="col-lg-1 col-md-1"></div>
 									<div class="col-lg-6 col-md-6 col-sm-12">
-										<!-- <input type="text" name="specify" id="" class="form-control" placeholder="If other, please specify"> -->
+										<p class="form-control"><?php echo $value->f_occupation_comment ?></p>
 									</div>
 								</div>
 								<div class="row">
@@ -387,7 +386,7 @@ body{
 									</div>
 									<div class="col-lg-1 col-md-1"></div>
 									<div class="col-lg-6 col-md-6 col-sm-12">
-										<!-- <input type="text" name="healthSpecify" id="" class="form-control" placeholder="If health issues, please specify" /> -->
+										<p class="form-control"><?php echo $value->f_health_comment; ?></p>
 									</div>
 								</div>
 								<div class="row">
@@ -438,7 +437,7 @@ body{
 									</div>
 									<div class="col-lg-1 col-md-1"></div>
 									<div class="col-lg-6 col-md-6 col-sm-12">
-										<!-- <input type="text" name="specify" id="" class="form-control" placeholder="If other, please specify"> -->
+										<p class="form-control"><?php echo $value->m_occupation_comment; ?></p>
 									</div>
 								</div>
 								<div class="row">
@@ -446,7 +445,7 @@ body{
 										<div class="form-group row">
 											<div class="col-lg-1 col-md-1"></div>
 											<div class="col-lg-5 col-md-5 col-sm-4">
-												<label for="fOccupation" class="col-form-label">Health status :</label>
+											<label for="fOccupation" class="col-form-label">Health status :</label>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-8">
 												<p class="form-control"><?php echo $value->m_health; ?></p>
@@ -455,7 +454,7 @@ body{
 									</div>
 									<div class="col-lg-1 col-md-1"></div>
 									<div class="col-lg-6 col-md-6 col-sm-12">
-										<!-- <input type="text" name="healthSpecify" id="" class="form-control" placeholder="If health issues, please specify" /> -->
+										<p class="form-control"><?php echo $value->m_health_comment; ?></p>
 									</div>
 								</div>
 								<div class="row">
@@ -1178,7 +1177,7 @@ body{
 						<div class="form-group row">
 							<label for="computer1" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Computer < 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<p class="form-control"><?php echo $value->h_computer_small_100; ?></p>
+								<p class="form-control"><?php echo $value->h_computer_smal_100; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1222,7 +1221,7 @@ body{
 						<div class="form-group row">
 							<label for="phone" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Phone < 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<p class="form-control"><?php echo $value->h_phone_small_100; ?></p>
+								<p class="form-control"><?php echo $value->h_phone_smal_100; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1258,7 +1257,7 @@ body{
 						<div class="form-group row">
 							<label for="sofa2" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Sofa < 300$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<p class="form-control"><?php echo $value->h_sofa_small_300; ?></p>
+								<p class="form-control"><?php echo $value->h_sofa_smal_300; ?></p>
 							</div>
 						</div>
 					</div>
@@ -1564,7 +1563,8 @@ body{
 			<div class="row">
 				<div class="col-md-12">
 					<h4 style="color: #000;">Investigator's conclusion</h4>
-					<textarea name="" id="" rows="5" class="form-control" placeholder="Please comment"></textarea>
+					<!-- <textarea name="" id="" rows="5" class="form-control" placeholder="Please comment"></textarea> -->
+					<p class="form-control"><?php echo $value->can_investigator_conclusion; ?></p>
 				</div>
 			</div>
 			<br>
