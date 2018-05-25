@@ -112,18 +112,18 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
 												Old password : <input class="form-control" 
 																								type="password" 
 																								name="password" 
-																								id="" 
+																								 
 																								value="">
 											</div>
 										</li>
 										<li class="list-group-item">
 											<div class="form-group">
-												New password : <input class="form-control" type="password" name="password" id="" value="">
+												New password : <input class="form-control" type="password" name="password"  value="">
 											</div>
 										</li>
 										<li class="list-group-item">
 											<div class="form-group">
-												Confirm password : <input class="form-control" type="password" name="password" id="" value="">
+												Confirm password : <input class="form-control" type="password" name="password"  value="">
 											</div>
 										</li>
 							</form>
