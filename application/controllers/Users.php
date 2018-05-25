@@ -192,7 +192,7 @@ class Users extends CI_Controller {
       $this->form_validation->set_rules('lastname', 'Lastname', 'required|strip_tags');
       $this->form_validation->set_rules('login', 'Login', 'required|strip_tags');
       $this->form_validation->set_rules('email', 'Email', 'required|strip_tags');
-      $this->form_validation->set_rules('role[]', 'Role', 'required');
+      // $this->form_validation->set_rules('role[]', 'Role', 'required');
 
       $data['users_item'] = $this->users_model->getUsers($id);
       if (empty($data['users_item'])) {
@@ -206,13 +206,9 @@ class Users extends CI_Controller {
         $this->load->view('users/editNormalUser', $data);
         $this->load->view('templates/footer');
       } else {
-        $this->users_model->updateUsers();
+        $this->users_model->updateUser();
         $this->session->set_flashdata('msg', 'The user was successfully updated.');
-        if (isset($_GET['source'])) {
-          redirect($_GET['source']);
-        } else {
-          redirect('users');
-        }
+          redirect('c_candidates');
       }
     }
     
