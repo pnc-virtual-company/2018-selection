@@ -165,9 +165,9 @@ body{
 							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="health" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Health status :</label>
+									<label for="healths" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Health status :</label>
 									<div class="col-lg-6 col-md-6 col-xs-12">
-										<select class="form-control" name="health" id="health">
+										<select class="form-control" name="health" id="healths">
 											<option value="Healthy">Healthy</option>
 											<option value="Other">Other</option>
 											
@@ -207,9 +207,9 @@ body{
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
 									<div class="col-md-2"></div>
-									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+									<label for="achivement" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 									<div class="col-lg-8 col-md-8 col-xs-12">
-										<input type="text" class="form-control" name="achivement" id="healthOther" placeholder="Please comment" required style="margin-left: -4px;">
+										<input type="text" class="form-control" name="achivement" id="achivement" placeholder="Please comment" required style="margin-left: -4px;">
 									</div>
 								</div>
 							</div>
@@ -220,7 +220,7 @@ body{
 							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">PNC choice rank :</label>
+									<label for="pncChoice" class="col-lg-5 col-md-5 col-xs-12 col-form-label">PNC choice rank :</label>
 									<div class="col-lg-6 col-md-6 col-xs-12">
 										<select class="form-control" name="pncChoice" id="pncChoice">
 											<?php 
@@ -237,7 +237,7 @@ body{
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
 									<div class="col-lg-2 col-md-2"></div>
-									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Responsibility & maturity :</label>
+									<label for="responsibility" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Responsibility & maturity :</label>
 									<div class="col-lg-5 col-md-5 col-xs-12">
 										<input type="number" class="form-control" name="responsibility" id="responsibility" placeholder="Ex: 18/20" required>
 									</div>
@@ -248,7 +248,7 @@ body{
 							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Motivation for PNC</label>
+									<label for="motivation" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Motivation for PNC</label>
 									<div class="col-lg-6 col-md-6 col-xs-12">
 										<input type="number" class="form-control" name="motivate" id="motivation" placeholder="Ex: 18/20" required>
 									</div>
@@ -257,9 +257,9 @@ body{
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
 									<div class="col-lg-2 col-md-2"></div>
-									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Communication :</label>
+									<label for="communications" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Communication :</label>
 									<div class="col-lg-5 col-md-5 col-xs-12">
-										<input type="number" class="form-control" name="communication" id="motivation" placeholder="Ex: 18/20" required>
+										<input type="number" class="form-control" name="communication" id="communications" placeholder="Ex: 18/20" required>
 									</div>
 								</div>
 							</div>	
@@ -268,7 +268,7 @@ body{
 							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Other scholarship</label>
+									<label for="scholarship" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Other scholarship</label>
 									<div class="col-lg-6 col-md-6 col-xs-12">
 										<input type="text" class="form-control" name="otherScholarship" id="scholarship" placeholder="Other" required>
 									</div>
@@ -277,7 +277,7 @@ body{
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
 									<div class="col-lg-2 col-md-2"></div>
-									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Choice rank :</label>
+									<label for="choiceRank" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Choice rank :</label>
 									<div class="col-lg-5 col-md-5 col-xs-12">
 										<select class="form-control" name="otherChoiceRank" id="choiceRank">
 											<?php 
@@ -312,7 +312,7 @@ body{
 							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
 									<div class="col-lg-1 col-md-1"></div>
-									<label for="activityActivity" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the student :</label>	
+									<label for="studentCommit" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the student :</label>	
 								</div>
 							</div>
 							<div class="col-lg-7 col-md-7">
@@ -335,7 +335,7 @@ body{
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
 									<div class="col-md-2"></div>
-									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
+									<label for="parentsCommit" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 									<div class="col-lg-8 col-md-8 col-xs-12">
 										<input type="text" class="form-control" name="parentsCommit" id="parentsCommit" placeholder="Please comment" required>
 									</div>
@@ -396,7 +396,7 @@ body{
 													<label for="fatherAge" class="col-form-label">Age :</label>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-8">
-													<input type="number" name="fatherAge" id="fAge" class="form-control" placeholder="Father's age">
+													<input type="number" name="faAge" id="fatherAge" class="form-control" placeholder="Father's age">
 												</div>
 											</div>
 										</div>
@@ -411,8 +411,8 @@ body{
 												<label for="fatherOccupation" class="col-form-label">Occupation :</label>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-8">
-													<select class="form-control" name="fatherOccupation" 
-													id="fOccupation">
+													<select class="form-control" name="faOccu" 
+													id="fatherOccupation">
 													<option value="Farmer/Laborer">Farmer/Laborer</option>
 													<option value="Teacher">Teacher</option>
 													<option value="Soldier">Soldier</option>
@@ -425,7 +425,7 @@ body{
 									</div>
 									<div class="col-lg-1 col-md-1"></div>
 									<div class="col-lg-6 col-md-6 col-sm-12">
-										<input type="text" name="fatherSpecify" id="" class="form-control" placeholder="If other, please specify">
+										<input type="text" name="faSpec" id="fOccuSpec" class="form-control" placeholder="If other, please specify">
 									</div>
 								</div>
 								<div class="row">
@@ -436,7 +436,7 @@ body{
 												<label for="fatherHealth" class="col-form-label">Health status :</label>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-8">
-												<select name="fatherHealth" id="fHealth" class="form-control">
+												<select name="faHealth" id="fatherHealth" class="form-control">
 													<option value="Healthy">Healthy</option>
 													<option value="issues">Other</option>
 												</select>
@@ -445,7 +445,7 @@ body{
 									</div>
 									<div class="col-lg-1 col-md-1"></div>
 									<div class="col-lg-6 col-md-6 col-sm-12">
-										<input type="text" name="fatherHealthSpecify" id="" class="form-control" placeholder="If health issues, please specify" />
+										<input type="text" name="faHealthSpec" id="fHealthCmt" class="form-control" placeholder="If health issues, please specify" />
 									</div>
 								</div>
 								<div class="row">
@@ -457,6 +457,22 @@ body{
 											</div>
 											
 											<div class="col-md-6 col-sm-4">
+<<<<<<< HEAD
+												<select class="form-control" name="faEdu" 
+												id="fatherEdu">
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+												<option value="10">10</option>
+												<option value="11">11</option>
+												<option value="12">12</option>
+=======
 												<select class="form-control" name="fatherEdu" 
 												id="fEdu">
 												<?php 
@@ -466,6 +482,7 @@ body{
 												<?php		
 													}
 												 ?>
+>>>>>>> 11c366ed0c76a67d9f1e6ac490a19a6c4d9e1a83
 												<option value="University">University</option>
 											</select>
 										</div>
@@ -484,7 +501,7 @@ body{
 													<label for="motherAge" class="col-form-label">Age :</label>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-8">
-													<input type="number" name="motherAge" id="fAge" class="form-control" placeholder="Mother's age">
+													<input type="number" name="moAge" id="motherAge" class="form-control" placeholder="Mother's age">
 												</div>
 											</div>
 										</div>
@@ -499,8 +516,8 @@ body{
 												<label for="motherOccupation" class="col-form-label">Occupation :</label>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-8">
-													<select class="form-control" name="motherOccupation" 
-													id="fOccupation">
+													<select class="form-control" name="motherOcc" 
+													id="motherOccupation">
 													<option value="Farmer/Laborer">Farmer/Laborer</option>
 													<option value="Teacher">Teacher</option>
 													<option value="Soldier">Soldier</option>
@@ -513,7 +530,7 @@ body{
 									</div>
 									<div class="col-lg-1 col-md-1"></div>
 									<div class="col-lg-6 col-md-6 col-sm-12">
-										<input type="text" name="motherSpecify" id="" class="form-control" placeholder="If other, please specify">
+										<input type="text" name="mSpecify" class="form-control" placeholder="If other, please specify">
 									</div>
 								</div>
 								<div class="row">
@@ -521,10 +538,10 @@ body{
 										<div class="form-group row">
 											<div class="col-lg-1 col-md-1"></div>
 											<div class="col-lg-5 col-md-5 col-sm-4">
-												<label for="healthStatus" class="col-form-label">Health status :</label>
+												<label for="MHealth" class="col-form-label">Health status :</label>
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-8">
-												<select name="motherhealthStatus" id="MHealth" class="form-control">
+												<select name="mhealthStat" id="MHealth" class="form-control">
 													<option value="Healthy">Healthy</option>
 													<option value="issues">Other</option>
 												</select>
@@ -533,7 +550,7 @@ body{
 									</div>
 									<div class="col-lg-1 col-md-1"></div>
 									<div class="col-lg-6 col-md-6 col-sm-12">
-										<input type="text" name="motherHealthSpecify" id="" class="form-control" placeholder="If health issues, please specify" />
+										<input type="text" name="mHealthSpec" class="form-control" placeholder="If health issues, please specify" />
 									</div>
 								</div>
 								<div class="row">
@@ -541,19 +558,20 @@ body{
 										<div class="form-group row">
 											<div class="col-lg-1 col-md-1"></div>
 											<div class="col-md-5 col-sm-4">
-												<label for="motherEducation" class="col-form-label">Education :</label>
+												<label for="mEdu" class="col-form-label">Education :</label>
 											</div>
 											
 											<div class="col-md-6 col-sm-4">
-												<select class="form-control" name="motherEducation" 
-												id="fEdu">
+												<select class="form-control" name="mEdu" 
+												id="mEdu">
 												<?php 
 													for ($i=0; $i <=12 ; $i++) { 
 												?>
-												<option value="1"><?php echo $i; ?></option>		
+												<option value="<?php echo $i; ?>"><?php echo $i; ?></option>		
 												<?php 		
 													}
 												 ?>
+
 												<option value="University">University</option>
 											</select>
 										</div>
@@ -570,10 +588,10 @@ body{
 						<div class="col-md-4">
 							<div class="form-group row">
 								<div class="col-md-6">
-									<label for="numSiblings" class="col-form-label">Number of siblings :</label>
+									<label for="numberSiblings" class="col-form-label">Number of siblings :</label>
 								</div>
 								<div class="col-md-6">
-									<select class="form-control gincomein" name="numSiblings" id="numSiblings">
+									<select class="form-control" name="numSiblings" id="numberSiblings">
 										<?php 
 											for ($i=1; $i <=12 ; $i++) { 
 										?>
@@ -591,7 +609,7 @@ body{
 									<label for="married" class="col-form-label">Married :</label>
 								</div>
 								<div class="col-md-6">
-									<select class="form-control" name="marriedStatus" id="married">
+									<select class="form-control" name="marriedStat" id="married">
 										<?php 
 											for ($i=0; $i <10 ; $i++) { 
 											?>
@@ -629,7 +647,7 @@ body{
 					<div class="col-md-8">
 						<div class="form-group row">
 							<div class="col-md-9">
-								<label for="member" class="col-form-label">Living in the family's house (including parents) :</label>
+								<label for="liveInHouse" class="col-form-label">Living in the family's house (including parents) :</label>
 							</div>
 							<div class="col-md-3">
 								<select class="form-control gincomein" name="member" 
@@ -648,11 +666,10 @@ body{
 				<div class="col-md-4">
 					<div class="form-group row">
 						<div class="col-md-6">
-							<label for="studentRank" class="col-form-label">Student rank :</label>
+							<label for="studentRanks" class="col-form-label">Student rank :</label>
 						</div>
 						<div class="col-md-6">
-							<select class="form-control" name="studentRank" 
-							id="studentRank">
+							<select class="form-control" name="studentRank" id="studentRanks">
 							<?php 
 								for ($i=1; $i <12 ; $i++) { 
 								?>
@@ -1054,107 +1071,107 @@ body{
 		</h5>
 	</div>
 	<div id="collapseLoanDebt" class="collapse" aria-labelledby="loanDebt" data-parent="#subAccordion">
-		<div class="card-body contentBody">
-			<div class="row">
-				<h5>General information</h5>
+			<div class="card-body contentBody">
+				<div class="row">
+					<h5>General information</h5>
+				</div>
+				<br>
+				<form id="formLoan" action="" method="post">
+					<div class="row">
+						<div class="col-lg-4 col-md-4">
+							<div class="form-group row">
+								<label for="amount" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Initial amount :</label>
+								<div class="col-lg-7 col-md-7 col-xs-12">
+									<input id="amount" type="number" class="form-control" name="initAmount" placeholder="$" style="text-align:right;" required="">
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4">
+							<div class="form-group row">
+								<label for="institution" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Institution :
+								</label>
+								<div class="col-lg-7 col-md-7 col-xs-12">
+									<input id="institution" type="number" class="form-control" name="instit" placeholder="$" style="text-align:right;" required>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4">
+							<div class="form-group row">
+								<label for="interest" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Interest rates :
+								</label>
+								<div class="col-lg-7 col-md-7 col-xs-12">
+									<input type="number" id="interest" class="form-control" name="interRates" placeholder="$" style="text-align:right;">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12 col-md-12">
+							<div class="form-group row">
+								<label for="reason" class="col-lg-2 col-md-2 col-xs-12 col-form-label">Reason :</label>
+								<div class="col-lg-10 col-md-10 col-xs-12">
+									<input type="text" id="reason" class="form-control" name="reason" placeholder="Please comment">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<h5>Amount to payback</h5>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-lg-4 col-md-4">
+							<div class="form-group row">
+								<label for="monthly" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Monthly :</label>
+								<div class="col-lg-7 col-md-7 col-xs-12">
+									<input type="number" id="monthly" class="form-control" name="monthly" placeholder="$" style="text-align:right;">
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4">
+							<div class="form-group row">
+								<label for="trimester" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Trimester :</label>
+								<div class="col-lg-7 col-md-7 col-xs-12">
+									<input type="number" id="trimester" class="form-control" name="trimester" placeholder="$" style="text-align:right;">
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4">
+							<div class="form-group row">
+								<label for="semester" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Semester :</label>
+								<div class="col-lg-7 col-md-7 col-xs-12">
+									<input type="number" id="semester" class="form-control" name="semester" placeholder="$" style="text-align:right;" >
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-4">
+							<div class="form-group row">
+								<label for="capital" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Capital :</label>
+								<div class="col-lg-7 col-md-7 col-xs-12">
+									<input type="number" id="capital" class="form-control" name="capital" placeholder="$" style="text-align:right;">
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-lg-10 col-md-10 col-sm-8 col-xs-8"></div>
+						<div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+							<button type="submit" id="saveLoan" class="btn btn-primary float-right">Save information</button>
+						</div>
+					</div>
+				</form>
 			</div>
-			<br>
-			<form id="formLoan" action="" method="post">
-				<div class="row">
-					<div class="col-lg-4 col-md-4">
-						<div class="form-group row">
-							<label for="amount" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Initial amount :</label>
-							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input id="amount" type="number" class="form-control" name="initAmount" placeholder="$" style="text-align:right;" required>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="form-group row">
-							<label for="institution" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Institution :
-							</label>
-							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input id="institution" type="number" class="form-control" name="instit" placeholder="$" style="text-align:right;" required>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="form-group row">
-							<label for="interest" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Interest rates :
-							</label>
-							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" id="interest" class="form-control" name="interRates" placeholder="$" style="text-align:right;" required>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-12 col-md-12">
-						<div class="form-group row">
-							<label for="reason" class="col-lg-2 col-md-2 col-xs-12 col-form-label">Reason :</label>
-							<div class="col-lg-10 col-md-10 col-xs-12">
-								<input type="text" id="reason" class="form-control" placeholder="Please comment" name="reason" required>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<h5>Amount to payback</h5>
-				</div>
-				<br>
-				<div class="row">
-					<div class="col-lg-4 col-md-4">
-						<div class="form-group row">
-							<label for="monthly" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Monthly :</label>
-							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" id="monthly" class="form-control" name="monthly" placeholder="$" style="text-align:right;" required>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="form-group row">
-							<label for="trimester" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Trimester :</label>
-							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" id="trimester" class="form-control" placeholder="$" name="trimester" style="text-align:right;" required>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="form-group row">
-							<label for="semester" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Semester :</label>
-							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" id="semester" class="form-control" placeholder="$" name="semester" style="text-align:right;" required>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-4 col-md-4">
-						<div class="form-group row">
-							<label for="capital" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Capital :</label>
-							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" id="capital" name="capital" class="form-control" placeholder="$" style="text-align:right;" required>
-							</div>
-						</div>
-					</div>
-				</div>
-				<br>
-				<div class="row">
-					<div class="col-lg-10 col-md-10 col-sm-8 col-xs-8"></div>
-					<div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-						<button type="submit" id="saveLoan" class="btn btn-primary float-right">Save information</button>
-					</div>
-				</div>
-			</form>
 		</div>
-	</div>
 </div>
 <!-- end form family loan $ debt -->
 <!-- form family residence -->
 <div class="card">
-	<div id="residence">
+	<div id="residenceStatus">
 		<h5 class="mb-0">
-			<button class="btn btn-default collapsed btn-block text-left subHeading" data-toggle="collapse" data-target="#collapseResidence" aria-expanded="false" aria-controls="collapseResidence" style="height: 60px;border-bottom: 2px solid #fff;background-color: #f8f9fa; ">
+			<button class="btn btn-default collapsed btn-block text-left subHeading" data-toggle="collapse" data-target="#collapseResidenceStatus" aria-expanded="false" aria-controls="collapseResidenceStatus" style="height: 60px;border-bottom: 2px solid #fff;background-color: #f8f9fa; ">
 				<h5 class="subCollapse">Residence status
 					<i class="mdi mdi-chevron-down float-right subDown" style="color:#000; font-size: 30px;">
 					</i>
@@ -1164,67 +1181,65 @@ body{
 			</button>
 		</h5>
 	</div>
-	<div id="collapseResidence" class="collapse" aria-labelledby="residence" data-parent="#subAccordion">
-		<div class="card-body contentBody">
-			<form id="residenceForm" action="" method="POST">
-				<div class="row">
-					<div class="col-lg-4 col-md-4">
-						<div class="form-group row">
-							<label for="status" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Status :</label>
-							<div class="col-lg-7 col-md-7 col-xs-12">
-								<select name="status" id="status" class="form-control">
-									<option value="Inherited">Inherited</option>
-									<option value="Shared">Shared</option>
-									<option value="Purchased">Purchased</option>
-									<option value="Rent">Rent</option>
-								</select>
+	<div id="collapseResidenceStatus" class="collapse" aria-labelledby="residenceStatus" data-parent="#subAccordion">
+			<div class="card-body contentBody">
+				<form id="formRes" action="" method="post">
+					<div class="row">
+						<div class="col-lg-4 col-md-4">
+							<div class="form-group row">
+								<label for="statusResi" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Status :</label>
+								<div class="col-lg-7 col-md-7 col-xs-12">
+									<select class="form-control" name="status" id="status">
+										<option value="Inherited">Inherited</option>
+										<option value="Shared">Shared</option>
+										<option value="Purchased">Purchased</option>
+										<option value="Rent">Rent</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4">
+							<div class="form-group row">
+								<label for="residenceAge" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Age :</label>
+								<div class="col-lg-7 col-md-7 col-xs-12">
+									<select class="form-control" name="age" id="age">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4">
+							<div class="form-group row">
+								<label for="ratingScale" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Rating Scale :</label>
+								<div class="col-lg-7 col-md-7 col-xs-12">
+									<select class="form-control" name="rating" id="rating">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+									</select>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="form-group row">
-							<label for="residenceAge" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Age :</label>
-							<div class="col-lg-7 col-md-7 col-xs-12">
-								<select name="age" id="residenceAge" class="form-control">
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-									<option value="6">6</option>
-									<option value="7">7</option>
-									<option value="8">8</option>
-									<option value="9">9</option>
-								</select>
-							</div>
+					<div class="row">
+						<div class="col-lg-10 col-md-10 col-sm-8 col-xs-8"></div>
+						<div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+							<button type="submit" id="saveResi" class="btn btn-primary float-right">Save information</button>
 						</div>
 					</div>
-					<div class="col-lg-4 col-md-4">
-						<div class="form-group row">
-							<label for="rating" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Rating scale :</label>
-							<div class="col-lg-7 col-md-7 col-xs-12">
-								<select name="rating" id="rating" class="form-control">
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-								</select>
-							</div>
-						</div>
-					</div>
-				</div>
-				<br>
-				<div class="row">
-					<div class="col-md-4 col-md-4 col-sm-4 col-xs-12"></div>
-					<div class="col-md-4 col-md-4 col-sm-4 col-xs-12"></div>
-					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-						<button type="submit" class="btn btn-primary float-right" id="saveResidence">Save information</button>
-					</div>
-				</div>
-			</form>
+				</form>
+			</div>
 		</div>
-	</div>
 </div>
 <!-- end form family residence -->
 <!-- form family home assets -->
@@ -1244,7 +1259,7 @@ body{
 	<div id="collapseHomeAsset" class="collapse" aria-labelledby="homeAsset" data-parent="#subAccordion">
 		<div class="card-body contentBody">
 			<h5>Appliances</h5>
-			<form action="" method="POST">
+			<form id="formAppli" action="" method="post">
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 						<div class="row">
@@ -1286,7 +1301,7 @@ body{
 						<div class="form-group row">
 							<label for="conditioner" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Air conditioner :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="refrigerator" id="conditioner" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="airCondi" id="conditioner" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1294,7 +1309,7 @@ body{
 						<div class="form-group row">
 							<label for="ricecooker" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Ricecooker :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="refrigerator" id="ricecooker" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="ricecooker" id="ricecooker" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1304,7 +1319,7 @@ body{
 						<div class="form-group row">
 							<label for="lcdTV" class="col-lg-5 col-md-5 col-xs-12 col-form-label">LCD TV :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="refrigerator" id="lcdTV" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="lcdTv" id="lcdTV" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1312,7 +1327,7 @@ body{
 						<div class="form-group row">
 							<label for="colorTV" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Color TV :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="refrigerator" id="colorTV" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="colorTv" id="colorTV" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1322,7 +1337,7 @@ body{
 						<div class="form-group row">
 							<label for="computer1" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Computer < 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="refrigerator" id="computer1" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="chComputer" id="computer1" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1330,7 +1345,7 @@ body{
 						<div class="form-group row">
 							<label for="computer2" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Computer > 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="refrigerator" id="computer2" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="exComputer" id="computer2" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1340,7 +1355,7 @@ body{
 						<div class="form-group row">
 							<label for="furnished" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Furnished cabinet > 300$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="refrigerator" id="furnished" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="fCabinet" id="furnished" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1348,7 +1363,7 @@ body{
 						<div class="form-group row">
 							<label for="dvdPlayer" class="col-lg-5 col-md-5 col-xs-12 col-form-label">DVD player :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="refrigerator" id="dvdPlayer" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="dvd" id="dvdPlayer" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1358,7 +1373,7 @@ body{
 						<div class="form-group row">
 							<label for="smartphone" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Smartphone > 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="refrigerator" id="smartphone" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="smartphone" id="smartphone" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1366,7 +1381,7 @@ body{
 						<div class="form-group row">
 							<label for="phone" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Phone < 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="refrigerator" id="phone" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="phone" id="phone" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1376,7 +1391,7 @@ body{
 						<div class="form-group row">
 							<label for="camera1" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Camera > 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="refrigerator" id="camera1" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="cCamera" id="camera1" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1384,7 +1399,7 @@ body{
 						<div class="form-group row">
 							<label for="camera2" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Camera < 100$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="refrigerator" id="camera2" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="exCamera" id="camera2" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1394,7 +1409,7 @@ body{
 						<div class="form-group row">
 							<label for="sofa1" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Sofa > 300$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="refrigerator" id="sofa1" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="chSofa" id="sofa1" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1402,7 +1417,7 @@ body{
 						<div class="form-group row">
 							<label for="sofa2" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Sofa < 300$ :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="refrigerator" id="sofa2" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="exSofa" id="sofa2" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1413,7 +1428,7 @@ body{
 						<div class="form-group row">
 							<label for="gascooker" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Gascooker :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="refrigerator" id="gascooker" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="gasCooker" id="gascooker" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1424,7 +1439,7 @@ body{
 						<div class="form-group row">
 							<label for="fruit" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Fruit blender :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="refrigerator" id="fruit" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="fblender" id="fruit" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1435,7 +1450,7 @@ body{
 						<div class="form-group row">
 							<label for="electrical" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Electrical cooker :</label>
 							<div class="col-lg-7 col-md-7 col-xs-12">
-								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="refrigerator" id="electrical" style="text-align:right;" required>
+								<input type="number" class="form-control coef_x3 assetGlobal" placeholder="Quantity" name="eCooker" id="electrical" style="text-align:right;" required>
 							</div>
 						</div>
 					</div>
@@ -1490,7 +1505,7 @@ body{
 						</div>
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-6 col-md-6">
-						<textarea name="" id="" cols="66" rows="6" class="form-control" placeholder="Please specify if you have any comment" style="line-height: 22px;"></textarea>
+						<textarea name="vComment" cols="66" rows="6" class="form-control" placeholder="Please specify if you have any comment" style="line-height: 22px;"></textarea>
 					</div>
 				</div>
 				<!-- end of vehicles -->
@@ -1524,9 +1539,9 @@ body{
 							<!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"></div> -->
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 								<div class="form-group row">
-									<label for="buffaloe" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Buffaloe :</label>
+									<label for="buffaloe" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Buffalo :</label>
 									<div class="col-lg-7 col-md-7 col-xs-12">
-										<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="buffaloe" id="buffaloe" style="text-align:right;" required>
+										<input type="number" class="form-control coef_x5 assetGlobal" placeholder="Quantity" name="buffalo" id="buffaloe" style="text-align:right;" required>
 									</div>
 								</div>
 							</div>
@@ -1544,7 +1559,8 @@ body{
 						</div>
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-6 col-md-6">
-						<textarea name="" id="" cols="66" rows="6" class="form-control assetGlobal" placeholder="Please specify if you have any comment" style="line-height: 22px;"></textarea>
+						<textarea name="aComment" cols="66" rows="6" class="form-control assetGlobal" placeholder="Please specify if you have any comment" style="line-height: 22px;"></textarea>
+
 					</div>
 				</div>
 				<!-- end of animal -->
@@ -1558,14 +1574,14 @@ body{
 								<div class="form-group row">
 									<label for="size" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Size :</label>
 									<div class="col-lg-7 col-md-7 col-xs-12">
-										<input type="number" class="form-control assetGlobal" placeholder="Quantity" name="pig" id="farmSize" style="text-align:right;" required>
+										<input type="number" class="form-control assetGlobal" placeholder="Quantity" name="farmSize" id="farmSize" style="text-align:right;" required>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<textarea name="" id="" cols="66" rows="1" class="form-control assetGlobal" placeholder="Please specify if you have any comment"></textarea>
+						<textarea name="fComment" cols="66" rows="1" class="form-control assetGlobal" placeholder="Please specify if you have any comment"></textarea>
 					</div>
 				</div>
 				<!-- start of resutl -->
@@ -1670,7 +1686,7 @@ body{
 										</div>
 										<div class="col-lg-6 col-md-6 col-sm-12">
 											<div class="row">
-												<div class="col-md-6 col-sm-12">
+												<div class="col-md-7 col-sm-12">
 													<label for="specifyLevel" style="line-height: 2.5;">If yes, please specify the level:</label>
 												</div>
 												<div class="col-md-3 col-sm-12">
@@ -1680,7 +1696,7 @@ body{
 														<option value="3">3</option>
 													</select>
 												</div>
-												<div class="col-md-2 col-sm-12"></div>
+												<div class="col-md-1 col-sm-12"></div>
 											</div>
 										</div>
 									</div>
@@ -1690,7 +1706,7 @@ body{
 									<div class="row">
 										<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12"></div>
 										<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-											<button class="btn btn-primary btn-block">Save information</button>
+											<button id="saveAsset" type="submit" class="btn btn-primary btn-block">Save information</button>
 										</div>
 									</div>
 								</form>
@@ -1704,18 +1720,18 @@ body{
 	</div>
 	<br>
 	<div class="conclustion">
-		<form action="" method="POST">
+		<form id="formConclude" action="" method="POST">
 			<div class="row">
 				<div class="col-md-12">
 					<h4 style="color: #000;">Investigator's conclusion</h4>
-					<textarea name="" id="" rows="5" class="form-control" placeholder="Please comment"></textarea>
+					<textarea name="investigatorConclude" rows="5" class="form-control" placeholder="Please comment"></textarea>
 				</div>
 			</div>
 			<br>
 			<div class="row">
 				<div class="col-lg-10 col-md-10"></div>
 				<div class="col-lg-2 col-md-2">
-					<button type="button" class="btn btn-primary float-right">Save information</button>
+					<button type="submit" id="saveConclude" class="btn btn-primary float-right">Save information</button>
 				</div>
 			</div>
 		</form>	
@@ -1865,57 +1881,7 @@ body{
 									<a href="" class="mdi mdi-delete text-danger" title="Delete NGO" style="font-size: 25px;"></a>
 								</div>
 								<div class="col-md-7">
-									<input type="text" class="form-control" id="ngo" name="ngo" value="">
-								</div>
-								<div class="col-md-4"></div>
-							</div>
-						</td>
-					</tr>
-        		</tbody>
-        	</table>
-        	<button type="submit" class="btn btn-primary" data-dismiss="modal">
-          	<i class="mdi mdi-plus"></i>&nbsp;Add NGO</button>
-        </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary" data-dismiss="modal">Save list
-        </div>
-        
-      </div>
-    </div>
-  </div>
-</div>
-<!-- ngo modal -->
-<div class="container">
-  <!-- The Modal -->
-  <div class="modal" id="theModal">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Edit NGO</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-        	<table id="students" cellpadding="0" cellspacing="0" class="table table table-striped table-bordered table-hover">
-        		<thead>
-        			<tr>
-        				<th>Name</th>
-        			</tr>
-        		</thead>
-        		<tbody id="showdata">
-					<tr>
-						<td>
-							<div class="row">
-								<div class="col-md-1">
-									<a href="" class="mdi mdi-delete text-danger" title="Delete NGO" style="font-size: 25px;"></a>
-								</div>
-								<div class="col-md-7">
-									<input type="text" class="form-control" id="ngo" name="ngo" value="">
+									<input type="text" class="form-control" id="ngoModel" name="ngo" value="">
 								</div>
 								<div class="col-md-4"></div>
 							</div>
@@ -2111,7 +2077,7 @@ body{
 						}else if(response.type=='update'){
 							var type ="updated"
 						}
-						$('.alert-success').html('Form family income '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
+						$('.alert-success').html('Data '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
 					}else{
 						alert('Error');
 					}
@@ -2148,7 +2114,7 @@ $('#saveExpense').click(function(){
 					}else if(response.type=='update'){
 						var type ="updated"
 					}
-					$('.alert-success').html('Form family expense '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
+					$('.alert-success').html('Data '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
 				}else{	
 					alert('Error');
 				}
@@ -2198,41 +2164,113 @@ $('#saveLoan').click(function(){
 // End function add loan and debts
 // function add call residence status
 	
-	$('#saveResidence').click(function(){
-		$('#residenceForm').attr('action', '<?php echo base_url() ?>c_candidates/addResidence/');
-	});
-	// start to save	
-	$('#saveResidence').click(function(){
-		var url = $('#residenceForm').attr('action');
-		var data = $('#residenceForm').serialize();
-		//validate form
-			$.ajax({
-				type: 'ajax',
-				method: 'post',
-				url: url,
-				data: data,
-				async: false,
-				dataType: 'json',
-				success: function(response){
-					if(response.success){
-						$('#residenceForm')[0].reset();
-						if(response.type=='add'){
-							var type = 'added'
-						}else if(response.type=='update'){
-							var type ="updated"
-						}
-						$('.alert-success').html('Data '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
-					}else{
-						alert('Error');
+	$('#saveResi').click(function(){
+		$('#formRes').attr('action', '<?php echo base_url() ?>c_candidates/addResidence/');
+});
+// start to save	
+$('#saveLoan').click(function(){
+	var url = $('#formRes').attr('action');
+	var data = $('#formRes').serialize();
+	//validate form
+		$.ajax({
+			type: 'ajax',
+			method: 'post',
+			url: url,
+			data: data,
+			async: false,
+			dataType: 'json',
+			success: function(response){
+				if(response.success){
+					$('#formRes')[0].reset();
+					if(response.type=='add'){
+						var type = 'added'
+					}else if(response.type=='update'){
+						var type ="updated"
 					}
-				},
-				error: function(){
-					alert('Could not add data');
+					$('.alert-success').html('Data '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
+				}else{
+					alert('Error');
 				}
-			});
-		
-	});
+			},
+			error: function(){
+				alert('Could not add data');
+			}
+		});
+	
+});
 // end function call residence status
+// function add home assets
+$('#saveAsset').click(function(){
+	$('#formAppli').attr('action', '<?php echo base_url() ?>c_candidates/addAssets/');
+});
+// start to save	
+$('#saveAsset').click(function(){
+	var url = $('#formAppli').attr('action');
+	var data = $('#formAppli').serialize();
+	//validate form
+		$.ajax({
+			type: 'ajax',
+			method: 'post',
+			url: url,
+			data: data,
+			async: false,
+			dataType: 'json',
+			success: function(response){
+				if(response.success){
+					$('#formAppli')[0].reset();
+					if(response.type=='add'){
+						var type = 'added'
+					}else if(response.type=='update'){
+						var type ="updated"
+					}
+					$('.alert-success').html('Data '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
+				}else{
+					alert('Error');
+				}
+			},
+			error: function(){
+				alert('Could not add data');
+			}
+		});
+	
+});
+// end function add home asset
+// function add conclusion
+$('#saveConclude').click(function(){
+	$('#formConclude').attr('action', '<?php echo base_url() ?>c_candidates/addConclude/');
+});
+// start to save	
+$('#saveConclude').click(function(){
+	var url = $('#formConclude').attr('action');
+	var data = $('#formConclude').serialize();
+	//validate form
+		$.ajax({
+			type: 'ajax',
+			method: 'post',
+			url: url,
+			data: data,
+			async: false,
+			dataType: 'json',
+			success: function(response){
+				if(response.success){
+					$('#formConclude')[0].reset();
+					if(response.type=='add'){
+						var type = 'added'
+					}else if(response.type=='update'){
+						var type ="updated"
+					}
+					$('.alert-success').html('Data '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
+				}else{
+					alert('Error');
+				}
+			},
+			error: function(){
+				alert('Could not add data');
+			}
+		});
+	
+});
+// end function conclusion
 // function to get data
 
 		// function calculate home asset coef x5
@@ -2296,6 +2334,7 @@ $('#saveLoan').click(function(){
 				var sumQuantity3 = $('#sumQuantity3').val();
 				totalGlobal=Number(sumQuantity5)+Number(sumQuantity3);
 				$('#globalAsset').val(totalGlobal);
+
 		});
 	});
 </script>
