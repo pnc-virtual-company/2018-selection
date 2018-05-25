@@ -66,12 +66,6 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
 						<div class="modal-body">
 							<ul class="list-group">
 								<li class="list-group-item">
-									Firstname : <b><?php echo $this->session->firstname;?></b>
-								</li>
-								<li class="list-group-item">
-									Lastname : <b><?php echo $this->session->lastname;?></b>
-								</li>
-								<li class="list-group-item">
 									Fullname : <b><?php echo $this->session->fullname;?></b>
 								</li>
 								<li class="list-group-item">
