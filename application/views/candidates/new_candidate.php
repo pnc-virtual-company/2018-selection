@@ -50,7 +50,7 @@ body{
 					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 						<h5>General information</h5>
 					</div><br>
-					<form id="canForm" action="" method="post">
+					<form id="canForm" method="post">
 						<div class="row">
 							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
@@ -339,7 +339,7 @@ body{
 						<div class="row">
 							<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12"></div>
 							<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-								<button type="submit" id="btnSaveFirstSection" class="btn btn-primary float-right">Save information</button><br><br>	
+								<button type="button" class="btn btn-primary float-right"  id="saveNewCan">Save information</button><br><br>	
 							</div>
 						</div>
 					</form>
@@ -380,7 +380,7 @@ body{
 						</div>
 						<div id="collapseFamilyPro" class="collapse" aria-labelledby="familyPro" data-parent="#subAccordion">
 							<div class="card-body contentBody">
-								<form id="fProForm" action="" method="post">
+								<form id="fProForm" method="post">
 								<h5>Father</h5>
 								<div class="row">
 										<div class="col-lg-5 col-md-5 col-sm-4">
@@ -395,7 +395,6 @@ body{
 											</div>
 										</div>
 										<div class="col-lg-7 col-md-7"></div>
-										
 								</div>
 								<div class="row">
 									<div class="col-lg-5 col-md-5 col-sm-8">
@@ -703,7 +702,7 @@ body{
 		<div class="row">
 			<div class="col-md-9 col-sm-9"></div>
 			<div class="col-md-3 col-sm-3">
-				<button type="submit" class="btn btn-primary btn-block" id="SaveFamilyPro" >Save information</button>
+				<button type="button" class="btn btn-primary btn-block" id="SaveFamilyPro" >Save information</button>
 			</div>
 		</div>
 	</form>
@@ -728,7 +727,7 @@ body{
 
 	<div id="collapseFamilyIncome" class="collapse" aria-labelledby="familyIncome" data-parent="#subAccordion">
 		<div class="card-body contentBody">
-			<form id="formFamilyIncome" action="" method="post">
+			<form id="formFamilyIncome" method="post">
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 						<h5>Parents's income</h5>
@@ -955,7 +954,7 @@ body{
 				<div class="row">
 					<div class="col-md-6"></div>
 					<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-						<button type="submit" class="btn btn-primary float-right" id="btnSaveFamilyIncome">Save information</button>	
+						<button type="button" class="btn btn-primary float-right" id="btnSaveFamilyIncome">Save information</button>	
 					</div>
 				</div>
 			</form>
@@ -979,7 +978,7 @@ body{
 	</div>
 	<div id="collapseFamilyExpense" class="collapse" aria-labelledby="familyExpense" data-parent="#subAccordion">
 		<div class="card-body contentBody">
-			<form id="formExpense" action="" method="post">
+			<form id="formExpense" method="post">
 				<div class="row">
 					<div class="col-md-6">
 						<div class="form-group row">
@@ -1065,7 +1064,7 @@ body{
 					<div class="col-md-4"></div>
 					<div class="col-md-4"></div>
 					<div class="col-md-4">
-						<button type="submit" id="saveExpense" class="btn btn-primary float-right">Save information</button>
+						<button type="button" id="saveExpense" class="btn btn-primary float-right">Save information</button>
 					</div>
 				</div>
 			</form>
@@ -1093,7 +1092,7 @@ body{
 				<h5>General information</h5>
 			</div>
 			<br>
-			<form id="formLoan" action="" method="post">
+			<form id="formLoan" method="post">
 				<div class="row">
 					<div class="col-lg-4 col-md-4">
 						<div class="form-group row">
@@ -1176,7 +1175,7 @@ body{
 				<div class="row">
 					<div class="col-lg-10 col-md-10 col-sm-8 col-xs-8"></div>
 					<div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-						<button type="submit" id="saveLoan" class="btn btn-primary float-right">Save information</button>
+						<button type="button" id="saveLoan" class="btn btn-primary float-right">Save information</button>
 					</div>
 				</div>
 			</form>
@@ -1200,7 +1199,7 @@ body{
 	</div>
 	<div id="collapseResidence" class="collapse" aria-labelledby="residence" data-parent="#subAccordion">
 		<div class="card-body contentBody">
-			<form id="residenceForm" action="" method="POST">
+			<form id="residenceForm" method="POST">
 				<div class="row">
 					<div class="col-lg-4 col-md-4">
 						<div class="form-group row">
@@ -1253,7 +1252,7 @@ body{
 					<div class="col-md-4 col-md-4 col-sm-4 col-xs-12"></div>
 					<div class="col-md-4 col-md-4 col-sm-4 col-xs-12"></div>
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-						<button type="submit" class="btn btn-primary float-right" id="saveResidence">Save information</button>
+						<button type="button" class="btn btn-primary float-right" id="saveResidence">Save information</button>
 					</div>
 				</div>
 			</form>
@@ -1278,7 +1277,7 @@ body{
 	<div id="collapseHomeAsset" class="collapse" aria-labelledby="homeAsset" data-parent="#subAccordion">
 		<div class="card-body contentBody">
 			<h5>Appliances</h5>
-			<form action="" method="POST">
+			<form id="formHomeAsset" method="POST">
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 						<div class="row">
@@ -1724,7 +1723,7 @@ body{
 									<div class="row">
 										<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12"></div>
 										<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-											<button class="btn btn-primary btn-block">Save information</button>
+											<button type="button" id="saveHomeAsset" class="btn btn-primary btn-block">Save information</button>
 										</div>
 									</div>
 								</form>
@@ -2053,222 +2052,140 @@ body{
 		$('#canForm').attr('action', '<?php echo base_url() ?>c_candidates/addCandidate/');
 	});
 	// start to save
-	$('#btnSaveFirstSection').click(function(){
-		var url = $('#canForm').attr('action');
-		var data = $('#canForm').serialize();
-		//validate form
+	// $('#btnSaveFirstSection').click(function(){
+	// 	var url = $('#canForm').attr('action');
+	// 	var data = $('#canForm').serialize();
+	// 	//validate form
+	// 		$.ajax({
+	// 			type: 'ajax',
+	// 			method: 'post',
+	// 			url: url,
+	// 			data: data,
+	// 			async: false,
+	// 			dataType: 'json',
+	// 			success: function(response){
+	// 				if(response.success){
+	// 					$('#canForm')[0].reset();
+	// 					if(response.type=='add'){
+	// 						var type = 'added'
+	// 					}else if(response.type=='update'){
+	// 						var type ="updated"
+	// 					}
+	// 					$('.alert-success').html('Candidate '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
+	// 				}else{
+	// 					alert('Error');
+	// 				}
+	// 			},
+	// 			error: function(){
+	// 				alert('Could not add data');
+	// 			}
+	// 		});
+		
+	});
+	$(document).ready(function(){
+		$('#saveNewCan').click(function(){
 			$.ajax({
-				type: 'ajax',
-				method: 'post',
-				url: url,
-				data: data,
-				async: false,
-				dataType: 'json',
-				success: function(response){
-					if(response.success){
-						$('#canForm')[0].reset();
-						if(response.type=='add'){
-							var type = 'added'
-						}else if(response.type=='update'){
-							var type ="updated"
-						}
-						$('.alert-success').html('Candidate '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
-					}else{
-						alert('Error');
-					}
+				type: 'POST',
+				url: '<?php echo base_url() ?>c_candidates/addCandidate',
+				data: $('form#canForm').serialize(),
+				success:function(msg){
+					alert('New candidate was added');
 				},
-				error: function(){
-					alert('Could not add data');
+				error:function(){
+					alert('Error add new candidate');
 				}
 			});
-		
+		});
+		// declare global variable here
+		$('#SaveFamilyPro').click(function(){
+			$.ajax({
+				type: 'POST',
+				url: '<?php echo base_url() ?>c_candidates/addFamilyProfile',//put variable can id here
+				data: $('form#fProForm').serialize(),
+				success:function(msg) {
+					alert('added');
+				},
+				error:function(){
+					alert('error');
+				}
+			});
+		});
+		//ajax for add family income
+		$('#btnSaveFamilyIncome').click(function(){
+			$.ajax({
+				type: 'POST',
+				url: '<?php echo base_url() ?>c_candidates/addFamilyIncome',//put variable can id here
+				data: $('form#formFamilyIncome').serialize(),
+				success:function(msg) {
+					alert('Family income was added');
+				},
+				error:function() {
+					alert('Error add income');
+				}
+			});
+		});
+		//ajax for expense source
+		$('#saveExpense').click(function(){
+			//put candidate id here
+			$.ajax({
+				type: 'POST',
+				url: '<?php echo base_url() ?>c_candidates/addExpense',//put variable can id here
+				data: $('form#formExpense').serialize(),
+				success:function(msg){
+					alert('Expense source was added');
+				},
+				error:function(){
+					alert('Error add expense source');
+				}
+			});
+		});
+		//ajax for load and debt
+		$('#saveLoan').click(function(){
+			//put candidate id here
+			$.ajax({
+				type: 'POST',
+				url: '<?php echo base_url() ?>c_candidates/addLoan',//put variable can id here
+				data: $('form#formLoan').serialize(),
+				success:function(msg) {
+					alert('Loan and debt were added');
+				},
+				error:function(){
+					alert('Error add loan and debt');
+				}
+			});
+		});
+		//ajax for add residace
+		$('#saveResidence').click(function(){
+			//put candidate id here
+			$.ajax({
+				type: 'POST',
+				url: '<?php echo base_url() ?>c_candidates/addResidence',
+				data: $('form#residenceForm').serialize(),
+				success:function(msg) {
+					alert('Residance was added');
+				},
+				error:function(){
+					alert('Error add residance');
+				}
+			});
+		});
+		$('#saveHomeAsset').click(function(){
+			//put candidate here
+			$.ajax({
+				type: 'POST',
+				url: '<?php echo base_url() ?>c_candidates/addAssets',//put variable can id here
+				data: $('#formHomeAsset').serialize(),
+				success:function(msg){
+					alert('Home asset was added');
+				},
+				error:function(){
+					alert('Error add home asset');
+				}
+			});
+		});
 	});
 // End function add 
-// Function to add Family Profile
-	
-	$('#SaveFamilyPro').click(function(){
-		$('#fProForm').attr('action', '<?php echo base_url() ?>c_candidates/addFamilyProfile/');
-	});
-	// start to save	
-	$('#SaveFamilyPro').click(function(){
-		var url = $('#fProForm').attr('action');
-		var data = $('#fProForm').serialize();
-		//validate form
-			$.ajax({
-				type: 'ajax',
-				method: 'post',
-				url: url,
-				data: data,
-				async: false,
-				dataType: 'json',
-				success: function(response){
-					if(response.success){
-						$('#fProForm')[0].reset();
-						if(response.type=='add'){
-							var type = 'added'
-						}else if(response.type=='update'){
-							var type ="updated"
-						}
-						$('.alert-success').html('Data '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
-					}else{
-						alert('Error');
-					}
-				},
-				error: function(){
-					alert('Could not add data');
-				}
-			});
-		
-	});
-// End Family Profile
-// Start function add new family income source
-	$('#btnSaveFamilyIncome').click(function(){
-		$('#formFamilyIncome').attr('action', '<?php echo base_url() ?>c_candidates/addFamilyIncome/');
-	});
-	// start to save	
-	$('#btnSaveFamilyIncome').click(function(){
-		var url = $('#formFamilyIncome').attr('action');
-		var data = $('#formFamilyIncome').serialize();
-		//validate form
-			$.ajax({
-				type: 'ajax',
-				method: 'post',
-				url: url,
-				data: data,
-				async: false,
-				dataType: 'json',
-				success: function(response){
-					if(response.success){
-						$('#formFamilyIncome')[0].reset();
-						if(response.type=='add'){
-							var type = 'added'
-						}else if(response.type=='update'){
-							var type ="updated"
-						}
-						$('.alert-success').html('Form family income '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
-					}else{
-						alert('Error');
-					}
-				},
-				error: function(){
-					alert('Could not add data');
-				}
-			});
-		
-	});
-// End function add 
-// function add family expense
-
-$('#saveExpense').click(function(){
-	$('#formExpense').attr('action', '<?php echo base_url() ?>c_candidates/addExpense/');
-});
-// start to save	
-$('#saveExpense').click(function(){
-	var url = $('#formExpense').attr('action');
-	var data = $('#formExpense').serialize();
-	//validate form
-		$.ajax({
-			type: 'ajax',
-			method: 'post',
-			url: url,
-			data: data,
-			async: false,
-			dataType: 'json',
-			success: function(response){
-				if(response.success){
-					$('#formExpense')[0].reset();
-					if(response.type=='add'){
-						var type = 'added'
-					}else if(response.type=='update'){
-						var type ="updated"
-					}
-					$('.alert-success').html('Form family expense '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
-				}else{	
-					alert('Error');
-				}
-			},
-			error: function(){
-				alert('Could not add data');
-			}
-		});
-	
-});
-// end function add expense
-// Function start to add loan and debts
-$('#saveLoan').click(function(){
-	$('#formLoan').attr('action', '<?php echo base_url() ?>c_candidates/addLoan/');
-});
-// start to save	
-$('#saveLoan').click(function(){
-	var url = $('#formLoan').attr('action');
-	var data = $('#formLoan').serialize();
-	//validate form
-		$.ajax({
-			type: 'ajax',
-			method: 'post',
-			url: url,
-			data: data,
-			async: false,
-			dataType: 'json',
-			success: function(response){
-				if(response.success){
-					$('#formLoan')[0].reset();
-					if(response.type=='add'){
-						var type = 'added'
-					}else if(response.type=='update'){
-						var type ="updated"
-					}
-					$('.alert-success').html('Data '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
-				}else{
-					alert('Error');
-				}
-			},
-			error: function(){
-				alert('Could not add data');
-			}
-		});
-	
-});
-// End function add loan and debts
-// function add call residence status
-	
-	$('#saveResidence').click(function(){
-		$('#residenceForm').attr('action', '<?php echo base_url() ?>c_candidates/addResidence/');
-	});
-	// start to save	
-	$('#saveResidence').click(function(){
-		var url = $('#residenceForm').attr('action');
-		var data = $('#residenceForm').serialize();
-		//validate form
-			$.ajax({
-				type: 'ajax',
-				method: 'post',
-				url: url,
-				data: data,
-				async: false,
-				dataType: 'json',
-				success: function(response){
-					if(response.success){
-						$('#residenceForm')[0].reset();
-						if(response.type=='add'){
-							var type = 'added'
-						}else if(response.type=='update'){
-							var type ="updated"
-						}
-						$('.alert-success').html('Data '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
-					}else{
-						alert('Error');
-					}
-				},
-				error: function(){
-					alert('Could not add data');
-				}
-			});
-		
-	});
-// end function call residence status
 // function to get data
-
 		// function calculate home asset coef x5
 		$('.form-group').on('input','.coef_x5',function(){
 				var sumTotalCoefx5 = 0;
@@ -2329,7 +2246,7 @@ $('#saveLoan').click(function(){
 				totalGlobal=Number(sumQuantity5)+Number(sumQuantity3);
 				$('#globalAsset').val(totalGlobal);
 		});
-	});
+	// });
 </script>
 <?php } ?>
 <!-- end form collapsed -->
