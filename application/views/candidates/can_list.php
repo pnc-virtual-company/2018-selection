@@ -109,7 +109,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-4">
                     <h1 class="text-center">Distribution</h1>
                     <br><br><br><br>
-                    <canvas id="pie-chart" width="900" height="900"></canvas>
+                    <canvas id="pie-chart" width="800" height="800"></canvas>
                     <br>
                     <div id="chartjs-tooltip">
                        <table></table>
@@ -117,11 +117,11 @@
                     <h1 class="text-center">Selected candidate</h1>
                     <div class="row">
                         <div class="col-md-6">
-                            <canvas id="pie-chart1" width="900" height="900">
+                            <canvas id="pie-chart1" width="800" height="900">
                             </canvas>
                         </div>
                         <div class="col-md-6">
-                            <canvas id="pie-chart2" width="900" height="900">
+                            <canvas id="pie-chart2" width="800" height="900">
                             </canvas>
                         </div>
                     </div>
@@ -408,7 +408,7 @@
             datasets: 
             [{
                 label: "Grade (distribution)",
-                backgroundColor: ["#3cba9f","#1565c0","#8e5ea2","#3e95cd","#ffc107","#c45850"],
+                backgroundColor: ["#00e6ac","#6666ff","#66b3ff","#7a7a52","#c2c2a3","#ff3333"],
                 data: 
                 [
                     <?php foreach ($gradeAPlus as $gradeAPlus):?>
@@ -437,7 +437,8 @@
             title: 
             {
                 display: true,
-                text: 'Grade distribution'
+                text: 'Grade distribution',
+                fontSize: 20
             },
             legend: {
             display: false  /// disable labels
@@ -474,14 +475,16 @@
             datasets: 
             [{
                 label: "Gender (distribution)",
-                backgroundColor: ["#3cba9f","#ffc107"],
+                backgroundColor: ["#00cccc","#ff0080"],
                 data:
                 [   
                     <?php 
-                        echo $male;     /// show number of male selected
+                        $percentagMale = $male * 100 / ($male + $female); 
+                         echo round($percentagMale, 2); //// show the number male into pie chart
                     ?>,
                     <?php
-                        echo $female;   /// show number of female selected
+                        $percentagFemale = $female * 100 / ($male + $female); 
+                         echo round($percentagFemale, 2);  /// show the number of female into pie chart
                     ?>
                 ]
             }]
@@ -491,11 +494,22 @@
             title: 
             {
                 display: true,
-                text: 'Gender distribution'
+                text: 'Gender distribution',
+                fontSize: 20
             },
-            legend: 
-            {
-                display: false  /// disabled labels
+            // ,
+            // legend: 
+            // {
+            // display: false  /// disabled labels
+            // },
+            tooltips: {
+                callbacks: 
+                {
+                    label: function(tooltipItem, chartData) 
+                    {
+                        return chartData.labels[tooltipItem.index] + ': ' + chartData.datasets[0].data[tooltipItem.index] + '%';
+                    }
+                }
             }
         }
     });
@@ -505,7 +519,7 @@
         /// count number of selected candidates from NGO
         <?php foreach ($ngo as $ngo):?>
         <?php 
-            $formNgo = $ngo->FromNGO;
+            $fromNgo = $ngo->FromNGO;
         ?>  
         <?php endforeach ?>
         /// count number of selected candidates not from NGO
@@ -521,14 +535,16 @@
             datasets: 
             [{
                 label: "NGO (provenance)",
-                backgroundColor: ["#3e95cd","#c45850"],
+                backgroundColor: ["#66ff66","#cc0000"],
                 data: 
                 [
-                    <?php
-                        echo $formNgo;      /// show number from NGO
+                     <?php
+                        $percentagFromNGO = $fromNgo * 100 / ($fromNgo + $notFromNgo); 
+                        echo round($percentagFromNGO, 2);  /// show percentages of selected candidates from NGO
                     ?>,
                     <?php
-                        echo $notFromNgo;   /// show number not from NGO
+                        $percentagNotFromNGO = $notFromNgo * 100 / ($fromNgo + $notFromNgo); 
+                        echo round($percentagNotFromNGO, 2);  /// show number of selected candidates not from NGO
                     ?>
                 ]
             }]
@@ -538,11 +554,22 @@
             title: 
             {
                 display: true,
-                text: 'NGO provenance'
+                text: 'NGO provenance',
+                fontSize: 20
             },
-            legend: 
-            {
-            display: false  /// disabled labels
+            // ,
+            // legend: 
+            // {
+            // display: false  /// disabled labels
+            // },
+            tooltips: {
+                callbacks: 
+                {
+                    label: function(tooltipItem, chartData) 
+                    {
+                        return chartData.labels[tooltipItem.index] + ': ' + chartData.datasets[0].data[tooltipItem.index] + '%';
+                    }
+                }
             }
         }
     });
