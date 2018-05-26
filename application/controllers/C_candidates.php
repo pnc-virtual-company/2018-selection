@@ -202,45 +202,66 @@ Class C_candidates extends CI_Controller{
 		$ngoComment = $this->input->post('ngoComment');
 		$healthComment = $this->input->post('healthComment');
 		$result['student'] = $this->m_can->addCandidate($fname,$lname,$gender,$age,$province,$ngo,$health,$rankClass,$achivement,$pncChoice,$responsibility,$motivate,$communication,$scholarship,$otherChoiceRank,$stuCommite,$parCommite,$globalGrade,$ngoComment,$healthComment);
-		$msg['success'] = false;
-		$msg['type'] = 'add';
-		if($result){
-			$msg['success'] = true;
-		}
 		echo json_encode($msg);   
 	}
   // function to add new family profile
-	public function addFamilyProfile()
-	{
-		$fatherAge = $this->input->post('fatherAge');
-		$fatherOccupation = $this->input->post('fatherOccupation');
-		$fatherSpecify = $this->input->post('fatherSpecify');
-		$fatherHealth = $this->input->post('fatherHealth');
-		$fatherHealthSpecify = $this->input->post('fatherHealthSpecify');
-		$fatherEdu = $this->input->post('fatherEdu');
+// 	public function addFamilyProfile()
+// 	{
+// 		$fatherAge = $this->input->post('fatherAge');
+// 		$fatherOccupation = $this->input->post('fatherOccupation');
+// 		$fatherSpecify = $this->input->post('fatherSpecify');
+// 		$fatherHealth = $this->input->post('fatherHealth');
+// 		$fatherHealthSpecify = $this->input->post('fatherHealthSpecify');
+// 		$fatherEdu = $this->input->post('fatherEdu');
 
-		$motherAge = $this->input->post('motherAge');
-		$motherOccupation = $this->input->post('motherOccupation');
-		$motherSpecify = $this->input->post('motherSpecify');
-		$motherhealthStatus = $this->input->post('motherhealthStatus');
-		$motherHealthSpecify = $this->input->post('motherHealthSpecify');
-		$motherEducation = $this->input->post('motherEducation');
+// 		$motherAge = $this->input->post('motherAge');
+// 		$motherOccupation = $this->input->post('motherOccupation');
+// 		$motherSpecify = $this->input->post('motherSpecify');
+// 		$motherhealthStatus = $this->input->post('motherhealthStatus');
+// 		$motherHealthSpecify = $this->input->post('motherHealthSpecify');
+// 		$motherEducation = $this->input->post('motherEducation');
 
-		$numSiblings = $this->input->post('numSiblings');
-		$marriedStatus = $this->input->post('marriedStatus');
-		$separated = $this->input->post('separated');
-		$numberFamilyLiving = $this->input->post('member');
-		$studentRank = $this->input->post('studentRank');
+// 		$numSiblings = $this->input->post('numSiblings');
+// 		$marriedStatus = $this->input->post('marriedStatus');
+// 		$separated = $this->input->post('separated');
+// 		$numberFamilyLiving = $this->input->post('member');
+// 		$studentRank = $this->input->post('studentRank');
 
-		$resultFamily['familyProfile'] = $this->m_can->addFamilyProfile($fatherAge,$fatherOccupation,$fatherSpecify,$fatherHealth,$fatherHealthSpecify,$fatherEdu,$motherAge,$motherOccupation,$motherSpecify,$motherhealthStatus,$motherHealthSpecify,$motherEducation,$numSiblings,$marriedStatus,$separated,$numberFamilyLiving,$studentRank);
+// 		$resultFamily['familyProfile'] = $this->m_can->addFamilyProfile($fatherAge,$fatherOccupation,$fatherSpecify,$fatherHealth,$fatherHealthSpecify,$fatherEdu,$motherAge,$motherOccupation,$motherSpecify,$motherhealthStatus,$motherHealthSpecify,$motherEducation,$numSiblings,$marriedStatus,$separated,$numberFamilyLiving,$studentRank);
 
-		$msg['success'] = false;
-		$msg['type'] = 'add';
-		if($resultFamily){
-			$msg['success'] = true;
-		}
-		echo json_encode($msg);
-	}
+// 		$msg['success'] = false;
+// 		$msg['type'] = 'add';
+// 		if($resultFamily){
+// 			$msg['success'] = true;
+// 		}
+// 		echo json_encode($msg);
+// 	}
+  public function addFamilyProfile()
+  {
+    $fAge = $this->input->post('faAge');
+    $fOccupation = $this->input->post('faOccu');
+    $fSpecify = $this->input->post('faSpec');
+    $fHealth = $this->input->post('faHealth');
+    $fHealthSpec = $this->input->post('faHealthSpec');
+    $fEdu = $this->input->post('faEdu');
+
+    $mAge = $this->input->post('moAge');
+    $mOccu = $this->input->post('motherOcc');
+    $mSpecify = $this->input->post('mSpecify');
+    $mhealthStatus = $this->input->post('mhealthStat');
+    $mHealthSpec = $this->input->post('mHealthSpec');
+    $mEdu = $this->input->post('mEdu');
+
+    $numSiblings = $this->input->post('numSiblings');
+    $marriedStatus = $this->input->post('marriedStat');
+    $separated = $this->input->post('separated');
+    $numFamily = $this->input->post('member');
+    $studentRank = $this->input->post('studentRank');
+
+    $result['familyProfile'] = $this->m_can->addFamilyProfile($fAge,$fOccupation,$fSpecify,$fHealth,$fHealthSpec,$fEdu,$mAge,
+      $mOccu,$mSpecify,$mhealthStatus,$mHealthSpec,$mEdu,$numSiblings,$marriedStatus,$separated,$numFamily,$studentRank);
+    echo json_encode($msg);   
+  }
 // delete selected candidate
 	public function deleteSelectedCandidate(){
 		$result = $this->m_can->deleteCandidate();
@@ -552,6 +573,7 @@ Class C_candidates extends CI_Controller{
     // end function add family expense
 
     // function add family residence status
+
 	public function addResidence()
 	{
 		$status = $this->input->post('status');
@@ -562,4 +584,63 @@ Class C_candidates extends CI_Controller{
 		echo json_encode($msg);
 	}
     // end function add family residence status
+
+    // function add family home assets
+    public function addAssets()
+    {
+    	$refrigerator = $this->input->post('refrigerator');
+    	$radio = $this->input->post('radio');
+    	$airCon = $this->input->post('airCondi');
+    	$riceCooker = $this->input->post('ricecooker');
+    	$lcdTV = $this->input->post('lcdTv');
+    	$colorTV = $this->input->post('colorTv');
+    	$chComputer = $this->input->post('chComputer');
+    	$exComputer = $this->input->post('exComputer');
+    	$fCabinet = $this->input->post('fCabinet');
+    	$dvd = $this->input->post('dvd');
+    	$smartPhone = $this->input->post('smartphone');
+    	$phone = $this->input->post('phone');
+    	$cheapCam = $this->input->post('cCamera');
+    	$expenCam = $this->input->post('exCamera');
+    	$cheapSofa = $this->input->post('chSofa');
+    	$exSofa = $this->input->post('exSofa');
+    	$gasCooker = $this->input->post('gasCooker');
+    	$fruitBlender = $this->input->post('fblender');
+    	$elecCooker = $this->input->post('eCooker');
+    	$motoBike = $this->input->post('motobike');
+    	$farmMachine = $this->input->post('farming');
+    	$car = $this->input->post('car');
+    	$vihicleComment = $this->input->post('vComment');
+    	$cow = $this->input->post('cow');
+    	$buffalo = $this->input->post('buffalo');
+    	$pig = $this->input->post('pig');
+    	$animalCmt = $this->input->post('aComment');
+    	$farmSize = $this->input->post('farmSize');
+    	$farmCmt = $this->input->post('fComment');
+    	$sumQuantity5 = $this->input->post('sumQuantity5');
+    	$sumQuantity3 = $this->input->post('sumQuantity3');
+    	$globalAsset = $this->input->post('globalAsset');
+    	$certificate = $this->input->post('certificate');
+    	$specifyLevel = $this->input->post('specifyLevel');
+
+    	$result['familyAsset'] = $this->m_can->addAssets($refrigerator,$radio,$airCon,$riceCooker,$lcdTV,$colorTV,$chComputer,$exComputer,$fCabinet,$dvd,$smartPhone,$phone,$cheapCam,$expenCam,$cheapSofa,$exSofa,$gasCooker,$fruitBlender,$elecCooker,$motoBike,$farmMachine,$car,$vihicleComment,$cow,$buffalo,$pig,$animalCmt,$farmSize,$farmCmt,$sumQuantity5,$sumQuantity3,$globalAsset,$certificate,$specifyLevel);
+
+    	$msg['success'] = false;
+    	$msg['type'] = 'add';
+
+    	if($result){
+    	  $msg['success'] = true;
+    	}
+    	echo json_encode($msg);
+    }
+    // end function add home asset
+
+    // start function add investigator conclusion
+    public function addConclude()
+    {
+    	$investigatorConclude = $this->input->post('investigatorConclude');
+    	var_dump($investigatorConclude);
+    	die();
+    }
+    // end function add conclusion
 }
