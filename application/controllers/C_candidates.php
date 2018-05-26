@@ -148,6 +148,7 @@ Class C_candidates extends CI_Controller{
 	public function view_can_detail($id)
 	{
 	 	$this->load->model('candidates_model');
+	 	$result['username'] = $this->candidates_model->view_username($id);
 	 	$result['grade'] = $this->candidates_model->globle_grade($id);
 	 	$result['list'] = $this->candidates_model->view_can($id);
 	 	$result['family'] = $this->candidates_model->view_can_family($id);

@@ -114,7 +114,7 @@
 	    </div>
 	    <div class="modal-footer">
             <form id="formResetPwd" method="POST">
-                <button type="send" class="btn btn-primary" >Reset</button>
+                <button type="send" class="btn btn-primary">Reset</button>
     	        <button class="btn btn-danger" data-dismiss="modal">Cancel</button>
             </form>
 	    </div>

@@ -617,7 +617,15 @@ class Candidates_model extends CI_Model {
         $this->db->where('skeleton_tbl_home_asset.h_id',$id);
         $query=$this->db->get();
         return $query->result();
-    }  
+    }
+     //function view user name of candidate 
+   public function view_username($id){
+        $this->db->select("concat(skeleton_tbl_candidates.can_firstname,' ',skeleton_tbl_candidates.can_lastname) AS can_name");   
+        $this->db->from('skeleton_tbl_candidates');   
+        $this->db->where('skeleton_tbl_candidates.can_id',$id);
+        $query=$this->db->get();
+        return $query->result();
+    }
 
     // function to add data to family profile
     public function addFamilyProfile($fatherAge,$fatherOccupation,$fatherSpecify,$fatherHealth,$fatherHealthSpecify,$fatherEdu,$motherAge,$motherOccupation,$motherSpecify,$motherhealthStatus,$motherHealthSpecify,$motherEducation,$numSiblings,$marriedStatus,$separated,$numberFamilyLiving,$studentRank)
