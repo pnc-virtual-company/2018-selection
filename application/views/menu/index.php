@@ -66,12 +66,6 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
 						<div class="modal-body">
 							<ul class="list-group">
 								<li class="list-group-item">
-									Firstname : <b><?php echo $this->session->firstname;?></b>
-								</li>
-								<li class="list-group-item">
-									Lastname : <b><?php echo $this->session->lastname;?></b>
-								</li>
-								<li class="list-group-item">
 									Fullname : <b><?php echo $this->session->fullname;?></b>
 								</li>
 								<li class="list-group-item">
@@ -112,18 +106,18 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
 												Old password : <input class="form-control" 
 																								type="password" 
 																								name="password" 
-																								id="" 
+																								 
 																								value="">
 											</div>
 										</li>
 										<li class="list-group-item">
 											<div class="form-group">
-												New password : <input class="form-control" type="password" name="password" id="" value="">
+												New password : <input class="form-control" type="password" name="password"  value="">
 											</div>
 										</li>
 										<li class="list-group-item">
 											<div class="form-group">
-												Confirm password : <input class="form-control" type="password" name="password" id="" value="">
+												Confirm password : <input class="form-control" type="password" name="password"  value="">
 											</div>
 										</li>
 							</form>

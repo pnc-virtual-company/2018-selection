@@ -13,9 +13,8 @@ if (!defined('BASEPATH')) { exit('No direct script access allowed'); }
  * This model contains the business logic and manages the persistence of users and roles
  * It is also used by the session controller for the authentication.
  */
-class Candidates_model extends CI_Model {
-
-    /**
+class Candidates_model extends CI_Model{
+       /**
      * Default constructor
      */
     public function __construct() {
@@ -26,16 +25,16 @@ class Candidates_model extends CI_Model {
     public function showAllCandidates()
     {
         $id = $this->uri->segment(3);
-    	$this->db->select("skeleton_tbl_candidates.can_id, concat(skeleton_tbl_candidates.can_firstname,' ',skeleton_tbl_candidates.can_lastname) AS can_name,can_gender,can_global_grade,skeleton_tbl_provinces.pro_name AS province");
-    	$this->db->from('skeleton_tbl_candidates');   
-    	$this->db->join('skeleton_tbl_provinces', 'skeleton_tbl_provinces.pro_id = skeleton_tbl_candidates.pro_id','INNER');
-    	$query = $this->db->get(); 
-    	if($query->num_rows() > 0){
-    		return $query->result();
-    		
-    	}else{
-    		return false;
-    	}
+        $this->db->select("skeleton_tbl_candidates.can_id, concat(skeleton_tbl_candidates.can_firstname,' ',skeleton_tbl_candidates.can_lastname) AS can_name,can_gender,can_global_grade,skeleton_tbl_provinces.pro_name AS province");
+        $this->db->from('skeleton_tbl_candidates');   
+        $this->db->join('skeleton_tbl_provinces', 'skeleton_tbl_provinces.pro_id = skeleton_tbl_candidates.pro_id','INNER');
+        $query = $this->db->get(); 
+        if($query->num_rows() > 0){
+            return $query->result();
+            
+        }else{
+            return false;
+        }
     }
 
     // function to delete candidates
@@ -263,6 +262,7 @@ class Candidates_model extends CI_Model {
             // and the query code is stay between of those function
             $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
             $insert = $this->db->insert('skeleton_tbl_candidates',$data);
+            
             if ($this->db->affected_rows() > 0) {
                 $this->db->select("MAX(can_id)");
                 $this->db->from("skeleton_tbl_candidates");
@@ -426,6 +426,12 @@ class Candidates_model extends CI_Model {
     //code for update form input -> investigation conclusion
     public function upInvesCon($id,$investi) {
         $data = array('can_investigator_conclusion' => $investi);
+        $this->db->where('can_id',$id);
+        $this->db->update('skeleton_tbl_candidates',$data);
+    }
+    //upload update image candidate
+    public function uImageCan($id,$data1){
+        $data = array('can_images' => $data1);
         $this->db->where('can_id',$id);
         $this->db->update('skeleton_tbl_candidates',$data);
     }
@@ -628,26 +634,26 @@ class Candidates_model extends CI_Model {
     }
 
     // function to add data to family profile
-    public function addFamilyProfile($fatherAge,$fatherOccupation,$fatherSpecify,$fatherHealth,$fatherHealthSpecify,$fatherEdu,$motherAge,$motherOccupation,$motherSpecify,$motherhealthStatus,$motherHealthSpecify,$motherEducation,$numSiblings,$marriedStatus,$separated,$numberFamilyLiving,$studentRank)
+    public function addFamilyProfile($fAge,$fOccupation,$fSpecify,$fHealth,$fHealthSpec,$fEdu,$mAge,$mOccu,$mSpecify,$mhealthStatus,$mHealthSpec,$mEdu,$numSiblings,$marriedStatus,$separated,$numFamily,$studentRank)
     {
         $data = array(
-            'f_age' => $fatherAge,
-            'f_occupation' => $fatherOccupation,
-            'f_health' => $fatherHealth,
-            'f_edu' => $fatherEdu,
-            'm_age' => $motherAge,
-            'm_occupation' => $motherOccupation,
-            'm_health' => $motherhealthStatus,
-            'm_edu' => $motherEducation,
+            'f_age' => $fAge,
+            'f_occupation' => $fOccupation,
+            'f_health' => $fHealth,
+            'f_edu' => $fEdu,
+            'm_age' => $mAge,
+            'm_occupation' => $mOccu,
+            'm_health' => $mhealthStatus,
+            'm_edu' => $mEdu,
             'number_sibbling' => $numSiblings,
             'number_maried' => $marriedStatus,
             'number_separated' => $separated,
-            'number_family_living' => $numberFamilyLiving,
+            'number_family_living' => $numFamily,
             'stu_rank' => $studentRank,
-            'f_occupation_comment' => $fatherSpecify,
-            'm_occupation_comment' => $motherSpecify,
-            'f_health_comment' => $fatherHealthSpecify,
-            'm_health_comment' => $motherHealthSpecify
+            'f_occupation_comment' => $fSpecify,
+            'm_occupation_comment' => $mSpecify,
+            'f_health_comment' => $fHealthSpec,
+            'm_health_comment' => $mHealthSpec
         );
 
         $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
@@ -771,7 +777,7 @@ class Candidates_model extends CI_Model {
         $this->db->where('skeleton_tbl_home_asset.tbl_candidates_can_id',$id);
         $this->db->update('skeleton_tbl_home_asset', $data );
     }
-}
+
     // function add family expense
     function addExpense($rice,$food,$firewood,$loan,$study,$medical,$electric,$agriculture,$wedding,$other,$totalExpense)
     {
@@ -809,12 +815,61 @@ class Candidates_model extends CI_Model {
         
         $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
         $insert = $this->db->insert('skeleton_tbl_residence',$data);
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
+        
         if ($this->db->affected_rows() > 0) {
             return true;
         } else {
             return false;
         }
-        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
     }
     // end function add family expense
-// }
+    // function add family home asset
+    function addAssets($refrigerator,$radio,$airCon,$riceCooker,$lcdTV,$colorTV,$chComputer,$exComputer,$fCabinet,$dvd,$smartPhone,$phone,$cheapCam,$expenCam,$cheapSofa,$exSofa,$gasCooker,$fruitBlender,$elecCooker,$motoBike,$farmMachine,$car,$vihicleComment,$cow,$buffalo,$pig,$animalCmt,$farmSize,$farmCmt,$sumQuantity5,$sumQuantity3,$globalAsset,$certificate,$specifyLevel)
+    {
+        $data = array(
+            'h_refrigerator' => $refrigerator,
+            'h_air_condictioner' => $airCon,
+            'h_lcd_tv' => $lcdTV,
+            'h_computer_big_100' => $exComputer,
+            'h_furnished_big_300' => $fCabinet,
+            'h_smartphone_big_100' => $smartPhone,
+            'h_camera_big_100' => $expenCam,
+            'h_sofa_big_300' => $exSofa,
+            'h_motobike_big_500' => $motoBike,
+            'h_farming_machine' => $farmMachine,
+            'h_car_truck' => $car,
+            'h_cow' => $cow,
+            'h_buffaloe' => $buffalo,
+            'h_pig' => $pig,
+            'h_farm_size' => $farmSize,
+            'h_radio' => $radio,
+            'h_rice_cooker' => $riceCooker,
+            'h_color_tv' => $colorTV,
+            'h_computer_smal_100' => $chComputer,
+            'h_dvd_player' => $dvd,
+            'h_phone_smal_100' => $phone,
+            'h_camera_small_100' => $cheapCam,
+            'h_sofa_smal_300' => $cheapSofa,
+            'h_gascooker' => $gasCooker,
+            'h_fruit_blender' => $fruitBlender,
+            'h_electrical_cooker' => $elecCooker,
+            'h_vehicles_comment' => $vihicleComment,
+            'h_animals_comment' => $animalCmt,
+            'h_farm_comment' => $farmCmt,
+            'h_total_x5' => $sumQuantity5,
+            'h_total_x3' => $sumQuantity3,
+            'h_glbal_total' => $globalAsset,
+            'h_poverty_certificate' => $specifyLevel,
+        );
+       $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
+       $insert = $this->db->insert('skeleton_tbl_home_asset',$data);
+       if ($this->db->affected_rows() > 0) {
+           return true;
+       } else {
+           return false;
+       }
+       $this->db->query("SET FOREIGN_KEY_CHECKS = 1"); 
+    }
+    // end function add home asset   
+}

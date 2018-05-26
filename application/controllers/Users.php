@@ -104,6 +104,8 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function edit($id) {
+      // $userId = $_GET['id'];
+      // var_dump($userId);die();
       $this->load->helper('form');
       $this->load->library('form_validation');
       $data['page_title'] = 'Edit a user';
@@ -115,7 +117,7 @@ class Users extends CI_Controller {
       $this->form_validation->set_rules('email', 'Email', 'required|strip_tags');
       $this->form_validation->set_rules('role[]', 'Role', 'required');
 
-      $data['users_item'] = $this->users_model->getUser($id);
+      $data['users_item'] = $this->users_model->getUsers($id);
       if (empty($data['users_item'])) {
         redirect('notfound');
       }
@@ -190,6 +192,7 @@ class Users extends CI_Controller {
       $this->form_validation->set_rules('lastname', 'Lastname', 'required|strip_tags');
       $this->form_validation->set_rules('login', 'Login', 'required|strip_tags');
       $this->form_validation->set_rules('email', 'Email', 'required|strip_tags');
+      // $this->form_validation->set_rules('role[]', 'Role', 'required');
 
       $data['users_item'] = $this->users_model->getUsers($id);
       if (empty($data['users_item'])) {
@@ -203,11 +206,9 @@ class Users extends CI_Controller {
         $this->load->view('users/editNormalUser', $data);
         $this->load->view('templates/footer');
       } else {
-        $result = $this->users_model->updateUser();
+        $this->users_model->updateUser();
         $this->session->set_flashdata('msg', 'The user was successfully updated.');
-        if($result){
           redirect('c_candidates');
-        }
       }
     }
     
