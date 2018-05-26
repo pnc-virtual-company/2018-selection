@@ -345,7 +345,7 @@ body{
 						<div class="row">
 							<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12"></div>
 							<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-								<button type="button" id="btnSaveFirstSection" class="btn btn-primary float-right">Save information</button><br><br>	
+								<button type="submit" id="btnSaveFirstSection" class="btn btn-primary float-right">Save information</button><br><br>	
 							</div>
 						</div>
 					</form>
