@@ -30,39 +30,6 @@ Class C_candidates extends CI_Controller{
 		$this->load->model('candidates_model', 'm_can');
 	}
 
-
-	// function index(){
-	// 	$this->load->view('templates/header');
-	// 	$this->load->view('menu/index');
-	// 	$this->load->view('welcome');
-	// 	$this->load->view('templates/footer');
-	// }
- // function allCandidate() //list all candidate of admin 
- // {
- // 	$this->load->view('templates/header');   
- // 	$this->load->view('menu/index');   
- // 	$this->load->view('welcome');   
- // 	$this->load->view('templates/footer');  
- // }
-
- // function to call all Candidates
- // public function showAllCandidates(){
- // 	$result = $this->m_can->showAllCandidates();
- // 	echo json_encode($result);
- // }
-
- // // function call delete Candidate
-
- // public function deleteCandidate(){
- // 	$result = $this->m_can->deleteCandidate();
- // 	$msg['success'] = false;
- // 	if($result){
- // 		$msg['success'] = true;
- // 	}
- // 	echo json_encode($msg);
- // }
-
-
 	// function to get data for home page
 	function index()
 	{
@@ -204,38 +171,6 @@ Class C_candidates extends CI_Controller{
 		$result['student'] = $this->m_can->addCandidate($fname,$lname,$gender,$age,$province,$ngo,$health,$rankClass,$achivement,$pncChoice,$responsibility,$motivate,$communication,$scholarship,$otherChoiceRank,$stuCommite,$parCommite,$globalGrade,$ngoComment,$healthComment);
 		echo json_encode($msg);   
 	}
-  // function to add new family profile
-// 	public function addFamilyProfile()
-// 	{
-// 		$fatherAge = $this->input->post('fatherAge');
-// 		$fatherOccupation = $this->input->post('fatherOccupation');
-// 		$fatherSpecify = $this->input->post('fatherSpecify');
-// 		$fatherHealth = $this->input->post('fatherHealth');
-// 		$fatherHealthSpecify = $this->input->post('fatherHealthSpecify');
-// 		$fatherEdu = $this->input->post('fatherEdu');
-
-// 		$motherAge = $this->input->post('motherAge');
-// 		$motherOccupation = $this->input->post('motherOccupation');
-// 		$motherSpecify = $this->input->post('motherSpecify');
-// 		$motherhealthStatus = $this->input->post('motherhealthStatus');
-// 		$motherHealthSpecify = $this->input->post('motherHealthSpecify');
-// 		$motherEducation = $this->input->post('motherEducation');
-
-// 		$numSiblings = $this->input->post('numSiblings');
-// 		$marriedStatus = $this->input->post('marriedStatus');
-// 		$separated = $this->input->post('separated');
-// 		$numberFamilyLiving = $this->input->post('member');
-// 		$studentRank = $this->input->post('studentRank');
-
-// 		$resultFamily['familyProfile'] = $this->m_can->addFamilyProfile($fatherAge,$fatherOccupation,$fatherSpecify,$fatherHealth,$fatherHealthSpecify,$fatherEdu,$motherAge,$motherOccupation,$motherSpecify,$motherhealthStatus,$motherHealthSpecify,$motherEducation,$numSiblings,$marriedStatus,$separated,$numberFamilyLiving,$studentRank);
-
-// 		$msg['success'] = false;
-// 		$msg['type'] = 'add';
-// 		if($resultFamily){
-// 			$msg['success'] = true;
-// 		}
-// 		echo json_encode($msg);
-// 	}
   public function addFamilyProfile()
   {
     $fAge = $this->input->post('faAge');
@@ -271,37 +206,6 @@ Class C_candidates extends CI_Controller{
 		}
 		echo json_encode($msg);
 	}
-
- // public function selectedCandidates(){
- // 	$this->load->view('templates/header');   
- // 	$this->load->view('menu/index');   
- // 	$this->load->view('candidates/can_list');   
- // 	$this->load->view('templates/footer'); 
- // }
- // function call count all Candidates
- // public function countCandidates(){
- // 	$resultCount = $this->m_can->countCandidates();
- // 	echo json_encode($resultCount);
- // }
- // function call count selected candidates
- // public function countSelectedCandidates(){
- // 	$resultSelectedCount = $this->m_can->countSelectedCandidates();
- // 	echo json_encode($resultSelectedCount);
- // }
- // function call count provinces
- // public function countProvinces(){
- // 	$resultProvincesCount = $this->m_can->countProvinces();
- // 	echo json_encode($resultProvincesCount);
- // }
- // public function showSelected(){
- // 	$result = $this->m_can->showSelected();
- // 	echo json_encode($result);
- // }
-
- // public function export() {
- // 	$this->load->view('candidates/export');
- // }
-
 // just like to update form
 	function updateForm($id) {		// link to form update with old info
 		$this->load->model('Candidates_model');
@@ -342,21 +246,6 @@ Class C_candidates extends CI_Controller{
         // if ($result == TRUE) {
         // 	}
         }
-		// $config['upload_path'] = './assets/images/candidates/';
-		// $config['allowed_types'] = 'gif|jpg|png';
-		// $config['max_size'] = 1024;
-		// $config['max_width'] = 1024;
-		// $config['max_height'] = 7680;
-		// $this->load->library('Upload',$config);
-		// if (!$this->upload->do_upload('cImage')) {
-		// 	$error = array('error'=>$this->upload->display_errors());
-		// 	echo "Error Upload Image!";die();
-		// }
-		// $iData = array('upload_data'=>$this->upload->data());
-		// var_dump($iData);die();
-		// foreach ($iData as $iData):
-		// 	$file_name = $iData['file_name'];
-		// endforeach;
 	}
 	public function uInvestiCon($id) {		//function to update investigation conclusion 
 		$this->load->model('Candidates_model');
@@ -526,15 +415,10 @@ Class C_candidates extends CI_Controller{
 
 		$totalIncome = $this->input->post('totalMonthIncome');
 		$totalIncomeId = $this->input->post('incomeIndividual');
-
-      // var_dump($paMonthIncome,$paDailyIncome,$paSesIncome,$paYearIncome,$paTotalIncome,$chMonthIncome,$chDailyIncome,$chSeasonIncome,$chYearIncome,$chTotalIncome,$totalIncome,$totalIncomeId);
-      // die();
-
 		$result['familyIncome'] = $this->m_can->addFamilyIncome($paMonthIncome,$paDailyIncome,$paSesIncome,$paYearIncome,$paTotalIncome,$chMonthIncome,$chDailyIncome,$chSeasonIncome,$chYearIncome,$chTotalIncome,$totalIncome,$totalIncomeId);
 		echo json_encode($msg);
 	}
   // end function add family income resource
-
    // function add loan & Debts
 	public function addLoan()
 	{
@@ -571,9 +455,7 @@ Class C_candidates extends CI_Controller{
 		echo json_encode($msg);
 	}
     // end function add family expense
-
     // function add family residence status
-
 	public function addResidence()
 	{
 		$status = $this->input->post('status');
@@ -584,7 +466,6 @@ Class C_candidates extends CI_Controller{
 		echo json_encode($msg);
 	}
     // end function add family residence status
-
     // function add family home assets
     public function addAssets()
     {
@@ -624,17 +505,9 @@ Class C_candidates extends CI_Controller{
     	$specifyLevel = $this->input->post('specifyLevel');
 
     	$result['familyAsset'] = $this->m_can->addAssets($refrigerator,$radio,$airCon,$riceCooker,$lcdTV,$colorTV,$chComputer,$exComputer,$fCabinet,$dvd,$smartPhone,$phone,$cheapCam,$expenCam,$cheapSofa,$exSofa,$gasCooker,$fruitBlender,$elecCooker,$motoBike,$farmMachine,$car,$vihicleComment,$cow,$buffalo,$pig,$animalCmt,$farmSize,$farmCmt,$sumQuantity5,$sumQuantity3,$globalAsset,$certificate,$specifyLevel);
-
-    	$msg['success'] = false;
-    	$msg['type'] = 'add';
-
-    	if($result){
-    	  $msg['success'] = true;
-    	}
     	echo json_encode($msg);
     }
     // end function add home asset
-
     // start function add investigator conclusion
     public function addConclude()
     {
