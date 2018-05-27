@@ -46,7 +46,8 @@ $langCode= (isset($langCode)) ? $langCode :  "en";
 							    			<input class="form-control" placeholder="Password" name="password" type="password">
 							    		</div>
 							    		<input class="btn btn-lg btn-primary btn-block" type="submit" value="Login">
-                      <a href="#"><span class="float-right">Forgot your password?</span></a>
+							    		<br>
+                     <!--  <a href="#"><span class="float-right">Forgot your password?</span></a> -->
 							    	</fieldset>
 							      	</form>
 							    </div>

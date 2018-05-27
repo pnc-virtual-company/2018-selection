@@ -14,7 +14,7 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" href="<?php echo base_url() ?>c_candidates">List of candidates</a>
 					<a class="dropdown-item" href="<?php echo base_url() ?>c_candidates/newCandidate">New candidate</a>
-					<a class="dropdown-item" href="<?php echo base_url() ?>c_student/map">Province distribution</a>
+					<!-- <a class="dropdown-item" href="<?php// echo base_url() ?>c_student/map">Province distribution</a> -->
 				</div>
 			</li>
 			<?php if($this->session->loggedIn === TRUE) { ?>
@@ -43,7 +43,7 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
 									<a class="dropdown-item waves-effect waves-light" href="<?php echo base_url() ?>Users/editUser/<?php echo $this->session->id ?>">Edit profile</a>
 								<?php
 								} ?>
-									<a href="#" class="dropdown-item waves-effect waves-light" data-toggle="modal" data-target="#changePwd">Change password</a>
+									<!-- <a href="#" class="dropdown-item waves-effect waves-light" data-toggle="modal" data-target="#changePwd">Change password</a> -->
 								</div>
 							</li>
 							<li class="nav-item">
@@ -55,7 +55,7 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
 			</div>
 			<br>
 		</nav>
-		<!-- --- on this container is about view profile as pop up------ -->
+		<!--- on this container is about view profile as pop up -->
 		<div class="container">
 			<div class="modal fade" id="profile">
 				<div class="modal-dialog">
