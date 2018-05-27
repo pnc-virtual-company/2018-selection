@@ -6,6 +6,7 @@
         position: absolute;
         background: rgba(0, 0, 0, .7);
         color: #fff;
+        font-size: 18px;
         border-radius: 3px;
         -webkit-transition: all .1s ease;
         transition: all .1s ease;
@@ -99,17 +100,17 @@
                             <i class="mdi mdi-file-excel"></i>
                             &nbsp;Export this list
                         </a>&nbsp;&nbsp;
-                        <a href="<?php echo base_url() ?>c_student/map">
+                        <!-- <a href="<?php //echo base_url() ?>c_student/map">
                             <button id="mapButton" class="btn btn-primary clearfix"><i class="mdi mdi-map"></i>
                           &nbsp;Province distribution</button>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </div>
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-4">
                     <h1 class="text-center">Distribution</h1>
-                    <br><br><br><br>
-                    <canvas id="pie-chart" width="900" height="900"></canvas>
+                    <br><br><br>
+                    <canvas id="pie-chart" width="800" height="800"></canvas>
                     <div id="chartjs-tooltip">
                        <table></table>
                     </div>
@@ -117,11 +118,11 @@
                     <h1 class="text-center">Selected candidate</h1>
                     <div class="row">
                         <div class="col-md-6">
-                            <canvas id="pie-chart1" width="900" height="900">  
+                            <canvas id="pie-chart1" width="800" height="900">  
                             </canvas>
                         </div>
                         <div class="col-md-6">
-                            <canvas id="pie-chart2" width="900" height="900">
+                            <canvas id="pie-chart2" width="800" height="900">
                             </canvas>
                         </div>
                     </div>
@@ -330,7 +331,8 @@
         $("#formResetPwd").prop("action", link);
         $('#frmResetPwd').modal('show');
     });
-    //pie chart of grade all candidates
+    
+//pie chart of grade all candidates
     Chart.defaults.global.tooltips.custom = function(tooltip) {
     // Tooltip Element
     var tooltipEl = document.getElementById('chartjs-tooltip');
@@ -387,7 +389,6 @@
         tooltipEl.style.fontStyle = tooltip._bodyFontStyle;
         tooltipEl.style.padding = tooltip.yPadding + 'px ' + tooltip.xPadding + 'px';
     };
-
     new Chart(document.getElementById("pie-chart"),
     {
         type: 'pie',
@@ -395,18 +396,17 @@
         {
             labels: 
             [
-                "A+: “Parents/Guardians are unable to support the student’s higher education and are well below the poverty level (<1.5$/day/ind. in rural areas / < 3$/day/ind. in urban areas)” ",
-                "A: “Parents/Guardians are unable to support the student’s higher education and are slightly below the poverty level (1.5-2$/day/ind. in rural areas / 3-4$/day/ind. in urban areas)” ",
-                "A-: “Parents/Guardians have severe difficulties to support the student’s higher education and can’t find any external support” ",
-                "B+: “Parents/Guardians have severe difficulties to support the student’s higher education but are able to find external support” ",
-                "B: “Parents/Guardians have major difficulties to support the student’s higher education but can use some family’s assets” ",
-                "Failed: “Parents/Guardians have minor or no difficulty to support the student’s higher education“ "
+                "A+ ",
+                "A ",
+                "A- ",
+                "B+ ",
+                "B ",
+                "Failed"
                 ],
-
             datasets: 
             [{
                 label: "Grade (distribution)",
-                backgroundColor: ["#3cba9f","#1565c0","#8e5ea2","#3e95cd","#ffc107","#c45850"],
+                backgroundColor: ["#80ffcc","#6666ff","#99c2ff","#ffeb99","#c2c2a3","#ff4d4d"],
                 data: 
                 [
                     <?php foreach ($gradeAPlus as $gradeAPlus):?>
@@ -430,21 +430,17 @@
                 ]
             }],       
         },
-
         options: 
         {   
             title: 
             {
                 display: true,
-                text: 'Grade distribution'  
-            },
-            legend: 
-            {
-            display: false  /// disabled label on pie chart
+                text: 'Grade distribution',
+                fontSize: 20
             },
             tooltips: 
             {
-                enabled: false   /// enabled tooltips don't show 
+                enabled: false  /// disabled tooltips
             }
         },
     });
@@ -456,7 +452,6 @@
     new Chart(document.getElementById("pie-chart1"), 
     {
         /// count the number of male selected candidates for display
-
         <?php foreach ($maleCount as $maleCount):?>
         <?php 
             $male = $maleCount->countMale;
@@ -475,14 +470,16 @@
             datasets: 
             [{
                 label: "Gender (distribution)",
-                backgroundColor: ["#3cba9f","#ffc107"],
+                backgroundColor: ["#99ffff","#ff80bf"],
                 data:
                 [   
                     <?php 
-                        echo $male;     //// show the number male into pie chart
+                        $percentagMale = $male * 100 / ($male + $female); 
+                        echo round($percentagMale, 2); //// show the number male into pie chart
                     ?>,
                     <?php
-                        echo $female;   /// show the number of female into pie chart
+                        $percentagFemale = $female * 100 / ($male + $female); 
+                        echo round($percentagFemale, 2); /// show the number of female into pie chart
                     ?>
                 ]
             }]
@@ -492,22 +489,28 @@
             title: 
             {
                 display: true,
-                text: 'Gender distribution'
+                text: 'Gender distribution',
+                fontSize: 20
             },
-            legend: 
+            tooltips: 
             {
-                display: false
-            }
+                callbacks: 
+                {
+                    label: function(tooltipItem, chartData) 
+                    {
+                        return chartData.labels[tooltipItem.index] + ': ' + chartData.datasets[0].data[tooltipItem.index] + '%';
+                    }
+                }
+            },
         }
     });
     // pie chart2 of ngo provenance selected candidates
     new Chart(document.getElementById("pie-chart2"), 
     {
         /// count the number of selected candidate from NGO
-
         <?php foreach ($ngo as $ngo):?>
         <?php 
-            $formNgo = $ngo->FromNGO;
+            $fromNgo = $ngo->FromNGO;
         ?>  
         <?php endforeach ?>
         /// count the number of selected candidate not from NGO
@@ -523,14 +526,17 @@
             datasets: 
             [{
                 label: "NGO (provenance)",
-                backgroundColor: ["#3e95cd","#c45850"],
+                backgroundColor: ["#80ff80","#ff6666"],
                 data: 
                 [
                     <?php
-                        echo $formNgo;  /// show number of selected candidates from NGO
+                        $percentagFromNGO = $fromNgo * 100 / ($fromNgo + $notFromNgo); 
+                        echo round($percentagFromNGO, 2); 
+                          /// show percentages of selected candidates from NGO
                     ?>,
                     <?php
-                        echo $notFromNgo;   /// show number of selected candidates not from NGO
+                        $percentagNotFromNGO = $notFromNgo * 100 / ($fromNgo + $notFromNgo); 
+                        echo round($percentagNotFromNGO, 2);  /// show number of selected candidates not from NGO
                     ?>
                 ]
             }]
@@ -540,11 +546,18 @@
             title: 
             {
                 display: true,
-                text: 'NGO provenance'
+                text: 'NGO provenance',
+                fontSize: 20
             },
-            legend: 
+            tooltips: 
             {
-            display: false
+                callbacks: 
+                {
+                    label: function(tooltipItem, chartData) 
+                    {
+                        return chartData.labels[tooltipItem.index] + ': ' + chartData.datasets[0].data[tooltipItem.index] + '%';
+                    }
+                }
             }
         }
     });

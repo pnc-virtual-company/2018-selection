@@ -10,7 +10,7 @@ body{
 	<br>
 	<div class="container">
 		<div class="alert alert-success" style="display: none;"></div>
-	<!-- 	<div class="row">
+		<div class="row">
 			<div class="col-lg-5 col-md-5 col-sm-3 col-xs-3">
 			</div>
 			<div class="col-lg-7 col-md-7 col-sm-9 col-xs-9">
@@ -21,7 +21,7 @@ body{
 					<input type='file' onchange="readURL(this);" />
 				</div>
 			</div> 
-		</div> -->
+		</div>
 		<br>
 
 	</div>
@@ -57,8 +57,7 @@ body{
 										<div class="col-lg-1 col-md-1"></div>
 										<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Global grade :</label>
 										<div class="col-lg-6 col-md-6 col-xs-12">
-											<select class="form-control" name="globalGrade" placeholder="Please select">
-												<option value="">Please select one</option>
+											<select class="form-control" name="globalGrade">
 												<option value="A+">A+</option>
 												<option value="A">A</option>
 												<option value="A">A-</option>
@@ -97,7 +96,6 @@ body{
 										<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Gender :</label>
 										<div class="col-lg-6 col-md-6 col-xs-12">
 											<select class="form-control" name="gender" id="gender">
-												<option value="">Please select one</option>
 												<option value="Male">Male</option>
 												<option value="Female">Female</option>
 											</select>
@@ -121,7 +119,6 @@ body{
 										<label for="province" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Province :</label>
 										<div class="col-lg-6 col-md-6 col-xs-12">
 											<select class="form-control" name="province" id="province">
-												<option value="">Please select one</option>
 												<?php foreach ($provinces as $province): ?>
 													<option value="<?php echo $province->pro_id ?>"><?php echo $province->pro_name?></option>
 												<?php endforeach ?>
@@ -138,7 +135,6 @@ body{
 										<label for="ngo" class="col-lg-5 col-md-5 col-xs-12 col-form-label">NGO :</label>
 										<div class="col-lg-6 col-md-6 col-xs-12">
 											<select class="form-control" id="ngo" name="ngo">
-												<option value="">Please select one</option>
 												<?php foreach ($ngoes as $ngo): ?>
 													<option value="<?php echo $ngo->ngo_id ?>"><?php echo $ngo->ngo_name?></option>
 												<?php endforeach ?>
@@ -147,19 +143,81 @@ body{
 									</div>
 								</div>
 								<div class="col-lg-1 col-md-1">
-									<!-- <?php if($this->session->loggedIn === TRUE) { ?>
+									<?php if($this->session->loggedIn === TRUE) { ?>
 										<?php $role =$this->session->nameRole;?>
 										<?php if ($role == 1): ?>
 											<a data-toggle="modal" data-target="#theModal">
 												<i class="mdi mdi-pencil" title="Edit NGO"></i>
 											</a>	
-										<?php endif ?> -->
+										<?php endif ?>
 									</div>
+<<<<<<< HEAD
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12"></div>
+							<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+								<button type="button" id="btnSaveFirstSection" class="btn btn-primary float-right">Save information</button><br><br>	
+							</div>
+						</div>
+					</form>
+					<!-- end form student information -->
+				</div>
+			</div>		
+	</div>
+		<!-- end form collapsed One -->
+	<div class="card">
+		<div>
+			<div id="headingTwo">
+				<h5 class="mb-0">
+					<button class="btn btn-primary collapsed  btn-block text-left formHeading" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="height: 60px;">
+						<h4>Family information
+							<i class="mdi mdi-chevron-down float-right down" style="color:#fff; font-size: 35px;">
+							</i>
+							<i class="mdi mdi-chevron-up float-right up" style="color:#fff; font-size: 35px;display: none;">
+							</i>
+						</h4>
+					</button>
+				</h5>
+			</div>
+			<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+				<div id="subAccordion">
+					<!-- form family profile -->
+					<div class="card">
+						<div id="familyPro">
+							<h5 class="mb-0">
+								<button class="btn btn-default collapsed btn-block text-left subHeading" data-toggle="collapse" data-target="#collapseFamilyPro" aria-expanded="false" aria-controls="collapseFamilyPro" style="height: 60px;border-bottom: 2px solid #fff;background-color: #f8f9fa; ">
+									<h5 class="subCollapse">Family profile
+										<i class="mdi mdi-chevron-down float-right subDown" style="color:#000; font-size: 30px;">
+										</i>
+										<i class="mdi mdi-chevron-up float-right subUp" style="color:#000; font-size: 30px;display: none;">
+										</i>
+									</h5>
+								</button>
+							</h5>
+						</div>
+						<div id="collapseFamilyPro" class="collapse" aria-labelledby="familyPro" data-parent="#subAccordion">
+							<div class="card-body contentBody">
+								<form id="fProForm" action="" method="post">
+								<h5>Father</h5>
+								<div class="row">
+										<div class="col-lg-5 col-md-5 col-sm-4">
+											<div class="form-group row">
+												<div class="col-lg-1 col-md-1"></div>
+												<div class="col-lg-5 col-md-4 col-sm-4">
+													<label for="fatherAge" class="col-form-label">Age :</label>
+												</div>
+												<div class="col-lg-6 col-md-6 col-sm-8">
+													<input type="number" name="faAge" id="fatherAge" class="form-control" placeholder="Father's age">
+												</div>
+=======
 									<div class="col-lg-6 col-md-6">
 										<div class="form-group row">
 											<label for="ngoOther" class="col-lg-3 col-md-3 col-xs-12 col-form-label" style="margin-left: 3%;">Other :</label>
 											<div class="col-lg-6 col-md-7 col-xs-12">
 												<input type="text" class="form-control" id="ngoOther" placeholder="If other, please specify " style="margin-left: -32px;width: 161%;">
+>>>>>>> 96139782983e8c7edac95e81daf56cccd51f1454
 											</div>
 										</div>
 									</div>
@@ -172,7 +230,6 @@ body{
 											<label for="healths" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Health status :</label>
 											<div class="col-lg-6 col-md-6 col-xs-12">
 												<select class="form-control" name="health" id="healths">
-													<option value="">Please select one</option>
 													<option value="Healthy">Healthy</option>
 													<option value="Other">Other</option>
 
@@ -205,8 +262,27 @@ body{
 									<div class="col-lg-5 col-md-5">
 										<div class="form-group row">
 											<div class="col-lg-1 col-md-1"></div>
+<<<<<<< HEAD
+											<div class="col-md-5 col-sm-4">
+												<label for="fatherEdu" class="col-form-label">Education :</label>
+											</div>
+											
+											<div class="col-md-6 col-sm-4">
+												<select class="form-control" name="fatherEdu" 
+												id="fEdu">
+												<?php 
+													for ($i=0; $i <=12 ; $i++) { 
+												?>
+													<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+												<?php		
+													}
+												 ?>
+												<option value="University">University</option>
+											</select>
+=======
 											<label for="activityActivity" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Extracuricular activity 
 											& achievement :</label>	
+>>>>>>> 96139782983e8c7edac95e81daf56cccd51f1454
 										</div>
 									</div>
 									<div class="col-lg-7 col-md-7">
@@ -228,11 +304,10 @@ body{
 											<label for="pncChoice" class="col-lg-5 col-md-5 col-xs-12 col-form-label">PNC choice rank :</label>
 											<div class="col-lg-6 col-md-6 col-xs-12">
 												<select class="form-control" name="pncChoice" id="pncChoice">
-													<option value="">Please select one</option>
 													<?php 
 													for ($i=1; $i <=4 ; $i++) { 
 														?>
-														<option value="<?php echo $i; ?>"><?php echo $i ?></option>
+														<option value="1"><?php echo $i ?></option>
 														<?php	
 													}
 													?>
@@ -286,11 +361,10 @@ body{
 											<label for="choiceRank" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Choice rank :</label>
 											<div class="col-lg-5 col-md-5 col-xs-12">
 												<select class="form-control" name="otherChoiceRank" id="choiceRank">
-													<option value="">Please select one</option>
 													<?php 
 													for ($i=1; $i <=4 ; $i++) { 
 														?>
-														<option value="<?php echo $i; ?>"><?php echo $i ?></option>
+														<option value="1"><?php echo $i ?></option>
 														<?php		
 													}
 													?>
@@ -299,7 +373,9 @@ body{
 										</div>
 									</div>	
 								</div>
-							<!-- 	<div class="row">
+
+
+								<div class="row">
 									<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12"></div>
 									<div class="col-lg-4 col-md-4 col-sm-9 col-xs-12">
 										<a href="#" data-toggle="modal" data-target="#myModal">
@@ -309,8 +385,9 @@ body{
 											</h6>
 										</a>
 									</div>
-								</div> -->
+								</div>
 								<!-- pop up -->
+
 								<!-- / close pop up -->
 								<div class="row">
 									<div class="col-lg-5 col-md-5">
@@ -359,6 +436,7 @@ body{
 				</div>
 				<!-- end form collapsed One -->
 				<div class="card">
+					<div>
 						<div id="headingTwo">
 							<h5 class="mb-0">
 								<button class="btn btn-primary collapsed  btn-block text-left formHeading" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="height: 60px;">
@@ -415,7 +493,6 @@ body{
 															<div class="col-lg-6 col-md-6 col-sm-8">
 																<select class="form-control" name="faOccu" 
 																id="fatherOccupation">
-																<option value="">Please select one</option>
 																<option value="Farmer/Laborer">Farmer/Laborer</option>
 																<option value="Teacher">Teacher</option>
 																<option value="Soldier">Soldier</option>
@@ -440,7 +517,6 @@ body{
 														</div>
 														<div class="col-lg-6 col-md-6 col-sm-8">
 															<select name="faHealth" id="fatherHealth" class="form-control">
-																<option value="">Please select one</option>
 																<option value="Healthy">Healthy</option>
 																<option value="issues">Other</option>
 															</select>
@@ -462,12 +538,11 @@ body{
 
 														<div class="col-md-6 col-sm-4">
 															<select class="form-control" name="fatherEdu" 
-															id="fatherEdu">
-															<option value="">Please select one</option>
+															id="fEdu">
 															<?php 
 															for ($i=0; $i <=12 ; $i++) { 
 																?>
-																<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+																<option value="1"><?php echo $i; ?></option>
 																<?php		
 															}
 															?>
@@ -494,6 +569,7 @@ body{
 												</div>
 											</div>
 											<div class="col-lg-7 col-md-7"></div>
+
 										</div>
 										<div class="row">
 											<div class="col-lg-5 col-md-5 col-sm-8">
@@ -505,7 +581,6 @@ body{
 													<div class="col-lg-6 col-md-6 col-sm-8">
 														<select class="form-control" name="motherOcc" 
 														id="motherOccupation">
-														<option value="">Please select one</option>
 														<option value="Farmer/Laborer">Farmer/Laborer</option>
 														<option value="Teacher">Teacher</option>
 														<option value="Soldier">Soldier</option>
@@ -530,7 +605,6 @@ body{
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-8">
 													<select name="mhealthStat" id="MHealth" class="form-control">
-														<option value="">Please select one</option>
 														<option value="Healthy">Healthy</option>
 														<option value="issues">Other</option>
 													</select>
@@ -553,7 +627,6 @@ body{
 												<div class="col-md-6 col-sm-4">
 													<select class="form-control" name="mEdu" 
 													id="mEdu">
-													<option value="">Please select one</option>
 													<?php 
 													for ($i=0; $i <=12 ; $i++) { 
 														?>
@@ -582,11 +655,10 @@ body{
 											</div>
 											<div class="col-md-6">
 												<select class="form-control" name="numSiblings" id="numberSiblings">
-													<option value="">Please select one</option>
 													<?php 
 													for ($i=1; $i <=12 ; $i++) { 
 														?>
-														<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+														<option value="1"><?php echo $i; ?></option>
 														<?php	
 													}
 													?>
@@ -601,11 +673,10 @@ body{
 											</div>
 											<div class="col-md-6">
 												<select class="form-control" name="marriedStat" id="married">
-													<option value="">Please select one</option>
 													<?php 
 													for ($i=0; $i <10 ; $i++) { 
 														?>
-														<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+														<option value="1"><?php echo $i; ?></option>
 														<?php 
 													}
 													?>
@@ -621,11 +692,10 @@ body{
 											<div class="col-md-6">
 												<select class="form-control" name="separated" 
 												id="separated">
-												<option value="">Please select one</option>
 												<?php 
 												for ($i=0; $i <10 ; $i++) { 
 													?>
-													<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+													<option value="1"><?php echo $i; ?></option>
 													<?php 
 												}
 												?>
@@ -645,11 +715,10 @@ body{
 										<div class="col-md-3">
 											<select class="form-control gincomein" name="member" 
 											id="liveInHouse">
-											<option value="">Please select one</option>
 											<?php 
 											for ($i=1; $i <=15 ; $i++) { 		
 												?>
-												<option value="<?php echo $i; ?>"><?php echo $i ?></option>
+												<option value="1"><?php echo $i ?></option>
 												<?php
 											}
 											?>
@@ -664,11 +733,10 @@ body{
 									</div>
 									<div class="col-md-6">
 										<select class="form-control" name="studentRank" id="studentRanks">
-											<option value="">Please select one</option>
 											<?php 
 											for ($i=1; $i <12 ; $i++) { 
 												?>
-												<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+												<option value="1"><?php echo $i; ?></option>
 												<?php 
 											}
 											?>
@@ -1075,8 +1143,8 @@ body{
 						<div class="row">
 							<div class="col-lg-4 col-md-4">
 								<div class="form-group row">
-									<label for="amount" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Initial amount :</label>
-									<div class="col-lg-6 col-md-6 col-xs-12">
+									<label for="amount" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Initial amount :</label>
+									<div class="col-lg-7 col-md-7 col-xs-12">
 										<input id="amount" type="number" class="form-control" name="initAmount" placeholder="$" style="text-align:right;" required="">
 									</div>
 								</div>
@@ -1092,9 +1160,9 @@ body{
 							</div>
 							<div class="col-lg-4 col-md-4">
 								<div class="form-group row">
-									<label for="interest" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Interest rates :
+									<label for="interest" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Interest rates :
 									</label>
-									<div class="col-lg-6 col-md-6	 col-xs-12">
+									<div class="col-lg-7 col-md-7 col-xs-12">
 										<input type="number" id="interest" class="form-control" name="interRates" placeholder="$" style="text-align:right;">
 									</div>
 								</div>
@@ -1184,7 +1252,6 @@ body{
 										<label for="status" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Status :</label>
 										<div class="col-lg-7 col-md-7 col-xs-12">
 											<select name="status" id="status" class="form-control">
-												<option value="">Please select one</option>
 												<option value="Inherited">Inherited</option>
 												<option value="Shared">Shared</option>
 												<option value="Purchased">Purchased</option>
@@ -1197,15 +1264,16 @@ body{
 										<div class="form-group row">
 											<label for="residenceAge" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Age :</label>
 											<div class="col-lg-7 col-md-7 col-xs-12">
-												<select class="form-control" name="age" id="residenceAge">
-													<option value="">Please select one</option>
-													<?php 
-														for($i=1; $i<10; $i++){
-													 ?>
-														<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-													<?php 
-													}
-												 ?>
+												<select class="form-control" name="age" id="age">
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option value="4">4</option>
+													<option value="5">5</option>
+													<option value="6">6</option>
+													<option value="7">7</option>
+													<option value="8">8</option>
+													<option value="9">9</option>
 												</select>
 											</div>
 										</div>
@@ -1215,14 +1283,11 @@ body{
 											<label for="ratingScale" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Rating Scale :</label>
 											<div class="col-lg-7 col-md-7 col-xs-12">
 												<select class="form-control" name="rating" id="rating">
-													<option value="">Please select one</option>
-													<?php 
-														for($i=1; $i<6; $i++){
-													 ?>
-													 	<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-													 	<?php 
-													 	}
-													  ?>
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option value="4">4</option>
+													<option value="5">5</option>
 												</select>
 											</div>
 										</div>
@@ -1573,7 +1638,7 @@ body{
 											<div class="form-group row">
 												<label for="size" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Size :</label>
 												<div class="col-lg-7 col-md-7 col-xs-12">
-													<input type="number" class="form-control assetGlobal" placeholder="m&sup2;" name="farmSize" id="farmSize" style="text-align:right;" required>
+													<input type="number" class="form-control assetGlobal" placeholder="Quantity" name="farmSize" id="farmSize" style="text-align:right;" required>
 												</div>
 											</div>
 										</div>
@@ -1677,7 +1742,6 @@ body{
 												</div>
 												<div class="col-md-4 col-sm-12">
 													<select class="form-control" name="certificate" id="certificate">
-														<option value="">Please select one</option>
 														<option value="Yes">Yes</option>
 														<option value="No">Other</option>
 													</select>
@@ -1691,14 +1755,9 @@ body{
 												</div>
 												<div class="col-md-3 col-sm-12">
 													<select class="form-control" name="specifyLevel" id="specifyLevel">
-														<option value="">Please select one</option>
-														<?php 
-															for($i=1; $i<4; $i++){
-														 ?>
-														 <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-														 <?php 
-														 	}
-														  ?>
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
 													</select>
 												</div>
 												<div class="col-md-1 col-sm-12"></div>
@@ -1723,25 +1782,24 @@ body{
 			</div>
 		</div>
 	</div>
-	
-</div>
-<br>
-<div class="conclustion">
-	<form id="formConclude" action="" method="post">
-		<div class="row">
-			<div class="col-md-12">
-				<h4 style="color: #000;">Investigator's conclusion</h4>
-				<textarea name="investigatorConclude" rows="5" class="form-control" placeholder="Please comment"></textarea>
+	<br>
+	<div class="conclustion">
+		<form id="formConclude" method="POST">
+			<div class="row">
+				<div class="col-md-12">
+					<h4 style="color: #000;">Investigator's conclusion</h4>
+					<textarea name="investigatorConclude" rows="5" class="form-control" placeholder="Please comment"></textarea>
+				</div>
 			</div>
-		</div>
-		<br>
-		<div class="row">
-			<div class="col-lg-10 col-md-10"></div>
-			<div class="col-lg-2 col-md-2">
-				<button type="button" id="saveConclude" class="btn btn-primary float-right">Save information</button>
+			<br>
+			<div class="row">
+				<div class="col-lg-10 col-md-10"></div>
+				<div class="col-lg-2 col-md-2">
+					<button type="submit" id="saveConclude" class="btn btn-primary float-right">Save information</button>
+				</div>
 			</div>
-		</div>
-	</form>	
+		</form>	
+	</div>
 </div>
 <!-- pop up scholaship -->
 <div class="container">
@@ -1749,6 +1807,7 @@ body{
 	<div class="modal" id="myModal">
 		<div class="modal-dialog">
 			<div class="modal-content">
+
 				<!-- Modal Header -->
 				<div class="modal-header">
 					<h4 class="modal-title">Add New Scholarship</h4>
@@ -1772,93 +1831,53 @@ body{
 		</div>
 	</div>
 
-<!-- popup ngo -->
-<div class="container">
-  <!-- The Modal -->
-  <div class="modal" id="theModal">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">List of NGO</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-        	<form method="post" id="addNgo">
-        	<table class="table table-bordered table-hover table-sortable" id="tab_logic">
-        		<thead>
-        			<tr >
-        				<th class="text-center">
-        					Action
-        				</th>
-        				<th class="text-center">
-        					Name
-        				</th>
-        			</tr>
-        		</thead>
-        		<tbody>
-        			<?php foreach ($ngoes as $ngo) { ?> 
-        			<tr id='addr0' data-id="0" class="hidden">
-        				<td data-name="del">
-        					<a href="<?php echo base_url(); ?>c_candidates/deleteNGO/<?php echo $ngo->ngo_id ?>" onclick="return confirm('Are you sure to delete this NGO?');">
-                  	<i class="text-danger mdi mdi-delete" title="delete this NGO" style="font-size: 25px;"></i>
-                	</a>&nbsp;&nbsp;
-                	<a data-toggle="modal" data-target="#editModal" href="<?php echo base_url(); ?>c_candidates/editNGO/<?php echo $ngo->ngo_id ?>">
-                  	<i class="text-success mdi mdi-pencil" title="edit this NGO" style="font-size: 25px;"></i>
-                	</a>
-        				</td>
-        				<td data-name="name">
-        					<input type="text" value="<?php echo $ngo->ngo_name; ?>" name='name0' class="form-control"/>
-        				</td>
-        			</tr>
-			 			<?php } ?>
-        		</tbody>
-        	</table>
-        	<a id="add_row" class="btn btn-primary pull-right text-white"><i class="mdi mdi-plus-circle"></i>&nbsp;Add NGO</a>
-          <button type="submit" class="btn btn-primary" data-dismiss="modal" id="saveNGO">Save list</button>
-        </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+	<div class="container">
+		<!-- The Modal -->
+		<div class="modal" id="theModal">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
 
-<!--/ ngo modal -->
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h4 class="modal-title">Edit NGO</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
 
-<!-- edit ngo -->
-<div class="container">
-  <!-- The Modal -->
-  <div class="modal" id="editModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Edit NGO</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-        	<form method="post">
-        		<div class="row">
-        			<div class="col-md-6">
-        				<input type="text" value="<?php echo $ngo->ngo_name; ?>" name='name0' class="form-control"/>
-        			</div>
-        			<div class="col-md-6">
-        				<button type="submit" class="btn btn-primary pull-right text-white" name="edit">Edit</button>
-        			</div>
-        		</div>
-        	</form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
+					<!-- Modal body -->
+					<div class="modal-body">
+						<table class="table table-bordered table-hover table-sortable" id="tab_logic">
+							<thead>
+								<tr >
+									<th class="text-center">
+										Action
+									</th>
+									<th class="text-center">
+										Name
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr id='addr0' data-id="0" class="hidden">
+									<td data-name="del">
+										<button nam"del0" class='btn btn-danger mdi mdi-close-circle row-remove'></button>
+									</td>
+									<td data-name="name">
+										<input type="text" name='name0' class="form-control"/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<a id="add_row" class="btn btn-primary pull-right text-white"><i class="mdi mdi-plus-circle"></i>&nbsp;Add NGO</a>
+					</div>
+					<!-- Modal footer -->
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary" data-dismiss="modal">Save list</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--/ ngo modal -->
 </body>
 <link href="<?php echo base_url();?>assets/DataTable/DataTables-1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
@@ -1934,7 +1953,6 @@ body{
 		});
 	});
 	$(document).ready(function(){
-		//put global variable max-id here of candidate
 		$('#saveNewCan').click(function(){
 			$.ajax({
 				type: 'POST',
@@ -1948,17 +1966,17 @@ body{
 				}
 			});
 		});
-		// ajax for save family profile
+		// declare global variable here
 		$('#SaveFamilyPro').click(function(){
 			$.ajax({
 				type: 'POST',
 				url: '<?php echo base_url() ?>c_candidates/addFamilyProfile',//put variable can id here
 				data: $('form#fProForm').serialize(),
 				success:function(msg) {
-					alert('Family profile was added');
+					alert('added');
 				},
 				error:function(){
-					alert('Cannot add family profile');
+					alert('error');
 				}
 			});
 		});
@@ -1990,7 +2008,9 @@ body{
 					alert('Error add expense source');
 				}
 			});
-		});
+// End function add 
+// function add family expense
+});
 
 		//ajax for load and debt
 		$('#saveLoan').click(function(){
@@ -2037,21 +2057,6 @@ body{
 				}
 			});
 		});
-		// function add conclue
-		$('#saveConclude').click(function(){
-			//put candidate id here
-			$.ajax({
-				type: 'POST',
-				url: '<?php echo base_url() ?>c_candidates/addConclude',
-				data: $('form#formConclude').serialize(),
-				success:function(msg) {
-					alert("Investigator's conclusion was added");
-				},
-				error:function(){
-					alert("Error Investigator's conclusion");
-				}
-			});
-		});
 	});
 // End function add 
 // function to get data
@@ -2076,7 +2081,7 @@ body{
 			$farmSize = $('#farmSize').val();
 
 			if ($farmSize > 10000) {
-				sumTotalCoefx5=(Number(refrigerator)+Number(conditioner)+Number(lcdTV)+Number(computer1)+Number(furnished)+Number(smartphone)+Number(camera1)+Number(sofa1)+Number(motobike)+Number(farming)+Number(car)+Number(cow)+Number(buffaloe)+Number(pig)+1)*5;
+				sumTotalCoefx5=Number(refrigerator)+Number(conditioner)+Number(lcdTV)+Number(computer1)+Number(furnished)+Number(smartphone)+Number(camera1)+Number(sofa1)+Number(motobike)+Number(farming)+Number(car)+Number(cow)+Number(buffaloe)+Number(pig)+5;
 			}
 			else{
 				sumTotalCoefx5=Number(refrigerator)+Number(conditioner)+Number(lcdTV)+Number(computer1)+Number(furnished)+Number(smartphone)+Number(camera1)+Number(sofa1)+Number(motobike)+Number(farming)+Number(car)+Number(cow)+Number(buffaloe)+Number(pig)+0;
@@ -2102,7 +2107,7 @@ body{
 			var fruit = $('#fruit').val();
 			var electrical = $('#electrical').val();
 			if (0 < $farmSize < 10000 ) {
-				sumTotalCoefx3=(Number(radio)+Number(ricecooker)+Number(colorTV)+Number(computer2)+Number(dvdPlayer)+Number(phone)+Number(camera2)+Number(sofa2)+Number(gascooker)+Number(fruit)+Number(electrical)+1)*3;
+				sumTotalCoefx3=Number(radio)+Number(ricecooker)+Number(colorTV)+Number(computer2)+Number(dvdPlayer)+Number(phone)+Number(camera2)+Number(sofa2)+Number(gascooker)+Number(fruit)+Number(electrical)+3;
 			}
 			else{
 				sumTotalCoefx3=Number(radio)+Number(ricecooker)+Number(colorTV)+Number(computer2)+Number(dvdPlayer)+Number(phone)+Number(camera2)+Number(sofa2)+Number(gascooker)+Number(fruit)+Number(electrical)+0;
@@ -2160,6 +2165,10 @@ body{
 		        // add the new row
 		        $(tr).appendTo($('#tab_logic'));
 		        
+		        $(tr).find("td button.row-remove").on("click", function() {
+		        	$(this).closest("tr").remove();
+		        });
+		    });
 		    // Sortable Code
 		    var fixHelperModified = function(e, tr) {
 		    	var $originals = tr.children();
@@ -2177,44 +2186,7 @@ body{
 		    $(".table-sortable thead").disableSelection();
 		    $("#add_row").trigger("click");
 	// fuction add row //
-	
-	// function save NGO
-				$('#saveNGO').click(function(){
-					$('#addNgo').attr('action', '<?php echo base_url() ?>c_candidates/addNGO/');
-				});
-				// start to save	
-				$('#saveNGO').click(function(){
-					var url = $('#addNgo').attr('action');
-					var data = $('#addNgo').serialize();
-					//validate form
-						$.ajax({
-							type: 'ajax',
-							method: 'post',
-							url: url,
-							data: data,
-							async: false,
-							dataType: 'json',
-							success: function(response){
-								if(response.success){
-									$('#ngo')[0].reset();
-									if(response.type=='add'){
-										var type = 'added'
-									}else if(response.type=='update'){
-										var type ="updated"
-									}
-									$('.alert-success').html('Data '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
-								}else{
-									alert('Error');
-								}
-							},
-							error: function(){
-								alert('Could not add data');
-							}
-						});
-					
-				});
-
-	});
+	// });
 </script>
 <?php } ?>
 <!-- end form collapsed -->
