@@ -128,7 +128,7 @@ Class C_candidates extends CI_Controller{
 		echo json_encode($resultSelectedCount);
 	}
 	// function call count provinces
-	public function countProvinces()
+	 function countProvinces()
 	{
 		$resultProvincesCount = $this->m_can->countProvinces();
 		echo json_encode($resultProvincesCount);
@@ -239,30 +239,36 @@ Class C_candidates extends CI_Controller{
 // 	}
   public function addFamilyProfile()
   {
-    $fAge = $this->input->post('faAge');
-    $fOccupation = $this->input->post('faOccu');
-    $fSpecify = $this->input->post('faSpec');
-    $fHealth = $this->input->post('faHealth');
-    $fHealthSpec = $this->input->post('faHealthSpec');
-    $fEdu = $this->input->post('faEdu');
+    $fatherAge = $this->input->post('fatherAge');
+    $fatherOccupation = $this->input->post('fatherOccupation');
+    $fatherSpecify = $this->input->post('fatherSpecify');
+    $fatherHealth = $this->input->post('fatherHealth');
+    $fatherHealthSpecify = $this->input->post('fatherHealthSpecify');
+    $fatherEdu = $this->input->post('fatherEdu');
 
-    $mAge = $this->input->post('moAge');
-    $mOccu = $this->input->post('motherOcc');
-    $mSpecify = $this->input->post('mSpecify');
-    $mhealthStatus = $this->input->post('mhealthStat');
-    $mHealthSpec = $this->input->post('mHealthSpec');
-    $mEdu = $this->input->post('mEdu');
+    $motherAge = $this->input->post('motherAge');
+    $motherOccupation = $this->input->post('motherOccupation');
+    $motherSpecify = $this->input->post('motherSpecify');
+    $motherhealthStatus = $this->input->post('motherhealthStatus');
+    $motherHealthSpecify = $this->input->post('motherHealthSpecify');
+    $motherEducation = $this->input->post('motherEducation');
 
     $numSiblings = $this->input->post('numSiblings');
-    $marriedStatus = $this->input->post('marriedStat');
+    $marriedStatus = $this->input->post('marriedStatus');
     $separated = $this->input->post('separated');
-    $numFamily = $this->input->post('member');
+    $numberFamilyLiving = $this->input->post('member');
     $studentRank = $this->input->post('studentRank');
+    $resultFamily['familyProfile'] = $this->m_can->addFamilyProfile($fatherAge,$fatherOccupation,$fatherSpecify,$fatherHealth,$fatherHealthSpecify,$fatherEdu,$motherAge,$motherOccupation,$motherSpecify,$motherhealthStatus,$motherHealthSpecify,$motherEducation,$numSiblings,$marriedStatus,$separated,$numberFamilyLiving,$studentRank);
+   
+    $msg['success'] = false;
+    $msg['type'] = 'add';
 
-    $result['familyProfile'] = $this->m_can->addFamilyProfile($fAge,$fOccupation,$fSpecify,$fHealth,$fHealthSpec,$fEdu,$mAge,
-      $mOccu,$mSpecify,$mhealthStatus,$mHealthSpec,$mEdu,$numSiblings,$marriedStatus,$separated,$numFamily,$studentRank);
-    echo json_encode($msg);   
-  }
+    if($resultFamily){
+      $msg['success'] = true;
+    }
+    echo json_encode($msg); 
+}
+
 // delete selected candidate
 	public function deleteSelectedCandidate(){
 		$result = $this->m_can->deleteCandidate();
@@ -574,6 +580,22 @@ Class C_candidates extends CI_Controller{
     // end function add family expense
 
     // function add family residence status
+<<<<<<< HEAD
+    public function addResidence()
+    {
+    	$status = $this->input->post('status');
+    	$age = $this->input->post('age');
+    	$rating = $this->input->post('rating');
+
+    	$result['formExpense'] = $this->m_can->addResidence($status,$age,$rating);
+
+    	$msg['success'] = false;
+    	$msg['type'] = 'add';
+    	if($result){
+
+    	  $msg['success'] = true;
+    	// redirect('C_candidates/newCandidate');
+=======
 
 	public function addResidence()
 	{
@@ -631,11 +653,15 @@ Class C_candidates extends CI_Controller{
 
     	if($result){
     	  $msg['success'] = true;
+>>>>>>> 96139782983e8c7edac95e81daf56cccd51f1454
     	}
     	echo json_encode($msg);
     }
-    // end function add home asset
+    // end function add family residence status
 
+<<<<<<< HEAD
+ }
+=======
     // start function add investigator conclusion
     public function addConclude()
     {
@@ -645,3 +671,4 @@ Class C_candidates extends CI_Controller{
     }
     // end function add conclusion
 }
+>>>>>>> 96139782983e8c7edac95e81daf56cccd51f1454
