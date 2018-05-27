@@ -1726,8 +1726,30 @@ body{
 	<div class="modal" id="myModal">
 		<div class="modal-dialog">
 			<div class="modal-content">
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">Add New Scholarship</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
 
-<<<<<<< HEAD
+				<!-- Modal body -->
+				<div class="modal-body">
+					<input type="text" class="form-control" placeholder="new scholarship here">
+				</div>
+
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary" data-dismiss="modal">
+						<i class="mdi mdi-plus-circle"></i>&nbsp;Add</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- popup ngo -->
 <div class="container">
   <!-- The Modal -->
   <div class="modal" id="theModal">
@@ -1777,79 +1799,9 @@ body{
     </div>
   </div>
 </div>
+
 <!--/ ngo modal -->
-=======
-				<!-- Modal Header -->
-				<div class="modal-header">
-					<h4 class="modal-title">Add New Scholarship</h4>
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-				</div>
 
-				<!-- Modal body -->
-				<div class="modal-body">
-					<input type="text" class="form-control" placeholder="new scholarship here">
-				</div>
-
-				<!-- Modal footer -->
-				<div class="modal-footer">
-					<button type="submit" class="btn btn-primary" data-dismiss="modal">
-						<i class="mdi mdi-plus-circle"></i>&nbsp;Add</button>
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="container">
-		<!-- The Modal -->
-		<div class="modal" id="theModal">
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
-
-					<!-- Modal Header -->
-					<div class="modal-header">
-						<h4 class="modal-title">Edit NGO</h4>
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-					</div>
-
-					<!-- Modal body -->
-					<div class="modal-body">
-						<table class="table table-bordered table-hover table-sortable" id="tab_logic">
-							<thead>
-								<tr >
-									<th class="text-center">
-										Action
-									</th>
-									<th class="text-center">
-										Name
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr id='addr0' data-id="0" class="hidden">
-									<td data-name="del">
-										<button nam"del0" class='btn btn-danger mdi mdi-close-circle row-remove'></button>
-									</td>
-									<td data-name="name">
-										<input type="text" name='name0' class="form-control"/>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<a id="add_row" class="btn btn-primary pull-right text-white"><i class="mdi mdi-plus-circle"></i>&nbsp;Add NGO</a>
-					</div>
-					<!-- Modal footer -->
-					<div class="modal-footer">
-						<button type="submit" class="btn btn-primary" data-dismiss="modal">Save list</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--/ ngo modal -->
->>>>>>> 022c7a5a4362ad5db57edf706886545e9936b9a1
 </body>
 <link href="<?php echo base_url();?>assets/DataTable/DataTables-1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
