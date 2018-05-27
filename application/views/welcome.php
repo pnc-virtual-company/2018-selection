@@ -109,7 +109,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-4">
                     <h1 class="text-center">Distribution</h1>
                     <br><br><br><br>
-                    <canvas id="pie-chart" width="900" height="900"></canvas>
+                    <canvas id="pie-chart" width="800" height="800"></canvas>
                     <div id="chartjs-tooltip">
                        <table></table>
                     </div>
@@ -117,11 +117,11 @@
                     <h1 class="text-center">Selected candidate</h1>
                     <div class="row">
                         <div class="col-md-6">
-                            <canvas id="pie-chart1" width="900" height="900">  
+                            <canvas id="pie-chart1" width="800" height="900">  
                             </canvas>
                         </div>
                         <div class="col-md-6">
-                            <canvas id="pie-chart2" width="900" height="900">
+                            <canvas id="pie-chart2" width="800" height="900">
                             </canvas>
                         </div>
                     </div>
@@ -330,7 +330,8 @@
         $("#formResetPwd").prop("action", link);
         $('#frmResetPwd').modal('show');
     });
-    //pie chart of grade all candidates
+    
+//pie chart of grade all candidates
     Chart.defaults.global.tooltips.custom = function(tooltip) {
     // Tooltip Element
     var tooltipEl = document.getElementById('chartjs-tooltip');
@@ -406,7 +407,7 @@
             datasets: 
             [{
                 label: "Grade (distribution)",
-                backgroundColor: ["#3cba9f","#1565c0","#8e5ea2","#3e95cd","#ffc107","#c45850"],
+                backgroundColor: ["#00e6ac","#6666ff","#66b3ff","#ffff80","#c2c2a3","#ff3333"],
                 data: 
                 [
                     <?php foreach ($gradeAPlus as $gradeAPlus):?>
@@ -430,21 +431,20 @@
                 ]
             }],       
         },
-
         options: 
         {   
             title: 
             {
                 display: true,
-                text: 'Grade distribution'  
+                text: 'Grade distribution',
+                fontSize: 20
             },
-            legend: 
-            {
-            display: false  /// disabled label on pie chart
+            legend: {
+            display: false  /// disable labels
             },
             tooltips: 
             {
-                enabled: false   /// enabled tooltips don't show 
+                enabled: false  /// disabled tooltips
             }
         },
     });
@@ -475,14 +475,17 @@
             datasets: 
             [{
                 label: "Gender (distribution)",
-                backgroundColor: ["#3cba9f","#ffc107"],
+                backgroundColor: ["#00cccc","#ff0080"],
                 data:
                 [   
                     <?php 
-                        echo $male;     //// show the number male into pie chart
+                        $percentagMale = $male * 100 / ($male + $female); 
+                        echo round($percentagMale, 2);
+                             //// show the number male into pie chart
                     ?>,
                     <?php
-                        echo $female;   /// show the number of female into pie chart
+                        $percentagFemale = $female * 100 / ($male + $female); 
+                        echo round($percentagFemale, 2); /// show the number of female into pie chart
                     ?>
                 ]
             }]
@@ -492,12 +495,18 @@
             title: 
             {
                 display: true,
-                text: 'Gender distribution'
+                text: 'Gender distribution',
+                fontSize: 20
             },
-            legend: 
-            {
-                display: false
-            }
+            tooltips: {
+                callbacks: 
+                {
+                    label: function(tooltipItem, chartData) 
+                    {
+                        return chartData.labels[tooltipItem.index] + ': ' + chartData.datasets[0].data[tooltipItem.index] + '%';
+                    }
+                }
+            },
         }
     });
     // pie chart2 of ngo provenance selected candidates
@@ -507,7 +516,7 @@
 
         <?php foreach ($ngo as $ngo):?>
         <?php 
-            $formNgo = $ngo->FromNGO;
+            $fromNgo = $ngo->FromNGO;
         ?>  
         <?php endforeach ?>
         /// count the number of selected candidate not from NGO
@@ -523,14 +532,17 @@
             datasets: 
             [{
                 label: "NGO (provenance)",
-                backgroundColor: ["#3e95cd","#c45850"],
+                backgroundColor: ["#66ff66","#cc0000"],
                 data: 
                 [
                     <?php
-                        echo $formNgo;  /// show number of selected candidates from NGO
+                        $percentagFromNGO = $fromNgo * 100 / ($fromNgo + $notFromNgo); 
+                        echo round($percentagFromNGO, 2); 
+                          /// show percentages of selected candidates from NGO
                     ?>,
                     <?php
-                        echo $notFromNgo;   /// show number of selected candidates not from NGO
+                        $percentagNotFromNGO = $notFromNgo * 100 / ($fromNgo + $notFromNgo); 
+                        echo round($percentagNotFromNGO, 2);  /// show number of selected candidates not from NGO
                     ?>
                 ]
             }]
@@ -540,11 +552,17 @@
             title: 
             {
                 display: true,
-                text: 'NGO provenance'
+                text: 'NGO provenance',
+                fontSize: 20
             },
-            legend: 
-            {
-            display: false
+            tooltips: {
+                callbacks: 
+                {
+                    label: function(tooltipItem, chartData) 
+                    {
+                        return chartData.labels[tooltipItem.index] + ': ' + chartData.datasets[0].data[tooltipItem.index] + '%';
+                    }
+                }
             }
         }
     });
