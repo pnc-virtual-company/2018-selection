@@ -2000,7 +2000,7 @@ body{
 			$farmSize = $('#farmSize').val();
 
 			if ($farmSize > 10000) {
-				sumTotalCoefx5=Number(refrigerator)+Number(conditioner)+Number(lcdTV)+Number(computer1)+Number(furnished)+Number(smartphone)+Number(camera1)+Number(sofa1)+Number(motobike)+Number(farming)+Number(car)+Number(cow)+Number(buffaloe)+Number(pig)+5;
+				sumTotalCoefx5=(Number(refrigerator)+Number(conditioner)+Number(lcdTV)+Number(computer1)+Number(furnished)+Number(smartphone)+Number(camera1)+Number(sofa1)+Number(motobike)+Number(farming)+Number(car)+Number(cow)+Number(buffaloe)+Number(pig)+1)*5;
 			}
 			else{
 				sumTotalCoefx5=Number(refrigerator)+Number(conditioner)+Number(lcdTV)+Number(computer1)+Number(furnished)+Number(smartphone)+Number(camera1)+Number(sofa1)+Number(motobike)+Number(farming)+Number(car)+Number(cow)+Number(buffaloe)+Number(pig)+0;
@@ -2026,7 +2026,7 @@ body{
 			var fruit = $('#fruit').val();
 			var electrical = $('#electrical').val();
 			if (0 < $farmSize < 10000 ) {
-				sumTotalCoefx3=Number(radio)+Number(ricecooker)+Number(colorTV)+Number(computer2)+Number(dvdPlayer)+Number(phone)+Number(camera2)+Number(sofa2)+Number(gascooker)+Number(fruit)+Number(electrical)+3;
+				sumTotalCoefx3=(Number(radio)+Number(ricecooker)+Number(colorTV)+Number(computer2)+Number(dvdPlayer)+Number(phone)+Number(camera2)+Number(sofa2)+Number(gascooker)+Number(fruit)+Number(electrical)+1)*3;
 			}
 			else{
 				sumTotalCoefx3=Number(radio)+Number(ricecooker)+Number(colorTV)+Number(computer2)+Number(dvdPlayer)+Number(phone)+Number(camera2)+Number(sofa2)+Number(gascooker)+Number(fruit)+Number(electrical)+0;
