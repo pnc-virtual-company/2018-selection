@@ -9,20 +9,25 @@ body{
 	<br>
 	<!-- form header -->
 	<div class="container">
-		<div class="row">
 
-			<div class="col-lg-5 col-md-5 col-sm-3 col-xs-3"></div>
+		<div class="row">
+			<div class="col-lg-5 col-md-5 col-sm-3 col-xs-3">
+			</div>
 			<div class="col-lg-7 col-md-7 col-sm-9 col-xs-9">
-				<img id="blah" src="http://placehold.it/180" alt="your image" class="img-responsive" style="width: 25%;">
+				<img id="blah" src="http://placehold.it/180" alt="Candidate image" name="imagetitle" class="img-responsive" style="width: 25%;">
 				<br>
 				<br>
 				<div class="row">
-					<input type='file' onchange="readURL(this);" />
+					<form enctype="multipart/form-data" method="post" class="uImageCan">
+						<?php foreach ($value as $valueImg) { ?>
+							<input type='file' name="file" value="<?php echo base_url('assets/images/candidates/'.$valueImg->can_images); ?>" onchange="readURL(this);" id="inputImg"/>
+						<?php } ?>
+						<button class="btn btn-primary" type="button" id="btnUpImage"><i class="mdi mdi-upload"></i>&nbsp;Upload</button>
+					</form>
 				</div>
 			</div> 
 		</div>
 		<br>
-
 	</div>
 	<!-- end form header -->
 	<br>
@@ -363,7 +368,7 @@ body{
 								<div class="row">
 									<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12"></div>
 									<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-										<button type="button" class="btn btn-primary float-right" id="UpCanInfo">Update information</button><br><br>	
+										<button type="button" class="btn btn-primary float-right" id="UpCanInfo" data-toggle="modal" data-target="#alertCan">Update information</button><br><br>	
 									</div>
 								</div>
 							</form>		<!-- for student information is work perfectly with update -->
@@ -1930,17 +1935,67 @@ body{
 			</div>
 		</div>
 	</div>
+<!-- modal for alert when user click on update info on candidate -->
+	<div class="modal" id="alertCan">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">Candidate was updated</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div><!-- end of candidate -->
+		<div class="modal" id="alertfamPro">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">Candidate was updated</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- end of modal alert update candidate -->
 </body>
 
 <script>
-	$(document).ready(function(){
-		$( ".formHeading" ).click(function() {
-			$(".down",this).toggle();
-			$(".up",this).toggle();
-		});
-		$( ".subHeading" ).click(function() {
-			$(".subDown",this).toggle();
-			$(".subUp",this).toggle();
+
+	function btnUpload(){
+		var getImg = $('#inputImg').val();
+		if (getImg == "") {
+			$('#btnUpImage').addClass("disabled");
+		}else{
+			$('#btnUpImage').addClass("enabled");
+		}
+	}
+		function readURL(input) {			//function for view image after insert
+			if (input.files && input.files[0]) {
+				btnUpload();
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					$('#blah').attr('src', e.target.result);
+				}
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+		$(document).ready(function(){
+			//this action for call model when user update candidate
+			$('#UpCanInfo').click(function(){
+			  	$('.modal-body').load('/render/62805',function(result){
+				    $('#alertCan').modal({show:true});
+				});
+			});	//end of action alert update candidate
+
+
+			$( ".formHeading" ).click(function() {
+				$(".down",this).toggle();
+				$(".up",this).toggle();
+			});
+			$( ".subHeading" ).click(function() {
+				$(".subDown",this).toggle();
+				$(".subUp",this).toggle();
 		}); // end form collapsed
   // function calculat family income 
   $('.form-group').on('input','.fincome',function(){
@@ -1992,15 +2047,35 @@ body{
   		type: 'POST',
   		url: '<?php echo base_url() ?>C_candidates/uCandidateInfo/'+id,
   		data: $("form.gInfo").serialize(),
-  		success:function(msg){
-  			alert("Candidate information was updated.");
-  		},
+  		// success:function(msg){
+  		// 	// alert("Candidate information was updated.");
+  		// },
   		error:function(){
   			alert('Error update candidate information.');
   		}
   	}); 	
   });
   // end of function update ----
+  $('#btnUpImage').click(function(){
+  	var id = <?php echo  $this->uri->segment(3); ?>;
+  	$.ajax({
+  		type: 'POST',
+  		url: '<?php echo base_url() ?>C_candidates/uImage/'+id,
+  		data: $('form.uImageCan').serialize(),
+  		contentType: false,
+  		cache: false,
+  		processData:false,
+  		async:false,
+  		success:function(msg){
+  			alert('Image was uploaded.');
+  		},
+  		error:function(){
+  			alert('Error upload image.');
+  		}
+  	});
+  });
+
 });
+
 </script>
 <?php } ?>

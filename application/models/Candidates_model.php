@@ -13,9 +13,8 @@ if (!defined('BASEPATH')) { exit('No direct script access allowed'); }
  * This model contains the business logic and manages the persistence of users and roles
  * It is also used by the session controller for the authentication.
  */
-class Candidates_model extends CI_Model {
-
-    /**
+class Candidates_model extends CI_Model{
+       /**
      * Default constructor
      */
     public function __construct() {
@@ -26,16 +25,16 @@ class Candidates_model extends CI_Model {
     public function showAllCandidates()
     {
         $id = $this->uri->segment(3);
-    	$this->db->select("skeleton_tbl_candidates.can_id, concat(skeleton_tbl_candidates.can_firstname,' ',skeleton_tbl_candidates.can_lastname) AS can_name,can_gender,can_global_grade,skeleton_tbl_provinces.pro_name AS province");
-    	$this->db->from('skeleton_tbl_candidates');   
-    	$this->db->join('skeleton_tbl_provinces', 'skeleton_tbl_provinces.pro_id = skeleton_tbl_candidates.pro_id','INNER');
-    	$query = $this->db->get(); 
-    	if($query->num_rows() > 0){
-    		return $query->result();
-    		
-    	}else{
-    		return false;
-    	}
+        $this->db->select("skeleton_tbl_candidates.can_id, concat(skeleton_tbl_candidates.can_firstname,' ',skeleton_tbl_candidates.can_lastname) AS can_name,can_gender,can_global_grade,skeleton_tbl_provinces.pro_name AS province");
+        $this->db->from('skeleton_tbl_candidates');   
+        $this->db->join('skeleton_tbl_provinces', 'skeleton_tbl_provinces.pro_id = skeleton_tbl_candidates.pro_id','INNER');
+        $query = $this->db->get(); 
+        if($query->num_rows() > 0){
+            return $query->result();
+            
+        }else{
+            return false;
+        }
     }
 
     // function to delete candidates
@@ -263,6 +262,7 @@ class Candidates_model extends CI_Model {
             // and the query code is stay between of those function
             $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
             $insert = $this->db->insert('skeleton_tbl_candidates',$data);
+            
             if ($this->db->affected_rows() > 0) {
                 $this->db->select("MAX(can_id)");
                 $this->db->from("skeleton_tbl_candidates");
@@ -294,9 +294,9 @@ class Candidates_model extends CI_Model {
 
         // Dakhen code model
                 // get the max id of the candidate
-        public function getLastId()
+       public function getLastId()
         {
-            $this->db->select("MAX(sc.can_id)");
+            $this->db->select("MAX(can_id) AS lastId");
             $this->db->from("skeleton_tbl_candidates");
             $query = $this->db->get(); 
             if($query->num_rows() > 0)
@@ -305,7 +305,6 @@ class Candidates_model extends CI_Model {
             }else{
                 return false;
             }
-        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
         }
     // // function to get the candidate
     // public function getCandidate()
@@ -426,6 +425,12 @@ class Candidates_model extends CI_Model {
     //code for update form input -> investigation conclusion
     public function upInvesCon($id,$investi) {
         $data = array('can_investigator_conclusion' => $investi);
+        $this->db->where('can_id',$id);
+        $this->db->update('skeleton_tbl_candidates',$data);
+    }
+    //upload update image candidate
+    public function uImageCan($id,$data1){
+        $data = array('can_images' => $data1);
         $this->db->where('can_id',$id);
         $this->db->update('skeleton_tbl_candidates',$data);
     }
@@ -620,7 +625,8 @@ class Candidates_model extends CI_Model {
     }  
 
     // function to add data to family profile
-    public function addFamilyProfile($fAge,$fOccupation,$fSpecify,$fHealth,$fHealthSpec,$fEdu,$mAge,$mOccu,$mSpecify,$mhealthStatus,$mHealthSpec,$mEdu,$numSiblings,$marriedStatus,$separated,$numFamily,$studentRank)
+    public function addFamilyProfile($fAge,$fOccupation,$fSpecify,$fHealth,$fHealthSpec,$fEdu,$mAge,
+      $mOccu,$mSpecify,$mhealthStatus,$mHealthSpec,$mEdu,$numSiblings,$marriedStatus,$separated,$numFamily,$studentRank,$lastCanId)
     {
         $data = array(
             'f_age' => $fAge,
@@ -639,7 +645,8 @@ class Candidates_model extends CI_Model {
             'f_occupation_comment' => $fSpecify,
             'm_occupation_comment' => $mSpecify,
             'f_health_comment' => $fHealthSpec,
-            'm_health_comment' => $mHealthSpec
+            'm_health_comment' => $mHealthSpec,
+            'tbl_candidates_can_id' => $lastCanId
         );
 
         $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
@@ -654,7 +661,7 @@ class Candidates_model extends CI_Model {
     // end function that add on family profile
 
     // model for add family income resource
-    public function addFamilyIncome($paMonthIncome,$paDailyIncome,$paSesIncome,$paYearIncome,$paTotalIncome,$chMonthIncome,$chDailyIncome,$chSeasonIncome,$chYearIncome,$chTotalIncome,$totalIncome,$totalIncomeId)
+    public function addFamilyIncome($paMonthIncome,$paDailyIncome,$paSesIncome,$paYearIncome,$paTotalIncome,$chMonthIncome,$chDailyIncome,$chSeasonIncome,$chYearIncome,$chTotalIncome,$totalIncome,$totalIncomeId,$lastCanId)
     {
         $data = array(
             'f_monthly'=>$paMonthIncome,
@@ -668,7 +675,8 @@ class Candidates_model extends CI_Model {
             'c_yearly'=>$chYearIncome,
             'c_total'=>$chTotalIncome,
             'g_monthly'=>$totalIncome,
-            'g_monthly_individual'=>$totalIncomeId
+            'g_monthly_individual'=>$totalIncomeId,
+            'tbl_candidates_can_id'=>$lastCanId
         );
 
         $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
@@ -689,7 +697,7 @@ class Candidates_model extends CI_Model {
     }
     // end family income resource
     // function add family loan and debts
-    public function addLoan($amount,$institution,$interest,$reason,$monthly,$trimester,$semester,$capital)
+    public function addLoan($amount,$institution,$interest,$reason,$monthly,$trimester,$semester,$capital,$lastCanId)
     {
         $data = array(
             'ld_initial_amount' => $amount,
@@ -699,7 +707,8 @@ class Candidates_model extends CI_Model {
             'ld_monthly' => $monthly,
             'ld_trimester' => $trimester,
             'ld_semester' => $semester,
-            'ld_capital' => $capital
+            'ld_capital' => $capital,
+            'tbl_candidates_can_id' => $lastCanId
         );
                 $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
         $insert = $this->db->insert('skeleton_tbl_loan_debt',$data);
@@ -763,9 +772,9 @@ class Candidates_model extends CI_Model {
         $this->db->where('skeleton_tbl_home_asset.tbl_candidates_can_id',$id);
         $this->db->update('skeleton_tbl_home_asset', $data );
     }
-}
+
     // function add family expense
-    function addExpense($rice,$food,$firewood,$loan,$study,$medical,$electric,$agriculture,$wedding,$other,$totalExpense)
+    function addExpense($rice,$food,$firewood,$loan,$study,$medical,$electric,$agriculture,$wedding,$other,$totalExpense,$lastCanId)
     {
         $data = array(
             'ex_rice' => $rice,
@@ -778,7 +787,8 @@ class Candidates_model extends CI_Model {
             'ex_agriculture' => $agriculture,
             'ex_weding' => $wedding,
             'ex_other_utilities' => $other,
-            'ex_total' => $totalExpense
+            'ex_total' => $totalExpense,
+            'tbl_candidates_can_id' => $lastCanId
         );
     
         $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
@@ -791,12 +801,13 @@ class Candidates_model extends CI_Model {
         $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
     }
 
-    function addResidence($status,$age,$rating)
+    function addResidence($status,$age,$rating,$lastCanId)
     {
         $data = array(
             're_status' => $status, 
             're_age' => $age, 
-            're_rating_scale' => $rating
+            're_rating_scale' => $rating,
+            'tbl_candidates_can_id' => $lastCanId
         );
         
         $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
@@ -811,7 +822,7 @@ class Candidates_model extends CI_Model {
     }
     // end function add family expense
     // function add family home asset
-     function addAssets($refrigerator,$radio,$airCon,$riceCooker,$lcdTV,$colorTV,$chComputer,$exComputer,$fCabinet,$dvd,$smartPhone,$phone,$cheapCam,$expenCam,$cheapSofa,$exSofa,$gasCooker,$fruitBlender,$elecCooker,$motoBike,$farmMachine,$car,$vihicleComment,$cow,$buffalo,$pig,$animalCmt,$farmSize,$farmCmt,$sumQuantity5,$sumQuantity3,$globalAsset,$certificate,$specifyLevel)
+    function addAssets($refrigerator,$radio,$airCon,$riceCooker,$lcdTV,$colorTV,$chComputer,$exComputer,$fCabinet,$dvd,$smartPhone,$phone,$cheapCam,$expenCam,$cheapSofa,$exSofa,$gasCooker,$fruitBlender,$elecCooker,$motoBike,$farmMachine,$car,$vihicleComment,$cow,$buffalo,$pig,$animalCmt,$farmSize,$farmCmt,$sumQuantity5,$sumQuantity3,$globalAsset,$certificate,$specifyLevel,$lastCanId)
     {
         $data = array(
             'h_refrigerator' => $refrigerator,
@@ -847,6 +858,7 @@ class Candidates_model extends CI_Model {
             'h_total_x3' => $sumQuantity3,
             'h_glbal_total' => $globalAsset,
             'h_poverty_certificate' => $specifyLevel,
+            'tbl_candidates_can_id' => $lastCanId
         );
        $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
        $insert = $this->db->insert('skeleton_tbl_home_asset',$data);
@@ -857,6 +869,20 @@ class Candidates_model extends CI_Model {
        }
        $this->db->query("SET FOREIGN_KEY_CHECKS = 1"); 
     }
-    // end function add home asset
- 
-
+    // end function add home asset   
+    // function add conclude
+    public function addConclude($investigatorConclude,$lastCanId)
+    {
+        $data = array(
+            'can_investigator_conclusion'=> $investigatorConclude
+        );
+        $this->db->where('can_id',$lastCanId);
+        $this->db->update('skeleton_tbl_candidates', $data);
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // end function add conclude
+}
