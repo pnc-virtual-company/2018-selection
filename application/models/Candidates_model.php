@@ -490,6 +490,7 @@ class Candidates_model extends CI_Model{
             'pro_id' => $province,
             'ngo_id' => $ngo
         );
+        
         $this->db->where('can_id',$id);
         $this->db->update('skeleton_tbl_candidates',$data);
     }
@@ -512,10 +513,13 @@ class Candidates_model extends CI_Model{
             'f_occupation_comment' => $fotherOccupationSpecify,
             'm_occupation_comment' => $mOccupationSpecify,
             'f_health_comment' => $fatherhealthIssues,
-            'm_health_comment' => $mhealthSpecify
+            'm_health_comment' => $mhealthSpecify,
+            'tbl_candidates_can_id' => $id
         );
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
         $this->db->where('skeleton_tbl_profile.tbl_candidates_can_id',$id);
         $this->db->update('skeleton_tbl_profile',$data);
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
     }
     //model for update income of hold the family
     public function uFamilyIncome($id,$famMonIncome,$famDalIncome,$famSeaIncome,$famYeaIncome,$famTotalIncome,$chMonIncome,$chDaliIncome,$chSeaIncome,$chYeaIncome,$chTotalIncome,$gloToMonIn,$g_monthly_individual) {
@@ -531,10 +535,13 @@ class Candidates_model extends CI_Model{
             'c_yearly' => $chYeaIncome,
             'c_total' => $chTotalIncome,
             'g_monthly' => $gloToMonIn,
-            'g_monthly_individual' => $g_monthly_individual
+            'g_monthly_individual' => $g_monthly_individual,
+            'tbl_candidates_can_id' => $id
         );
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
         $this->db->where('skeleton_tbl_income.tbl_candidates_can_id',$id);
         $this->db->update('skeleton_tbl_income',$data);
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
     }
     //model for update expense of hold family
     public function ufamilyExpense($id,$rice,$food,$firewoodGasChacoal,$loan,$study,$medical,$electricityWater,$agirculture,$weddingCeremony,$otherUtilities,$totalExpense) {
@@ -549,10 +556,13 @@ class Candidates_model extends CI_Model{
             'ex_agriculture' => $agirculture,
             'ex_weding' => $weddingCeremony,
             'ex_other_utilities' => $otherUtilities,
-            'ex_total' => $totalExpense
+            'ex_total' => $totalExpense,
+            'tbl_candidates_can_id' => $id
         );
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
         $this->db->where('skeleton_tbl_expense.tbl_candidates_can_id',$id);
         $this->db->update('skeleton_tbl_expense',$data);
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
     }
     //model for update load and debt
     public function uLoadDebt($id,$initialAmount,$institution,$interestRates,$reason,$monthly,$semester,$capital,$trimester){
@@ -564,10 +574,13 @@ class Candidates_model extends CI_Model{
             'ld_monthly' => $monthly,
             'ld_trimester' => $trimester,
             'ld_semester' => $semester,
-            'ld_capital' => $capital
+            'ld_capital' => $capital,
+            'tbl_candidates_can_id' =>$id
         );
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
         $this->db->where('skeleton_tbl_loan_debt.tbl_candidates_can_id',$id);
         $this->db->update('skeleton_tbl_loan_debt',$data);
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
     }
     //function call globale grad
     function globle_grade($id){
@@ -688,7 +701,6 @@ class Candidates_model extends CI_Model{
             'm_health_comment' => $mHealthSpec,
             'tbl_candidates_can_id' => $lastCanId
         );
-
         $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
         $insert = $this->db->insert('skeleton_tbl_profile',$data);
         if ($this->db->affected_rows() > 0) {
@@ -766,10 +778,13 @@ class Candidates_model extends CI_Model{
         $data = array(
             're_status'                 => $status,
             're_age'                     => $age,
-            're_rating_scale'       => $Rating_scal
+            're_rating_scale'       => $Rating_scal,
+            'tbl_candidates_can_id' => $id
         );
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
         $this->db->where('skeleton_tbl_residence.tbl_candidates_can_id',$id);
         $this->db->update('skeleton_tbl_residence', $data );
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
     }
     //model update home asset
     public function uHomeAssets($id,$refrigerator,$radio,$conditioner,$ricecooker,$lcdTV,$colorTV,$camera1,$camera2,$furnished,$dvdPlayer,$smartphone,$phone,$computer1,$computer2,$sofa1,$sofa2,$gascooker,$fruit,$electrical,$motobike,$farming,$car,$vehiclesComment,$cow,$buffaloe,$pig,$animalComment,$farmSize,$farmComment,$sumQuantity5,$sumQuantity3,$globalAsset,$certificate,$specifyLevel) {
@@ -807,10 +822,13 @@ class Candidates_model extends CI_Model{
             'h_total_x3'                           => $sumQuantity3,
             'h_glbal_total'                       => $globalAsset,
             'h_poverty_certificate'         => $certificate,
-            'h_level'                                 => $specifyLevel
+            'h_level'                                 => $specifyLevel,
+            'tbl_candidates_can_id'         => $id
         );
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
         $this->db->where('skeleton_tbl_home_asset.tbl_candidates_can_id',$id);
         $this->db->update('skeleton_tbl_home_asset', $data );
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
     }
 
     // function add family expense

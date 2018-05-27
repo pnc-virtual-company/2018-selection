@@ -9,8 +9,12 @@ body{
 <!-- form header -->
 <br>
 <div class="container">
+<<<<<<< HEAD
+<!-- 	<div class="row">
+=======
 	<div class="row">
 <?php foreach ($username as $value) {?>
+>>>>>>> 99087032f632da989f534c7a9ee9618bfd77367f
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-8">
 			<img class="text-center" src="<?php echo base_url() ?>assets/images/background/neourng.jpg" style="width: 45%; margin-left: 27%;"/><br>
@@ -19,8 +23,12 @@ body{
 		</div>	
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">	
 		</div>
+<<<<<<< HEAD
+	</div> -->
+=======
 	</div>
 <?php } ?>
+>>>>>>> 99087032f632da989f534c7a9ee9618bfd77367f
 	<br>
 	</div>
 	<div class="form-group row">
@@ -251,7 +259,7 @@ body{
 								<div class="form-group row">
 									<div class="col-md-2"></div>
 									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
-									<div class="col-lg-8 col-md-8 col-xs-12">
+									<div class="col-lg-11 col-md-11 col-xs-12">
 										<p class="form-control"><?php echo $value->can_student_commit; ?></p>
 									</div>
 								</div>
@@ -268,7 +276,7 @@ body{
 								<div class="form-group row">
 									<div class="col-md-2"></div>
 									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
-									<div class="col-lg-8 col-md-8 col-xs-12">
+									<div class="col-lg-11 col-md-11 col-xs-12">
 										<p class="form-control"><?php echo $value->can_parents_commit; ?></p>
 									</div>
 								</div>
@@ -1544,17 +1552,17 @@ body{
 			<div class="row">
 				<div class="col-md-12">
 					<h4 style="color: #000;">Investigator's conclusion</h4>
-					<!-- <textarea name="" id="" rows="5" class="form-control" placeholder="Please comment"></textarea> -->
-					<p class="form-control"><?php echo $value->can_investigator_conclusion; ?></p>
+					<textarea name="" id="" rows="5" class="form-control" placeholder="Please comment"><?php echo $value->can_investigator_conclusion; ?></textarea>
+					<!-- <p class="form-control"></p> -->
 				</div>
 			</div>
 			<br>
-			<div class="row">
+		<!-- 	<div class="row">
 				<div class="col-lg-10 col-md-10"></div>
 				<div class="col-lg-2 col-md-2">
 					<!-- <button type="button" class="btn btn-primary float-right">Save information</button> -->
 				</div>
-			</div>
+			</div> -->
 		</form>	
 	</div>
 </div>

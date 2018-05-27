@@ -3,11 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 Class C_candidates extends CI_Controller{
 
-	// function __construct(){
-	// 	parent:: __construct();
-	// 	$this->load->model('candidates_model', 'm_can');
-
-	// }
 	public function __construct() {
 		parent::__construct();
 		log_message('debug', 'URI=' . $this->uri->uri_string());
@@ -29,38 +24,6 @@ Class C_candidates extends CI_Controller{
 
 		$this->load->model('candidates_model', 'm_can');
 	}
-
-
-	// function index(){
-	// 	$this->load->view('templates/header');
-	// 	$this->load->view('menu/index');
-	// 	$this->load->view('welcome');
-	// 	$this->load->view('templates/footer');
-	// }
- // function allCandidate() //list all candidate of admin 
- // {
- // 	$this->load->view('templates/header');   
- // 	$this->load->view('menu/index');   
- // 	$this->load->view('welcome');   
- // 	$this->load->view('templates/footer');  
- // }
-
- // function to call all Candidates
- // public function showAllCandidates(){
- // 	$result = $this->m_can->showAllCandidates();
- // 	echo json_encode($result);
- // }
-
- // // function call delete Candidate
-
- // public function deleteCandidate(){
- // 	$result = $this->m_can->deleteCandidate();
- // 	$msg['success'] = false;
- // 	if($result){
- // 		$msg['success'] = true;
- // 	}
- // 	echo json_encode($msg);
- // }
 
 
 	// function to get data for home page
@@ -235,37 +198,7 @@ Class C_candidates extends CI_Controller{
 		echo json_encode($msg);   
 	}
   // function to add new family profile
-// 	public function addFamilyProfile()
-// 	{
-// 		$fatherAge = $this->input->post('fatherAge');
-// 		$fatherOccupation = $this->input->post('fatherOccupation');
-// 		$fatherSpecify = $this->input->post('fatherSpecify');
-// 		$fatherHealth = $this->input->post('fatherHealth');
-// 		$fatherHealthSpecify = $this->input->post('fatherHealthSpecify');
-// 		$fatherEdu = $this->input->post('fatherEdu');
 
-// 		$motherAge = $this->input->post('motherAge');
-// 		$motherOccupation = $this->input->post('motherOccupation');
-// 		$motherSpecify = $this->input->post('motherSpecify');
-// 		$motherhealthStatus = $this->input->post('motherhealthStatus');
-// 		$motherHealthSpecify = $this->input->post('motherHealthSpecify');
-// 		$motherEducation = $this->input->post('motherEducation');
-
-// 		$numSiblings = $this->input->post('numSiblings');
-// 		$marriedStatus = $this->input->post('marriedStatus');
-// 		$separated = $this->input->post('separated');
-// 		$numberFamilyLiving = $this->input->post('member');
-// 		$studentRank = $this->input->post('studentRank');
-
-// 		$resultFamily['familyProfile'] = $this->m_can->addFamilyProfile($fatherAge,$fatherOccupation,$fatherSpecify,$fatherHealth,$fatherHealthSpecify,$fatherEdu,$motherAge,$motherOccupation,$motherSpecify,$motherhealthStatus,$motherHealthSpecify,$motherEducation,$numSiblings,$marriedStatus,$separated,$numberFamilyLiving,$studentRank);
-
-// 		$msg['success'] = false;
-// 		$msg['type'] = 'add';
-// 		if($resultFamily){
-// 			$msg['success'] = true;
-// 		}
-// 		echo json_encode($msg);
-// 	}
   public function addFamilyProfile()
   {
 
