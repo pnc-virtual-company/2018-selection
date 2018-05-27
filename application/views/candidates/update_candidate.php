@@ -93,15 +93,17 @@ body{
 										<div class="col-lg-1 col-md-1"></div>
 										<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Global grade :</label>
 										<div class="col-lg-6 col-md-6 col-xs-12">
-											<?php foreach ($value as $values) { ?>
 												<select class="form-control" name="grade" id="globalGrade">
+													<option value="">Please select one</option>
+											<?php foreach ($value as $values) { ?>
+													<option value="">Please select one</option>
 													<option value="A+" <?php if($values->can_global_grade == 'A+') echo 'selected="selected"'; ?>>A+</option>
 													<option value="A" <?php if($values->can_global_grade == 'A') echo 'selected="selected"'; ?>>A</option>
 													<option value="B+" <?php if($values->can_global_grade == 'B+') echo 'selected="selected"'; ?>>B+</option>
 													<option value="B-" <?php if($values->can_global_grade == 'B-') echo 'selected="selected"'; ?>>B-</option>
 													<option value="Failed" <?php if($values->can_global_grade == 'Failed') echo 'selected="selected"'; ?>>Failed</option>
-												</select>
 											<?php } ?>
+												</select>
 										</div>
 									</div>
 								</div>
@@ -136,12 +138,13 @@ body{
 										<div class="col-lg-1 col-md-1"></div>
 										<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Gender :</label>
 										<div class="col-lg-6 col-md-6 col-xs-12">
-											<?php foreach ($value as $values) { ?>
 												<select class="form-control" name="gender" id="gender">
+													<option value="">Please select one</option>
+											<?php foreach ($value as $values) { ?>
 													<option value="Male" <?php if ($values->can_gender == 'Male') echo 'selected="selected"'; ?>>Male</option>
 													<option value="Female" <?php if ($values->can_gender == 'Female') echo 'selected="selected"'; ?>>Female</option>
-												</select>
 											<?php } ?>
+												</select>
 										</div>
 									</div>
 								</div>
@@ -163,8 +166,9 @@ body{
 										<div class="col-lg-1 col-md-1"></div>
 										<label for="province" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Province :</label>
 										<div class="col-lg-6 col-md-6 col-xs-12">
-											<?php foreach ($value as $values) { ?>
 												<select class="form-control" name="province" id="province">
+													<option value="">Please select one</option>
+											<?php foreach ($value as $values) { ?>
 													<?php
 													foreach ($provinces as $province) { ?>
 														<option value="<?php echo $province->pro_id; ?>"
@@ -180,8 +184,8 @@ body{
 														<?php 
 													}
 													?>
-												</select>
 											<?php } ?>
+												</select>
 										</div>
 									</div>
 								</div>
@@ -193,8 +197,9 @@ body{
 										<div class="col-lg-1 col-md-1"></div>
 										<label for="ngo" class="col-lg-5 col-md-5 col-xs-12 col-form-label">NGO :</label>
 										<div class="col-lg-6 col-md-6 col-xs-12">
-											<?php foreach ($value as $values) { ?>
 												<select class="form-control" id="ngo" name="ngo">
+														<option value="">Please select one</option>
+											<?php foreach ($value as $values) { ?>
 													<?php foreach ($ngo as $ngos) { ?>
 														<option value="<?php echo $ngos->ngo_id; ?>" 
 															<?php if($ngos->ngo_id == $values->ngo_id) { ?>
@@ -204,8 +209,8 @@ body{
 															<?php echo $ngos->ngo_name; ?>
 														</option>
 													<?php } ?>
-												</select>
 											<?php } ?>
+												</select>
 										</div>
 									</div>
 								</div>
@@ -236,8 +241,9 @@ body{
 											<div class="col-lg-1 col-md-1"></div>
 											<label for="health" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Health status :</label>
 											<div class="col-lg-6 col-md-6 col-xs-12">
-												<?php foreach ($value as $values) { ?>
 													<select class="form-control" id="health" name="can_health">
+														<option value="">Please select one</option>
+												<?php foreach ($value as $values) { ?>
 														<?php if ($values->can_healthy == 'Healthy') { ?>
 															<option value="Healthy" selected="selected">Healthy</option>
 															<option value="Other">Other</option>
@@ -247,8 +253,8 @@ body{
 															<option value="Healthy">Healthy</option>
 															<option value="Other" selected="selected">Other</option>
 														<?php } ?>										
-													</select>
 												<?php } ?>
+													</select>
 											</div>
 										</div>
 									</div>
@@ -305,14 +311,15 @@ body{
 										<div class="col-lg-1 col-md-1"></div>
 										<label for="pncChoice" class="col-lg-6 col-md-6 col-xs-12 col-form-label">PNC choice rank :</label>
 										<div class="col-lg-4 col-md-4 col-xs-12">
-											<?php foreach ($value as $values) { ?>
 												<select class="form-control" id="pncChoice" name="canPncRank">
+													<option value="">Please select one</option>
+											<?php foreach ($value as $values) { ?>
 													<option value="1" <?php if($values->can_pn_choic_rank == '1') echo 'selected="selected"'; ?>>1</option>
 													<option value="2" <?php if($values->can_pn_choic_rank == '2') echo 'selected="selected"'; ?>>2</option>
 													<option value="3" <?php if($values->can_pn_choic_rank == '3') echo 'selected="selected"'; ?>>3</option>
 													<option value="4" <?php if($values->can_pn_choic_rank == '4') echo 'selected="selected"'; ?>>4</option>
-												</select>
 											<?php } ?>
+												</select>
 										</div>
 									</div>
 								</div>
@@ -369,14 +376,15 @@ body{
 										<div class="col-lg-1 col-md-1"></div>
 										<label for="choiceRank" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Choice Rank :</label>
 										<div class="col-lg-4 col-md-4 col-xs-12">
-											<?php foreach ($value as $values) { ?>
 												<select class="form-control" id="pncOtherChoice" name="canChoiceRank">
+													<option value="">Please select one</option>
+											<?php foreach ($value as $values) { ?>
 													<option value="1" <?php if ($values->can_other_choice_rank == 1) echo 'selected="selected"'; ?>>1</option>
 													<option value="2" <?php if ($values->can_other_choice_rank == 2) echo 'selected="selected"'; ?>>2</option>
 													<option value="3" <?php if ($values->can_other_choice_rank == 3) echo 'selected="selected"'; ?>>3</option>
 													<option value="4" <?php if ($values->can_other_choice_rank == 4) echo 'selected="selected"'; ?>>4</option>
-												</select>
 											<?php } ?>
+												</select>
 										</div>
 									</div>
 								</div>
@@ -527,6 +535,7 @@ body{
 													</div>
 													<div class="col-lg-6 col-md-6 col-sm-8">
 															<select class="form-control" name="fOccupation" id="fOccupation">
+																<option value="">Please select one</option>
 														<?php if ($parent != NULL) { ?>
 																<?php foreach ($parent as $value) { ?>
 																	<option value="Farmer/Laborer" <?php if($value->f_occupation == 'Farmer/Laborer') echo 'selected="selected"'; ?>>Farmer/Laborer</option>
@@ -568,6 +577,7 @@ body{
 													</div>
 													<div class="col-lg-6 col-md-6 col-sm-8">
 														<select name="fHealth" id="fHealth" class="form-control">
+															<option value="">Please select one</option>
 															<?php if ($parent != NULL) { ?>
 																<?php foreach ($parent as $value) { ?>
 																	<option value="Healthy" <?php if($value->f_health == 'Healthy') echo 'selected="selected"'; ?>>Healthy</option>
@@ -601,6 +611,7 @@ body{
 													</div>
 													<div class="col-md-6 col-sm-4">
 															<select class="form-control" name="fEducation" id="fEdu">
+																<option value="">Please select one</option>
 																<?php if ($parent != NULL) { ?>
 														<?php foreach ($parent as $value) { ?>
 																<option value="1" <?php if($value->f_edu == 1) echo 'selected="selected"'; ?>>1</option>
@@ -668,6 +679,7 @@ body{
 													</div>
 													<div class="col-lg-6 col-md-6 col-sm-8">
 														<select class="form-control" name="mOccupation" id="mOccupation">
+															<option value="">Please select one</option>
 															<?php if ($parent != NULL) { ?>
 														<?php foreach ($parent as $value) { ?>
 															<option value="Farmer/Laborer" <?php if($value->m_occupation == 'Farmer/Laborer') echo 'selected="selected"'; ?>>Farmer/Laborer</option>
@@ -709,6 +721,7 @@ body{
 												</div>
 												<div class="col-lg-6 col-md-6 col-sm-8">
 													<select name="mhealth" id="mHealth" class="form-control">
+														<option value="">Please select one</option>
 														<?php if ($parent != NULL) { ?>
 														<?php foreach ($parent as $value) { ?>
 															<option value="Healthy" <?php if($value->m_health == "Healthy") echo 'selected="selected"'; ?>>Healthy</option>
@@ -742,6 +755,7 @@ body{
 												</div>
 												<div class="col-md-6 col-sm-4">
 													<select class="form-control" name="mEducation" id="mEdu">
+														<option value="">Please select one</option>
 														<?php if ($parent != NULL) { ?>
 														<?php foreach ($parent as $value) { ?>
 															<option value="1" <?php if($value->m_edu == '1') echo 'selected="selected"'; ?>>1</option>
@@ -792,6 +806,7 @@ body{
 												</div>
 												<div class="col-md-6">
 													<select class="form-control" name="siblings" id="numSiblings">
+														<option value="">Please select one</option>
 														<?php if ($parent != NULL) { ?>
 														<?php foreach ($parent as $value) { ?>
 															<option value="1" <?php if($value->number_sibbling == '1') echo 'selected="selected"'; ?>>1</option>
@@ -832,6 +847,7 @@ body{
 												</div>
 												<div class="col-md-6">
 													<select class="form-control" name="Married" id="married">
+														<option value="">Please select one</option>
 														<?php if ($parent != NULL) { ?>
 														<?php foreach ($parent as $value) { ?>
 															<option value="1" <?php if($value->number_maried == '1') echo 'selected="selected"'; ?>>1</option>
@@ -872,6 +888,7 @@ body{
 												</div>
 												<div class="col-md-6">
 													<select class="form-control" name="Separated" id="separated">
+														<option value="">Please select one</option>
 														<?php if ($parent != NULL) { ?>
 														<?php foreach ($parent as $value) { ?>
 															<option value="1" <?php if($value->number_separated == '1') echo 'selected="selected"' ;?>>1</option>
@@ -916,6 +933,7 @@ body{
 												</div>
 												<div class="col-md-3">
 													<select class="form-control" name="liveInHouse" id="liveInHouse">
+														<option value="">Please select one</option>
 														<?php if ($parent != NULL) { ?>
 														<?php foreach ($parent as $value) { ?>
 															<option value="1" <?php if($value->number_family_living == '1') echo 'selected="selected"'; ?>>1</option>
@@ -962,6 +980,7 @@ body{
 												</div>
 												<div class="col-md-6">
 													<select class="form-control" name="sRank"	id="studentRank">
+														<option value="">Please select one</option>
 														<?php if ($parent != NULL) { ?>
 														<?php foreach ($parent as $value) { ?>
 															<option value="1" <?php if($value->stu_rank == '1') echo 'selected="selected"'; ?>>1</option>
@@ -1766,6 +1785,7 @@ body{
 								<label for="status" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Status :</label>
 								<div class="col-lg-7 col-md-7 col-xs-12">
 									<select name="status" id="status" class="form-control">
+										<option value="">Please select one</option>
 										<?php if ($residence != NULL ) { ?>
 											<?php foreach ($residence as $value) { ?>
 												<option value="Inherited" <?php if($value->re_status == 'Inherited') echo 'selected="selected"'; ?>>Inherited</option>
@@ -1788,6 +1808,7 @@ body{
 								<label for="residenceAge" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Age :</label>
 								<div class="col-lg-7 col-md-7 col-xs-12">
 									<select name="age" id="residenceAge" class="form-control">
+										<option value="">Please select one</option>
 										<?php if ($residence != NULL ) { ?>
 											<?php foreach ($residence as $value) { ?>
 												<option value="1" <?php if($value->re_age == '1') echo 'selected="selected"'; ?>>1</option>
@@ -1820,6 +1841,7 @@ body{
 								<label for="rating" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Rating scale :</label>
 								<div class="col-lg-7 col-md-7 col-xs-12">
 									<select name="Rating_scal" id="rating" class="form-control">
+										<option value="">Please select one</option>
 										<?php if ($residence != NULL ) { ?>
 											<?php foreach ($residence as $value) { ?>
 												<option value="1" <?php if($value->re_rating_scale == '1') echo 'selected="selected"'; ?>>1</option>
@@ -2495,6 +2517,7 @@ body{
 										</div>
 										<div class="col-md-4 col-sm-12">
 											<select class="form-control" name="certificate" id="certificate">
+												<option value="">Please select one</option>
 												<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
 												<option value="Yes" <?php if($homeAssets->h_poverty_certificate == 'Yes') echo 'selected="selected"'; ?>>Yes</option>
@@ -2515,6 +2538,7 @@ body{
 										</div>
 										<div class="col-md-3 col-sm-12">
 											<select class="form-control" name="specifyLevel" id="specifyLevel">
+												<option value="">Please select one</option>
 												<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
 												<option value="1" <?php if($homeAssets->h_level == '1') echo 'selected="selected"'; ?>>1</option>
