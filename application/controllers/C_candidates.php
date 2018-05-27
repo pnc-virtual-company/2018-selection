@@ -579,22 +579,22 @@ Class C_candidates extends CI_Controller{
     // end function add family expense
 
     // function add family residence status
-<<<<<<< HEAD
-    public function addResidence()
-    {
-    	$status = $this->input->post('status');
-    	$age = $this->input->post('age');
-    	$rating = $this->input->post('rating');
 
-    	$result['formExpense'] = $this->m_can->addResidence($status,$age,$rating);
+    // public function addResidence()
+    // {
+    // 	$status = $this->input->post('status');
+    // 	$age = $this->input->post('age');
+    // 	$rating = $this->input->post('rating');
 
-    	$msg['success'] = false;
-    	$msg['type'] = 'add';
-    	if($result){
+    // 	$result['formExpense'] = $this->m_can->addResidence($status,$age,$rating);
 
-    	  $msg['success'] = true;
-    	// redirect('C_candidates/newCandidate');
-=======
+    // 	$msg['success'] = false;
+    // 	$msg['type'] = 'add';
+    // 	if($result){
+
+    // 	  $msg['success'] = true;
+    // 	// redirect('C_candidates/newCandidate');
+
 
 	public function addResidence()
 	{
@@ -646,21 +646,10 @@ Class C_candidates extends CI_Controller{
     	$specifyLevel = $this->input->post('specifyLevel');
 
     	$result['familyAsset'] = $this->m_can->addAssets($refrigerator,$radio,$airCon,$riceCooker,$lcdTV,$colorTV,$chComputer,$exComputer,$fCabinet,$dvd,$smartPhone,$phone,$cheapCam,$expenCam,$cheapSofa,$exSofa,$gasCooker,$fruitBlender,$elecCooker,$motoBike,$farmMachine,$car,$vihicleComment,$cow,$buffalo,$pig,$animalCmt,$farmSize,$farmCmt,$sumQuantity5,$sumQuantity3,$globalAsset,$certificate,$specifyLevel);
-
-    	$msg['success'] = false;
-    	$msg['type'] = 'add';
-
-    	if($result){
-    	  $msg['success'] = true;
->>>>>>> 96139782983e8c7edac95e81daf56cccd51f1454
-    	}
     	echo json_encode($msg);
     }
     // end function add family residence status
 
-<<<<<<< HEAD
- }
-=======
     // start function add investigator conclusion
     public function addConclude()
     {
@@ -670,4 +659,3 @@ Class C_candidates extends CI_Controller{
     }
     // end function add conclusion
 }
->>>>>>> 96139782983e8c7edac95e81daf56cccd51f1454
