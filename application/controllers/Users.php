@@ -248,7 +248,6 @@ class Users extends CI_Controller {
       } else {
         log_message('debug', 'Reset the password of user #' . $id);
         $this->users_model->resetPassword($id, $this->input->post('password'));
-
           //Send an e-mail to the user so as to inform that its password has been changed
         $user = $this->users_model->getUsers($id);
         $this->load->library('email');
@@ -256,27 +255,64 @@ class Users extends CI_Controller {
         $data = array(
           'Title' => 'Your password was reset',
           'Firstname' => $user['firstname'],
-          'Lastname' => $user['lastname']
+          'Lastname' => $user['lastname'],
+          'email' => $user['email']
         );
         $message = $this->parser->parse('emails/password_reset', $data, TRUE);
 
         if ($this->config->item('from_mail') != FALSE && $this->config->item('from_name') != FALSE ) {
           $this->email->from($this->config->item('from_mail'), $this->config->item('from_name'));
         } else {
-          $this->email->from('sopheak.rith@student.passerellesnumeriques.org', 'LMS');
+          // $this->email->from('do.not@reply.me', 'LMS');
+        // $password = $this->users_model->setUsers();
+        // $email = $this->input->post('email');
+        // $password = $this->input->post('password');
+            //Send an e-mail to the user so as to inform that its password has been rested
+        // $this->email->to($user['email']);
+        $email = $this->input->post('email');   
+        $config = array(
+          'protocol' => 'smtp',
+          'smtp_host' => 'ssl://smtp.googlemail.com',
+          'smtp_port' => 465,
+          'smtp_user' => 'vuthy.pouk@student.passerellesnumeriques.org',
+          'smtp_pass' => 'vuthy12345',
+          'charset' => 'utf-8',
+          'wordwrap' => TRUE,
+          'newline' => "\r\n"
+        );
+        $this->load->library('email',$config);
+        $this->email->initialize($config);
+        $this->email->set_newline("\r\n");
+        $this->email->from('vuthy.pouk@student.passerellesnumeriques.org','Admin Selection Committee');
+        $this->email->to($email);
+        $this->email->subject('Reset Password');
+        $this->email->message('Dear '.$firstname.' '.$lastname.', '."\r\n".
+          'I would like to inform you that your password was reseted successfully'.
+          ' you can login this new password to Selection committee application by username '.$userName.' and new password '.$password.''."\r\n".
+          'best regards,'."\r\n".
+          'Admin'
+        );
+        if ($this->email->send('email')) 
+        {
+          $this->session->set_flashdata('msg', 'The password was successfully reseted');
+          redirect('users');
         }
-        $this->email->to($user['email']);
-        $subject = $this->config->item('subject_prefix');
-        $this->email->subject($subject . 'Your password was reset');
-        $this->email->message($message);
-        log_message('debug', 'Sending the reset email');
-        if ($this->config->item('log_threshold') > 1) {
-          $this->email->send(FALSE);
-          $debug = $this->email->print_debugger(array('headers'));
-          log_message('debug', 'print_debugger = ' . $debug);
-        } else {
-          $this->email->send();
-        }
+        else {
+         show_error($this->email->print_debugger());    
+       }
+      }
+        // $this->email->to($user['email']);
+        // s$subject = $this->config->item('subject_prefix');
+        // $this->email->subject($subject . 'Your password was reset');
+        // $this->email->message($message);
+        // log_message('debug', 'Sending the reset email');
+        // if ($this->config->item('log_threshold') > 1) {
+        //   $this->email->send(FALSE);
+        //   $debug = $this->email->print_debugger(array('headers'));
+        //   log_message('debug', 'print_debugger = ' . $debug);
+        // } else {
+        //   $this->email->send();
+        // }
 
           //Inform back the user by flash message
         $this->session->set_flashdata('msg', 'The password was successfully reset');
@@ -289,6 +325,7 @@ class Users extends CI_Controller {
           redirect('home');
         }
       }
+
     }
 
     /**
@@ -351,9 +388,6 @@ class Users extends CI_Controller {
         else {
          show_error($this->email->print_debugger());    
        }
-
-
-
             // $this->load->library('email');
             // $this->load->library('parser');
             // $data = array(

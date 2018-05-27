@@ -10,16 +10,19 @@ body{
 <br>
 <div class="container">
 	<div class="row">
+<?php foreach ($username as $value) {?>
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-8">
 			<img class="text-center" src="<?php echo base_url() ?>assets/images/background/neourng.jpg" style="width: 45%; margin-left: 27%;"/><br>
-			<p class="text-center">Nuon neourng</p>
+			<!-- <p class="text-center">Nuon neourng</p> -->
+			<p class="text-center"><?php echo $value->can_name; ?></p>
 		</div>	
-		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-			
+		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">	
 		</div>
 	</div>
+<?php } ?>
 	<br>
+	</div>
 	<div class="form-group row">
 	<?php foreach ($grade as  $value) {?>
 		<div class="col-lg-3 col-md-3 col-sm-2 col-xs-12"></div>
@@ -63,29 +66,6 @@ body{
 					</div><br>
 					<form action="" method="POST">
 				<?php foreach ($list as $value) {?>
-						<div class="row">
-
-							<div class="col-lg-5 col-md-5">
-								<div class="form-group row">
-									<div class="col-lg-1 col-md-1"></div>
-									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Firstname :</label>
-									<div class="col-lg-6 col-md-6 col-xs-12">
-										<p class="form-control"><?php echo $value->can_firstname; ?></p>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-lg-7 col-md-7">
-								<div class="form-group row">
-									<div class="col-lg-2 col-md-2"></div>
-									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Lastname :</label>
-									<div class="col-lg-5 col-md-5 col-xs-12">
-										<p class="form-control"><?php  echo $value->can_lastname;?></p>
-									</div>
-								</div>
-							</div>	
-						</div>
-				<?php } ?>
 						<div class="row">
 							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
@@ -168,6 +148,7 @@ body{
 								</div>
 							</div>		
 						</div>
+				<?php } ?>
 						<div class="row">
 							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
@@ -279,13 +260,13 @@ body{
 						<div class="row">
 							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
-									<!-- <div class="col-lg-1 col-md-1"></div> -->
+									<div class="col-lg-1 col-md-1"></div>
 									<label for="activityActivity" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the parents :</label>	
 								</div>
 							</div>
 							<div class="col-lg-7 col-md-7">
 								<div class="form-group row">
-									<!-- <div class="col-md-2"></div> -->
+									<div class="col-md-2"></div>
 									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
 									<div class="col-lg-8 col-md-8 col-xs-12">
 										<p class="form-control"><?php echo $value->can_parents_commit; ?></p>
@@ -935,7 +916,7 @@ body{
 				<div class="row">
 					<div class="col-lg-4 col-md-4">
 						<div class="form-group row">
-							<label for="amount" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Initial amount :</label>
+							<label for="amount" class="col-lg-6 col-md-6 col-xs-12 col-form-label">Original amount :</label>
 							<div class="col-lg-6 col-md-6 col-xs-12">
 								<p class="form-control"><?php echo $value->ld_initial_amount; ?></p>
 							</div>
@@ -1571,7 +1552,7 @@ body{
 			<div class="row">
 				<div class="col-lg-10 col-md-10"></div>
 				<div class="col-lg-2 col-md-2">
-					<button type="button" class="btn btn-primary float-right">Save information</button>
+					<!-- <button type="button" class="btn btn-primary float-right">Save information</button> -->
 				</div>
 			</div>
 		</form>	
@@ -1608,4 +1589,17 @@ body{
 </div>
 </body>
 </html>
+<script>
+	$(document).ready(function(){
+		$( ".formHeading" ).click(function() {
+			$(".down",this).toggle();
+			$(".up",this).toggle();
+		});
+		$( ".subHeading" ).click(function() {
+			$(".subDown",this).toggle();
+			$(".subUp",this).toggle();
+
+		});
+	});
+</script>
 <!-- end form collapsed -->

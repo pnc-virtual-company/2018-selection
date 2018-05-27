@@ -128,7 +128,7 @@ Class C_candidates extends CI_Controller{
 		echo json_encode($resultSelectedCount);
 	}
 	// function call count provinces
-	public function countProvinces()
+	 function countProvinces()
 	{
 		$resultProvincesCount = $this->m_can->countProvinces();
 		echo json_encode($resultProvincesCount);
@@ -147,15 +147,16 @@ Class C_candidates extends CI_Controller{
 	// function call view detail candidate 
 	public function view_can_detail($id)
 	{
-		$this->load->model('candidates_model');
-		$result['grade'] = $this->candidates_model->globle_grade($id);
-		$result['list'] = $this->candidates_model->view_can($id);
-		$result['family'] = $this->candidates_model->view_can_family($id);
-		$result['income'] = $this->candidates_model->view_income($id);
-		$result['expense'] = $this->candidates_model->view_exspense($id);
-		$result['loan'] = $this->candidates_model->view_loan($id);
-		$result['residenc'] = $this->candidates_model->view_residence($id);
-		$result['home_assets'] = $this->candidates_model->view_home_assets($id);
+	 	$this->load->model('candidates_model');
+	 	$result['username'] = $this->candidates_model->view_username($id);
+	 	$result['grade'] = $this->candidates_model->globle_grade($id);
+	 	$result['list'] = $this->candidates_model->view_can($id);
+	 	$result['family'] = $this->candidates_model->view_can_family($id);
+	 	$result['income'] = $this->candidates_model->view_income($id);
+	 	$result['expense'] = $this->candidates_model->view_exspense($id);
+	 	$result['loan'] = $this->candidates_model->view_loan($id);
+	 	$result['residenc'] = $this->candidates_model->view_residence($id);
+	 	$result['home_assets'] = $this->candidates_model->view_home_assets($id);
 		$this->load->view('templates/header');   
 		$this->load->view('menu/index');   
 		$this->load->view('candidates/view_can_detail',$result);   
@@ -176,6 +177,35 @@ Class C_candidates extends CI_Controller{
 		$this->load->view('menu/index');
 		$this->load->view('candidates/new_candidate',$data);
 		$this->load->view('templates/footer');
+	}
+
+  	//function add NGO
+    public function addNGO()
+    {
+        $ngo = $this->input->post('name0');
+        // var_dump($ngo); die();
+        $result['ngo'] = $this->m_can->addNGO($ngo);
+        $msg['success'] = false;
+        $msg['type'] = 'add';
+        if($result){
+          $msg['success'] = true;
+        }
+
+        echo json_encode($msg);
+    }
+
+	// delete ngo
+	public	function deleteNGO($id){
+		$this->m_can->deleteNGO($id);
+		redirect('C_candidates/newCandidate');
+		}
+
+	// edit ngo
+	function editNGO($id) {		//get value from form candidate student information
+		$this->load->model('Candidates_model');
+		$ngo = $this->input->post('edit');
+		$data = $this->Candidates_model->editNGO($id,$ngo);
+		echo json_encode($data);
 	}
 
   	// add new candidate
@@ -238,6 +268,7 @@ Class C_candidates extends CI_Controller{
 // 	}
   public function addFamilyProfile()
   {
+
     $fAge = $this->input->post('faAge');
     $fOccupation = $this->input->post('faOccu');
     $fSpecify = $this->input->post('faSpec');
@@ -253,9 +284,9 @@ Class C_candidates extends CI_Controller{
     $mEdu = $this->input->post('mEdu');
 
     $numSiblings = $this->input->post('numSiblings');
-    $marriedStatus = $this->input->post('marriedStat');
+    $marriedStatus = $this->input->post('marriedStatus');
     $separated = $this->input->post('separated');
-    $numFamily = $this->input->post('member');
+    $numberFamilyLiving = $this->input->post('member');
     $studentRank = $this->input->post('studentRank');
 
      $lastIds =  $this->m_can->getLastId();
@@ -263,10 +294,10 @@ Class C_candidates extends CI_Controller{
         $lastCanId = $lastId->lastId;
       }
 
-    $result['familyProfile'] = $this->m_can->addFamilyProfile($fAge,$fOccupation,$fSpecify,$fHealth,$fHealthSpec,$fEdu,$mAge,
-      $mOccu,$mSpecify,$mhealthStatus,$mHealthSpec,$mEdu,$numSiblings,$marriedStatus,$separated,$numFamily,$studentRank,$lastCanId);
+    $result['familyProfile'] = $this->m_can->addFamilyProfile($fAge,$fOccupation,$fSpecify,$fHealth,$fHealthSpec,$fEdu,$mAge,$mOccu,$mSpecify,$mhealthStatus,$mHealthSpec,$mEdu,$numSiblings,$marriedStatus,$separated,$numFamily,$studentRank,$lastCanId);
     echo json_encode($msg);   
   }
+
 // delete selected candidate
 	public function deleteSelectedCandidate(){
 		$result = $this->m_can->deleteCandidate();
@@ -595,9 +626,7 @@ Class C_candidates extends CI_Controller{
 		echo json_encode($msg);
 	}
     // end function add family expense
-
     // function add family residence status
-
 	public function addResidence()
 	{
 		$status = $this->input->post('status');
@@ -651,7 +680,7 @@ Class C_candidates extends CI_Controller{
     	$globalAsset = $this->input->post('globalAsset');
     	$certificate = $this->input->post('certificate');
     	$specifyLevel = $this->input->post('specifyLevel');
-
+      
       $lastIds =  $this->m_can->getLastId();
            foreach ($lastIds as $lastId) {
              $lastCanId = $lastId->lastId;
@@ -666,9 +695,8 @@ Class C_candidates extends CI_Controller{
     	  $msg['success'] = true;
     	}
     	echo json_encode($msg);
-    }
-    // end function add home asset
-
+    	}    
+    // end function add family residence status
     // start function add investigator conclusion
     public function addConclude()
     {
