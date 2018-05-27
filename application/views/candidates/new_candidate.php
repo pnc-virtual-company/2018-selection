@@ -1726,7 +1726,6 @@ body{
 	<div class="modal" id="myModal">
 		<div class="modal-dialog">
 			<div class="modal-content">
-
 				<!-- Modal Header -->
 				<div class="modal-header">
 					<h4 class="modal-title">Add New Scholarship</h4>
@@ -1750,53 +1749,93 @@ body{
 		</div>
 	</div>
 
-	<div class="container">
-		<!-- The Modal -->
-		<div class="modal" id="theModal">
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
+<!-- popup ngo -->
+<div class="container">
+  <!-- The Modal -->
+  <div class="modal" id="theModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">List of NGO</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+        	<form method="post" id="addNgo">
+        	<table class="table table-bordered table-hover table-sortable" id="tab_logic">
+        		<thead>
+        			<tr >
+        				<th class="text-center">
+        					Action
+        				</th>
+        				<th class="text-center">
+        					Name
+        				</th>
+        			</tr>
+        		</thead>
+        		<tbody>
+        			<?php foreach ($ngoes as $ngo) { ?> 
+        			<tr id='addr0' data-id="0" class="hidden">
+        				<td data-name="del">
+        					<a href="<?php echo base_url(); ?>c_candidates/deleteNGO/<?php echo $ngo->ngo_id ?>" onclick="return confirm('Are you sure to delete this NGO?');">
+                  	<i class="text-danger mdi mdi-delete" title="delete this NGO" style="font-size: 25px;"></i>
+                	</a>&nbsp;&nbsp;
+                	<a data-toggle="modal" data-target="#editModal" href="<?php echo base_url(); ?>c_candidates/editNGO/<?php echo $ngo->ngo_id ?>">
+                  	<i class="text-success mdi mdi-pencil" title="edit this NGO" style="font-size: 25px;"></i>
+                	</a>
+        				</td>
+        				<td data-name="name">
+        					<input type="text" value="<?php echo $ngo->ngo_name; ?>" name='name0' class="form-control"/>
+        				</td>
+        			</tr>
+			 			<?php } ?>
+        		</tbody>
+        	</table>
+        	<a id="add_row" class="btn btn-primary pull-right text-white"><i class="mdi mdi-plus-circle"></i>&nbsp;Add NGO</a>
+          <button type="submit" class="btn btn-primary" data-dismiss="modal" id="saveNGO">Save list</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-					<!-- Modal Header -->
-					<div class="modal-header">
-						<h4 class="modal-title">Edit NGO</h4>
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-					</div>
+<!--/ ngo modal -->
 
-					<!-- Modal body -->
-					<div class="modal-body">
-						<table class="table table-bordered table-hover table-sortable" id="tab_logic">
-							<thead>
-								<tr >
-									<th class="text-center">
-										Action
-									</th>
-									<th class="text-center">
-										Name
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr id='addr0' data-id="0" class="hidden">
-									<td data-name="del">
-										<button nam"del0" class='btn btn-danger mdi mdi-close-circle row-remove'></button>
-									</td>
-									<td data-name="name">
-										<input type="text" name='name0' class="form-control"/>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<a id="add_row" class="btn btn-primary pull-right text-white"><i class="mdi mdi-plus-circle"></i>&nbsp;Add NGO</a>
-					</div>
-					<!-- Modal footer -->
-					<div class="modal-footer">
-						<button type="submit" class="btn btn-primary" data-dismiss="modal">Save list</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--/ ngo modal -->
+<!-- edit ngo -->
+<div class="container">
+  <!-- The Modal -->
+  <div class="modal" id="editModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Edit NGO</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+        	<form method="post">
+        		<div class="row">
+        			<div class="col-md-6">
+        				<input type="text" value="<?php echo $ngo->ngo_name; ?>" name='name0' class="form-control"/>
+        			</div>
+        			<div class="col-md-6">
+        				<button type="submit" class="btn btn-primary pull-right text-white" name="edit">Edit</button>
+        			</div>
+        		</div>
+        	</form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 <link href="<?php echo base_url();?>assets/DataTable/DataTables-1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
@@ -2084,10 +2123,6 @@ body{
 		        // add the new row
 		        $(tr).appendTo($('#tab_logic'));
 		        
-		        $(tr).find("td button.row-remove").on("click", function() {
-		        	$(this).closest("tr").remove();
-		        });
-		    });
 		    // Sortable Code
 		    var fixHelperModified = function(e, tr) {
 		    	var $originals = tr.children();
@@ -2105,7 +2140,44 @@ body{
 		    $(".table-sortable thead").disableSelection();
 		    $("#add_row").trigger("click");
 	// fuction add row //
-	// });
+	
+	// function save NGO
+				$('#saveNGO').click(function(){
+					$('#addNgo').attr('action', '<?php echo base_url() ?>c_candidates/addNGO/');
+				});
+				// start to save	
+				$('#saveNGO').click(function(){
+					var url = $('#addNgo').attr('action');
+					var data = $('#addNgo').serialize();
+					//validate form
+						$.ajax({
+							type: 'ajax',
+							method: 'post',
+							url: url,
+							data: data,
+							async: false,
+							dataType: 'json',
+							success: function(response){
+								if(response.success){
+									$('#ngo')[0].reset();
+									if(response.type=='add'){
+										var type = 'added'
+									}else if(response.type=='update'){
+										var type ="updated"
+									}
+									$('.alert-success').html('Data '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
+								}else{
+									alert('Error');
+								}
+							},
+							error: function(){
+								alert('Could not add data');
+							}
+						});
+					
+				});
+
+	});
 </script>
 <?php } ?>
 <!-- end form collapsed -->
