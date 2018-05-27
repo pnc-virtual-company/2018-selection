@@ -220,7 +220,8 @@ class Candidates_model extends CI_Model{
            return false;
         }
     }
-    //End  
+    //End 
+
     //function to get NGO
     public function getAllngo()
     {
@@ -234,6 +235,37 @@ class Candidates_model extends CI_Model{
         }
     }
     //End function 
+
+    // fuction add ngo
+    public function addNGO($ngo)
+    {
+        $data = array('ngo_name' => $ngo );
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
+        $insert = $this->db->insert('skeleton_tbl_ngo',$data);
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        }else
+        {
+            return false;
+        }
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
+    } 
+
+    // delete ngo
+    function deleteNGO($id){
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
+
+        $this->db->where('ngo_id',$id)->delete('skeleton_tbl_ngo');
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
+    }
+
+    // edit ngo
+    public function editNGO($id,$ngo) {
+        $data = array('ngo_name' => $ngo);
+        $this->db->where('ngo_id',$id);
+        $this->db->update('skeleton_tbl_ngo',$data);
+    }
+
     public function addCandidate($fname,$lname,$gender,$age,$province,$ngo,$health,$rankClass,$achivement,$pncChoice,$responsibility,$motivate,$communication,$scholarship,$otherChoiceRank,$stuCommite,$parCommite,$globalGrade,$ngoComment,$healthComment)
     {
             $data = array(
@@ -623,7 +655,15 @@ class Candidates_model extends CI_Model{
         $this->db->where('skeleton_tbl_home_asset.h_id',$id);
         $query=$this->db->get();
         return $query->result();
-    }  
+    }
+     //function view user name of candidate 
+   public function view_username($id){
+        $this->db->select("concat(skeleton_tbl_candidates.can_firstname,' ',skeleton_tbl_candidates.can_lastname) AS can_name");   
+        $this->db->from('skeleton_tbl_candidates');   
+        $this->db->where('skeleton_tbl_candidates.can_id',$id);
+        $query=$this->db->get();
+        return $query->result();
+    }
 
     // function to add data to family profile
     public function addFamilyProfile($fAge,$fOccupation,$fSpecify,$fHealth,$fHealthSpec,$fEdu,$mAge,$mOccu,$mSpecify,$mhealthStatus,$mHealthSpec,$mEdu,$numSiblings,$marriedStatus,$separated,$numFamily,$studentRank)

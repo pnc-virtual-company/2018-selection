@@ -147,15 +147,16 @@ Class C_candidates extends CI_Controller{
 	// function call view detail candidate 
 	public function view_can_detail($id)
 	{
-		$this->load->model('candidates_model');
-		$result['grade'] = $this->candidates_model->globle_grade($id);
-		$result['list'] = $this->candidates_model->view_can($id);
-		$result['family'] = $this->candidates_model->view_can_family($id);
-		$result['income'] = $this->candidates_model->view_income($id);
-		$result['expense'] = $this->candidates_model->view_exspense($id);
-		$result['loan'] = $this->candidates_model->view_loan($id);
-		$result['residenc'] = $this->candidates_model->view_residence($id);
-		$result['home_assets'] = $this->candidates_model->view_home_assets($id);
+	 	$this->load->model('candidates_model');
+	 	$result['username'] = $this->candidates_model->view_username($id);
+	 	$result['grade'] = $this->candidates_model->globle_grade($id);
+	 	$result['list'] = $this->candidates_model->view_can($id);
+	 	$result['family'] = $this->candidates_model->view_can_family($id);
+	 	$result['income'] = $this->candidates_model->view_income($id);
+	 	$result['expense'] = $this->candidates_model->view_exspense($id);
+	 	$result['loan'] = $this->candidates_model->view_loan($id);
+	 	$result['residenc'] = $this->candidates_model->view_residence($id);
+	 	$result['home_assets'] = $this->candidates_model->view_home_assets($id);
 		$this->load->view('templates/header');   
 		$this->load->view('menu/index');   
 		$this->load->view('candidates/view_can_detail',$result);   
@@ -176,6 +177,35 @@ Class C_candidates extends CI_Controller{
 		$this->load->view('menu/index');
 		$this->load->view('candidates/new_candidate',$data);
 		$this->load->view('templates/footer');
+	}
+
+  	//function add NGO
+    public function addNGO()
+    {
+        $ngo = $this->input->post('name0');
+        // var_dump($ngo); die();
+        $result['ngo'] = $this->m_can->addNGO($ngo);
+        $msg['success'] = false;
+        $msg['type'] = 'add';
+        if($result){
+          $msg['success'] = true;
+        }
+
+        echo json_encode($msg);
+    }
+
+	// delete ngo
+	public	function deleteNGO($id){
+		$this->m_can->deleteNGO($id);
+		redirect('C_candidates/newCandidate');
+		}
+
+	// edit ngo
+	function editNGO($id) {		//get value from form candidate student information
+		$this->load->model('Candidates_model');
+		$ngo = $this->input->post('edit');
+		$data = $this->Candidates_model->editNGO($id,$ngo);
+		echo json_encode($data);
 	}
 
   	// add new candidate
@@ -544,25 +574,7 @@ Class C_candidates extends CI_Controller{
 		echo json_encode($msg);
 	}
     // end function add family expense
-
     // function add family residence status
-
-    // public function addResidence()
-    // {
-    // 	$status = $this->input->post('status');
-    // 	$age = $this->input->post('age');
-    // 	$rating = $this->input->post('rating');
-
-    // 	$result['formExpense'] = $this->m_can->addResidence($status,$age,$rating);
-
-    // 	$msg['success'] = false;
-    // 	$msg['type'] = 'add';
-    // 	if($result){
-
-    // 	  $msg['success'] = true;
-    // 	// redirect('C_candidates/newCandidate');
-
-
 	public function addResidence()
 	{
 		$status = $this->input->post('status');
@@ -614,9 +626,8 @@ Class C_candidates extends CI_Controller{
 
     	$result['familyAsset'] = $this->m_can->addAssets($refrigerator,$radio,$airCon,$riceCooker,$lcdTV,$colorTV,$chComputer,$exComputer,$fCabinet,$dvd,$smartPhone,$phone,$cheapCam,$expenCam,$cheapSofa,$exSofa,$gasCooker,$fruitBlender,$elecCooker,$motoBike,$farmMachine,$car,$vihicleComment,$cow,$buffalo,$pig,$animalCmt,$farmSize,$farmCmt,$sumQuantity5,$sumQuantity3,$globalAsset,$certificate,$specifyLevel);
     	echo json_encode($msg);
-    }
+    	}    
     // end function add family residence status
-
     // start function add investigator conclusion
     public function addConclude()
     {

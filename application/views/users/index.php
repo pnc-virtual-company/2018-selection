@@ -114,7 +114,7 @@
 	    </div>
 	    <div class="modal-footer">
             <form id="formResetPwd" method="POST">
-                <button type="send" class="btn btn-primary" >Reset</button>
+                <button type="send" class="btn btn-primary">Reset</button>
     	        <button class="btn btn-danger" data-dismiss="modal">Cancel</button>
             </form>
 	    </div>
@@ -160,7 +160,7 @@ $(document).ready(function() {
 
     //On showing the confirmation pop-up, add the user id at the end of the delete url action
     /*$('#frmConfirmDelete').on('show', function() {
-        var link = "<?php echo base_url();?>users/delete/" + $(this).data('id');
+        var link = "<?php //echo base_url();?>users/delete/" + $(this).data('id');
         $("#lnkDeleteUser").attr('href', link);
     });*/
 
