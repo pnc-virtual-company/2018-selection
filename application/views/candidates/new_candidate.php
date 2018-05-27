@@ -1764,6 +1764,7 @@ body{
         
         <!-- Modal body -->
         <div class="modal-body">
+        	<form method="post" id="addNgo">
         	<table class="table table-bordered table-hover table-sortable" id="tab_logic">
         		<thead>
         			<tr >
@@ -1776,24 +1777,24 @@ body{
         			</tr>
         		</thead>
         		<tbody>
+        			<?php foreach ($ngoes as $ngo) { ?> 
         			<tr id='addr0' data-id="0" class="hidden">
         				<td data-name="del">
-        					<button nam"del0" class='btn btn-danger mdi mdi-close-circle row-remove'></button>
+        					<a href="<?php echo base_url(); ?>c_candidates/deleteNGO/<?php echo $ngo->ngo_id ?>" onclick="return confirm('Are you sure to delete this NGO?');">
+                  	<i class="text-danger mdi mdi-delete" title="delete this NGO" style="font-size: 25px;"></i>
+                	</a>
         				</td>
         				<td data-name="name">
-        					<input type="text" name='name0' class="form-control"/>
+        					<input type="text" value="<?php echo $ngo->ngo_name; ?>" name='name0' class="form-control"/>
         				</td>
         			</tr>
+			 			<?php } ?>
         		</tbody>
         	</table>
         	<a id="add_row" class="btn btn-primary pull-right text-white"><i class="mdi mdi-plus-circle"></i>&nbsp;Add NGO</a>
+          <button type="submit" class="btn btn-primary" data-dismiss="modal" id="saveNGO">Save list</button>
+        </form>
         </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary" data-dismiss="modal">Save list
-        </div>
-        
       </div>
     </div>
   </div>
@@ -2275,9 +2276,9 @@ $('#saveConclude').click(function(){
 		        // add the new row
 		        $(tr).appendTo($('#tab_logic'));
 		        
-		        $(tr).find("td button.row-remove").on("click", function() {
-		             $(this).closest("tr").remove();
-		        });
+		        // $(tr).find("td button.row-remove").on("click", function() {
+		        //      $(this).closest("tr").remove();
+		        // });
 		});
 
 
@@ -2305,6 +2306,42 @@ $('#saveConclude').click(function(){
 
 		    $("#add_row").trigger("click");
 	// fuction add row //
+	
+	// function save NGO
+				$('#saveNGO').click(function(){
+					$('#addNgo').attr('action', '<?php echo base_url() ?>c_candidates/addNGO/');
+				});
+				// start to save	
+				$('#saveNGO').click(function(){
+					var url = $('#addNgo').attr('action');
+					var data = $('#addNgo').serialize();
+					//validate form
+						$.ajax({
+							type: 'ajax',
+							method: 'post',
+							url: url,
+							data: data,
+							async: false,
+							dataType: 'json',
+							success: function(response){
+								if(response.success){
+									$('#ngo')[0].reset();
+									if(response.type=='add'){
+										var type = 'added'
+									}else if(response.type=='update'){
+										var type ="updated"
+									}
+									$('.alert-success').html('Data '+type+' successfully').fadeIn().delay(4000).fadeOut('slow');
+								}else{
+									alert('Error');
+								}
+							},
+							error: function(){
+								alert('Could not add data');
+							}
+						});
+					
+				});
 
 	});
 </script>

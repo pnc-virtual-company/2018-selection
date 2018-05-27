@@ -221,7 +221,8 @@ class Candidates_model extends CI_Model {
            return false;
         }
     }
-    //End  
+    //End 
+
     //function to get NGO
     public function getAllngo()
     {
@@ -235,6 +236,37 @@ class Candidates_model extends CI_Model {
         }
     }
     //End function 
+
+    // fuction add ngo
+    public function addNGO($ngo)
+    {
+        $data = array('ngo_name' => $ngo );
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
+        $insert = $this->db->insert('skeleton_tbl_ngo',$data);
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        }else
+        {
+            return false;
+        }
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
+    } 
+
+    // delete ngo
+    function deleteNGO($id){
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
+
+        $this->db->where('ngo_id',$id)->delete('skeleton_tbl_ngo');
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
+    }
+
+    // edit ngo
+    public function editNGO($ngo) {
+        $data = array('ngo_name' => $ngo);
+        $this->db->where('ngo_id',$id);
+        $this->db->update('skeleton_tbl_ngo',$data);
+    }
+
     public function addCandidate($fname,$lname,$gender,$age,$province,$ngo,$health,$rankClass,$achivement,$pncChoice,$responsibility,$motivate,$communication,$scholarship,$otherChoiceRank,$stuCommite,$parCommite,$globalGrade,$ngoComment,$healthComment)
     {
             $data = array(
