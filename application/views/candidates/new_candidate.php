@@ -1758,7 +1758,7 @@ body{
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Edit NGO</h4>
+          <h4 class="modal-title">List of NGO</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
@@ -1782,6 +1782,9 @@ body{
         				<td data-name="del">
         					<a href="<?php echo base_url(); ?>c_candidates/deleteNGO/<?php echo $ngo->ngo_id ?>" onclick="return confirm('Are you sure to delete this NGO?');">
                   	<i class="text-danger mdi mdi-delete" title="delete this NGO" style="font-size: 25px;"></i>
+                	</a>&nbsp;&nbsp;
+                	<a data-toggle="modal" data-target="#editModal" href="<?php echo base_url(); ?>c_candidates/editNGO/<?php echo $ngo->ngo_id ?>">
+                  	<i class="text-success mdi mdi-pencil" title="edit this NGO" style="font-size: 25px;"></i>
                 	</a>
         				</td>
         				<td data-name="name">
@@ -1801,6 +1804,37 @@ body{
 </div>
 
 <!--/ ngo modal -->
+
+<!-- edit ngo -->
+<div class="container">
+  <!-- The Modal -->
+  <div class="modal" id="editModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Edit NGO</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+        	<form method="post">
+        		<div class="row">
+        			<div class="col-md-6">
+        				<input type="text" value="<?php echo $ngo->ngo_name; ?>" name='name0' class="form-control"/>
+        			</div>
+        			<div class="col-md-6">
+        				<button type="submit" class="btn btn-primary pull-right text-white" name="edit">Edit</button>
+        			</div>
+        		</div>
+        	</form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 <link href="<?php echo base_url();?>assets/DataTable/DataTables-1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">

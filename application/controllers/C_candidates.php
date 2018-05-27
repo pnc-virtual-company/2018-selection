@@ -200,10 +200,10 @@ Class C_candidates extends CI_Controller{
 		}
 
 	// edit ngo
-	function editNGO() {		//get value from form candidate student information
+	function editNGO($id) {		//get value from form candidate student information
 		$this->load->model('Candidates_model');
-		$ngo = $this->input->post('name0');
-		$data = $this->Candidates_model->editNGO($ngo);
+		$ngo = $this->input->post('edit');
+		$data = $this->Candidates_model->editNGO($id,$ngo);
 		echo json_encode($data);
 	}
 

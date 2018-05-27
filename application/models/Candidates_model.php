@@ -260,7 +260,7 @@ class Candidates_model extends CI_Model{
     }
 
     // edit ngo
-    public function editNGO($ngo) {
+    public function editNGO($id,$ngo) {
         $data = array('ngo_name' => $ngo);
         $this->db->where('ngo_id',$id);
         $this->db->update('skeleton_tbl_ngo',$data);
