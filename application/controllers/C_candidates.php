@@ -179,6 +179,35 @@ Class C_candidates extends CI_Controller{
 		$this->load->view('templates/footer');
 	}
 
+  	//function add NGO
+    public function addNGO()
+    {
+        $ngo = $this->input->post('name0');
+        // var_dump($ngo); die();
+        $result['ngo'] = $this->m_can->addNGO($ngo);
+        $msg['success'] = false;
+        $msg['type'] = 'add';
+        if($result){
+          $msg['success'] = true;
+        }
+
+        echo json_encode($msg);
+    }
+
+	// delete ngo
+	public	function deleteNGO($id){
+		$this->m_can->deleteNGO($id);
+		redirect('C_candidates/newCandidate');
+		}
+
+	// edit ngo
+	function editNGO($id) {		//get value from form candidate student information
+		$this->load->model('Candidates_model');
+		$ngo = $this->input->post('edit');
+		$data = $this->Candidates_model->editNGO($id,$ngo);
+		echo json_encode($data);
+	}
+
   	// add new candidate
 	public function addCandidate()
 	{

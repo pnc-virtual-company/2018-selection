@@ -160,7 +160,7 @@ $(document).ready(function() {
 
     //On showing the confirmation pop-up, add the user id at the end of the delete url action
     /*$('#frmConfirmDelete').on('show', function() {
-        var link = "<?php echo base_url();?>users/delete/" + $(this).data('id');
+        var link = "<?php //echo base_url();?>users/delete/" + $(this).data('id');
         $("#lnkDeleteUser").attr('href', link);
     });*/
 
