@@ -578,9 +578,7 @@ Class C_candidates extends CI_Controller{
 		echo json_encode($msg);
 	}
     // end function add family expense
-
     // function add family residence status
-
 	public function addResidence()
 	{
 		$status = $this->input->post('status');
