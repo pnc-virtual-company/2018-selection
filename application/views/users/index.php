@@ -102,21 +102,18 @@
 				</button>
 	    </div>
 	    <div class="modal-body">
-			<div class="form-group">
-                <label class="control-label" for="password">Password</label>
-                <div class="input-group">
-                    <input type="password" name="password" id="pass" required />
-                <div class="input-group-append">
-                    <a class="btn btn-primary" id="GeneratePassword"><i class="mdi mdi-refresh"></i>&nbsp;Generate password</a>
+            <form id="formResetPwd" method="POST">
+    			<div class="form-group">
+                    <label class="control-label" for="password">Password</label>
+                    <div class="input-group">
+                        <input type="password" name="password" id="pass" required />
+                        <button type="send" class="btn btn-primary">Reset</button>
+                    </div>
                 </div>
-                </div>
-            </div>
+            </form>
 	    </div>
 	    <div class="modal-footer">
-            <form id="formResetPwd" method="POST">
-                <button type="send" class="btn btn-primary">Reset</button>
-    	        <button class="btn btn-danger" data-dismiss="modal">Cancel</button>
-            </form>
+            <button class="btn btn-danger" data-dismiss="modal">Cancel</button>            
 	    </div>
 		</div>
 	</div>
@@ -127,27 +124,6 @@
 <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
 
 <script type="text/javascript">
-
-    function password_generator(leng) {
-      var length = (leng)?(leng):(10);
-      var string = "abcdefghijklnopqrstuvwxyz";
-      var numeric = '0123456789';
-      var punctuation = '!@?/=';
-      var password = "";
-      var character = "";
-      while(password.length < length) {
-          entity1 = Math.ceil(string.length * Math.random() * Math.random());
-          entity2 = Math.ceil(numeric.length * Math.random() * Math.random());
-          entity3 = Math.ceil(punctuation.length * Math.random() * Math.random());
-          hold = string.charAt(entity1);
-          hold = (entity1 % 2 == 0)?(hold.toUpperCase()):(hold);
-          character += hold;
-          character += numeric.charAt( entity2 );
-          character += punctuation.charAt( entity3 );
-          password = character;
-      }
-      return password;
-  }
 
 $(document).ready(function() {
 
