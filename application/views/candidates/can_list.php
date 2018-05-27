@@ -6,6 +6,7 @@
         position: absolute;
         background: rgba(0, 0, 0, .7);
         color: #fff;
+        font-size: 18px;
         border-radius: 3px;
         -webkit-transition: all .1s ease;
         transition: all .1s ease;
@@ -99,16 +100,16 @@
                             <i class="mdi mdi-file-excel"></i>
                             &nbsp;Export this list
                         </a>&nbsp;&nbsp;
-                        <a href="<?php echo base_url() ?>c_student/map">
+                        <!-- <a href="<?php //echo base_url() ?>c_student/map">
                             <button id="mapButton" class="btn btn-primary clearfix"><i class="mdi mdi-map"></i>
                           &nbsp;Province distribution</button>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </div>
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-4">
                     <h1 class="text-center">Distribution</h1>
-                    <br><br><br><br>
+                    <br><br><br>
                     <canvas id="pie-chart" width="800" height="800"></canvas>
                     <br>
                     <div id="chartjs-tooltip">
@@ -397,18 +398,18 @@
         {
             labels: 
             [
-                "A+: “Parents/Guardians are unable to support the student’s higher education and are well below the poverty level (<1.5$/day/ind. in rural areas / < 3$/day/ind. in urban areas)” ",
-                "A: “Parents/Guardians are unable to support the student’s higher education and are slightly below the poverty level (1.5-2$/day/ind. in rural areas / 3-4$/day/ind. in urban areas)” ",
-                "A-: “Parents/Guardians have severe difficulties to support the student’s higher education and can’t find any external support” ",
-                "B+: “Parents/Guardians have severe difficulties to support the student’s higher education but are able to find external support” ",
-                "B: “Parents/Guardians have major difficulties to support the student’s higher education but can use some family’s assets” ",
-                "Failed: “Parents/Guardians have minor or no difficulty to support the student’s higher education“ "
+                "A+ ",
+                "A ",
+                "A- ",
+                "B+ ",
+                "B ",
+                "Failed "
                 ],
 
             datasets: 
             [{
                 label: "Grade (distribution)",
-                backgroundColor: ["#00e6ac","#6666ff","#66b3ff","#7a7a52","#c2c2a3","#ff3333"],
+                backgroundColor: ["#80ffcc","#6666ff","#99c2ff","#ffeb99","#c2c2a3","#ff4d4d"],
                 data: 
                 [
                     <?php foreach ($gradeAPlus as $gradeAPlus):?>
@@ -439,9 +440,6 @@
                 display: true,
                 text: 'Grade distribution',
                 fontSize: 20
-            },
-            legend: {
-            display: false  /// disable labels
             },
             tooltips: 
             {
@@ -475,7 +473,7 @@
             datasets: 
             [{
                 label: "Gender (distribution)",
-                backgroundColor: ["#00cccc","#ff0080"],
+                backgroundColor: ["#99ffff","#ff80bf"],
                 data:
                 [   
                     <?php 
@@ -497,12 +495,8 @@
                 text: 'Gender distribution',
                 fontSize: 20
             },
-            // ,
-            // legend: 
-            // {
-            // display: false  /// disabled labels
-            // },
-            tooltips: {
+            tooltips: 
+            {
                 callbacks: 
                 {
                     label: function(tooltipItem, chartData) 
@@ -535,7 +529,7 @@
             datasets: 
             [{
                 label: "NGO (provenance)",
-                backgroundColor: ["#66ff66","#cc0000"],
+                backgroundColor: ["#80ff80","#ff6666"],
                 data: 
                 [
                      <?php
@@ -557,12 +551,8 @@
                 text: 'NGO provenance',
                 fontSize: 20
             },
-            // ,
-            // legend: 
-            // {
-            // display: false  /// disabled labels
-            // },
-            tooltips: {
+            tooltips: 
+            {
                 callbacks: 
                 {
                     label: function(tooltipItem, chartData) 

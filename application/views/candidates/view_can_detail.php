@@ -6,8 +6,7 @@ body{
 }
 </style>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
-	<!-- form header -->
-	<br>
+<!-- form header -->
 	<div class="container">
 		<div class="row">
 			<?php foreach ($username as $value) {?>
@@ -251,7 +250,7 @@ body{
 								<div class="form-group row">
 									<div class="col-md-2"></div>
 									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
-									<div class="col-lg-8 col-md-8 col-xs-12">
+									<div class="col-lg-11 col-md-11 col-xs-12">
 										<p class="form-control"><?php echo $value->can_student_commit; ?></p>
 									</div>
 								</div>
@@ -268,7 +267,7 @@ body{
 								<div class="form-group row">
 									<div class="col-md-2"></div>
 									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
-									<div class="col-lg-8 col-md-8 col-xs-12">
+									<div class="col-lg-11 col-md-11 col-xs-12">
 										<p class="form-control"><?php echo $value->can_parents_commit; ?></p>
 									</div>
 								</div>
@@ -2048,11 +2047,11 @@ body{
 				</div>
 			</div>
 			<br>
-			<div class="row">
+		<!-- 	<div class="row">
 				<div class="col-lg-10 col-md-10"></div>
 				<div class="col-lg-2 col-md-2">
 				</div>
-			</div>
+			</div> -->
 		</form>	
 	</div>
 </div>
