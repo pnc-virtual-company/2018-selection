@@ -292,8 +292,6 @@ body{
 										</div>
 									</div>	
 								</div>
-
-
 								<div class="row">
 									<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12"></div>
 									<div class="col-lg-4 col-md-4 col-sm-9 col-xs-12">
@@ -306,7 +304,6 @@ body{
 									</div>
 								</div>
 								<!-- pop up -->
-
 								<!-- / close pop up -->
 								<div class="row">
 									<div class="col-lg-5 col-md-5">
@@ -355,7 +352,6 @@ body{
 				</div>
 				<!-- end form collapsed One -->
 				<div class="card">
-					<div>
 						<div id="headingTwo">
 							<h5 class="mb-0">
 								<button class="btn btn-primary collapsed  btn-block text-left formHeading" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="height: 60px;">
@@ -461,7 +457,7 @@ body{
 															<?php 
 															for ($i=0; $i <=12 ; $i++) { 
 																?>
-																<option value="1"><?php echo $i; ?></option>
+																<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
 																<?php		
 															}
 															?>
@@ -488,7 +484,6 @@ body{
 												</div>
 											</div>
 											<div class="col-lg-7 col-md-7"></div>
-
 										</div>
 										<div class="row">
 											<div class="col-lg-5 col-md-5 col-sm-8">
@@ -577,7 +572,7 @@ body{
 													<?php 
 													for ($i=1; $i <=12 ; $i++) { 
 														?>
-														<option value="1"><?php echo $i; ?></option>
+														<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
 														<?php	
 													}
 													?>
@@ -595,7 +590,7 @@ body{
 													<?php 
 													for ($i=0; $i <10 ; $i++) { 
 														?>
-														<option value="1"><?php echo $i; ?></option>
+														<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
 														<?php 
 													}
 													?>
@@ -614,7 +609,7 @@ body{
 												<?php 
 												for ($i=0; $i <10 ; $i++) { 
 													?>
-													<option value="1"><?php echo $i; ?></option>
+													<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
 													<?php 
 												}
 												?>
@@ -637,7 +632,7 @@ body{
 											<?php 
 											for ($i=1; $i <=15 ; $i++) { 		
 												?>
-												<option value="1"><?php echo $i ?></option>
+												<option value="<?php echo $i; ?>"><?php echo $i ?></option>
 												<?php
 											}
 											?>
@@ -655,7 +650,7 @@ body{
 											<?php 
 											for ($i=1; $i <12 ; $i++) { 
 												?>
-												<option value="1"><?php echo $i; ?></option>
+												<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
 												<?php 
 											}
 											?>
@@ -1872,6 +1867,7 @@ body{
 		});
 	});
 	$(document).ready(function(){
+		//put global variable max-id here of candidate
 		$('#saveNewCan').click(function(){
 			$.ajax({
 				type: 'POST',
@@ -1885,17 +1881,17 @@ body{
 				}
 			});
 		});
-		// declare global variable here
+		// ajax for save family profile
 		$('#SaveFamilyPro').click(function(){
 			$.ajax({
 				type: 'POST',
 				url: '<?php echo base_url() ?>c_candidates/addFamilyProfile',//put variable can id here
 				data: $('form#fProForm').serialize(),
 				success:function(msg) {
-					alert('added');
+					alert('Family profile was added');
 				},
 				error:function(){
-					alert('error');
+					alert('Cannot add family profile');
 				}
 			});
 		});
@@ -1927,9 +1923,7 @@ body{
 					alert('Error add expense source');
 				}
 			});
-// End function add 
-// function add family expense
-});
+		});
 
 		//ajax for load and debt
 		$('#saveLoan').click(function(){

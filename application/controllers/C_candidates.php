@@ -173,29 +173,27 @@ Class C_candidates extends CI_Controller{
 	}
   public function addFamilyProfile()
   {
+  	$this->load->model('Candidates_model');
     $fAge = $this->input->post('faAge');
     $fOccupation = $this->input->post('faOccu');
     $fSpecify = $this->input->post('faSpec');
     $fHealth = $this->input->post('faHealth');
     $fHealthSpec = $this->input->post('faHealthSpec');
-    $fEdu = $this->input->post('faEdu');
-
+    $fEdu = $this->input->post('fatherEdu');
     $mAge = $this->input->post('moAge');
     $mOccu = $this->input->post('motherOcc');
     $mSpecify = $this->input->post('mSpecify');
     $mhealthStatus = $this->input->post('mhealthStat');
     $mHealthSpec = $this->input->post('mHealthSpec');
     $mEdu = $this->input->post('mEdu');
-
     $numSiblings = $this->input->post('numSiblings');
     $marriedStatus = $this->input->post('marriedStat');
     $separated = $this->input->post('separated');
     $numFamily = $this->input->post('member');
     $studentRank = $this->input->post('studentRank');
 
-    $result['familyProfile'] = $this->m_can->addFamilyProfile($fAge,$fOccupation,$fSpecify,$fHealth,$fHealthSpec,$fEdu,$mAge,
-      $mOccu,$mSpecify,$mhealthStatus,$mHealthSpec,$mEdu,$numSiblings,$marriedStatus,$separated,$numFamily,$studentRank);
-    echo json_encode($msg);   
+    $result['familyProfile'] = $this->Candidates_model->addFamilyProfile($fAge,$fOccupation,$fSpecify,$fHealth,$fHealthSpec,$fEdu,$mAge,$mOccu,$mSpecify,$mhealthStatus,$mHealthSpec,$mEdu,$numSiblings,$marriedStatus,$separated,$numFamily,$studentRank);
+    echo json_encode($result);
   }
 // delete selected candidate
 	public function deleteSelectedCandidate(){
@@ -226,26 +224,48 @@ Class C_candidates extends CI_Controller{
 	}
 	//image part
 	//controller for update image of candidate
-	public function uImage($id) {
-		$this->load->model('Candidates_model');
-		// $inputFile = $this->input->post('cImage'); //get value from input btn
-		$config['upload_path']= base_url()."assets/images/candidates/";
-        $config['allowed_types']='jpg|png|jpeg';
-        $config['max_size']	= '1024';
-		$config['max_width']  = '1024';
-		$config['max_height']  = '768';
-        $this->load->library('upload',$config);
-        if($this->upload->do_upload('file')){
-        $data = $this->upload->data();
-        $data1 = array(
-        'file' => $this->input->post('file'),
-        'imgpath' => $data['upload_data']['file_name']
-        );
-        $result = $this->Candidates_model->uImageCan($id,$data1);
-            echo json_encode($result);
-        // if ($result == TRUE) {
-        // 	}
-        }
+	// public function uImage($id) {
+	// 	$this->load->model('Candidates_model');
+	// 	// $inputFile = $this->input->post('cImage'); //get value from input btn
+	// 	$config['upload_path']= base_url()."assets/images/candidates/";
+ //        $config['allowed_types']='jpg|png|jpeg';
+ //        $config['max_size']	= '1024';
+	// 	$config['max_width']  = '1024';
+	// 	$config['max_height']  = '768';
+ //        $this->load->library('upload',$config);
+ //        if($this->upload->do_upload('file')){
+ //        $data = $this->upload->data();
+ //        $data1 = array(
+ //        'file' => $this->input->post('file'),
+ //        'imgpath' => $data['upload_data']['file_name']
+ //        );
+ //        $result = $this->Candidates_model->uImageCan($id,$data1);
+ //            echo json_encode($result);
+ //        // if ($result == TRUE) {
+ //        // 	}
+ //        }
+	// }
+	// public function uploadImage(){
+	// 	$data['title'] = 'Upload image by using ajax in codeigniter';
+	// 	$this->load->view('update_candidate',$data);
+	// }
+	public function uploadImageAjax($id)
+	{
+		if(isset($_FILE['file']['name']))
+		{
+			$config['upload_path'] = './assets/images/candidates/';
+			$config['allowed_types'] = 'jpg|png|jpeg';
+			$this->load->library('upload',$config);
+			if(!$this->uplaod->do_upload('file'))
+			{
+				echo $this->upload->display_errors();
+			}
+			else
+			{
+				$data = $this->upload->data();
+				echo '<img src="'.base_url().'assets/images/candidates/'.$data["file"].'">';
+			}
+		}
 	}
 	public function uInvestiCon($id) {		//function to update investigation conclusion 
 		$this->load->model('Candidates_model');
@@ -299,6 +319,7 @@ Class C_candidates extends CI_Controller{
 		$liveInHouse = $this->input->post('liveInHouse');
 		$sRank = $this->input->post('sRank');
 		$data = $this->Candidates_model->ufamilyProfile($id,$fAge,$fOccupation,$fotherOccupationSpecify,$fHealth,$fatherhealthIssues,$fEducation,$mAge,$mOccupation,$mOccupationSpecify,$mhealth,$mhealthSpecify,$mEducation,$siblings,$Married,$Separated,$liveInHouse,$sRank);
+		var_dump($data);die();
 		echo json_encode($data);
 	}
 	//controller for update parent income
@@ -406,15 +427,17 @@ Class C_candidates extends CI_Controller{
 		$paSesIncome = $this->input->post('seasonalIncome');
 		$paYearIncome = $this->input->post('yearIncome');
 		$paTotalIncome = $this->input->post('parentTotalIncome');
-
 		$chMonthIncome = $this->input->post('montlyChildAssiss');
 		$chDailyIncome = $this->input->post('ChildDailyIncome');
 		$chSeasonIncome = $this->input->post('ChildSeasonalIncome');
 		$chYearIncome = $this->input->post('ChildYearIncome');
 		$chTotalIncome = $this->input->post('childTotalIncome');
-
 		$totalIncome = $this->input->post('totalMonthIncome');
 		$totalIncomeId = $this->input->post('incomeIndividual');
+
+      // var_dump($paMonthIncome,$paDailyIncome,$paSesIncome,$paYearIncome,$paTotalIncome,$chMonthIncome,$chDailyIncome,$chSeasonIncome,$chYearIncome,$chTotalIncome,$totalIncome,$totalIncomeId);
+      // die();
+
 		$result['familyIncome'] = $this->m_can->addFamilyIncome($paMonthIncome,$paDailyIncome,$paSesIncome,$paYearIncome,$paTotalIncome,$chMonthIncome,$chDailyIncome,$chSeasonIncome,$chYearIncome,$chTotalIncome,$totalIncome,$totalIncomeId);
 		echo json_encode($msg);
 	}
@@ -461,11 +484,11 @@ Class C_candidates extends CI_Controller{
 		$status = $this->input->post('status');
 		$age = $this->input->post('age');
 		$rating = $this->input->post('rating');
-
 		$result['formExpense'] = $this->m_can->addResidence($status,$age,$rating);
 		echo json_encode($msg);
 	}
     // end function add family residence status
+
     // function add family home assets
     public function addAssets()
     {
@@ -505,15 +528,23 @@ Class C_candidates extends CI_Controller{
     	$specifyLevel = $this->input->post('specifyLevel');
 
     	$result['familyAsset'] = $this->m_can->addAssets($refrigerator,$radio,$airCon,$riceCooker,$lcdTV,$colorTV,$chComputer,$exComputer,$fCabinet,$dvd,$smartPhone,$phone,$cheapCam,$expenCam,$cheapSofa,$exSofa,$gasCooker,$fruitBlender,$elecCooker,$motoBike,$farmMachine,$car,$vihicleComment,$cow,$buffalo,$pig,$animalCmt,$farmSize,$farmCmt,$sumQuantity5,$sumQuantity3,$globalAsset,$certificate,$specifyLevel);
+
+    	$msg['success'] = false;
+    	$msg['type'] = 'add';
+
+    	if($result){
+    	  $msg['success'] = true;
+    	}
     	echo json_encode($msg);
     }
     // end function add home asset
+
     // start function add investigator conclusion
     public function addConclude()
     {
     	$investigatorConclude = $this->input->post('investigatorConclude');
-    	var_dump($investigatorConclude);
-    	die();
+    	// var_dump($investigatorConclude);
+    	// die();
     }
     // end function add conclusion
 }

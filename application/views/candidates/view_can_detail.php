@@ -9,7 +9,7 @@ body{
 <!-- form header -->
 <br>
 <div class="container">
-	<div class="row">
+<!-- 	<div class="row">
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-8">
 			<img class="text-center" src="<?php echo base_url() ?>assets/images/background/neourng.jpg" style="width: 45%; margin-left: 27%;"/><br>
@@ -18,7 +18,7 @@ body{
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 			
 		</div>
-	</div>
+	</div> -->
 	<br>
 	<div class="form-group row">
 	<?php foreach ($grade as  $value) {?>
@@ -270,7 +270,7 @@ body{
 								<div class="form-group row">
 									<div class="col-md-2"></div>
 									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
-									<div class="col-lg-8 col-md-8 col-xs-12">
+									<div class="col-lg-11 col-md-11 col-xs-12">
 										<p class="form-control"><?php echo $value->can_student_commit; ?></p>
 									</div>
 								</div>
@@ -279,7 +279,7 @@ body{
 						<div class="row">
 							<div class="col-lg-5 col-md-5">
 								<div class="form-group row">
-									<!-- <div class="col-lg-1 col-md-1"></div> -->
+									<div class="col-lg-1 col-md-1"></div>
 									<label for="activityActivity" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the parents :</label>	
 								</div>
 							</div>
@@ -287,7 +287,7 @@ body{
 								<div class="form-group row">
 									<!-- <div class="col-md-2"></div> -->
 									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
-									<div class="col-lg-8 col-md-8 col-xs-12">
+									<div class="col-lg-11 col-md-11 col-xs-12">
 										<p class="form-control"><?php echo $value->can_parents_commit; ?></p>
 									</div>
 								</div>
@@ -1563,17 +1563,17 @@ body{
 			<div class="row">
 				<div class="col-md-12">
 					<h4 style="color: #000;">Investigator's conclusion</h4>
-					<!-- <textarea name="" id="" rows="5" class="form-control" placeholder="Please comment"></textarea> -->
-					<p class="form-control"><?php echo $value->can_investigator_conclusion; ?></p>
+					<textarea name="" id="" rows="5" class="form-control" placeholder="Please comment"><?php echo $value->can_investigator_conclusion; ?></textarea>
+					<!-- <p class="form-control"></p> -->
 				</div>
 			</div>
 			<br>
-			<div class="row">
+		<!-- 	<div class="row">
 				<div class="col-lg-10 col-md-10"></div>
 				<div class="col-lg-2 col-md-2">
 					<button type="button" class="btn btn-primary float-right">Save information</button>
 				</div>
-			</div>
+			</div> -->
 		</form>	
 	</div>
 </div>
