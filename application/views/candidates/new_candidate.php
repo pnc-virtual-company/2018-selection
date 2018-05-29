@@ -7,7 +7,7 @@ body{
 </style>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 	<!-- form header -->
-	<br>
+	
 	<div class="container">
 		<div class="alert alert-success" style="display: none;"></div>
 		<div class="row">
