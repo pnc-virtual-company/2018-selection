@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2018 at 03:15 PM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.9
+-- Generation Time: May 27, 2018 at 04:06 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -39,8 +39,7 @@ CREATE TABLE `skeleton_roles` (
 
 INSERT INTO `skeleton_roles` (`id`, `name`) VALUES
 (1, 'admin'),
-(2, 'user'),
-(8, 'Super admin');
+(2, 'user');
 
 -- --------------------------------------------------------
 
@@ -79,13 +78,9 @@ CREATE TABLE `skeleton_tbl_candidates` (
 --
 
 INSERT INTO `skeleton_tbl_candidates` (`can_id`, `can_firstname`, `can_lastname`, `can_gender`, `can_age`, `can_rank_inclass`, `can_healthy`, `can_pn_choic_rank`, `can_activity_achivement`, `can_resposibility`, `can_communicate`, `can_other_choice_rank`, `can_pnc_motivation`, `can_other_scholaship`, `can_student_commit`, `can_parents_commit`, `can_global_grade`, `can_investigator_conclusion`, `can_ngo_comment`, `can_health_comment`, `can_images`, `pro_id`, `ngo_id`) VALUES
-(2, 'Sopheak', 'Rith', 'Male', 21, 10, 'Other', 2, 'Good ', '20/25', '20/20', '2', '20/20', 'no', 'Try to student', 'motivation the child to study ', 'B+', 'Good ', 'Good ', 'Good ', NULL, 1, 1),
-(3, 'Vuthy', 'Pouk', 'Female', 20, 10, 'Other', 1, '10', '1', '20/25', '1', '20/25', '20/20', '2', 'I will study hard to complete my gold ', 'Failed', 'She will select to study at PNC because of she is very rich test new add', 'A+', 'Healthy', NULL, 10, 1),
-(4, 'Chan ', 'chea', 'Male', 22, 10, 'healthy ', 2, 'Try to study hard ', '20/20', '20/20', '3', '20/25', 'No', 'Try to study hard to complete my goal  ', 'Motivation the child to leaning ', 'A+', 'Good ', 'Good ', 'healthy ', NULL, 3, 4),
-(5, 'Nuon ', 'Neoung ', 'Female', 20, 9, 'healthy ', 2, 'Good ', '20/25', '20/20', '3', '20/25', 'No ', 'try to study hard ', 'motivation the child to study ', 'B+', 'Good ', 'Good ', 'healthy ', NULL, 6, 6),
-(6, 'Dakhen ', 'sok ', 'Male', 20, 9, 'Other', 2, 'Good ', '20/25', '20/20', '3', '20/25', 'No ', 'try to study hard ', 'motivation the child to study ', 'B-', 'Good ', 'Good ', 'healthy ', NULL, 6, 6),
-(7, 'Sreylang', 'Seng', 'Female', 20, 15, 'Healthy', 2, 'She has no achievement', '10', '15', '2', '15', 'NO', 'She will try to study hard ', 'I will support my daughter', 'A+', NULL, NULL, '', NULL, 1, 1),
-(8, 'Prem', 'Mann', 'Male', 23, 1, 'Healthy', 1, 'no', '5', '13', '1', '15', 'RUPP', 'I will study hard', 'I will support my son', 'A+', NULL, NULL, '', NULL, 2, 1);
+(1, 'dakhen', 'SOK', 'Male', 0, 1, 'Healthy', 1, 'I am an outstanding', '1', '1', '1', '1', 'RUPP', 'I commit to be a goodstudent', 'I commit to push my child to be a good student', 'A', NULL, NULL, '', NULL, 0, 1),
+(2, 'Illslick', 'sok', 'Male', 1, 0, 'Healthy', 0, '', '', '', '', '', '', '', '', 'A+', NULL, NULL, '', NULL, 0, 8),
+(3, 'Dalin', 'LOEM', 'Male', 20, 0, 'Healthy', 0, '', '', '', '', '', '', '', '', 'A', NULL, NULL, '', NULL, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -109,24 +104,6 @@ CREATE TABLE `skeleton_tbl_expense` (
   `tbl_candidates_can_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `skeleton_tbl_expense`
---
-
-INSERT INTO `skeleton_tbl_expense` (`ex_id`, `ex_rice`, `ex_food`, `ex_firewood`, `ex_loan`, `ex_study`, `ex_medical`, `ex_electricities_water`, `ex_agriculture`, `ex_weding`, `ex_other_utilities`, `ex_total`, `tbl_candidates_can_id`) VALUES
-(1, 10, 20, 10, 20, 30, 10, 10, 30, 30, 10, 200, 2),
-(2, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 245, 3),
-(3, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 4),
-(4, 10, 20, 10, 10, 50, 20, 70, 80, 30, 100, 200, 5),
-(5, 5, 20, 10, 40, 50, 60, 70, 80, 30, 100, 200, 6),
-(6, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 200, 0),
-(7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(8, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10, 0),
-(9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 100, 0),
-(11, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 220, 0),
-(12, 10, 10, 10, 10, 10, 10, 1, 10, 10, 10, 91, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -138,51 +115,39 @@ CREATE TABLE `skeleton_tbl_home_asset` (
   `h_refrigerator` int(11) DEFAULT NULL,
   `h_air_condictioner` int(11) DEFAULT NULL,
   `h_lcd_tv` int(11) DEFAULT NULL,
-  `h_computer_big_100` int(11) DEFAULT NULL,
-  `h_furnished_big_300` int(11) DEFAULT NULL,
-  `h_smartphone_big_100` int(11) DEFAULT NULL,
-  `h_camera_big_100` int(11) DEFAULT NULL,
-  `h_sofa_big_300` int(11) DEFAULT NULL,
+  `h_computer_big_100` double DEFAULT NULL,
+  `h_furnished_big_300` double DEFAULT NULL,
+  `h_smartphone_big_100` double DEFAULT NULL,
+  `h_camera_big_100` double DEFAULT NULL,
+  `h_sofa_big_300` double DEFAULT NULL,
   `h_motobike_big_500` int(11) DEFAULT NULL,
-  `h_farming_machine` int(11) DEFAULT NULL,
+  `h_farming_machine` double DEFAULT NULL,
   `h_car_truck` int(11) DEFAULT NULL,
   `h_cow` int(11) DEFAULT NULL,
   `h_buffaloe` int(11) DEFAULT NULL,
   `h_pig` int(11) DEFAULT NULL,
-  `h_farm_size` int(11) DEFAULT NULL,
+  `h_farm_size` double DEFAULT NULL,
   `h_radio` int(11) DEFAULT NULL,
   `h_rice_cooker` int(11) DEFAULT NULL,
   `h_color_tv` int(11) DEFAULT NULL,
-  `h_computer_smal_100` int(11) NOT NULL,
+  `h_computer_smal_100` double NOT NULL,
   `h_dvd_player` int(11) NOT NULL,
-  `h_phone_smal_100` int(11) DEFAULT NULL,
-  `h_camera_small_100` int(11) DEFAULT NULL,
-  `h_sofa_smal_300` int(11) DEFAULT NULL,
+  `h_phone_smal_100` double DEFAULT NULL,
+  `h_camera_small_100` double DEFAULT NULL,
+  `h_sofa_smal_300` double DEFAULT NULL,
   `h_gascooker` int(11) DEFAULT NULL,
   `h_fruit_blender` int(11) DEFAULT NULL,
   `h_electrical_cooker` int(11) DEFAULT NULL,
   `h_vehicles_comment` varchar(255) DEFAULT NULL,
   `h_animals_comment` varchar(255) DEFAULT NULL,
   `h_farm_comment` varchar(255) DEFAULT NULL,
-  `h_total_x5` int(11) NOT NULL,
-  `h_total_x3` int(11) NOT NULL,
-  `h_glbal_total` int(11) NOT NULL,
+  `h_total_x5` double NOT NULL,
+  `h_total_x3` double NOT NULL,
+  `h_glbal_total` double NOT NULL,
   `h_poverty_certificate` varchar(45) DEFAULT NULL,
   `h_level` int(11) DEFAULT NULL,
   `tbl_candidates_can_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `skeleton_tbl_home_asset`
---
-
-INSERT INTO `skeleton_tbl_home_asset` (`h_id`, `h_refrigerator`, `h_air_condictioner`, `h_lcd_tv`, `h_computer_big_100`, `h_furnished_big_300`, `h_smartphone_big_100`, `h_camera_big_100`, `h_sofa_big_300`, `h_motobike_big_500`, `h_farming_machine`, `h_car_truck`, `h_cow`, `h_buffaloe`, `h_pig`, `h_farm_size`, `h_radio`, `h_rice_cooker`, `h_color_tv`, `h_computer_smal_100`, `h_dvd_player`, `h_phone_smal_100`, `h_camera_small_100`, `h_sofa_smal_300`, `h_gascooker`, `h_fruit_blender`, `h_electrical_cooker`, `h_vehicles_comment`, `h_animals_comment`, `h_farm_comment`, `h_total_x5`, `h_total_x3`, `h_glbal_total`, `h_poverty_certificate`, `h_level`, `tbl_candidates_can_id`) VALUES
-(1, 1, 1, 2, 2, 2, 5, 5, 1, 2, 2, 1, 2, 2, 2, 200, 2, 2, 1, 2, 2, 2, 1, 1, 4, 4, 4, 'I have a small farm, and it is need to decide to my members in my family. ', 'I have a small farm, and it is need to decide to my members in my family. ', 'farming ', 200, 300, 400, 'Good', 6, 2),
-(2, 5, 0, 0, 0, 1, 2, 0, 2, 1, 0, 0, 1, 0, 3, 5, 3, 2, 1, 0, 1, 2, 0, 0, 1, 2, 0, 'For farming machine and car or truck for farming they are don\'t have.', 'They have chicken', 'I have a small farm, and it is need to decide to my members in my family. ', 25, 15, 150, 'Yes', 1, 3),
-(3, 1, 2, 1, 2, 2, 1, 2, 1, 1, 1, 2, 1, 2, 3, 2, 1, 2, 1, 1, 2, 1, 2, 1, 2, 1, 2, '2', 'I have a few animal for supporting my family.', 'I have a few animal for supporting my family.', 2, 200, 200, '1000', 2, 4),
-(4, 1, 2, 1, 2, 2, 1, 2, 1, 1, 1, 2, 1, 2, 3, 2, 1, 2, 1, 1, 2, 1, 2, 1, 2, 1, 2, '2', 'I have a few animal for supporting my family.', 'I have a few animal for supporting my family.', 2, 200, 200, '1000', 2, 5),
-(5, 1, 2, 1, 2, 2, 1, 2, 1, 1, 1, 2, 1, 2, 3, 2, 1, 2, 1, 1, 2, 1, 2, 1, 2, 1, 2, '2', 'I have a few animal for supporting my family.', 'I have a few animal for supporting my family.', 2, 200, 200, '1000', 2, 6),
-(6, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10000, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, '', '', '', 140, 113, 253, '1', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -192,36 +157,20 @@ INSERT INTO `skeleton_tbl_home_asset` (`h_id`, `h_refrigerator`, `h_air_condicti
 
 CREATE TABLE `skeleton_tbl_income` (
   `in_id` int(11) NOT NULL,
-  `f_monthly` int(11) DEFAULT NULL,
-  `f_daily` int(11) DEFAULT NULL,
-  `f_seasonal` int(11) DEFAULT NULL,
-  `f_yearly` int(11) DEFAULT NULL,
-  `f_total` int(11) DEFAULT NULL,
-  `c_monthly` int(11) DEFAULT NULL,
-  `c_daily` int(11) DEFAULT NULL,
-  `c_seasonal` int(11) DEFAULT NULL,
-  `c_yearly` int(11) DEFAULT NULL,
-  `c_total` int(11) DEFAULT NULL,
-  `g_monthly` int(11) DEFAULT NULL,
-  `g_monthly_individual` int(11) DEFAULT NULL,
-  `tbl_candidates_can_id` int(11) NOT NULL
+  `f_monthly` double DEFAULT NULL,
+  `f_daily` double DEFAULT NULL,
+  `f_seasonal` double DEFAULT NULL,
+  `f_yearly` double DEFAULT NULL,
+  `f_total` double DEFAULT NULL,
+  `c_monthly` double DEFAULT NULL,
+  `c_daily` double DEFAULT NULL,
+  `c_seasonal` double DEFAULT NULL,
+  `c_yearly` double DEFAULT NULL,
+  `c_total` double DEFAULT NULL,
+  `g_monthly` double DEFAULT NULL,
+  `g_monthly_individual` double DEFAULT NULL,
+  `tbl_candidates_can_id` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `skeleton_tbl_income`
---
-
-INSERT INTO `skeleton_tbl_income` (`in_id`, `f_monthly`, `f_daily`, `f_seasonal`, `f_yearly`, `f_total`, `c_monthly`, `c_daily`, `c_seasonal`, `c_yearly`, `c_total`, `g_monthly`, `g_monthly_individual`, `tbl_candidates_can_id`) VALUES
-(1, 100000, 10000, 1000, 1000000, 483417, 10000, 10000, 1000, 10000, 310917, 3000, 100, 2),
-(2, 100, 100, 200, 100, 3125, 100, 100, 150, 200, 3129, 632917, 36, 3),
-(3, 150, 15, 20, 2000, 3000, 100, 10, 20, 200, 4000, 4500, 150, 4),
-(4, 100, 10, 20, 1000, 2000, 100, 10, 10, 200, 1000, 3000, 100, 4),
-(5, 10000, 10000, 20000, 1000000, 395000, 100000, 10000, 10000, 200000, 417500, 3000, 100, 5),
-(6, 100, 10, 20, 1000, 2000, 100, 10, 10, 200, 1000, 3000, 100, 6),
-(7, 100, 100, 100, 100, 3117, 100, 100, 100, 100, 3117, 6233, 1, 0),
-(8, 10, 10, 10, 10, 312, 1, 10, 10, 10, 303, 614, 1, 0),
-(9, 33, 333, 33, 33, 10029, 33, 33, 333, 33, 1054, 11082, 10, 0),
-(10, 10, 10, 10, 10, 312, 10, 10, 10, 10, 312, 623, 623, 0);
 
 -- --------------------------------------------------------
 
@@ -242,20 +191,6 @@ CREATE TABLE `skeleton_tbl_loan_debt` (
   `tbl_candidates_can_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `skeleton_tbl_loan_debt`
---
-
-INSERT INTO `skeleton_tbl_loan_debt` (`ld_id`, `ld_initial_amount`, `ld_instritution`, `ld_interest_tates`, `ld_reason`, `ld_monthly`, `ld_trimester`, `ld_semester`, `ld_capital`, `tbl_candidates_can_id`) VALUES
-(1, 10, 20, '20', 'My family want to work as a business. error something', 200, 100, 200, 100, 2),
-(2, 100, 200, '200', 'Borrow to buy land to grow the plant', 75, 98, 190, 90, 3),
-(3, 10, 20, '20', 'My family want to work as a business. add something', 200, 100, 200, 100, 4),
-(4, 10, 20, '20', 'My family want to work as a business. add something', 200, 100, 200, 100, 5),
-(5, 10, 20, '20', 'My family want to work as a business. change something', 200, 100, 200, 100, 6),
-(6, 10, 10, '10', 'lazy to earn money', 10, 10, 10, 10, 0),
-(7, 23, 23, '23', 'Lazy to earn money it is very diffecult', 22, 22, 22, 22, 0),
-(8, 0, 0, '', '', 0, 0, 0, 0, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -273,11 +208,12 @@ CREATE TABLE `skeleton_tbl_ngo` (
 
 INSERT INTO `skeleton_tbl_ngo` (`ngo_id`, `ngo_name`) VALUES
 (1, 'PSE'),
-(2, 'KBFC'),
 (3, 'CETC'),
 (4, 'CIFS'),
-(5, 'Other '),
-(6, 'Engang ');
+(7, 'ESK'),
+(8, 'PhnomPenh Thmey'),
+(9, 'Latas'),
+(10, 'Other');
 
 -- --------------------------------------------------------
 
@@ -307,29 +243,6 @@ CREATE TABLE `skeleton_tbl_profile` (
   `tbl_candidates_can_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `skeleton_tbl_profile`
---
-
-INSERT INTO `skeleton_tbl_profile` (`p_id`, `f_age`, `f_occupation`, `f_health`, `f_edu`, `m_age`, `m_occupation`, `m_health`, `m_edu`, `number_sibbling`, `number_maried`, `number_separated`, `number_family_living`, `stu_rank`, `f_occupation_comment`, `m_occupation_comment`, `f_health_comment`, `m_health_comment`, `tbl_candidates_can_id`) VALUES
-(1, 30, 'Teacher ', 'Healthy', '10', 29, 'Police ', 'Healthy ', '10', 4, 1, 1, 3, 2, 'Is a normal family ', 'Is a normal family ', 'Good ', 'Good ', 2),
-(2, 60, 'Teacher', 'Healthy', 'University', 56, 'Police Officer', 'Healthy', 'University', 4, 2, 3, 1, 5, '', '', 'Good healthy ', '', 3),
-(3, 80, 'Agriculture', 'Healthy', 'University', 74, 'Police Officer', 'Healthy', '12', 12, 10, 2, 9, 9, 'AS a normal family ', 'AS a normal family ', 'Good ', 'Good ', 4),
-(4, 0, 'Farmer/Laborer', 'Healthy', '1', 0, 'Farmer/Laborer', 'Healthy', '1', 1, 0, 0, 1, 1, '', '', '', '', 0),
-(5, 0, 'Farmer/Laborer', 'Healthy', '1', 0, 'Farmer/Laborer', 'Healthy', '1', 1, 0, 0, 1, 1, '', '', '', '', 0),
-(6, 0, 'Farmer/Laborer', 'Healthy', '1', 0, 'Farmer/Laborer', 'Healthy', '1', 1, 0, 0, 1, 1, '', '', '', '', 0),
-(7, 0, 'Farmer/Laborer', 'Healthy', '1', 0, 'Farmer/Laborer', 'Healthy', '1', 1, 0, 0, 1, 1, '', '', '', '', 0),
-(8, 50, 'Teacher', 'Healthy', '12', 47, 'Teacher', 'Healthy', '12', 1, 0, 0, 1, 1, '', '', '', '', 0),
-(9, 70, 'Soldier', 'Healthy', '11', 60, 'Teacher', 'Healthy', 'University', 1, 0, 0, 1, 1, '', '', '', '', 0),
-(10, 56, 'Teacher', 'Healthy', '12', 45, 'Teacher', 'Healthy', 'University', 1, 0, 0, 1, 1, '', '', '', '', 0),
-(11, 44, 'Farmer/Laborer', 'Healthy', '1', 44, 'Farmer/Laborer', 'Healthy', '1', 1, 0, 0, 1, 1, '', '', '', '', 0),
-(12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(13, 56, 'Farmer/Laborer', 'Healthy', NULL, 65, 'Farmer/Laborer', 'Healthy', '0', 1, 1, 1, 1, 1, '', '', '', '', 0),
-(14, 56, 'Police Officer', 'Healthy', NULL, 55, 'Teacher', 'Healthy', 'University', 1, 1, 1, 1, 1, '', '', '', '', 0),
-(15, 66, 'Soldier', 'Healthy', NULL, 55, 'Teacher', 'Healthy', '12', 1, 1, 1, 1, 1, '', '', '', '', 0),
-(16, 65, 'Teacher', 'Healthy', '12', 55, 'Teacher', 'Healthy', 'University', 1, 1, 1, 1, 1, '', '', '', '', 0),
-(17, 66, 'Police Officer', 'Healthy', '11', 55, 'Teacher', 'Healthy', '10', 9, 3, 1, 1, 1, '', '', '', '', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -346,16 +259,7 @@ CREATE TABLE `skeleton_tbl_provinces` (
 --
 
 INSERT INTO `skeleton_tbl_provinces` (`pro_id`, `pro_name`) VALUES
-(1, 'Preah Vihear'),
-(2, 'Pursat'),
-(3, 'Kompong Thom'),
-(4, 'Battam bong '),
-(5, 'Phnom Penh'),
-(6, 'Banteay Mean chey'),
-(7, 'Kompong Cham '),
-(8, 'kompong Chhnang '),
-(9, 'Kom pot '),
-(10, 'kandal');
+(1, 'Banteay Meanchey');
 
 -- --------------------------------------------------------
 
@@ -365,24 +269,11 @@ INSERT INTO `skeleton_tbl_provinces` (`pro_id`, `pro_name`) VALUES
 
 CREATE TABLE `skeleton_tbl_residence` (
   `re_id` int(11) NOT NULL,
-  `re_status` varchar(45) NOT NULL,
-  `re_age` int(11) NOT NULL,
-  `re_rating_scale` int(11) NOT NULL,
+  `re_status` varchar(45) DEFAULT NULL,
+  `re_age` int(11) DEFAULT NULL,
+  `re_rating_scale` int(11) DEFAULT NULL,
   `tbl_candidates_can_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `skeleton_tbl_residence`
---
-
-INSERT INTO `skeleton_tbl_residence` (`re_id`, `re_status`, `re_age`, `re_rating_scale`, `tbl_candidates_can_id`) VALUES
-(1, 'Rent', 5, 3, 2),
-(2, 'Inherited', 9, 1, 3),
-(3, 'Rent ', 6, 2, 4),
-(4, 'Purchased', 2, 2, 0),
-(5, 'Shared', 7, 3, 0),
-(6, 'Inherited', 2, 2, 0),
-(7, 'Inherited', 4, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -410,12 +301,9 @@ INSERT INTO `skeleton_users` (`id`, `firstname`, `lastname`, `login`, `email`, `
 (2, 'john', 'DOE', 'jdoe', 'jdoe@test.org', '$2a$08$Gk9WE1duEcKhEhxUKFmZteUU0sCZTgZIKkiPxhCe7yi0Jw0pBbDNW', 2, 1),
 (3, 'Bob', 'DENARD', 'bdenard', 'bdenard@test.org', '$2a$08$14jdHTPUZe5.zXxQ1NqhhO83xUt2Zkr.csGw10BH75B3VrJiNU8Bq', 2, 1),
 (5, 'Admin', 'ADMINISTRATOR', 'admin', 'admin@skeleton.org', '$2a$08$cnX6al6aTkoyh/N/tKZ11e8ec9J/sldA6R4NdP.2qhhDi0OD3ek1G', 1, 1),
-(8, 'sopheak', 'RITH', 'sopheak', 'sopheak.rith@student.passerellesnumeriques.org', '$2a$08$nQm3BIAM46a4ifvNnNL3Mu0/yyJIJstsca5aMpCv1K73IHD8rXFjS', 1, 1),
-(11, 'chan', 'CHEA', 'cchea', 'chan.chea@student.passerellesnumeriques.org', '$2a$08$VnyzyHZ1SADBplAOUOdqJ./iYPPX7pECmeiZs3wEzEpWnPOMabqEO', 1, 1),
-(13, 'chan', 'JUMAERY', 'cjumaery', 'chan.chea@student.passerellesnumeriques.org', '$2a$08$sABHLq4AWy6sxF500s6E9.3/N/uKX.fss0lGR8IOEto0.BWvCOoM.', 2, 1),
-(15, 'nuon', 'NEOURNG', 'nuon', 'nuon.neourng@student.passerellesnumeriques.org', '$2a$08$1mpsSyUa09NwXHfCIitxOOVh22cdzdko6SucYI0G9M2wHqfzAtTRS', 2, 1),
-(17, 'vuthy', 'POUK', 'vuthy', 'vuthy.pouk@student.passerellesnumeriques.org', '$2a$08$PDVtAMhh28yWnmeMiX6WOuT11Q0VEItTHMtoOVrFBuOuSm8thKKAq', 2, 1),
-(18, 'visoth', 'RITH', 'visoth', 'sopheak.rith365@gmail.com', '$2a$08$0NkedQVGclz01q0Gj1g6MuP9e.i0QLZwDms0ndudWVSoFkkTHTCe2', 1, 1);
+(6, 'sopheak', 'RITH', 'srith', 'sopheak.rith@gmail.com', '$2a$08$kfP/6VXsDdIKtsz8wZiBzOJ4Gu.Ca.XQA9vHU2om09z6kEdgiuj.G', 1, 1),
+(7, 'dakhen', 'SOK', 'dakhen', 'dakhen.sok@student.passerellesnumeriques.org', '$2a$08$BeXOQ57xEe2nEfOjMKiriOCEegqoSwsma1vU.JKOzrVlF4WgXZNhC', 1, 1),
+(8, 'dakhen', 'SOK', 'dakhen.sok', 'dakhen.sok@student.passerellesnumeriques.org', '$2a$08$LYgUEw5Ik.HM/3i60yX9mO8lpFrCD5Gy0qcAuXrx9h81dsora.Ozq', 2, 1);
 
 --
 -- Indexes for dumped tables
@@ -512,61 +400,61 @@ ALTER TABLE `skeleton_users`
 -- AUTO_INCREMENT for table `skeleton_tbl_candidates`
 --
 ALTER TABLE `skeleton_tbl_candidates`
-  MODIFY `can_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `can_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `skeleton_tbl_expense`
 --
 ALTER TABLE `skeleton_tbl_expense`
-  MODIFY `ex_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ex_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `skeleton_tbl_home_asset`
 --
 ALTER TABLE `skeleton_tbl_home_asset`
-  MODIFY `h_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `h_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `skeleton_tbl_income`
 --
 ALTER TABLE `skeleton_tbl_income`
-  MODIFY `in_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `in_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `skeleton_tbl_loan_debt`
 --
 ALTER TABLE `skeleton_tbl_loan_debt`
-  MODIFY `ld_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ld_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `skeleton_tbl_ngo`
 --
 ALTER TABLE `skeleton_tbl_ngo`
-  MODIFY `ngo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ngo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `skeleton_tbl_profile`
 --
 ALTER TABLE `skeleton_tbl_profile`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `skeleton_tbl_provinces`
 --
 ALTER TABLE `skeleton_tbl_provinces`
-  MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `skeleton_tbl_residence`
 --
 ALTER TABLE `skeleton_tbl_residence`
-  MODIFY `re_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `re_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `skeleton_users`
 --
 ALTER TABLE `skeleton_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Internal unique identifier', AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Internal unique identifier', AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
