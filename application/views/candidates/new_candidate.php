@@ -8,23 +8,6 @@ body{
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 	<!-- form header -->
 	
-	<div class="container">
-		<div class="alert alert-success" style="display: none;"></div>
-	<!-- 	<div class="row">
-			<div class="col-lg-5 col-md-5 col-sm-3 col-xs-3">
-			</div>
-			<div class="col-lg-7 col-md-7 col-sm-9 col-xs-9">
-				<img id="blah" src="http://placehold.it/180" alt="your image" class="img-responsive" style="width: 25%;">
-				<br>
-				<br>
-				<div class="row">
-					<input type='file' onchange="readURL(this);" />
-				</div>
-			</div> 
-		</div> -->
-		<br>
-
-	</div>
 	<!-- end form header -->
 	<br>
 	<!-- form collapsed -->
@@ -49,8 +32,15 @@ body{
 						<!-- form student information -->
 						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 							<h5>General information</h5>
-						</div><br>
+						</div>
 						<form id="canForm" method="post">
+							
+								
+
+								
+								<br>
+
+							
 							<div class="row">
 								<div class="col-lg-5 col-md-5">
 									<div class="form-group row">
@@ -67,6 +57,18 @@ body{
 												<option value="Failed">Failed</option>
 											</select>
 										</div>
+									</div>
+								</div>
+								<div class="col-lg-5 col-md-5">
+									<div class="form-group row">
+										<div class="col-lg-5 col-md-5 col-sm-3 col-xs-3">
+										</div>
+										<div class="col-lg-7 col-md-7 col-sm-9 col-xs-9">
+									
+											<div class="col-lg-6 col-md-6 col-xs-12">
+												<input type='file' />
+											</div>
+										</div> 
 									</div>
 								</div>
 							</div>
@@ -147,13 +149,13 @@ body{
 									</div>
 								</div>
 								<div class="col-lg-1 col-md-1">
-									<!-- <?php if($this->session->loggedIn === TRUE) { ?>
+									<?php if($this->session->loggedIn === TRUE) { ?>
 										<?php $role =$this->session->nameRole;?>
 										<?php if ($role == 1): ?>
 											<a data-toggle="modal" data-target="#theModal">
 												<i class="mdi mdi-pencil" title="Edit NGO"></i>
 											</a>	
-										<?php endif ?> -->
+										<?php endif ?>
 									</div>
 									<div class="col-lg-6 col-md-6">
 										<div class="form-group row">
@@ -299,7 +301,7 @@ body{
 										</div>
 									</div>	
 								</div>
-							<!-- 	<div class="row">
+								<div class="row">
 									<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12"></div>
 									<div class="col-lg-4 col-md-4 col-sm-9 col-xs-12">
 										<a href="#" data-toggle="modal" data-target="#myModal">
@@ -309,7 +311,7 @@ body{
 											</h6>
 										</a>
 									</div>
-								</div> -->
+								</div>
 								<!-- pop up -->
 								<!-- / close pop up -->
 								<div class="row">

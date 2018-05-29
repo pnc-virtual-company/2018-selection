@@ -40,6 +40,7 @@ class Candidates_model extends CI_Model{
     // function to delete candidates
     function deleteCandidate()
     {
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
         $id = $this->input->get('can_id');
         $this->db->where('can_id', $id);
         $this->db->delete('skeleton_tbl_candidates');
@@ -48,6 +49,7 @@ class Candidates_model extends CI_Model{
         }else{
             return false;
         }
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
     }
     // function to count all candidates
     public function countCandidates()
@@ -762,7 +764,7 @@ class Candidates_model extends CI_Model{
             'ld_capital' => $capital,
             'tbl_candidates_can_id' => $lastCanId
         );
-                $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
         $insert = $this->db->insert('skeleton_tbl_loan_debt',$data);
         if ($this->db->affected_rows() > 0) {
             return true;
