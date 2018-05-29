@@ -100,10 +100,10 @@
                             <i class="mdi mdi-file-excel"></i>
                             &nbsp;Export this list
                         </a>&nbsp;&nbsp;
-                        <!-- <a href="<?php //echo base_url() ?>c_student/map">
+                        <a href="<?php echo base_url() ?>c_student/map">
                             <button id="mapButton" class="btn btn-primary clearfix"><i class="mdi mdi-map"></i>
                           &nbsp;Province distribution</button>
-                        </a> -->
+                        </a>
                     </div>
                 </div>
             </div>
