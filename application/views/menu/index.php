@@ -14,7 +14,7 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" href="<?php echo base_url() ?>c_candidates">List of candidates</a>
 					<a class="dropdown-item" href="<?php echo base_url() ?>c_candidates/newCandidate">New candidate</a>
-					<!-- <a class="dropdown-item" href="<?php// echo base_url() ?>c_student/map">Province distribution</a> -->
+					<a class="dropdown-item" href="<?php echo base_url() ?>c_student/map">Province distribution</a>
 				</div>
 			</li>
 			<?php if($this->session->loggedIn === TRUE) { ?>
@@ -104,10 +104,10 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
 								<li class="list-group-item">
 											<div class="form-group">
 												Old password : <input class="form-control" 
-																								type="password" 
-																								name="password" 
-																								 
-																								value="">
+												type="password" 
+												name="password" 
+												 
+												value="">
 											</div>
 										</li>
 										<li class="list-group-item">
