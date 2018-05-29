@@ -239,16 +239,18 @@ class Candidates_model extends CI_Model{
     // fuction add ngo
     public function addNGO($ngo)
     {
-        $data = array('ngo_name' => $ngo );
-        $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
-        $insert = $this->db->insert('skeleton_tbl_ngo',$data);
-        if ($this->db->affected_rows() > 0) {
-            return true;
-        }else
-        {
-            return false;
-        }
-        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
+        // $data = array('ngo_name' => $ngo );
+        // $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
+        // $insert = $this->db->insert('skeleton_tbl_ngo',$data);
+        // if ($this->db->affected_rows() > 0) {
+        //     return true;
+        // }else
+        // {
+        //     return false;
+        // }
+        // $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
+        $query = $this->db->get('skeleton_tbl_ngo');  
+        return $query->result();  
     } 
 
     // delete ngo
