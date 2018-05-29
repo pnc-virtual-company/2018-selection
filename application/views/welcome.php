@@ -103,7 +103,11 @@
                         <a href="<?php echo base_url() ?>c_student/map">
                             <button id="mapButton" class="btn btn-primary clearfix"><i class="mdi mdi-map"></i>
                           &nbsp;Province distribution</button>
+<<<<<<< HEAD
                         </a>
+=======
+                        </a> 
+>>>>>>> 9773ecf67d5363843adad04e3298e551dc8b3971
                     </div>
                 </div>
             </div>

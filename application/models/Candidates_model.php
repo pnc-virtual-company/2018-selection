@@ -766,7 +766,7 @@ class Candidates_model extends CI_Model{
             'ld_capital' => $capital,
             'tbl_candidates_can_id' => $lastCanId
         );
-                $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
         $insert = $this->db->insert('skeleton_tbl_loan_debt',$data);
         if ($this->db->affected_rows() > 0) {
             return true;

@@ -104,10 +104,10 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
 								<li class="list-group-item">
 											<div class="form-group">
 												Old password : <input class="form-control" 
-																								type="password" 
-																								name="password" 
-																								 
-																								value="">
+												type="password" 
+												name="password" 
+												 
+												value="">
 											</div>
 										</li>
 										<li class="list-group-item">
