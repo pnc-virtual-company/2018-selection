@@ -145,16 +145,17 @@ Class C_candidates extends CI_Controller{
   	//function add NGO
     public function addNGO()
     {
-        $ngo = $this->input->post('name0');
-        // var_dump($ngo); die();
-        $result['ngo'] = $this->m_can->addNGO($ngo);
-        $msg['success'] = false;
-        $msg['type'] = 'add';
-        if($result){
-          $msg['success'] = true;
-        }
+        // $ngo = $this->input->post('name0');
+        // $result['ngo'] = $this->m_can->addNGO($ngo);
+        // $msg['success'] = false;
+        // $msg['type'] = 'add';
+        // if($result){
+        //   $msg['success'] = true;
+        // }
 
-        echo json_encode($msg);
+        // echo json_encode($msg);
+        $data = array( 'name'     => $this->input->post('name0'));   
+        $this->db->insert('skeleton_tbl_ngo',$data);  
     }
 
 	// delete ngo
