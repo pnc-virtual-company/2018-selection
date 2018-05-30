@@ -6,8 +6,9 @@
   <title>Document</title>
 </head>
 <body>
+  <br>
   <div class="container">
-    <h2>Map of Cambodia</h2>
+    <h2 class="text-center">Map of Cambodia</h2>
     <div class="row">
       <div class="col-md-2"></div>
       <div class="col-md-8">
