@@ -1069,10 +1069,10 @@ body{
 									<div class="col-lg-9 col-md-9 col-xs-12">
 										<?php if ($income != NULL) { ?>
 											<?php foreach ($income as $value) { ?>
-										<input type="number" name="famMonIncome" value="<?php echo $value->f_monthly; ?>" class="form-control fincome" id="fMonthly" placeholder="$" style="direction: rtl;" required>
+										<input type="number" name="famMonIncome" value="<?php echo $value->f_monthly; ?>" class="form-control fincome" id="fMonthly" placeholder="$" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="famMonIncome" class="form-control fincome" id="fMonthly" placeholder="$" style="direction: rtl;" required>
+									<input type="number" name="famMonIncome" class="form-control fincome" id="fMonthly" placeholder="$" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1092,10 +1092,10 @@ body{
 									<div class="col-lg-9 col-md-9 col-xs-12">
 										<?php if ($income != NULL) { ?>
 											<?php foreach ($income as $value) { ?>
-										<input type="number" name="famDalIncome" value="<?php echo $value->f_daily; ?>" class="form-control fincome" id="fDaily" placeholder="$" style="direction: rtl;" required>
+										<input type="number" name="famDalIncome" value="<?php echo $value->f_daily; ?>" class="form-control fincome" id="fDaily" placeholder="$" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="famDalIncome" class="form-control fincome" id="fDaily" placeholder="$" style="direction: rtl;" required>
+									<input type="number" name="famDalIncome" class="form-control fincome" id="fDaily" placeholder="$" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1115,10 +1115,10 @@ body{
 									<div class="col-lg-9 col-md-9 col-xs-12">
 										<?php if ($income != NULL) { ?>
 											<?php foreach ($income as $value) { ?>
-										<input type="number" name="famSeaIncome" value="<?php echo $value->f_seasonal; ?>" class="form-control fincome" id="fSeasonal" placeholder="$" style="direction: rtl;" required>
+										<input type="number" name="famSeaIncome" value="<?php echo $value->f_seasonal; ?>" class="form-control fincome" id="fSeasonal" placeholder="$" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="famSeaIncome" class="form-control fincome" id="fSeasonal" placeholder="$" style="direction: rtl;" required>
+									<input type="number" name="famSeaIncome" class="form-control fincome" id="fSeasonal" placeholder="$" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1138,10 +1138,10 @@ body{
 									<div class="col-lg-9 col-md-9 col-xs-12">
 										<?php if ($income != NULL) { ?>
 											<?php foreach ($income as $value) { ?>
-										<input type="number" name="famYeaIncome" value="<?php echo $value->f_yearly; ?>" class="form-control fincome" id="fYearly" placeholder="$" style="direction: rtl;" required>
+										<input type="number" name="famYeaIncome" value="<?php echo $value->f_yearly; ?>" class="form-control fincome" id="fYearly" placeholder="$" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="famYeaIncome" class="form-control fincome" id="fYearly" placeholder="$" style="direction: rtl;" required>
+									<input type="number" name="famYeaIncome" class="form-control fincome" id="fYearly" placeholder="$" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1161,10 +1161,10 @@ body{
 									<div class="col-lg-9 col-md-9 col-xs-12">
 										<?php if ($income != NULL) { ?>
 											<?php foreach ($income as $value) { ?>
-										<input type="number" name="famTotalIncome" value="<?php echo $value->f_total; ?>" class="form-control" id="fTotal" style="direction: rtl;" required>
+										<input type="number" name="famTotalIncome" value="<?php echo $value->f_total; ?>" class="form-control" id="fTotal" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="famTotalIncome" class="form-control" id="fTotal" style="direction: rtl;" required>
+									<input type="number" name="famTotalIncome" class="form-control" id="fTotal" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1191,10 +1191,10 @@ body{
 									<div class="col-lg-9 col-md-9 col-xs-12">
 										<?php if ($income != NULL) { ?>
 											<?php foreach ($income as $value) { ?>
-										<input type="number" name="chMonIncome" value="<?php echo $value->c_monthly; ?>" class="form-control cIncome" id="cMonthly" placeholder="$" style="direction: rtl;" required>
+										<input type="number" name="chMonIncome" value="<?php echo $value->c_monthly; ?>" class="form-control cIncome" id="cMonthly" placeholder="$" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="chMonIncome" class="form-control cIncome" id="cMonthly" placeholder="$" style="direction: rtl;" required>
+									<input type="number" name="chMonIncome" class="form-control cIncome" id="cMonthly" placeholder="$" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1214,10 +1214,10 @@ body{
 									<div class="col-lg-9 col-md-9 col-xs-12">
 										<?php if ($income != NULL) { ?>
 											<?php foreach ($income as $value) { ?>
-										<input type="number" name="chDaliIncome" value="<?php echo $value->c_daily; ?>" class="form-control cIncome" id="cDaily" placeholder="$" style="direction: rtl;" required>
+										<input type="number" name="chDaliIncome" value="<?php echo $value->c_daily; ?>" class="form-control cIncome" id="cDaily" placeholder="$" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="chDaliIncome" class="form-control cIncome" id="cDaily" placeholder="$" style="direction: rtl;" required>
+									<input type="number" name="chDaliIncome" class="form-control cIncome" id="cDaily" placeholder="$" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1237,10 +1237,10 @@ body{
 									<div class="col-lg-9 col-md-9 col-xs-12">
 										<?php if ($income != NULL) { ?>
 											<?php foreach ($income as $value) { ?>
-										<input type="number" name="chSeaIncome" value="<?php echo $value->c_seasonal; ?>" class="form-control cIncome" id="cSeasonal" placeholder="$" style="direction: rtl;" required>
+										<input type="number" name="chSeaIncome" value="<?php echo $value->c_seasonal; ?>" class="form-control cIncome" id="cSeasonal" placeholder="$" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="chSeaIncome" class="form-control cIncome" id="cSeasonal" placeholder="$" style="direction: rtl;" required>
+									<input type="number" name="chSeaIncome" class="form-control cIncome" id="cSeasonal" placeholder="$" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1260,10 +1260,10 @@ body{
 									<div class="col-lg-9 col-md-9 col-xs-12">
 										<?php if ($income != NULL) { ?>
 											<?php foreach ($income as $value) { ?>
-										<input type="number" name="chYeaIncome" value="<?php echo $value->c_yearly; ?>" class="form-control cIncome" id="cYearly" placeholder="$" style="direction: rtl;" required>
+										<input type="number" name="chYeaIncome" value="<?php echo $value->c_yearly; ?>" class="form-control cIncome" id="cYearly" placeholder="$" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="chYeaIncome" class="form-control cIncome" id="cYearly" placeholder="$" style="direction: rtl;" required>
+									<input type="number" name="chYeaIncome" class="form-control cIncome" id="cYearly" placeholder="$" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1283,10 +1283,10 @@ body{
 									<div class="col-lg-9 col-md-9 col-xs-12">
 										<?php if ($income != NULL) { ?>
 											<?php foreach ($income as $value) { ?>
-										<input type="number" name="chTotalIncome" value="<?php echo $value->c_total ?>" class="form-control" id="cTotal" placeholder="$" style="direction: rtl;" required>
+										<input type="number" name="chTotalIncome" value="<?php echo $value->c_total ?>" class="form-control" id="cTotal" placeholder="$" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="chTotalIncome" class="form-control" id="cTotal" placeholder="$" style="direction: rtl;" required>
+									<input type="number" name="chTotalIncome" class="form-control" id="cTotal" placeholder="$" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1312,10 +1312,10 @@ body{
 									<div class="col-lg-9 col-md-9 col-xs-12">
 										<?php if ($income != NULL) { ?>
 											<?php foreach ($income as $value) { ?>
-										<input type="number" name="gloToMonIn" value="<?php echo $value->g_monthly; ?>" class="form-control" id="gTotal1" placeholder="$" style="direction: rtl;" required>
+										<input type="number" name="gloToMonIn" value="<?php echo $value->g_monthly; ?>" class="form-control" id="gTotal1" placeholder="$" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="gloToMonIn" class="form-control" id="gTotal1" placeholder="$" style="direction: rtl;" required>
+									<input type="number" name="gloToMonIn" class="form-control" id="gTotal1" placeholder="$" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1335,10 +1335,10 @@ body{
 									<div class="col-lg-9 col-md-9 col-xs-12">
 										<?php if ($income != NULL) { ?>
 											<?php foreach ($income as $value) { ?>
-										<input type="number" name="g_monthly_individual" value="<?php echo $value->g_monthly_individual; ?>" class="form-control gincome" id="gTotal2" placeholder="$" style="direction: rtl;" required>
+										<input type="number" name="g_monthly_individual" value="<?php echo $value->g_monthly_individual; ?>" class="form-control gincome" id="gTotal2" placeholder="$" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="g_monthly_individual" class="form-control gincome" id="gTotal2" placeholder="$" style="direction: rtl;" required>
+									<input type="number" name="g_monthly_individual" class="form-control gincome" id="gTotal2" placeholder="$" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1398,10 +1398,10 @@ body{
 									<div class="col-7 col-xs-12">
 										<?php if ($expense != NULL) { ?>
 											<?php foreach ($expense as $value) { ?>
-										<input type="number" name="rice" value="<?php echo $value->ex_rice; ?>" class="form-control" id="rice" placeholder="$" style="direction:rtl;" required>
+										<input type="number" name="rice" value="<?php echo $value->ex_rice; ?>" class="form-control" id="rice" placeholder="$" style=text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="rice" class="form-control" id="rice" placeholder="$" style="direction:rtl;" required>
+									<input type="number" name="rice" class="form-control" id="rice" placeholder="$" style=text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1410,10 +1410,10 @@ body{
 									<div class="col-7">
 										<?php if ($expense != NULL) { ?>
 											<?php foreach ($expense as $value) { ?>
-										<input type="number" name="food" value="<?php echo $value->ex_food; ?>" class="form-control" id="food" placeholder="$" style="direction:rtl;" required>
+										<input type="number" name="food" value="<?php echo $value->ex_food; ?>" class="form-control" id="food" placeholder="$" style=text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="food" class="form-control" id="food" placeholder="$" style="direction:rtl;" required>
+									<input type="number" name="food" class="form-control" id="food" placeholder="$" style=text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1422,10 +1422,10 @@ body{
 									<div class="col-7">
 										<?php if ($expense != NULL) { ?>
 											<?php foreach ($expense as $value) { ?>
-										<input type="number" name="firewoodGasChacoal" value="<?php echo $value->ex_firewood; ?>" class="form-control" id="firewood" placeholder="$" style="direction:rtl;" required>
+										<input type="number" name="firewoodGasChacoal" value="<?php echo $value->ex_firewood; ?>" class="form-control" id="firewood" placeholder="$" style=text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="firewoodGasChacoal" class="form-control" id="firewood" placeholder="$" style="direction:rtl;" required>
+									<input type="number" name="firewoodGasChacoal" class="form-control" id="firewood" placeholder="$" style=text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1434,10 +1434,10 @@ body{
 									<div class="col-7">
 										<?php if ($expense != NULL) { ?>
 											<?php foreach ($expense as $value) { ?>
-										<input type="number" name="loan" value="<?php echo $value->ex_loan; ?>" class="form-control" id="loan" placeholder="$" style="direction:rtl;" required>
+										<input type="number" name="loan" value="<?php echo $value->ex_loan; ?>" class="form-control" id="loan" placeholder="$" style=text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="loan" class="form-control" id="loan" placeholder="$" style="direction:rtl;" required>
+									<input type="number" name="loan" class="form-control" id="loan" placeholder="$" style=text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1446,10 +1446,10 @@ body{
 									<div class="col-7">
 										<?php if ($expense != NULL) { ?>
 											<?php foreach ($expense as $value) { ?>
-										<input type="number" name="study" value="<?php echo $value->ex_study; ?>" class="form-control" id="study" placeholder="$" style="direction:rtl;" required>
+										<input type="number" name="study" value="<?php echo $value->ex_study; ?>" class="form-control" id="study" placeholder="$" style=text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="study" class="form-control" id="study" placeholder="$" style="direction:rtl;" required>
+									<input type="number" name="study" class="form-control" id="study" placeholder="$" style=text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1460,10 +1460,10 @@ body{
 									<div class="col-7">
 										<?php if ($expense != NULL) { ?>
 											<?php foreach ($expense as $value) { ?>
-										<input type="number" name="medical" value="<?php echo $value->ex_medical; ?>" class="form-control" id="medical" placeholder="$" style="direction:rtl;" required>
+										<input type="number" name="medical" value="<?php echo $value->ex_medical; ?>" class="form-control" id="medical" placeholder="$" style=text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="medical" class="form-control" id="medical" placeholder="$" style="direction:rtl;" required>
+									<input type="number" name="medical" class="form-control" id="medical" placeholder="$" style=text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1472,10 +1472,10 @@ body{
 									<div class="col-7">
 										<?php if ($expense != NULL) { ?>
 											<?php foreach ($expense as $value) { ?>
-										<input type="number" name="electricityWater" value="<?php echo $value->ex_electricities_water; ?>" class="form-control" id="electricity" placeholder="$" style="direction:rtl;" required>
+										<input type="number" name="electricityWater" value="<?php echo $value->ex_electricities_water; ?>" class="form-control" id="electricity" placeholder="$" style=text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="electricityWater" class="form-control" id="electricity" placeholder="$" style="direction:rtl;" required>
+									<input type="number" name="electricityWater" class="form-control" id="electricity" placeholder="$" style=text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1484,10 +1484,10 @@ body{
 									<div class="col-7">
 										<?php if ($expense != NULL) { ?>
 											<?php foreach ($expense as $value) { ?>
-										<input type="number" name="agirculture" value="<?php echo $value->ex_agriculture; ?>" class="form-control" id="agriculture" placeholder="$" style="direction:rtl;" required>
+										<input type="number" name="agirculture" value="<?php echo $value->ex_agriculture; ?>" class="form-control" id="agriculture" placeholder="$" style=text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="agirculture" class="form-control" id="agriculture" placeholder="$" style="direction:rtl;" required>
+									<input type="number" name="agirculture" class="form-control" id="agriculture" placeholder="$" style=text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1496,10 +1496,10 @@ body{
 									<div class="col-7">
 										<?php if ($expense != NULL) { ?>
 											<?php foreach ($expense as $value) { ?>
-										<input type="number" name="weddingCeremony" value="<?php echo $value->ex_weding; ?>" class="form-control" id="wedding" placeholder="$" style="direction:rtl;" required>
+										<input type="number" name="weddingCeremony" value="<?php echo $value->ex_weding; ?>" class="form-control" id="wedding" placeholder="$" style=text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="weddingCeremony" class="form-control" id="wedding" placeholder="$" style="direction:rtl;" required>
+									<input type="number" name="weddingCeremony" class="form-control" id="wedding" placeholder="$" style=text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1508,10 +1508,10 @@ body{
 									<div class="col-7">
 										<?php if ($expense != NULL) { ?>
 											<?php foreach ($expense as $value) { ?>
-										<input type="number" name="otherUtilities" value="<?php echo $value->ex_other_utilities; ?>" class="form-control" id="otherUtilities" placeholder="$" style="direction:rtl;" required>
+										<input type="number" name="otherUtilities" value="<?php echo $value->ex_other_utilities; ?>" class="form-control" id="otherUtilities" placeholder="$" style=text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="otherUtilities" class="form-control" id="otherUtilities" placeholder="$" style="direction:rtl;" required>
+									<input type="number" name="otherUtilities" class="form-control" id="otherUtilities" placeholder="$" style=text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>	
@@ -1526,10 +1526,10 @@ body{
 									<div class="col-7">
 										<?php if ($expense != NULL) { ?>
 											<?php foreach ($expense as $value) { ?>
-										<input type="number" name="totalExpense" value="<?php echo $value->ex_total; ?>" class="form-control" id="totalExpense" placeholder="$" style="direction:rtl;" required>
+										<input type="number" name="totalExpense" value="<?php echo $value->ex_total; ?>" class="form-control" id="totalExpense" placeholder="$" style=text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="totalExpense" class="form-control" id="totalExpense" placeholder="$" style="direction:rtl;" required>
+									<input type="number" name="totalExpense" class="form-control" id="totalExpense" placeholder="$" style=text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1595,10 +1595,10 @@ body{
 								<div class="col-lg-7 col-md-7 col-xs-12">
 									<?php if($loadAndDebt != NULL) { ?>
 									<?php foreach ($loadAndDebt as $value) { ?>
-										<input id="amount" name="initialAmount" value="<?php echo $value->ld_initial_amount; ?>" type="number" class="form-control" placeholder="$" style="direction:rtl;" required>
+										<input id="amount" name="initialAmount" value="<?php echo $value->ld_initial_amount; ?>" type="number" class="form-control" placeholder="$" style=text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number"  id="amount" name="initialAmount"class="form-control" placeholder="$" style="direction:rtl;" required>
+									<input type="number"  id="amount" name="initialAmount"class="form-control" placeholder="$" style=text-align:right;" required>
 								<?php } ?>
 								</div>
 							</div>
@@ -1610,10 +1610,10 @@ body{
 								<div class="col-lg-7 col-md-7 col-xs-12">
 									<?php if($loadAndDebt != NULL) { ?>
 									<?php foreach ($loadAndDebt as $value) { ?>
-										<input id="institution" name="institution" value="<?php echo $value->ld_instritution; ?>" type="number" class="form-control" placeholder="$" style="direction:rtl;" required>
+										<input id="institution" name="institution" value="<?php echo $value->ld_instritution; ?>" type="number" class="form-control" placeholder="$" style=text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input id="institution" name="institution" type="number" class="form-control" placeholder="$" style="direction:rtl;" required>
+									<input id="institution" name="institution" type="number" class="form-control" placeholder="$" style=text-align:right;" required>
 								<?php } ?>
 								</div>
 							</div>
@@ -1625,10 +1625,10 @@ body{
 								<div class="col-lg-7 col-md-7 col-xs-12">
 									<?php if($loadAndDebt != NULL) { ?>
 									<?php foreach ($loadAndDebt as $value) { ?>
-										<input type="number" name="interestRates" value="<?php echo $value->ld_interest_tates; ?>" id="interest" class="form-control" placeholder="$" style="direction:rtl;" required>
+										<input type="number" name="interestRates" value="<?php echo $value->ld_interest_tates; ?>" id="interest" class="form-control" placeholder="$" style=text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="interestRates" id="interest" class="form-control" placeholder="$" style="direction:rtl;" required>
+									<input type="number" name="interestRates" id="interest" class="form-control" placeholder="$" style=text-align:right;" required>
 								<?php } ?>
 								</div>
 							</div>
@@ -1661,10 +1661,10 @@ body{
 								<div class="col-lg-7 col-md-7 col-xs-12">
 									<?php if($loadAndDebt != NULL) { ?>
 									<?php foreach ($loadAndDebt as $value) { ?>
-										<input type="number" name="monthly" value="<?php echo $value->ld_monthly; ?>" id="monthly" class="form-control" placeholder="$" style="direction:rtl;" required>
+										<input type="number" name="monthly" value="<?php echo $value->ld_monthly; ?>" id="monthly" class="form-control" placeholder="$" style=text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="monthly" id="monthly" class="form-control" placeholder="$" style="direction:rtl;" required>
+									<input type="number" name="monthly" id="monthly" class="form-control" placeholder="$" style=text-align:right;" required>
 								<?php } ?>
 								</div>
 							</div>
@@ -1675,10 +1675,10 @@ body{
 								<div class="col-lg-7 col-md-7 col-xs-12">
 									<?php if($loadAndDebt != NULL) { ?>
 									<?php foreach ($loadAndDebt as $value) { ?>
-										<input type="number" name="trimester" value="<?php echo $value->ld_trimester; ?>" id="trimester" class="form-control" placeholder="$" style="direction:rtl;" required>
+										<input type="number" name="trimester" value="<?php echo $value->ld_trimester; ?>" id="trimester" class="form-control" placeholder="$" style=text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="trimester" id="trimester" class="form-control" placeholder="$" style="direction:rtl;" required>
+									<input type="number" name="trimester" id="trimester" class="form-control" placeholder="$" style=text-align:right;" required>
 								<?php } ?>
 								</div>
 							</div>
@@ -1689,10 +1689,10 @@ body{
 								<div class="col-lg-7 col-md-7 col-xs-12">
 									<?php if($loadAndDebt != NULL) { ?>
 									<?php foreach ($loadAndDebt as $value) { ?>
-										<input type="number" name="semester" value="<?php echo $value->ld_semester; ?>" id="semester" class="form-control" placeholder="$" style="direction:rtl;" required>
+										<input type="number" name="semester" value="<?php echo $value->ld_semester; ?>" id="semester" class="form-control" placeholder="$" style=text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="semester" id="semester" class="form-control" placeholder="$" style="direction:rtl;" required>
+									<input type="number" name="semester" id="semester" class="form-control" placeholder="$" style=text-align:right;" required>
 								<?php } ?>
 								</div>
 							</div>
@@ -1705,10 +1705,10 @@ body{
 								<div class="col-lg-7 col-md-7 col-xs-12">
 									<?php if($loadAndDebt != NULL) { ?>
 									<?php foreach ($loadAndDebt as $value) { ?>
-										<input type="number" name="capital" value="<?php echo $value->ld_capital; ?>" id="capital" class="form-control" placeholder="$" style="direction:rtl;" required>
+										<input type="number" name="capital" value="<?php echo $value->ld_capital; ?>" id="capital" class="form-control" placeholder="$" style=text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" name="capital" id="capital" class="form-control" placeholder="$" style="direction:rtl;" required>
+									<input type="number" name="capital" id="capital" class="form-control" placeholder="$" style=text-align:right;" required>
 								<?php } ?>
 								</div>
 							</div>
@@ -1915,10 +1915,10 @@ body{
 									<div class="col-lg-7 col-md-7 col-xs-12">
 										<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-										<input type="number" class="form-control" value="<?php echo $homeAssets->h_refrigerator ?>" placeholder="Quantity" name="refrigerator" id="refrigerator" style="direction: rtl;" required>
+										<input type="number" class="form-control" value="<?php echo $homeAssets->h_refrigerator ?>" placeholder="Quantity" name="refrigerator" id="refrigerator" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" class="form-control" placeholder="Quantity" name="refrigerator" id="refrigerator" style="direction: rtl;" required>
+									<input type="number" class="form-control" placeholder="Quantity" name="refrigerator" id="refrigerator" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1929,10 +1929,10 @@ body{
 									<div class="col-lg-7 col-md-7 col-xs-12">
 										<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-										<input type="number" class="form-control" value="<?php echo $homeAssets->h_radio ?>" placeholder="Quantity " name="radio" id="radio" style="direction: rtl;" required>
+										<input type="number" class="form-control" value="<?php echo $homeAssets->h_radio ?>" placeholder="Quantity " name="radio" id="radio" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" class="form-control" placeholder="Quantity " name="radio" id="radio" style="direction: rtl;" required>
+									<input type="number" class="form-control" placeholder="Quantity " name="radio" id="radio" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1945,10 +1945,10 @@ body{
 									<div class="col-lg-7 col-md-7 col-xs-12">
 										<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-										<input type="number" class="form-control" value="<?php echo $homeAssets->h_air_condictioner ?>" placeholder="Quantity" name="conditioner" id="conditioner" style="direction: rtl;" required>
+										<input type="number" class="form-control" value="<?php echo $homeAssets->h_air_condictioner ?>" placeholder="Quantity" name="conditioner" id="conditioner" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" class="form-control" placeholder="Quantity" name="conditioner" id="conditioner" style="direction: rtl;" required>
+									<input type="number" class="form-control" placeholder="Quantity" name="conditioner" id="conditioner" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1959,10 +1959,10 @@ body{
 									<div class="col-lg-7 col-md-7 col-xs-12">
 										<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-										<input type="number" class="form-control" value="<?php echo $homeAssets->h_rice_cooker ?>" placeholder="Quantity" name="ricecooker" id="ricecooker" style="direction: rtl;" required>
+										<input type="number" class="form-control" value="<?php echo $homeAssets->h_rice_cooker ?>" placeholder="Quantity" name="ricecooker" id="ricecooker" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" class="form-control" placeholder="Quantity" name="ricecooker" id="ricecooker" style="direction: rtl;" required>
+									<input type="number" class="form-control" placeholder="Quantity" name="ricecooker" id="ricecooker" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1975,10 +1975,10 @@ body{
 									<div class="col-lg-7 col-md-7 col-xs-12">
 										<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-										<input type="number" class="form-control" value="<?php echo $homeAssets->h_lcd_tv ?>" placeholder="Quantity" name="lcdTV" id="lcdTV" style="direction: rtl;" required>
+										<input type="number" class="form-control" value="<?php echo $homeAssets->h_lcd_tv ?>" placeholder="Quantity" name="lcdTV" id="lcdTV" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" class="form-control" placeholder="Quantity" name="lcdTV" id="lcdTV" style="direction: rtl;" required>
+									<input type="number" class="form-control" placeholder="Quantity" name="lcdTV" id="lcdTV" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -1989,10 +1989,10 @@ body{
 									<div class="col-lg-7 col-md-7 col-xs-12">
 										<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-										<input type="number" class="form-control" value="<?php echo $homeAssets->h_color_tv ?>" placeholder="Quantity" name="colorTV" id="colorTV" style="direction: rtl;" required>
+										<input type="number" class="form-control" value="<?php echo $homeAssets->h_color_tv ?>" placeholder="Quantity" name="colorTV" id="colorTV" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" class="form-control" placeholder="Quantity" name="colorTV" id="colorTV" style="direction: rtl;" required>
+									<input type="number" class="form-control" placeholder="Quantity" name="colorTV" id="colorTV" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -2005,10 +2005,10 @@ body{
 									<div class="col-lg-7 col-md-7 col-xs-12">
 										<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-										<input type="number" class="form-control" value="<?php echo $homeAssets->h_computer_big_100 ?>" placeholder="Quantity" name="computer1" id="computer1" style="direction: rtl;" required>
+										<input type="number" class="form-control" value="<?php echo $homeAssets->h_computer_big_100 ?>" placeholder="Quantity" name="computer1" id="computer1" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" class="form-control" placeholder="Quantity" name="computer1" id="computer1" style="direction: rtl;" required>
+									<input type="number" class="form-control" placeholder="Quantity" name="computer1" id="computer1" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -2019,10 +2019,10 @@ body{
 									<div class="col-lg-7 col-md-7 col-xs-12">
 										<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-										<input type="number" class="form-control" value="<?php echo $homeAssets->h_computer_smal_100 ?>" placeholder="Quantity" name="computer2" id="computer2" style="direction: rtl;" required>
+										<input type="number" class="form-control" value="<?php echo $homeAssets->h_computer_smal_100 ?>" placeholder="Quantity" name="computer2" id="computer2" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" class="form-control" placeholder="Quantity" name="computer2" id="computer2" style="direction: rtl;" required>
+									<input type="number" class="form-control" placeholder="Quantity" name="computer2" id="computer2" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -2035,10 +2035,10 @@ body{
 									<div class="col-lg-7 col-md-7 col-xs-12">
 										<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-										<input type="number" class="form-control" value="<?php echo $homeAssets->h_furnished_big_300 ?>" placeholder="Quantity" name="furnished" id="furnished" style="direction: rtl;" required>
+										<input type="number" class="form-control" value="<?php echo $homeAssets->h_furnished_big_300 ?>" placeholder="Quantity" name="furnished" id="furnished" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" class="form-control" placeholder="Quantity" name="furnished" id="furnished" style="direction: rtl;" required>
+									<input type="number" class="form-control" placeholder="Quantity" name="furnished" id="furnished" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -2049,10 +2049,10 @@ body{
 									<div class="col-lg-7 col-md-7 col-xs-12">
 										<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-										<input type="number" class="form-control" value="<?php echo $homeAssets->h_dvd_player ?>" placeholder="Quantity" name="dvdPlayer" id="dvdPlayer" style="direction: rtl;" required>
+										<input type="number" class="form-control" value="<?php echo $homeAssets->h_dvd_player ?>" placeholder="Quantity" name="dvdPlayer" id="dvdPlayer" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" class="form-control" placeholder="Quantity" name="dvdPlayer" id="dvdPlayer" style="direction: rtl;" required>
+									<input type="number" class="form-control" placeholder="Quantity" name="dvdPlayer" id="dvdPlayer" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -2065,10 +2065,10 @@ body{
 									<div class="col-lg-7 col-md-7 col-xs-12">
 										<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-										<input type="number" class="form-control" value="<?php echo $homeAssets->h_smartphone_big_100 ?>" placeholder="Quantity" name="smartphone" id="smartphone" style="direction: rtl;" required>
+										<input type="number" class="form-control" value="<?php echo $homeAssets->h_smartphone_big_100 ?>" placeholder="Quantity" name="smartphone" id="smartphone" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" class="form-control" placeholder="Quantity" name="smartphone" id="smartphone" style="direction: rtl;" required>
+									<input type="number" class="form-control" placeholder="Quantity" name="smartphone" id="smartphone" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -2079,10 +2079,10 @@ body{
 									<div class="col-lg-7 col-md-7 col-xs-12">
 										<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-										<input type="number" class="form-control" value="<?php echo $homeAssets->h_phone_smal_100 ?>" placeholder="Quantity" name="phone" id="phone" style="direction: rtl;" required>
+										<input type="number" class="form-control" value="<?php echo $homeAssets->h_phone_smal_100 ?>" placeholder="Quantity" name="phone" id="phone" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" class="form-control" placeholder="Quantity" name="phone" id="phone" style="direction: rtl;" required>
+									<input type="number" class="form-control" placeholder="Quantity" name="phone" id="phone" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -2095,10 +2095,10 @@ body{
 									<div class="col-lg-7 col-md-7 col-xs-12">
 										<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-										<input type="number" class="form-control" value="<?php echo $homeAssets->h_camera_big_100; ?>" placeholder="Quantity" name="camera1" id="camara1" style="direction: rtl;" required>
+										<input type="number" class="form-control" value="<?php echo $homeAssets->h_camera_big_100; ?>" placeholder="Quantity" name="camera1" id="camara1" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" class="form-control" placeholder="Quantity" name="camera1" id="camara1" style="direction: rtl;" required>
+									<input type="number" class="form-control" placeholder="Quantity" name="camera1" id="camara1" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -2109,10 +2109,10 @@ body{
 									<div class="col-lg-7 col-md-7 col-xs-12">
 										<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-										<input type="number" class="form-control" value="<?php echo $homeAssets->h_camera_small_100; ?>" placeholder="Quantity" name="camera2" id="camara2" style="direction: rtl;" required>
+										<input type="number" class="form-control" value="<?php echo $homeAssets->h_camera_small_100; ?>" placeholder="Quantity" name="camera2" id="camara2" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" class="form-control" placeholder="Quantity" name="camera2" id="camara2" style="direction: rtl;" required>
+									<input type="number" class="form-control" placeholder="Quantity" name="camera2" id="camara2" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -2125,10 +2125,10 @@ body{
 									<div class="col-lg-7 col-md-7 col-xs-12">
 										<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-										<input type="number" class="form-control" value="<?php echo $homeAssets->h_sofa_big_300 ?>" placeholder="Quantity" name="sofa1" id="sofa1" style="direction: rtl;" required>
+										<input type="number" class="form-control" value="<?php echo $homeAssets->h_sofa_big_300 ?>" placeholder="Quantity" name="sofa1" id="sofa1" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" class="form-control" placeholder="Quantity" name="sofa1" id="sofa1" style="direction: rtl;" required>
+									<input type="number" class="form-control" placeholder="Quantity" name="sofa1" id="sofa1" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -2139,10 +2139,10 @@ body{
 									<div class="col-lg-7 col-md-7 col-xs-12">
 										<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-										<input type="number" class="form-control" value="<?php echo $homeAssets->h_sofa_smal_300 ?>" placeholder="Quantity" name="sofa2" id="sofa2" style="direction: rtl;" required>
+										<input type="number" class="form-control" value="<?php echo $homeAssets->h_sofa_smal_300 ?>" placeholder="Quantity" name="sofa2" id="sofa2" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" class="form-control" placeholder="Quantity" name="sofa2" id="sofa2" style="direction: rtl;" required>
+									<input type="number" class="form-control" placeholder="Quantity" name="sofa2" id="sofa2" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -2156,10 +2156,10 @@ body{
 									<div class="col-lg-7 col-md-7 col-xs-12">
 										<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-										<input type="number" class="form-control" value="<?php echo $homeAssets->h_gascooker; ?>" placeholder="Quantity" name="gascooker" id="gascooker" style="direction: rtl;" required>
+										<input type="number" class="form-control" value="<?php echo $homeAssets->h_gascooker; ?>" placeholder="Quantity" name="gascooker" id="gascooker" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" class="form-control" placeholder="Quantity" name="gascooker" id="gascooker" style="direction: rtl;" required>
+									<input type="number" class="form-control" placeholder="Quantity" name="gascooker" id="gascooker" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -2173,10 +2173,10 @@ body{
 									<div class="col-lg-7 col-md-7 col-xs-12">
 										<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-										<input type="number" class="form-control" value="<?php echo $homeAssets->h_fruit_blender; ?>" placeholder="Quantity" name="fruit" id="fruit" style="direction: rtl;" required>
+										<input type="number" class="form-control" value="<?php echo $homeAssets->h_fruit_blender; ?>" placeholder="Quantity" name="fruit" id="fruit" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" class="form-control" placeholder="Quantity" name="fruit" id="fruit" style="direction: rtl;" required>
+									<input type="number" class="form-control" placeholder="Quantity" name="fruit" id="fruit" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -2190,10 +2190,10 @@ body{
 									<div class="col-lg-7 col-md-7 col-xs-12">
 										<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-										<input type="number" class="form-control" value="<?php echo $homeAssets->h_electrical_cooker; ?>" placeholder="Quantity" name="electrical" id="electrical" style="direction: rtl;" required>
+										<input type="number" class="form-control" value="<?php echo $homeAssets->h_electrical_cooker; ?>" placeholder="Quantity" name="electrical" id="electrical" style="text-align:right;" required>
 									<?php } ?>
 								<?php }else{ ?>
-									<input type="number" class="form-control" placeholder="Quantity" name="electrical" id="electrical" style="direction: rtl;" required>
+									<input type="number" class="form-control" placeholder="Quantity" name="electrical" id="electrical" style="text-align:right;" required>
 								<?php } ?>
 									</div>
 								</div>
@@ -2222,10 +2222,10 @@ body{
 											<div class="col-lg-7 col-md-7 col-xs-12">
 												<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-												<input type="number" class="form-control" value="<?php echo $homeAssets->h_motobike_big_500 ?>" placeholder="Quantity" name="motobike" id="motobike" style="direction: rtl;" required>
+												<input type="number" class="form-control" value="<?php echo $homeAssets->h_motobike_big_500 ?>" placeholder="Quantity" name="motobike" id="motobike" style="text-align:right;" required>
 											<?php } ?>
 										<?php }else{ ?>
-											<input type="number" class="form-control" placeholder="Quantity" name="motobike" id="motobike" style="direction: rtl;" required>
+											<input type="number" class="form-control" placeholder="Quantity" name="motobike" id="motobike" style="text-align:right;" required>
 										<?php } ?>
 											</div>
 										</div>
@@ -2239,10 +2239,10 @@ body{
 											<div class="col-lg-7 col-md-7 col-xs-12">
 												<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-												<input type="number" class="form-control" value="<?php echo $homeAssets->h_farming_machine; ?>" placeholder="Quantity" name="farming" id="farming" style="direction: rtl;" required>
+												<input type="number" class="form-control" value="<?php echo $homeAssets->h_farming_machine; ?>" placeholder="Quantity" name="farming" id="farming" style="text-align:right;" required>
 											<?php } ?>
 										<?php }else{ ?>
-											<input type="number" class="form-control" placeholder="Quantity" name="farming" id="farming" style="direction: rtl;" required>
+											<input type="number" class="form-control" placeholder="Quantity" name="farming" id="farming" style="text-align:right;" required>
 										<?php } ?>
 											</div>
 										</div>
@@ -2256,10 +2256,10 @@ body{
 											<div class="col-lg-7 col-md-7 col-xs-12">
 												<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-												<input type="number" class="form-control" value="<?php echo $homeAssets->h_car_truck; ?>" placeholder="Quantity" name="car" id="car" style="direction: rtl;" required>
+												<input type="number" class="form-control" value="<?php echo $homeAssets->h_car_truck; ?>" placeholder="Quantity" name="car" id="car" style="text-align:right;" required>
 											<?php } ?>
 										<?php }else{ ?>
-											<input type="number" class="form-control" placeholder="Quantity" name="car" id="car" style="direction: rtl;" required>
+											<input type="number" class="form-control" placeholder="Quantity" name="car" id="car" style="text-align:right;" required>
 										<?php } ?>
 											</div>
 										</div>
@@ -2300,10 +2300,10 @@ body{
 											<div class="col-lg-7 col-md-7 col-xs-12">
 												<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-												<input type="number" class="form-control" value="<?php echo $homeAssets->h_cow; ?>" placeholder="Quantity" name="cow" id="cow" style="direction: rtl;" required>
+												<input type="number" class="form-control" value="<?php echo $homeAssets->h_cow; ?>" placeholder="Quantity" name="cow" id="cow" style="text-align:right;" required>
 											<?php } ?>
 										<?php }else{ ?>
-											<input type="number" class="form-control" placeholder="Quantity" name="cow" id="cow" style="direction: rtl;" required>
+											<input type="number" class="form-control" placeholder="Quantity" name="cow" id="cow" style="text-align:right;" required>
 										<?php } ?>
 											</div>
 										</div>
@@ -2317,10 +2317,10 @@ body{
 											<div class="col-lg-7 col-md-7 col-xs-12">
 												<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-												<input type="number" class="form-control" value="<?php echo $homeAssets->h_buffaloe; ?>" placeholder="Quantity" name="buffaloe" id="buffaloe" style="direction: rtl;" required>
+												<input type="number" class="form-control" value="<?php echo $homeAssets->h_buffaloe; ?>" placeholder="Quantity" name="buffaloe" id="buffaloe" style="text-align:right;" required>
 											<?php } ?>
 										<?php }else{ ?>
-											<input type="number" class="form-control" placeholder="Quantity" name="buffaloe" id="buffaloe" style="direction: rtl;" required>
+											<input type="number" class="form-control" placeholder="Quantity" name="buffaloe" id="buffaloe" style="text-align:right;" required>
 										<?php } ?>
 											</div>
 										</div>
@@ -2334,10 +2334,10 @@ body{
 											<div class="col-lg-7 col-md-7 col-xs-12">
 												<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-												<input type="number" class="form-control" value="<?php echo $homeAssets->h_pig ?>" placeholder="Quantity" name="pig" id="pig" style="direction: rtl;" required>
+												<input type="number" class="form-control" value="<?php echo $homeAssets->h_pig ?>" placeholder="Quantity" name="pig" id="pig" style="text-align:right;" required>
 											<?php } ?>
 										<?php }else{ ?>
-											<input type="number" class="form-control" placeholder="Quantity" name="pig" id="pig" style="direction: rtl;" required>
+											<input type="number" class="form-control" placeholder="Quantity" name="pig" id="pig" style="text-align:right;" required>
 										<?php } ?>
 											</div>
 										</div>
@@ -2367,10 +2367,10 @@ body{
 											<div class="col-lg-5 col-md-5 col-xs-12">
 												<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-												<input type="number" class="form-control" value="<?php echo $homeAssets->h_farm_size; ?>" name="farmSize" id="size" style="direction: rtl;" required> 
+												<input type="number" class="form-control" value="<?php echo $homeAssets->h_farm_size; ?>" name="farmSize" id="size" style="text-align:right;" required> 
 											<?php } ?>
 										<?php }else{ ?>
-											<input type="number" class="form-control" name="farmSize" id="size" style="direction: rtl;" required>
+											<input type="number" class="form-control" name="farmSize" id="size" style="text-align:right;" required>
 										<?php } ?>
 											</div>
 											<div class="col-lg-2 col-md-2 col-xs-12">
@@ -2414,10 +2414,10 @@ body{
 											<div class="col-lg-7 col-md-7 col-xs-12">
 												<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-												<input type="number" class="form-control" value="<?php echo $homeAssets->h_total_x5; ?>" name="sumQuantity5" id="sumQuantity5" style="direction: rtl;" required style="direction: rtl;" required>
+												<input type="number" class="form-control" value="<?php echo $homeAssets->h_total_x5; ?>" name="sumQuantity5" id="sumQuantity5" style="text-align:right;" required style="text-align:right;" required>
 											<?php } ?>
 										<?php }else{ ?>
-											<input type="number" class="form-control" name="sumQuantity5" id="sumQuantity5" style="direction: rtl;" required style="direction: rtl;" required>
+											<input type="number" class="form-control" name="sumQuantity5" id="sumQuantity5" style="text-align:right;" required style="text-align:right;" required>
 										<?php } ?>
 											</div>
 											<!-- <div class="col-lg-2 col-md-1"></div> -->
@@ -2445,10 +2445,10 @@ body{
 											<div class="col-lg-7 col-md-7 col-xs-12">
 												<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-												<input type="number" class="form-control" value="<?php echo $homeAssets->h_total_x3; ?>" name="sumQuantity3" id="sumQuantity3" style="direction: rtl;" required>
+												<input type="number" class="form-control" value="<?php echo $homeAssets->h_total_x3; ?>" name="sumQuantity3" id="sumQuantity3" style="text-align:right;" required>
 											<?php } ?>
 										<?php }else{ ?>
-											<input type="number" class="form-control" name="sumQuantity3" id="sumQuantity3" style="direction: rtl;" required>
+											<input type="number" class="form-control" name="sumQuantity3" id="sumQuantity3" style="text-align:right;" required>
 										<?php } ?>
 											</div>
 										</div>
@@ -2472,10 +2472,10 @@ body{
 												<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 													<?php if($homeAsset != NULL) { ?>
 										<?php foreach ($homeAsset as $homeAssets) { ?>
-													<input class="form-control" type="number" value="<?php echo $homeAssets->h_glbal_total; ?>" placeholder="$" name="globalAsset" id="globalAsset" style="direction: rtl;">
+													<input class="form-control" type="number" value="<?php echo $homeAssets->h_glbal_total; ?>" placeholder="$" name="globalAsset" id="globalAsset" style="text-align:right;">
 												<?php } ?>
 											<?php }else{ ?>
-												<input class="form-control" type="number" placeholder="$" name="globalAsset" id="globalAsset" style="direction: rtl;">
+												<input class="form-control" type="number" placeholder="$" name="globalAsset" id="globalAsset" style="text-align:right;">
 											<?php } ?>
 												</div>
 												<!-- </div> -->
