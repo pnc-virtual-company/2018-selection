@@ -2,7 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
-
 	//Default constructor
 	function __construct()
 	{
@@ -10,15 +9,10 @@ class Welcome extends CI_Controller {
 			log_message('debug', 'URI=' . $this->uri->uri_string());
 			$this->load->model('users_model', 'u_m');
 	}
-
 	public function index()
 	{
-		
 		$this->load->view('login/login');
-		
 	}
-
-	
 	public function map()
 	{
 		$this->load->library('googlemaps');
@@ -29,8 +23,6 @@ class Welcome extends CI_Controller {
 		$marker['position'] = '37.429, -122.1419';
 		$this->googlemaps->add_marker($marker);
 		$data['map'] = $this->googlemaps->create_map();
-
-
 		$this->load->view('templates/header', $data);
 		$this->load->view('menu/index', $data);
 		$this->load->view('province', $data);

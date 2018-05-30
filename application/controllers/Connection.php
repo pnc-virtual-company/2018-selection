@@ -23,7 +23,8 @@ class Connection extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('login', 'Login', 'required|strip_tags');
 		$this->form_validation->set_rules('password', 'Password', 'required|strip_tags');
-		if ($this->form_validation->run() === FALSE) {
+		if ($this->form_validation->run() === FALSE) 
+		{
 			log_message('debug', 'Let\'s display the login form');
 			$data['title'] = 'Login';
 			$data['title'] = 'Login';
@@ -35,7 +36,8 @@ class Connection extends CI_Controller {
 			$this->load->model('users_model');
 			$login = $this->input->post('login');
 			$password = $this->input->post('password');
-			if ($this->users_model->checkCredentials($login, $password)) {
+			if ($this->users_model->checkCredentials($login, $password)) 
+			{
 				log_message('debug', 'Received good credentials for user #' . $this->session->userdata('id'));
 					log_message('debug', 'Not last_page set. Redirect to the home page');
 					redirect('C_candidates');
