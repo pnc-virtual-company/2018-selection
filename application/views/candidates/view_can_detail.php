@@ -208,77 +208,68 @@ body{
 								</div>
 							</div>	
 						</div>
-						<div class="row">
-							<div class="col-lg-5 col-md-5">
-								<div class="form-group row">
-									<div class="col-lg-1 col-md-1"></div>
-									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Other scholarship</label>
-									<div class="col-lg-6 col-md-6 col-xs-12">
-										<p class="form-control"><?php echo $value->can_other_scholaship ?></p>
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Other Scholarship:</div>
+								<div class="col-lg-8 col-md-8 col-sm-10 col-xs-12"></div><br>
+								<div class="row">
+									<div class="col-lg-5 col-md-5">
+										<div class="form-group row">
+											<div class="col-lg-1 col-md-1"></div>
+											<label for="alter1" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Alternative 1:</label>
+											<div class="col-lg-6 col-md-6 col-xs-12">
+												<p class="form-control"><?php echo $value->can_alternative1; ?></p>
+											</div>
+										</div>
 									</div>
+									<div class="col-lg-7 col-md-7">
+										<div class="form-group row">
+											<div class="col-lg-2 col-md-2"></div>
+											<label for="choiceRank1" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Choice rank :</label>
+											<div class="col-lg-5 col-md-5 col-xs-12">
+												<p class="form-control"><?php echo $value->can_rank_1; ?></p>
+											</div>
+										</div>
+									</div>	
 								</div>
-							</div>
-							<div class="col-lg-7 col-md-7">
-								<div class="form-group row">
-									<div class="col-lg-2 col-md-2"></div>
-									<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Choice rank :</label>
-									<div class="col-lg-5 col-md-5 col-xs-12">
-										<p class="form-control"><?php echo $value->can_other_choice_rank; ?></p>
+								<div class="row">
+									<div class="col-lg-5 col-md-5">
+										<div class="form-group row">
+											<div class="col-lg-1 col-md-1"></div>
+											<label for="alter2" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Alternative 2:</label>
+											<div class="col-lg-6 col-md-6 col-xs-12">
+												<p class="form-control"><?php echo $value->can_alternative2; ?></p>
+											</div>
+										</div>
 									</div>
+									<div class="col-lg-7 col-md-7">
+										<div class="form-group row">
+											<div class="col-lg-2 col-md-2"></div>
+											<label for="choiceRank2" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Choice rank :</label>
+											<div class="col-lg-5 col-md-5 col-xs-12">
+												<p class="form-control"><?php echo $value->can_rank_2; ?></p>
+											</div>
+										</div>
+									</div>	
 								</div>
-							</div>	
-						</div>
-						
-						
-						<div class="row">
-							<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12"></div>
-							<div class="col-lg-4 col-md-4 col-sm-9 col-xs-12">
-								
-							</div>
-						</div>
-						<!-- pop up -->
-						
-						<!-- / close pop up -->
-						<div class="row">
-							<div class="col-lg-5 col-md-5">
-								<div class="form-group row">
-									<div class="col-lg-1 col-md-1"></div>
-									<label for="activityActivity" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the student :</label>	
-								</div>
-							</div>
-							<div class="col-lg-7 col-md-7">
-								<div class="form-group row">
-									<div class="col-md-2"></div>
-									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
-									<div class="col-lg-11 col-md-11 col-xs-12">
-										<p class="form-control"><?php echo $value->can_student_commit; ?></p>
+								<div class="row">
+									<div class="col-lg-5 col-md-5">
+										<div class="form-group row">
+											<div class="col-lg-1 col-md-1"></div>
+											<label for="alter3" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Alternative 3:</label>
+											<div class="col-lg-6 col-md-6 col-xs-12">
+												<p class="form-control"><?php echo $value->can_alternative3; ?></p>
+											</div>
+										</div>
 									</div>
+									<div class="col-lg-7 col-md-7">
+										<div class="form-group row">
+											<div class="col-lg-2 col-md-2"></div>
+											<label for="choiceRank3" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Choice rank :</label>
+											<div class="col-lg-5 col-md-5 col-xs-12">
+												<p class="form-control"><?php echo $value->can_rank_3; ?></p>
+											</div>
+										</div>
+									</div>	
 								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-5 col-md-5">
-								<div class="form-group row">
-									<div class="col-lg-1 col-md-1"></div>
-									<label for="activityActivity" class="col-lg-10 col-md-10 col-xs-12 col-form-label">Commitment of the parents :</label>	
-								</div>
-							</div>
-							<div class="col-lg-7 col-md-7">
-								<div class="form-group row">
-									<div class="col-md-2"></div>
-									<label for="healthOther" class="col-lg-2 col-md-2 col-xs-12 col-form-label"></label>
-									<div class="col-lg-11 col-md-11 col-xs-12">
-										<p class="form-control"><?php echo $value->can_parents_commit; ?></p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12"></div>
-							<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-								
-							</div>
-						</div>
 					</form>
 					<!-- <?php //} ?> -->
 					<!-- end form student information -->
@@ -319,28 +310,6 @@ body{
 							<div class="card-body contentBody">
 								<h5>Father</h5>
 								<form action="" method="POST">
-
-									<div class="row">
-										<div class="col-lg-5 col-md-5 col-sm-4">
-											<div class="form-group row">
-												<div class="col-lg-1 col-md-1"></div>
-												<div class="col-lg-5 col-md-4 col-sm-4">
-													<label for="fAge" class="col-form-label">Age :</label>
-												</div>
-												<div class="col-lg-6 col-md-6 col-sm-8">
-													<?php if($family != NULL){ ?>
-													<?php foreach ($family as  $value){?>
-													<p class="form-control"><?php echo $value->f_age; ?></p>
-													<?php } ?>
-													<?php }else{ ?>
-													<p class="form-control">No information</p>
-													<?php } ?>
-												</div>
-											</div>
-										</div>
-										<div class="col-lg-7 col-md-7"></div>
-										
-									</div>
 									<div class="row">
 										<div class="col-lg-5 col-md-5 col-sm-8">
 											<div class="form-group row">
