@@ -19,13 +19,14 @@ class Users extends CI_Controller {
      * Default constructor
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
-    public function __construct() {
-      parent::__construct();
-      log_message('debug', 'URI=' . $this->uri->uri_string());
-      $this->session->set_userdata('last_page', $this->uri->uri_string());
-      if($this->session->loggedIn === TRUE) {
+    public function __construct() 
+    {
+        parent::__construct();
+        log_message('debug', 'URI=' . $this->uri->uri_string());
+        $this->session->set_userdata('last_page', $this->uri->uri_string());
+        if($this->session->loggedIn === TRUE) {
            // Allowed methods
-       if ($this->session->isAdmin || $this->session->isSuperAdmin) {
+        if ($this->session->isAdmin || $this->session->isSuperAdmin) {
              //User management is reserved to admins and super admins
        } else {
              // redirect('errors/privileges');
