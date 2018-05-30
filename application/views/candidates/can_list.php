@@ -35,43 +35,43 @@
                 <div class="media widget-ten" id="myCard">
                     <div class="card-body text-left text-white">
                         <h1 class="mdi mdi-account-outline text-default" style="font-size: 50px;"></h1>
-                        </div>
-                        <div class="card-body text-right text-white">
-                            <h2 class="color-white" id="countSelectedCandidates"></h2>
-                            <p class="m-b-0">Selected candidates</p>
-                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                <div class="card bg-success p-20">
-                    <div class="media widget-ten" id="myCard">
-                        <div class="card-body text-left text-white">
-                            <h1 class="mdi mdi-map-marker text-default" style="font-size: 50px;"></h1>
-                        </div>
-                        <div class="card-body text-right text-white">
-                            <h2 class="color-white" id="countProvinces"></h2>
-                            <p class="m-b-0">Provinces of selected candidates</p>
-                        </div>
+                    <div class="card-body text-right text-white">
+                        <h2 class="color-white" id="countSelectedCandidates"></h2>
+                        <p class="m-b-0">Selected candidates</p>
                     </div>
                 </div>
             </div>
         </div>
-    <br>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8">
-                <h1 class="text-center">List of candidates</h1>
-                <br>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                      <a href="<?php echo base_url() ?>c_candidates/index"><button class="btn btn-default clearfix">All candidates</button></a>&nbsp;&nbsp;
-                      <a href="<?php echo base_url() ?>c_candidates/selectedCandidates"><button class="btn btn-primary clearfix">Selected candidates</button></a>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="card bg-success p-20">
+                <div class="media widget-ten" id="myCard">
+                    <div class="card-body text-left text-white">
+                        <h1 class="mdi mdi-map-marker text-default" style="font-size: 50px;"></h1>
+                    </div>
+                    <div class="card-body text-right text-white">
+                        <h2 class="color-white" id="countProvinces"></h2>
+                        <p class="m-b-0">Provinces of selected candidates</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8">
+            <h1 class="text-center">List of candidates</h1>
+            <br>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                    <a href="<?php echo base_url() ?>c_candidates/index"><button class="btn btn-default clearfix">All candidates</button></a>&nbsp;&nbsp;
+                    <a href="<?php echo base_url() ?>c_candidates/selectedCandidates"><button class="btn btn-primary clearfix">Selected candidates</button></a>
+                </div>
+            </div>
                 <br>
-                <div class="row">
-                    <div class="table-responsive-sm">
-                        <table id="students" cellpadding="0" cellspacing="0" class="table table table-striped table-bordered table-hover">
+            <div class="row">
+                <div class="table-responsive-sm">
+                    <table id="students" cellpadding="0" cellspacing="0" class="table table table-striped table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -86,49 +86,48 @@
                         <tbody id="showdata">
                             
                         </tbody>
-                        </table>
-                    </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12">
-                        <a href="<?php echo base_url() ?>c_candidates/newCandidate" class="btn btn-primary clearfix" id="addButton" >
-                            <i class="mdi mdi-account-plus"></i>
-                            &nbsp;New candidate
-                        </a>&nbsp;&nbsp;
-                        <a href="<?php echo base_url() ?>c_candidates/exportSelectedCan" class="btn btn-primary clearfix" id="Export" >
-                            <i class="mdi mdi-file-excel"></i>
-                            &nbsp;Export this list
-                        </a>&nbsp;&nbsp;
-                        <a href="<?php echo base_url() ?>c_student/map">
-                            <button id="mapButton" class="btn btn-primary clearfix"><i class="mdi mdi-map"></i>
-                          &nbsp;Province distribution</button>
-                        </a>
-                    </div>
+                    </table>
                 </div>
             </div>
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-4">
-                    <h1 class="text-center">Distribution</h1>
-                    <br><br><br>
-                    <canvas id="pie-chart" width="800" height="800"></canvas>
-                    <br>
-                    <div id="chartjs-tooltip">
-                       <table></table>
-                    </div>
-                    <h1 class="text-center">Selected candidate</h1>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <canvas id="pie-chart1" width="800" height="900">
-                            </canvas>
-                        </div>
-                        <div class="col-md-6">
-                            <canvas id="pie-chart2" width="800" height="900">
-                            </canvas>
-                        </div>
-                    </div>
+            <br>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <a href="<?php echo base_url() ?>c_candidates/newCandidate" class="btn btn-primary clearfix" id="addButton" >
+                        <i class="mdi mdi-account-plus"></i>
+                            &nbsp;New candidate
+                    </a>&nbsp;&nbsp;
+                    <a href="<?php echo base_url() ?>c_candidates/exportSelectedCan" class="btn btn-primary clearfix" id="Export" >
+                        <i class="mdi mdi-file-excel"></i>
+                            &nbsp;Export this list
+                    </a>&nbsp;&nbsp;
+                    <a href="<?php echo base_url() ?>c_student/map">
+                        <button id="mapButton" class="btn btn-primary clearfix">
+                            <i class="mdi mdi-map"></i>
+                      &nbsp;Province distribution
+                        </button>
+                    </a>
                 </div>
-
+            </div>
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-4">
+            <h1 class="text-center">Distribution</h1>
+            <br><br><br>
+            <canvas id="pie-chart" width="800" height="800"></canvas>
+            <br>
+            <div id="chartjs-tooltip">
+                   <table></table>
+            </div>
+            <h1 class="text-center">Selected candidate</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <canvas id="pie-chart1" width="800" height="900"></canvas>
+                </div>
+                <div class="col-md-6">
+                    <canvas id="pie-chart2" width="800" height="900"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <br><br>
 <!-- pop up delete -->
@@ -137,10 +136,12 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Confirm Delete</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
-            Do you want to delete this record?
+                Do you want to delete this record?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -168,7 +169,7 @@
     $('#students').dataTable({
         stateSave: true,
     });
-        //function count all candidates
+        //function count all the candidates
         function countAllCandidates()
         {
             $.ajax({
@@ -214,7 +215,7 @@
                 }
             });
         }
-        //function count alll provinces
+        //function count all provinces of selected candidates
         function countProvinces()
         {
             $.ajax({
@@ -334,61 +335,63 @@
         $('#frmResetPwd').modal('show');
     });
     //pie chart of grade all candidates
-    Chart.defaults.global.tooltips.custom = function(tooltip) {
-    // Tooltip Element
-    var tooltipEl = document.getElementById('chartjs-tooltip');
-    // Hide if no tooltip
-    if (tooltip.opacity === 0) 
+    Chart.defaults.global.tooltips.custom = function(tooltip) 
     {
-        tooltipEl.style.opacity = 0;
-        return;
-    }
-    // Set caret Position
-    tooltipEl.classList.remove('above', 'below', 'no-transform');
-    if (tooltip.yAlign) 
-    {
-        tooltipEl.classList.add(tooltip.yAlign);
-    } else {
-        tooltipEl.classList.add('no-transform');
-    }
-    function getBody(bodyItem) {
-        return bodyItem.lines;
-    }
-    // Set Text
-    if (tooltip.body) 
-    {
-        var titleLines = tooltip.title || [];
-        var bodyLines = tooltip.body.map(getBody);
-        var innerHtml = '<thead>';
-
-        titleLines.forEach(function(title) {
-        innerHtml += '<tr><th>' + title + '</th></tr>';
-    });
-        innerHtml += '</thead><tbody>';
-
-        bodyLines.forEach(function(body, i) 
+        // Tooltip Element
+        var tooltipEl = document.getElementById('chartjs-tooltip');
+        // Hide if no tooltip
+        if (tooltip.opacity === 0) 
         {
-            var colors = tooltip.labelColors[i];
-            var style = 'background:' + colors.backgroundColor;
-            style += '; border-color:' + colors.borderColor;
-            style += '; border-width: 5px';
-            var span = '<span class="chartjs-tooltip-key" style="' + style + '"></span>';
-            innerHtml += '<tr><td>' + span + body + '</td></tr>';
-        });
-        innerHtml += '</tbody>';
-        var tableRoot = tooltipEl.querySelector('table');
-        tableRoot.innerHTML = innerHtml;
-    }
-        var positionY = this._chart.canvas.offsetTop;
-        var positionX = this._chart.canvas.offsetLeft;
-       // Display, position, and set styles for font
-        tooltipEl.style.opacity = 1;
-        tooltipEl.style.left = positionX + tooltip.caretX + 'px';
-        tooltipEl.style.top = positionY + tooltip.caretY + 'px';
-        tooltipEl.style.fontFamily = tooltip._bodyFontFamily;
-        tooltipEl.style.fontSize = tooltip.bodyFontSize;
-        tooltipEl.style.fontStyle = tooltip._bodyFontStyle;
-        tooltipEl.style.padding = tooltip.yPadding + 'px ' + tooltip.xPadding + 'px';
+            tooltipEl.style.opacity = 0;
+            return;
+        }
+        // Set caret Position
+        tooltipEl.classList.remove('above', 'below', 'no-transform');
+        if (tooltip.yAlign) 
+        {
+            tooltipEl.classList.add(tooltip.yAlign);
+        } else {
+            tooltipEl.classList.add('no-transform');
+        }
+        function getBody(bodyItem) 
+        {
+            return bodyItem.lines;
+        }
+        // Set Text
+        if (tooltip.body) 
+        {
+            var titleLines = tooltip.title || [];
+            var bodyLines = tooltip.body.map(getBody);
+            var innerHtml = '<thead>';
+
+            titleLines.forEach(function(title) 
+            {
+                innerHtml += '<tr><th>' + title + '</th></tr>';
+            });
+                innerHtml += '</thead><tbody>';
+            bodyLines.forEach(function(body, i) 
+            {
+                var colors = tooltip.labelColors[i];
+                var style = 'background:' + colors.backgroundColor;
+                style += '; border-color:' + colors.borderColor;
+                style += '; border-width: 5px';
+                var span = '<span class="chartjs-tooltip-key" style="' + style + '"></span>';
+                innerHtml += '<tr><td>' + span + body + '</td></tr>';
+            });
+            innerHtml += '</tbody>';
+            var tableRoot = tooltipEl.querySelector('table');
+            tableRoot.innerHTML = innerHtml;
+        }
+            var positionY = this._chart.canvas.offsetTop;
+            var positionX = this._chart.canvas.offsetLeft;
+           // Display, position, and set styles for font
+            tooltipEl.style.opacity = 1;
+            tooltipEl.style.left = positionX + tooltip.caretX + 'px';
+            tooltipEl.style.top = positionY + tooltip.caretY + 'px';
+            tooltipEl.style.fontFamily = tooltip._bodyFontFamily;
+            tooltipEl.style.fontSize = tooltip.bodyFontSize;
+            tooltipEl.style.fontStyle = tooltip._bodyFontStyle;
+            tooltipEl.style.padding = tooltip.yPadding + 'px ' + tooltip.xPadding + 'px';
     };
 
     new Chart(document.getElementById("pie-chart"),
@@ -409,7 +412,7 @@
             datasets: 
             [{
                 label: "Grade (distribution)",
-                backgroundColor: ["#80ffcc","#6666ff","#99c2ff","#ffeb99","#c2c2a3","#ff4d4d"],
+                backgroundColor: ["#00cc00","#bfff00","#ffff00","#ffd11a","#ff9900","#ff471a"],
                 data: 
                 [
                     <?php foreach ($gradeAPlus as $gradeAPlus):?>
@@ -447,10 +450,11 @@
             }
         },
     });
-        window.onload = function() {
+        window.onload = function()
+        {
         var ctx = document.getElementById('pie-chart').getContext('2d');
         window.myPie = new Chart(ctx, config);
-    };
+        };
     // pie chart1 of gender selected candidates
     new Chart(document.getElementById("pie-chart1"), 
     {
@@ -473,7 +477,7 @@
             datasets: 
             [{
                 label: "Gender (distribution)",
-                backgroundColor: ["#99ffff","#ff80bf"],
+                backgroundColor: ["#0066cc","#ffcc99"],
                 data:
                 [   
                     <?php 

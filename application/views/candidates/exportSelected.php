@@ -34,7 +34,8 @@ $candidates = $this->m_can->showSelected();
 
 $line = 2;
 $canID = 1;
-foreach ($candidates as $candidates) {
+foreach ($candidates as $candidates) 
+{
     $sheet->setCellValue('A' . $line, $canID);
     $sheet->setCellValue('B' . $line, $candidates->can_name);
     $sheet->setCellValue('C' . $line, $candidates->province);
@@ -44,7 +45,8 @@ foreach ($candidates as $candidates) {
 }
 
 //Autofit
-foreach(range('A', 'D') as $colD) {
+foreach(range('A', 'D') as $colD) 
+{
     $sheet->getColumnDimension($colD)->setAutoSize(TRUE);
 }
 
