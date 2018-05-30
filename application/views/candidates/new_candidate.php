@@ -34,20 +34,14 @@ body{
 							<h5>General information</h5>
 						</div>
 						<form id="canForm" method="post">
-							
-								
-
-								
-								<br>
-
-							
+							<br>
 							<div class="row">
 								<div class="col-lg-5 col-md-5">
 									<div class="form-group row">
 										<div class="col-lg-1 col-md-1"></div>
-										<label for="gender" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Global grade :</label>
+										<label for="globgrade" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Global grade :</label>
 										<div class="col-lg-6 col-md-6 col-xs-12">
-											<select class="form-control" name="globalGrade" placeholder="Please select">
+											<select class="form-control" name="globalGrade" id="globgrade" placeholder="Please select">
 												<option value="">Please select one</option>
 												<option value="A+">A+</option>
 												<option value="A">A</option>
@@ -59,18 +53,16 @@ body{
 										</div>
 									</div>
 								</div>
-								<div class="col-lg-5 col-md-5">
+								
+								<div class="col-lg-7 col-md-7">
 									<div class="form-group row">
-										<div class="col-lg-5 col-md-5 col-sm-3 col-xs-3">
+										<div class="col-lg-2 col-md-2"></div>
+										<label for="lastname" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Candidate image :</label>
+										<div class="col-lg-5 col-md-5 col-xs-12">
+											<input type="file" name="lastname" placeholder="Last name">
 										</div>
-										<div class="col-lg-7 col-md-7 col-sm-9 col-xs-9">
-									
-											<div class="col-lg-6 col-md-6 col-xs-12">
-												<input type='file' />
-											</div>
-										</div> 
 									</div>
-								</div>
+								</div>	
 							</div>
 							<div class="row">
 								<div class="col-lg-5 col-md-5">
@@ -198,7 +190,7 @@ body{
 											<div class="col-lg-1 col-md-1"></div>
 											<label for="rankClass" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Rank in class :</label>
 											<div class="col-lg-6 col-md-6 col-xs-12">
-												<input type="number" class="form-control" id="rankClass" name="rankClass" placeholder="Ex: 10/33" required>
+												<input type="text" class="form-control" id="rankClass" name="rankClass" placeholder="Ex: 10/33" required>
 											</div>
 										</div>
 									</div>		
@@ -247,7 +239,7 @@ body{
 											<div class="col-lg-2 col-md-2"></div>
 											<label for="responsibility" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Responsibility & maturity :</label>
 											<div class="col-lg-5 col-md-5 col-xs-12">
-												<input type="number" class="form-control" name="responsibility" id="responsibility" placeholder="Ex: 18/20" required>
+												<input type="text" class="form-control" name="responsibility" id="responsibility" placeholder="Ex: 18/20" required>
 											</div>
 										</div>
 									</div>	
@@ -258,7 +250,7 @@ body{
 											<div class="col-lg-1 col-md-1"></div>
 											<label for="motivation" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Motivation for PNC</label>
 											<div class="col-lg-6 col-md-6 col-xs-12">
-												<input type="number" class="form-control" name="motivate" id="motivation" placeholder="Ex: 18/20" required>
+												<input type="text" class="form-control" name="motivate" id="motivation" placeholder="Ex: 18/20" required>
 											</div>
 										</div>
 									</div>
@@ -267,27 +259,29 @@ body{
 											<div class="col-lg-2 col-md-2"></div>
 											<label for="communications" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Communication :</label>
 											<div class="col-lg-5 col-md-5 col-xs-12">
-												<input type="number" class="form-control" name="communication" id="communications" placeholder="Ex: 18/20" required>
+												<input type="text" class="form-control" name="communication" id="communications" placeholder="Ex: 18/20" required>
 											</div>
 										</div>
 									</div>	
 								</div>
+								<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">Other Scholarship:</div>
+								<div class="col-lg-8 col-md-8 col-sm-10 col-xs-12"></div><br>
 								<div class="row">
 									<div class="col-lg-5 col-md-5">
 										<div class="form-group row">
 											<div class="col-lg-1 col-md-1"></div>
-											<label for="scholarship" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Other scholarship</label>
+											<label for="alter1" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Alternative 1:</label>
 											<div class="col-lg-6 col-md-6 col-xs-12">
-												<input type="text" class="form-control" name="otherScholarship" id="scholarship" placeholder="Other" required>
+												<input type="text" class="form-control" name="alternative1" id="alter1" placeholder="Other" required>
 											</div>
 										</div>
 									</div>
 									<div class="col-lg-7 col-md-7">
 										<div class="form-group row">
 											<div class="col-lg-2 col-md-2"></div>
-											<label for="choiceRank" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Choice rank :</label>
+											<label for="choiceRank1" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Choice rank :</label>
 											<div class="col-lg-5 col-md-5 col-xs-12">
-												<select class="form-control" name="otherChoiceRank" id="choiceRank">
+												<select class="form-control" name="choiceRank1" id="choiceRank1">
 													<option value="">Please select one</option>
 													<?php 
 													for ($i=1; $i <=4 ; $i++) { 
@@ -302,16 +296,64 @@ body{
 									</div>	
 								</div>
 								<div class="row">
-									<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12"></div>
-									<div class="col-lg-4 col-md-4 col-sm-9 col-xs-12">
-										<a href="#" data-toggle="modal" data-target="#myModal">
-											<h6>
-												<i class="mdi mdi-plus" style="color:#000;font-size: 20px;">
-												</i>Add other scholarship
-											</h6>
-										</a>
+									<div class="col-lg-5 col-md-5">
+										<div class="form-group row">
+											<div class="col-lg-1 col-md-1"></div>
+											<label for="alter2" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Alternative 2:</label>
+											<div class="col-lg-6 col-md-6 col-xs-12">
+												<input type="text" class="form-control" name="alternative2" id="alter2" placeholder="Other" required>
+											</div>
+										</div>
 									</div>
+									<div class="col-lg-7 col-md-7">
+										<div class="form-group row">
+											<div class="col-lg-2 col-md-2"></div>
+											<label for="choiceRank2" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Choice rank :</label>
+											<div class="col-lg-5 col-md-5 col-xs-12">
+												<select class="form-control" name="choiceRank2" id="choiceRank2">
+													<option value="">Please select one</option>
+													<?php 
+													for ($i=1; $i <=4 ; $i++) { 
+														?>
+														<option value="<?php echo $i; ?>"><?php echo $i ?></option>
+														<?php		
+													}
+													?>
+												</select>
+											</div>
+										</div>
+									</div>	
 								</div>
+								<div class="row">
+									<div class="col-lg-5 col-md-5">
+										<div class="form-group row">
+											<div class="col-lg-1 col-md-1"></div>
+											<label for="alter3" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Alternative 3:</label>
+											<div class="col-lg-6 col-md-6 col-xs-12">
+												<input type="text" class="form-control" name="alternative3" id="alter3" placeholder="Other" required>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-7 col-md-7">
+										<div class="form-group row">
+											<div class="col-lg-2 col-md-2"></div>
+											<label for="choiceRank3" class="col-lg-5 col-md-5 col-xs-12 col-form-label">Choice rank :</label>
+											<div class="col-lg-5 col-md-5 col-xs-12">
+												<select class="form-control" name="choiceRank3" id="choiceRank3">
+													<option value="">Please select one</option>
+													<?php 
+													for ($i=1; $i <=4 ; $i++) { 
+														?>
+														<option value="<?php echo $i; ?>"><?php echo $i ?></option>
+														<?php		
+													}
+													?>
+												</select>
+											</div>
+										</div>
+									</div>	
+								</div>
+								
 								<!-- pop up -->
 								<!-- / close pop up -->
 								<div class="row">

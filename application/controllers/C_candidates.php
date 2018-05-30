@@ -189,14 +189,18 @@ Class C_candidates extends CI_Controller{
 		$responsibility = $this->input->post('responsibility');
 		$motivate = $this->input->post('motivate');
 		$communication = $this->input->post('communication');
-		$scholarship = $this->input->post('otherScholarship');
-		$otherChoiceRank = $this->input->post('otherChoiceRank');
+		$alter1 = $this->input->post('alternative1');
+		$alter2 = $this->input->post('alternative2');
+		$alter3 = $this->input->post('alternative3');
+		$cRank1 = $this->input->post('choiceRank1');
+		$cRank2 = $this->input->post('choiceRank2');
+		$cRank3 = $this->input->post('choiceRank3');
 		$stuCommite = $this->input->post('studentCommit');
 		$parCommite = $this->input->post('parentsCommit');
 		$ngoComment = $this->input->post('ngoComment');
 		$healthComment = $this->input->post('healthComment');
-		$result['student'] = $this->m_can->addCandidate($fname,$lname,$gender,$age,$province,$ngo,$health,$rankClass,$achivement,$pncChoice,$responsibility,$motivate,$communication,$scholarship,$otherChoiceRank,$stuCommite,$parCommite,$globalGrade,$ngoComment,$healthComment);
-		echo json_encode($msg);   
+		$result['student'] = $this->m_can->addCandidate($fname,$lname,$gender,$age,$province,$ngo,$health,$rankClass,$achivement,$pncChoice,$responsibility,$motivate,$communication,$alter1,$alter2,$alter3,$cRank1,$cRank2,$cRank3,$stuCommite,$parCommite,$globalGrade,$ngoComment,$healthComment);
+		echo json_encode($result);   
 	}
   // function to add new family profile
 

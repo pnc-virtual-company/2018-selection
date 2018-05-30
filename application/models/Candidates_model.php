@@ -240,18 +240,16 @@ class Candidates_model extends CI_Model{
     // fuction add ngo
     public function addNGO($ngo)
     {
-        // $data = array('ngo_name' => $ngo );
-        // $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
-        // $insert = $this->db->insert('skeleton_tbl_ngo',$data);
-        // if ($this->db->affected_rows() > 0) {
-        //     return true;
-        // }else
-        // {
-        //     return false;
-        // }
-        // $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
-        $query = $this->db->get('skeleton_tbl_ngo');  
-        return $query->result();  
+        $data = array('ngo_name' => $ngo );
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
+        $insert = $this->db->insert('skeleton_tbl_ngo',$data);
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        }else
+        {
+            return false;
+        }
+        $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
     } 
 
     // delete ngo
@@ -269,7 +267,7 @@ class Candidates_model extends CI_Model{
         $this->db->update('skeleton_tbl_ngo',$data);
     }
 
-    public function addCandidate($fname,$lname,$gender,$age,$province,$ngo,$health,$rankClass,$achivement,$pncChoice,$responsibility,$motivate,$communication,$scholarship,$otherChoiceRank,$stuCommite,$parCommite,$globalGrade,$ngoComment,$healthComment)
+    public function addCandidate($fname,$lname,$gender,$age,$province,$ngo,$health,$rankClass,$achivement,$pncChoice,$responsibility,$motivate,$communication,$alter1,$alter2,$alter3,$cRank1,$cRank2,$cRank3,$stuCommite,$parCommite,$globalGrade,$ngoComment,$healthComment)
     {
             $data = array(
                 'can_firstname' => $fname,
@@ -282,9 +280,13 @@ class Candidates_model extends CI_Model{
                 'can_activity_achivement' => $achivement,
                 'can_resposibility' => $responsibility,
                 'can_communicate' => $communication,
-                'can_other_choice_rank' => $otherChoiceRank,
+                'can_alternative1' => $alter1,
+                'can_alternative2' => $alter2,
+                'can_alternative3' => $alter3,
+                'can_rank_1' => $cRank1,
+                'can_rank_2' => $cRank2,
+                'can_rank_3' => $cRank3,
                 'can_pnc_motivation' => $motivate, 
-                'can_other_scholaship' => $scholarship,
                 'can_student_commit' => $stuCommite,
                 'can_parents_commit' => $parCommite,
                 'can_global_grade' => $globalGrade,
@@ -589,9 +591,9 @@ class Candidates_model extends CI_Model{
         $this->db->update('skeleton_tbl_loan_debt',$data);
         $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
     }
-    //function call globale grad
-    function globle_grade($id)
-    {
+
+    //function call globale grade
+    function globle_grade($id){
         $this->db->select('*');
         $this->db->from('skeleton_tbl_candidates');
         $this->db->where('skeleton_tbl_candidates.can_id',$id);
