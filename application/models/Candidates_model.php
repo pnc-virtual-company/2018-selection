@@ -618,7 +618,7 @@ class Candidates_model extends CI_Model{
         $this->db->from('skeleton_tbl_profile'); 
         $this->db->join('skeleton_tbl_candidates', 'skeleton_tbl_candidates.can_id=
             skeleton_tbl_profile.tbl_candidates_can_id','INNER');
-        $this->db->where('skeleton_tbl_profile.p_id',$id);
+        $this->db->where('skeleton_tbl_candidates.can_id',$id);
         $query=$this->db->get();
         return $query->result();
     }
@@ -628,7 +628,7 @@ class Candidates_model extends CI_Model{
         $this->db->select('*');
         $this->db->from('skeleton_tbl_income');
         $this->db->join('skeleton_tbl_candidates','skeleton_tbl_candidates.can_id = skeleton_tbl_income.tbl_candidates_can_id','INNER');
-        $this->db->where('skeleton_tbl_income.in_id',$id);
+        $this->db->where('skeleton_tbl_candidates.can_id',$id);
         $query=$this->db->get();
         return $query->result();
     } 
@@ -639,7 +639,7 @@ class Candidates_model extends CI_Model{
         $this->db->from('skeleton_tbl_expense');
         $this->db->join('skeleton_tbl_candidates','skeleton_tbl_candidates.can_id = 
             skeleton_tbl_expense.tbl_candidates_can_id','INNER');
-        $this->db->where('skeleton_tbl_expense.ex_id',$id);
+        $this->db->where('skeleton_tbl_candidates.can_id',$id);
         $query=$this->db->get();
         return $query->result();
     }
@@ -650,7 +650,7 @@ class Candidates_model extends CI_Model{
         $this->db->from('skeleton_tbl_loan_debt');
         $this->db->join('skeleton_tbl_candidates','skeleton_tbl_candidates.can_id = 
             skeleton_tbl_loan_debt.tbl_candidates_can_id','INNER');
-        $this->db->where('skeleton_tbl_loan_debt.ld_id',$id);
+        $this->db->where('skeleton_tbl_candidates.can_id',$id);
         $query=$this->db->get();
         return $query->result();
     }
@@ -661,7 +661,7 @@ class Candidates_model extends CI_Model{
         $this->db->from('skeleton_tbl_residence');
         $this->db->join('skeleton_tbl_candidates','skeleton_tbl_candidates.can_id = 
             skeleton_tbl_residence.tbl_candidates_can_id','INNER');
-        $this->db->where('skeleton_tbl_residence.re_id',$id);
+        $this->db->where('skeleton_tbl_candidates.can_id',$id);
         $query=$this->db->get();
         return $query->result();
     } 
@@ -672,7 +672,7 @@ class Candidates_model extends CI_Model{
         $this->db->from('skeleton_tbl_home_asset');
         $this->db->join('skeleton_tbl_candidates','skeleton_tbl_candidates.can_id = 
             skeleton_tbl_home_asset.tbl_candidates_can_id','INNER');
-        $this->db->where('skeleton_tbl_home_asset.h_id',$id);
+        $this->db->where('skeleton_tbl_candidates.can_id',$id);
         $query=$this->db->get();
         return $query->result();
     }

@@ -258,6 +258,9 @@
                         {
                             $('#deleteModal').modal('hide');
                             $('.alert-success').html('Candidate Deleted successfully').fadeIn().delay(4000).fadeOut('slow');
+                            
+                                 location.reload(); // then reload the page.(3)
+                            
                             showAllCandidates();
                         }else{
                             alert('Error');
