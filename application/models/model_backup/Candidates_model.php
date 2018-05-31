@@ -465,7 +465,14 @@ class Candidates_model extends CI_Model{
         $this->db->where('can_id',$id);
         $this->db->update('skeleton_tbl_candidates',$data);
     }
-    public function uCanInfo($id,$fname,$lname,$gender,$canAge,$province,$ngo,$grade,$ngoComment,$can_health,$healthIssues,$canRankClass,$canAchivement,$canPncRank,$responsibilityMaturity,$motivatForPnc,$canCommunicate,$alter1,$alter2,$alter3,$alterRank1,$alterRank2,$alterRank3,$canChoiceRank,$CanCommitment,$canParentCommitment) {
+    //upload update image candidate
+    public function uImageCan($id,$data1){
+        $data = array('can_images' => $data1);
+        $this->db->where('can_id',$id);
+        $this->db->update('skeleton_tbl_candidates',$data);
+    }
+    // function for update candidate information
+    public function uCanInfo($id,$fname,$lname,$gender,$canAge,$province,$ngo,$grade,$ngoComment,$can_health,$healthIssues,$canRankClass,$canAchivement,$canPncRank,$responsibilityMaturity,$motivatForPnc,$canCommunicate,$otherScholarship,$canChoiceRank,$CanCommitment,$canParentCommitment) {
         $data = array(
             'can_firstname' => $fname,
             'can_lastname'  => $lname,
@@ -477,13 +484,9 @@ class Candidates_model extends CI_Model{
             'can_activity_achivement' => $canAchivement,
             'can_resposibility' => $responsibilityMaturity,
             'can_communicate' => $canCommunicate,
-            'can_alternative1' => $alter1,
-            'can_alternative2' => $alter2,
-            'can_alternative3' => $alter3,
-            'can_rank_1' => $alterRank1,
-            'can_rank_2' => $alterRank2,
-            'can_rank_3' => $alterRank3,
+            'can_other_choice_rank' => $canChoiceRank,
             'can_pnc_motivation' => $motivatForPnc,
+            'can_other_scholaship' => $otherScholarship,
             'can_student_commit' => $CanCommitment,
             'can_parents_commit' => $canParentCommitment,
             'can_global_grade' => $grade,
@@ -492,38 +495,10 @@ class Candidates_model extends CI_Model{
             'pro_id' => $province,
             'ngo_id' => $ngo
         );
+        
         $this->db->where('can_id',$id);
         $this->db->update('skeleton_tbl_candidates',$data);
     }
-    //uLoadimage
-    // public function udImage($id, $imageName) {
-    //     $data = array('can_images' => $imageName);
-    //     $this->db->where('can_id',$id);
-    //     $this->db->update('skeleton_tbl_candidates',$data);
-    // }
-    function save_upload($title,$image){
-        $data = array(
-                'can_images'     => $title,
-                'image' => $image
-            );  
-        $result= $this->db->insert('gallery',$data);
-        if ($this->db->affected_rows() > 0) {
-            $this->db->select("MAX(can_id)");
-            $this->db->from("skeleton_tbl_candidates");
-            $query = $this->db->get(); 
-            if($query->num_rows() > 0){
-                return $query->result();  
-            }else{
-                return false;
-            }
-        } else {
-            return false;
-        }
-        return $result;
-        // $this->db->where('can_id',$id);
-        // $this->db->update('skeleton_tbl_candidates',$data);
-    }
- 
     // model for update family profile
     public function ufamilyProfile($id,$fAge,$fOccupation,$fotherOccupationSpecify,$fHealth,$fatherhealthIssues,$fEducation,$mAge,$mOccupation,$mOccupationSpecify,$mhealth,$mhealthSpecify,$mEducation,$siblings,$Married,$Separated,$liveInHouse,$sRank)
     {
@@ -631,7 +606,8 @@ class Candidates_model extends CI_Model{
         $this->db->select('*'); 
         $this->db->from('skeleton_tbl_candidates'); 
         $this->db->join('skeleton_tbl_provinces', 'skeleton_tbl_provinces.pro_id = skeleton_tbl_candidates.pro_id');
-        $this->db->join('skeleton_tbl_ngo','skeleton_tbl_ngo.ngo_id=skeleton_tbl_candidates.ngo_id');
+        $this->db->join('skeleton_tbl_ngo','skeleton_tbl_ngo.ngo_id=
+            skeleton_tbl_candidates.ngo_id');
         // $this->db->get_where("skeleton_tbl_candidates",array('can_id'=>$id));
         $this->db->where('skeleton_tbl_candidates.can_id',$id);
         $query=$this->db->get();
@@ -657,12 +633,7 @@ class Candidates_model extends CI_Model{
         $this->db->where('skeleton_tbl_candidates.can_id',$id);
         $query=$this->db->get();
         return $query->result();
-    }
-    public function viewImg($id) {
-        $this->db->select('can_images');
-        $query = $this->db->get_where('skeleton_tbl_candidates',array('can_id' =>$id));
-        return $query->result();
-    }
+    } 
      // function call family exspend
     function view_exspense($id)
     {
