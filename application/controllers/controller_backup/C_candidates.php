@@ -21,8 +21,11 @@ Class C_candidates extends CI_Controller{
 		{
 			redirect('connection/login');
 		}
+
 		$this->load->model('candidates_model', 'm_can');
 	}
+
+
 	// function to get data for home page
 	function index()
 	{
@@ -246,7 +249,6 @@ Class C_candidates extends CI_Controller{
 // just like to update form
 	function updateForm($id) {		// link to form update with old info
 		$this->load->model('Candidates_model');
-		$data['image'] = $this->Candidates_model->viewImg($id);
 		$data['value'] = $this->Candidates_model->listInfo($id); 	//get old value
 		$data['invesCon'] = $this->Candidates_model->investiCon($id);
 		$data['provinces'] = $this->Candidates_model->listProvinces();
@@ -258,9 +260,47 @@ Class C_candidates extends CI_Controller{
 		$data['loadAndDebt'] = $this->Candidates_model->loadsAndDebts($id);
 		$data['residence'] = $this->Candidates_model->residence($id);
 		$this->load->view('templates/header');
-		$this->load->view('menu/index');
+		$this->load->view('menu/index');   
 		$this->load->view('candidates/update_candidate', $data);
 		$this->load->view('templates/footer');
+	}
+	//image part
+	//controller for update image of candidate
+	public function uImage($id) {
+		$this->load->model('Candidates_model');
+		// $inputFile = $this->input->post('cImage'); //get value from input btn
+		$config['upload_path']= base_url()."assets/images/candidates/";
+        $config['allowed_types']='jpg|png|jpeg';
+        $config['max_size']	= '1024';
+		$config['max_width']  = '1024';
+		$config['max_height']  = '768';
+        $this->load->library('upload',$config);
+        if($this->upload->do_upload('file')){
+        $data = $this->upload->data();
+        $data1 = array(
+        'file' => $this->input->post('file'),
+        'imgpath' => $data['upload_data']['file_name']
+        );
+        $result = $this->Candidates_model->uImageCan($id,$data1);
+            echo json_encode($result);
+        // if ($result == TRUE) {
+        // 	}
+        }
+		// $config['upload_path'] = './assets/images/candidates/';
+		// $config['allowed_types'] = 'gif|jpg|png';
+		// $config['max_size'] = 1024;
+		// $config['max_width'] = 1024;
+		// $config['max_height'] = 7680;
+		// $this->load->library('Upload',$config);
+		// if (!$this->upload->do_upload('cImage')) {
+		// 	$error = array('error'=>$this->upload->display_errors());
+		// 	echo "Error Upload Image!";die();
+		// }
+		// $iData = array('upload_data'=>$this->upload->data());
+		// var_dump($iData);die();
+		// foreach ($iData as $iData):
+		// 	$file_name = $iData['file_name'];
+		// endforeach;
 	}
 	public function uInvestiCon($id) {		//function to update investigation conclusion 
 		$this->load->model('Candidates_model');
@@ -287,16 +327,10 @@ Class C_candidates extends CI_Controller{
 		$motivatForPnc = $this->input->post('motivatForPnc');
 		$canCommunicate = $this->input->post('canCommunicate');
 		$otherScholarship = $this->input->post('otherScholarship');
-		$alter1 = $this->input->post('alternative1');
-		$alter2 = $this->input->post('alternative2');
-		$alter3 = $this->input->post('alternative3');
-		$alterRank1 = $this->input->post('choiceRank1');
-		$alterRank2 = $this->input->post('choiceRank2');
-		$alterRank3 = $this->input->post('choiceRank3');
 		$canChoiceRank = $this->input->post('canChoiceRank');
 		$CanCommitment = $this->input->post('CanCommitment');
 		$canParentCommitment = $this->input->post('canParentCommitment');
-		$data = $this->Candidates_model->uCanInfo($id,$fname,$lname,$gender,$canAge,$province,$ngo,$grade,$ngoComment,$can_health,$healthIssues,$canRankClass,$canAchivement,$canPncRank,$responsibilityMaturity,$motivatForPnc,$canCommunicate,$alter1,$alter2,$alter3,$alterRank1,$alterRank2,$alterRank3,$canChoiceRank,$CanCommitment,$canParentCommitment);
+		$data = $this->Candidates_model->uCanInfo($id,$fname,$lname,$gender,$canAge,$province,$ngo,$grade,$ngoComment,$can_health,$healthIssues,$canRankClass,$canAchivement,$canPncRank,$responsibilityMaturity,$motivatForPnc,$canCommunicate,$otherScholarship,$canChoiceRank,$CanCommitment,$canParentCommitment);
 		echo json_encode($data);
 	}
 	//controller for update family profile
@@ -441,6 +475,8 @@ Class C_candidates extends CI_Controller{
          foreach ($lastIds as $lastId) {
            $lastCanId = $lastId->lastId;
          }
+
+
 		$result['familyIncome'] = $this->m_can->addFamilyIncome($paMonthIncome,$paDailyIncome,$paSesIncome,$paYearIncome,$paTotalIncome,$chMonthIncome,$chDailyIncome,$chSeasonIncome,$chYearIncome,$chTotalIncome,$totalIncome,$totalIncomeId,$lastCanId);
 		echo json_encode($msg);
 	}
@@ -587,45 +623,4 @@ Class C_candidates extends CI_Controller{
       echo json_encode($msg);
     }
     // end function add conclusion
-    //uplaod image
-    // public function uploadImage($id){
-    // 	$this->load->model('Candidates_model');
-    // 	$config['upload_path']= "./assets/images/candidates/";
-    //     $config['allowed_types']='jpeg|jpg|png';
-    //     $this->load->library('upload',$config);
-    //     if($this->upload->do_upload('imagetitle')){
-    //     $data = array('upload_data' => $this->upload->data());
-    //     $imageName = $this->input->post('imagetitle');
-    //     $imageName = array(
-    //     'imagetitle' => $this->input->post('imagetitle'),
-    //     'imgpath' => $data['upload_data']['file_name']
-    //     );
-    //     $result= $this->Candidates_model->udImage($id, $imageName);
-    //     // if ($result == TRUE) {
-    //     //     echo "true";
-    //     	// }
-    // 	echo json_encode($result);
-    //     }
-    // }
-
-    function do_upload($id){
-    	$this->load->model('Candidates_model');
-        $config['upload_path']="./assets/images/candidates/";
-        $config['allowed_types']='jpeg|jpg|png';
-        $config['encrypt_name'] = TRUE;
-         
-        $this->load->library('upload',$config);
-        if($this->upload->do_upload("file")){
-            $data = array('upload_data' => $this->upload->data());
- 
-            $title= $this->input->post('title');
-            $image= $data['upload_data']['file_name']; 
-             
-            $result= $this->Candidates_model->save_upload($id,$title,$image);
-            echo json_decode($result);
-        }
- 
-     }
-
 }
-// end of class controller
