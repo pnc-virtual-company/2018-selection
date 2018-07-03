@@ -1,12 +1,12 @@
 {
-	"description": "The Skeleton application",
-	"name": "bbalet/skeleton",
+	"description": "The Selection Committee Application",
+	"name": "pnc-virtual-company/2018-selection",
 	"type": "project",
 	"homepage": "https://codeigniter.com",
 	"license": "AGPLv3",
 	"require": {
 		"php": ">=5.3.7",
 		"phpoffice/phpspreadsheet": "dev-develop",
-		"paragonie/random_compat": "^2.0",
+		"paragonie/random_compat": "^2.0"
 	}
 }

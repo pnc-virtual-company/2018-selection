@@ -2,7 +2,7 @@
 # Selection committee application
 
 The Selection committee application is designed for the Selection team of Passerelles Numériques Cambodia (PNC) to facilitate the selection of new generations of students in PNC.
->>>>>>> a517a2227ece0abb7db2bfaaf4e42bfcc49deafe
+
 The project contains some useful frontend and backend libraries:
 
  * CodeIgniter 3
@@ -35,7 +35,7 @@ The project contains some useful frontend and backend libraries:
 ## Setup
 
 If you have cloned the repository, you need an extra step to install the PHP libraries.
-Use composer (PHP dependencies manager) to install the libraies with this command:
+Use composer (PHP dependencies manager) to install the libraries with this command:
 
     composer install
 
