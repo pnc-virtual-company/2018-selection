@@ -221,7 +221,7 @@ class Candidates_model extends CI_Model{
         'candidate_ngo_comment' => $ngoComment != "" ? $ngoComment : null,
         'candidate_health_comment' => $healthComment != "" ? $healthComment : null,
         'candidate_image' => $candidateImage,
-        'ngo_id' =>$ngo != "" ? $ngo : null
+        'ngo_id' => $ngo != "" ? $ngo : null
         );
 
         $this->db->trans_start();
@@ -325,7 +325,7 @@ class Candidates_model extends CI_Model{
             'candidate_ngo_comment' => $ngoComment,
             'candidate_health_comment' => $healthComment,
             'candidate_image' => $candidateImage,
-            'ngo_id' => $ngo
+            'ngo_id' => $ngo != "" ? $ngo : null
         );
         $this->db->where('candidate_id',$id);
         $this->db->update('candidates',$data);

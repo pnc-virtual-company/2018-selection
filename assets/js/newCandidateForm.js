@@ -380,25 +380,16 @@ $(document).ready(function(){
 	});
 
 	// Check first if the new candidate has already been stored (i.e. has an ID)
-	// If candidateID exists, then add investigator's conclusion in the database and go to the next form
-	$('#saveConclude').click(function(){
+	// If candidateID exists, then add investigator's conclusion in the database and go to the index page
+	$('#formConclude').on('submit', function(){
 		if (candidateID==undefined) {
 			bootbox.alert('Please enter first the first and last names of the candidate and click on button "Save information" in the form above "Student information"');
 			$('#collapseOne').collapse("show");
 			$('#headingOne').find("i").toggle();
 			$('#accordion')[0].scrollIntoView();
+			return false;
 		} else {
-			$.ajax({
-			type: 'POST',
-			url: base_url + 'candidates/addConclude',
-			data: $('form#formConclude').serialize(),
-			success:function(msg) {
-				bootbox.alert("Investigator's conclusion has been successfully added");
-			},
-			error:function(){
-				bootbox.alert("Error: investigator's conclusion could not be added");
-			}
-		});
+			return true;
 		}
 	});
 });

@@ -52,7 +52,7 @@
                     <a href="<?php echo base_url() ?>candidates/index?value=selectedCandidates"><button class="btn btn-<?php echo $candidateFilter ? "primary" : "default"; ?> clearfix">Selected candidates</button></a>
                 </div>
             </div>
-                <br>
+            <br>
             <div class="row">
                 <div class="table-responsive-sm">
                     <table id="students" cellpadding="0" cellspacing="0" class="table table table-striped table-bordered table-hover">

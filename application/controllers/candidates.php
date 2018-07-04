@@ -13,7 +13,6 @@ Class Candidates extends CI_Controller{
 
 	/**
      * Default constructor
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
 	public function __construct() {
 		parent::__construct();
@@ -45,7 +44,6 @@ Class Candidates extends CI_Controller{
 	
 	/**
      * Display the list of all candidates
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
 	public function index()
 	{
@@ -68,7 +66,6 @@ Class Candidates extends CI_Controller{
 	
 	/**
      * Get the list of candidates
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
 	public function showAllCandidates()
 	{
@@ -78,7 +75,6 @@ Class Candidates extends CI_Controller{
 
 	/**
      * Get the list of selected candidates
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
 	public function showSelected()
 	{
@@ -88,7 +84,6 @@ Class Candidates extends CI_Controller{
 	
 	/**
      * Count all candidates
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
 	public function countCandidates()
 	{
@@ -97,8 +92,7 @@ Class Candidates extends CI_Controller{
 	}
 
 	/**
-     * Count selected candidates
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     * Get the number of selected candidates
      */
 	public function countSelectedCandidates()
 	{
@@ -107,8 +101,7 @@ Class Candidates extends CI_Controller{
 	}
 
 	/**
-     * Count the number of candidates for each grade
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     * Get the number of candidates for each grade
      */
 	public function countGrades()
 	{
@@ -123,8 +116,7 @@ Class Candidates extends CI_Controller{
 	}
 
 	/**
-     * Send the % of selected candidates for each gender
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     * Get the % of selected candidates for each gender
      */
 	public function countGender()
 	{
@@ -140,8 +132,7 @@ Class Candidates extends CI_Controller{
 	}
 
 	/**
-     * Send the % of selected candidates coming from another NGO vs not
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     * Get the % of selected candidates coming from another NGO vs not
      */
 	public function countNGOProvenance()
 	{
@@ -157,8 +148,7 @@ Class Candidates extends CI_Controller{
 	}
 
 	/**
-     * Delete a candidate
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     * Delete a specific candidate
      */
 	public function deleteCandidate()
 	{
@@ -173,7 +163,6 @@ Class Candidates extends CI_Controller{
 	
 	/**
      * Count provinces
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
 	 function countProvinces()
 	{
@@ -183,7 +172,6 @@ Class Candidates extends CI_Controller{
 
 	/**
      * Export the list of candidates into an Excel file
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function export() {
     	$data['candidateFilter'] = $this->input->get('value') == "selectedCandidates";
@@ -192,7 +180,6 @@ Class Candidates extends CI_Controller{
 
     /**
      * Display the map of Cambodian's provinces 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
 	public function map(){ 
 		$this->load->view('templates/header');
@@ -202,10 +189,10 @@ Class Candidates extends CI_Controller{
 	}	
 
 	/**
-     * View a specific candidate details
-     * @param 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
-     */
+	 * [viewCandidateDetails description]
+	 * @param  [type] $id [description]
+	 * @return [type]     [description]
+	 */
 	public function viewCandidateDetails($id)
 	{
 	 	$result['username'] = $this->candidates_model->getFullName($id);
@@ -269,7 +256,7 @@ Class Candidates extends CI_Controller{
 	}
 
   	/**
-     * Add a candidate in the dabatase
+     * Add a new candidate in the dabatase
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
 	public function addCandidate()
@@ -301,11 +288,14 @@ Class Candidates extends CI_Controller{
 		$healthComment = $this->input->post('healthComment');
 		
 		$uploaded = $this->upload();
-		if ($uploaded[0]) {
-			$candidateImage = $uploaded[1];
+		if ($uploaded[0] || $uploaded[1] == "<p>You did not select a file to upload.</p>") {
+			// If no file uploaded, then set the $candidateImage variable to empty string
+			$candidateImage = $uploaded[0] ? $uploaded[1] : "";
+			// The candidate does not exist in the database
 			if ($candidateID == '') {
 				$result = $this->candidates_model->addCandidate($fname,$lname,$gender,$age,$province,$ngo,$health,$rankClass,$extraActivity,$pncChoice,$responsibility,$motivate,$communication,$alter1,$alter2,$alter3,$cRank1,$cRank2,$cRank3,$stuCommite,$parCommite,$globalGrade,$ngoComment,$healthComment,$candidateImage);
 				echo json_encode($result);
+			// The candidate exists in the database
 			} else {
 				$this->candidates_model->uCanInfo($candidateID,$fname,$lname,$gender,$age,$province,$ngo,$health,$rankClass,$extraActivity,$pncChoice,$responsibility,$motivate,$communication,$alter1,$alter2,$alter3,$cRank1,$cRank2,$cRank3,$stuCommite,$parCommite,$globalGrade,$ngoComment,$healthComment,$candidateImage);
 			}	   
@@ -315,8 +305,7 @@ Class Candidates extends CI_Controller{
 	}
   
     /**
-     * Add a family profile to the last candidate created (with maximum candidate id)
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     * Add a family profile to a specific candidate
      */
     public function addFamilyProfile()
     {
@@ -343,8 +332,7 @@ Class Candidates extends CI_Controller{
     }
 
     /**
-     * Add family's income to the last candidate created (with maximum candidate id)
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     * Add family's income to a specific candidate)
      */
 	public function addFamilyIncome()
 	{
@@ -366,8 +354,7 @@ Class Candidates extends CI_Controller{
 	}
   
     /**
-     * Add family's loans & debts information to the last candidate created (with maximum candidate id)
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     * Add family's loans & debts information to a specific candidate
      */
 	public function addLoansDebts()
 	{
@@ -385,8 +372,7 @@ Class Candidates extends CI_Controller{
 	}
    
     /**
-     * Add family's expenses details to the last candidate created (with maximum candidate id)
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     * Add family's expenses details to a specific candidate
      */
 	public function addExpense()
 	{
@@ -407,8 +393,7 @@ Class Candidates extends CI_Controller{
 	}
     
     /**
-     * Add family's residence information to the last candidate created (with maximum candidate id)
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     * Add family's residence information to a specific candidate
      */
 	public function addResidence()
 	{
@@ -421,8 +406,7 @@ Class Candidates extends CI_Controller{
 	}
     
     /**
-     * Add family's home assets details to the last candidate created (with maximum candidate id)
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     * Add family's home assets details to a specific candidate
      */
     public function addHomeAssets()
     {
@@ -467,15 +451,14 @@ Class Candidates extends CI_Controller{
     }    
     
     /**
-     * Add investigator's conclusion to the last candidate created (with maximum candidate id)
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     * Add investigator's conclusion to a specific candidate
      */
     public function addConclude()
     {
     	$candidateID = $this->input->post('candidateID');
     	$investigatorConclude = $this->input->post('investigatorConclude');
-    	$result['investConclusion'] = $this->candidates_model->addConclude($investigatorConclude,$candidateID);
-      	echo json_encode($result);
+    	$this->candidates_model->addConclude($investigatorConclude,$candidateID);
+    	redirect('candidates/index');
     }
 
 
@@ -487,7 +470,6 @@ Class Candidates extends CI_Controller{
     /**
      * Load the form to update a specific candidate with the original data of this candidate
      * @param $id of the candidate to be updated 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
 	public function updateForm($id) {		// link to form update with old info
 		$data['image'] = $this->candidates_model->getImg($id);
@@ -513,7 +495,6 @@ Class Candidates extends CI_Controller{
 	/**
      * Update the investigation conclusion
      * @param $id of the candidate to be updated 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
 	public function uInvestiCon($id) {		//function to update investigation conclusion 
 		$investi = $this->input->post('invesCon');
@@ -524,7 +505,6 @@ Class Candidates extends CI_Controller{
 	/**
      * Update the candidate information
      * @param $id of the candidate to be updated 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
 	public function uCandidateInfo($id) {		//get value from form candidate student information
 		$fname = $this->input->post('fname');
@@ -560,7 +540,6 @@ Class Candidates extends CI_Controller{
 	/**
      * Update the family information of a specific candidate
      * @param $id of the candidate to be updated 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
 	public function uFamilyProfile($id) {
 		$fAge = $this->input->post('fAge');
@@ -587,7 +566,6 @@ Class Candidates extends CI_Controller{
 	/**
      * Update the parent incomes
      * @param $id of the candidate to be updated 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
 	public function uParentIncome($id) {
 		$famMonIncome = $this->input->post('famMonIncome');
@@ -609,7 +587,6 @@ Class Candidates extends CI_Controller{
 	/**
      * Update the family's expenses of a specific candidate
      * @param $id of the candidate to be updated 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
 	public function uFamilyExpences($id) {
 		$rice = $this->input->post('rice');
@@ -630,7 +607,6 @@ Class Candidates extends CI_Controller{
 	/**
      * Update the loans & debts information of a specific candidate
      * @param $id of the candidate to be updated 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
 	public function uLoansDebts($id) {
 		$initialAmount = $this->input->post('initialAmount');
@@ -648,7 +624,6 @@ Class Candidates extends CI_Controller{
 	/**
      * Update the residence information of a specific candidate
      * @param $id of the candidate to be updated 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
 	public function uResidence($id) {
 		$status = $this->input->post('status');
@@ -661,7 +636,6 @@ Class Candidates extends CI_Controller{
 	/**
      * Update the home assets of a specific candidate
      * @param $id of the candidate to be updated 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
 	public function uHomeAsset($id){
 		$refrigerator = $this->input->post('refrigerator');

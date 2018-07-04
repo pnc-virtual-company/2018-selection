@@ -330,7 +330,7 @@ ALTER TABLE `residences`
 -- Constraints for table `candidates`
 --
 ALTER TABLE `candidates`
-  ADD CONSTRAINT `fk_candidates_ngos1_idx` FOREIGN KEY (`ngo_id`) REFERENCES `ngos` (`ngo_id`) ON DELETE SET NULL;
+  ADD CONSTRAINT `fk_candidates_ngos1_idx` FOREIGN KEY (`ngo_id`) REFERENCES `ngos` (`ngo_id`) ON DELETE SET NULL ON UPDATE NO ACTION;
 --
 -- Constraints for table `expense`
 --
