@@ -237,7 +237,7 @@ $(document).ready(function(){
 							$('#newCandidateTitle').text('Candidate #' + candidateID);
 							$("input[name='candidateID']").val(candidateID);
 							bootbox.alert('The new candidate (# ' + candidateID +') has been created');
-							scrollToNextForm(['#headingOne','#headingTwo','#familyPro'], ['#collapseTwo','#collapseFamilyPro'],'#accordion');
+							//scrollToNextForm(['#headingOne','#headingTwo','#familyPro'], ['#collapseTwo','#collapseFamilyPro'],'#accordion');
 						}
 					}
 				},
@@ -260,7 +260,7 @@ $(document).ready(function(){
 			data: $('form#fProForm').serialize(),
 			success:function(msg) {
 				bootbox.alert('Family profile information has been successfully added');
-				scrollToNextForm(['#familyPro','#familyIncome'], ['#collapseFamilyIncome'],'#headingTwo');
+				//scrollToNextForm(['#familyPro','#familyIncome'], ['#collapseFamilyIncome'],'#headingTwo');
 			},
 			error:function(){
 				bootbox.alert('Error: family profile information could not be added');
@@ -282,7 +282,7 @@ $(document).ready(function(){
 			data: $('form#formFamilyIncome').serialize(),
 			success:function(msg) {
 				bootbox.alert('Family income information has been successfully added');
-				scrollToNextForm(['#familyIncome','#familyExpense'], ['#collapseFamilyExpense'],'#familyPro');
+				//scrollToNextForm(['#familyIncome','#familyExpense'], ['#collapseFamilyExpense'],'#familyPro');
 			},
 			error:function(){
 				bootbox.alert('Error: family profile information could not be added');
@@ -304,7 +304,7 @@ $(document).ready(function(){
 			data: $('form#formExpense').serialize(),
 			success:function(msg) {
 				bootbox.alert('Family expense information has been successfully added');
-				scrollToNextForm(['#familyExpense','#loanDebt'], ['#collapseLoanDebt'],'#familyIncome');
+				//scrollToNextForm(['#familyExpense','#loanDebt'], ['#collapseLoanDebt'],'#familyIncome');
 			},
 			error:function(){
 				bootbox.alert('Error: family expense information could not be added');
@@ -326,7 +326,7 @@ $(document).ready(function(){
 			data: $('form#formLoan').serialize(),
 			success:function(msg) {
 				bootbox.alert('Family loans & debts information has been successfully added');
-				scrollToNextForm(['#loanDebt','#residence'], ['#collapseResidence'],'#familyExpense');
+				//scrollToNextForm(['#loanDebt','#residence'], ['#collapseResidence'],'#familyExpense');
 			},
 			error:function(){
 				bootbox.alert('Error: family loans & debts information could not be added');
@@ -347,7 +347,7 @@ $(document).ready(function(){
 			data: $('form#residenceForm').serialize(),
 			success:function(msg) {
 				bootbox.alert('Family residence information has been successfully added');
-				scrollToNextForm(['#homeAsset','#residence'], ['#collapseHomeAsset'],'#loanDebt');
+				//scrollToNextForm(['#homeAsset','#residence'], ['#collapseHomeAsset'],'#loanDebt');
 			},
 			error:function(){
 				bootbox.alert('Error: family residence information could not be added');

@@ -162,7 +162,8 @@ Class Candidates extends CI_Controller{
      */
 	public function deleteCandidate()
 	{
-		$result = $this->candidates_model->deleteCandidate();
+		$id = $this->input->get('candidate_id');
+		$result = $this->candidates_model->deleteCandidate($id);
 		$msg['success'] = false;
 		if($result){
 			$msg['success'] = true;

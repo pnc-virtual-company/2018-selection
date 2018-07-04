@@ -73,9 +73,9 @@ class NGOs_model extends CI_Model{
     }
 
     /**
-     * [deleteNGO removes a NGO from the table 'ngos']
-     * @param  [int] $id
-     * @return [boolean] true if data deleted, false otherwise
+     * [deleteNGO removes a specific NGO from the table 'ngos']
+     * @param  [int] $id [of the specific NGO to delete]
+     * @return [boolean] [whether the action has been performed]
      */
     function deleteNGO($id){
         $this->db->where('ngo_id',$id)->delete('ngos');

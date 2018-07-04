@@ -32,14 +32,12 @@ class Candidates_model extends CI_Model{
     }
 
     /**
-     * Delete candidates
-     * @param 
-     * @return 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     * [deleteCandidate removes a specific candidate in the table `candidates`]
+     * @param  [int] $id [of the specific candidate]
+     * @return [boolean] [whether the row has been removed]
      */
-    function deleteCandidate()
+    function deleteCandidate($id)
     {
-        $id = $this->input->get('candidate_id');
         $this->db->where('candidate_id', $id);
         $this->db->delete('candidates');
         if($this->db->affected_rows() > 0)

@@ -35,6 +35,7 @@ Class NGOs extends CI_Controller{
      */
     public function updateListOfNGO() {
         $nbRows = $this->input->post('nbRows');
+        $result = [];
         for ($i=0; $i < $nbRows; $i++) { 
             $ngoName = $this->input->post('rowNameNb'.$i);
             $ngoId = $this->input->post('rowNb'.$i);
@@ -49,10 +50,9 @@ Class NGOs extends CI_Controller{
 
     /**
      * [deleteNGO deletes a specific NGO from the list of NGOs]
-     * @param  [int] $id of the NGO to delete
      * @return [boolean] true if the NGO has been successfully deleted
      */
-	public	function deleteNGO($id){
+	public	function deleteNGO(){
         $NGOid = $this->input->post('NGOidToDelete');
 		$result = $this->ngos_model->deleteNGO($NGOid);
 		echo json_encode($result);

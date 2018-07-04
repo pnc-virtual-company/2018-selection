@@ -330,39 +330,39 @@ ALTER TABLE `residences`
 -- Constraints for table `candidates`
 --
 ALTER TABLE `candidates`
-  ADD CONSTRAINT `fk_candidates_ngos1_idx` FOREIGN KEY (`ngo_id`) REFERENCES `ngos` (`ngo_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_candidates_ngos1_idx` FOREIGN KEY (`ngo_id`) REFERENCES `ngos` (`ngo_id`) ON DELETE SET NULL;
 --
 -- Constraints for table `expense`
 --
 ALTER TABLE `expenses`
-  ADD CONSTRAINT `fk_expenses_candidates1_idx` FOREIGN KEY (`candidate_id`) REFERENCES `candidates` (`candidate_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_expenses_candidates1_idx` FOREIGN KEY (`candidate_id`) REFERENCES `candidates` (`candidate_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `home_asset`
 --
 ALTER TABLE `home_assets`
-  ADD CONSTRAINT `fk_home_assets_candidates1_idx` FOREIGN KEY (`candidate_id`) REFERENCES `candidates` (`candidate_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_home_assets_candidates1_idx` FOREIGN KEY (`candidate_id`) REFERENCES `candidates` (`candidate_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `income`
 --
 ALTER TABLE `incomes`
-  ADD CONSTRAINT `fk_incomes_candidates1_idx` FOREIGN KEY (`candidate_id`) REFERENCES `candidates` (`candidate_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_incomes_candidates1_idx` FOREIGN KEY (`candidate_id`) REFERENCES `candidates` (`candidate_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `loan_debt`
 --
 ALTER TABLE `loan_debts`
-  ADD CONSTRAINT `fk_loan_debts_candidates1_idx` FOREIGN KEY (`candidate_id`) REFERENCES `candidates` (`candidate_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_loan_debts_candidates1_idx` FOREIGN KEY (`candidate_id`) REFERENCES `candidates` (`candidate_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `profile`
 --
 ALTER TABLE `families`
-  ADD CONSTRAINT `fk_families_candidates1_idx` FOREIGN KEY (`candidate_id`) REFERENCES `candidates` (`candidate_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_families_candidates1_idx` FOREIGN KEY (`candidate_id`) REFERENCES `candidates` (`candidate_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `residence`
 --
 ALTER TABLE `residences`
-  ADD CONSTRAINT `fk_residences_candidates1_idx` FOREIGN KEY (`candidate_id`) REFERENCES `candidates` (`candidate_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_residences_candidates1_idx` FOREIGN KEY (`candidate_id`) REFERENCES `candidates` (`candidate_id`) ON DELETE CASCADE;
