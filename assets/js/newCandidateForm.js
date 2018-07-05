@@ -199,8 +199,6 @@ $(document).ready(function(){
  * Actions include hiding/ showing subforms, add or update candidate information in the database through AJAX...
  */
 $(document).ready(function(){
-	// Store the id of the candidate when it has been created in the database
-	var candidateID;
 
 	// Check if first and last names are filled
 	// If yes: save the candidate info, toggle the current form and open the next one
@@ -216,7 +214,7 @@ $(document).ready(function(){
   			//
 			$.ajax({
 				type: 'POST',
-				url: base_url + 'candidates/addCandidate',
+				url: base_url + 'candidates/addOrUpdateCandidate',
 				data: new FormData(document.getElementById('canForm')),
 				contentType: false,
 				processData: false,
@@ -233,7 +231,7 @@ $(document).ready(function(){
 						}
 						// The candidate did not exist in the database before and the information has been succesfully added
 						else {
-							candidateID = msg;
+							var candidateID = msg;
 							$('#newCandidateTitle').text('Candidate #' + candidateID);
 							$("input[name='candidateID']").val(candidateID);
 							bootbox.alert('The new candidate (# ' + candidateID +') has been created');
@@ -251,12 +249,13 @@ $(document).ready(function(){
 	// Check first if the new candidate has already been stored (i.e. has an ID)
 	// If candidateID exists, then add the family profile in the database and go to the next form
 	$('#SaveFamilyPro').click(function(){
+		var candidateID	= $("input[name='candidateID']").val();
 		if (candidateID==undefined) {
 			askForFirstAndLastNames('#collapseFamilyPro','#familyPro');
 		} else {
 			$.ajax({
 			type: 'POST',
-			url: base_url + 'candidates/addFamilyProfile',
+			url: base_url + 'candidates/updateFamilyProfile',
 			data: $('form#fProForm').serialize(),
 			success:function(msg) {
 				bootbox.alert('Family profile information has been successfully added');
@@ -273,12 +272,13 @@ $(document).ready(function(){
 	// Check first if the new candidate has already been stored (i.e. has an ID)
 	// If candidateID exists, then add the family income information in the database and go to the next form
 	$('#btnSaveFamilyIncome').click(function(){
+		var candidateID	= $("input[name='candidateID']").val();
 		if (candidateID==undefined) {
 			askForFirstAndLastNames('#collapseFamilyIncome','#familyIncome');
 		} else {
 			$.ajax({
 			type: 'POST',
-			url: base_url + 'candidates/addFamilyIncome',
+			url: base_url + 'candidates/updateFamilyIncome',
 			data: $('form#formFamilyIncome').serialize(),
 			success:function(msg) {
 				bootbox.alert('Family income information has been successfully added');
@@ -295,12 +295,13 @@ $(document).ready(function(){
 	// Check first if the new candidate has already been stored (i.e. has an ID)
 	// If candidateID exists, then add the family expense information in the database and go to the next form
 	$('#saveExpense').click(function(){
+		var candidateID	= $("input[name='candidateID']").val();
 		if (candidateID==undefined) {
 			askForFirstAndLastNames('#collapseFamilyExpense','#familyExpense');
 		} else {
 			$.ajax({
 			type: 'POST',
-			url: base_url + 'candidates/addExpense',
+			url: base_url + 'candidates/updateExpense',
 			data: $('form#formExpense').serialize(),
 			success:function(msg) {
 				bootbox.alert('Family expense information has been successfully added');
@@ -317,12 +318,13 @@ $(document).ready(function(){
 	// Check first if the new candidate has already been stored (i.e. has an ID)
 	// If candidateID exists, then add the loand & debt information in the database and go to the next form
 	$('#saveLoan').click(function(){
+		var candidateID	= $("input[name='candidateID']").val();
 		if (candidateID==undefined) {
 			askForFirstAndLastNames('#collapseLoanDebt','#loanDebt');
 		} else {
 			$.ajax({
 			type: 'POST',
-			url: base_url + 'candidates/addLoansDebts',
+			url: base_url + 'candidates/updateLoansDebts',
 			data: $('form#formLoan').serialize(),
 			success:function(msg) {
 				bootbox.alert('Family loans & debts information has been successfully added');
@@ -338,12 +340,13 @@ $(document).ready(function(){
 	// Check first if the new candidate has already been stored (i.e. has an ID)
 	// If candidateID exists, then add the residence information in the database and go to the next form
 	$('#saveResidence').click(function(){
+		var candidateID	= $("input[name='candidateID']").val();
 		if (candidateID==undefined) {
 			askForFirstAndLastNames('#collapseResidence','#residence');
 		} else {
 			$.ajax({
 			type: 'POST',
-			url: base_url + 'candidates/addResidence',
+			url: base_url + 'candidates/updateResidence',
 			data: $('form#residenceForm').serialize(),
 			success:function(msg) {
 				bootbox.alert('Family residence information has been successfully added');
@@ -359,12 +362,13 @@ $(document).ready(function(){
 	// Check first if the new candidate has already been stored (i.e. has an ID)
 	// If candidateID exists, then add home assets information in the database and go to the next form
 	$('#saveHomeAsset').click(function(){
+		var candidateID	= $("input[name='candidateID']").val();
 		if (candidateID==undefined) {
 			askForFirstAndLastNames('#collapseHomeAsset','#homeAsset');
 		} else {
 			$.ajax({
 			type: 'POST', 
-			url: base_url + 'candidates/addHomeAssets',
+			url: base_url + 'candidates/updateHomeAssets',
 			data: $('form#formHomeAsset').serialize(),
 			success:function(msg) {
 				bootbox.alert('Home assets information has been successfully added');
@@ -382,6 +386,7 @@ $(document).ready(function(){
 	// Check first if the new candidate has already been stored (i.e. has an ID)
 	// If candidateID exists, then add investigator's conclusion in the database and go to the index page
 	$('#formConclude').on('submit', function(){
+		var candidateID	= $("input[name='candidateID']").val();
 		if (candidateID==undefined) {
 			bootbox.alert('Please enter first the first and last names of the candidate and click on button "Save information" in the form above "Student information"');
 			$('#collapseOne').collapse("show");

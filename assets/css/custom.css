@@ -48,7 +48,6 @@ body{
 .image-upload img
 {
     width: 140px;
-    cursor: pointer;
 }
 
 #chartjs-tooltip 

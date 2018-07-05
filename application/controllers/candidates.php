@@ -195,20 +195,27 @@ Class Candidates extends CI_Controller{
 	 */
 	public function viewCandidateDetails($id)
 	{
-	 	$result['username'] = $this->candidates_model->getFullName($id);
-	 	$result['list'] = $this->candidates_model->getCanInfo($id);
-	 	if ($result['list'][0]->ngo_id != NULL) {
-	 		$result['ngo'] = $this->ngos_model->getNGOName($result['list'][0]->ngo_id);
+		$data['title'] = 'View candidate details';
+		$data['action'] = 'View';
+	 	$data['list'] = $this->candidates_model->getCanInfo($id);
+	 	if ($data['list'][0]->ngo_id != NULL) {
+	 		$data['ngo'] = $this->ngos_model->getNGOName($data['list'][0]->ngo_id);
 	 	}
-	 	$result['family'] = $this->families_model->getFamilyProfile($id);
-	 	$result['income'] = $this->incomes_model->getFamilyIncomes($id);
-	 	$result['expense'] = $this->expenses_model->getFamilyExpenses($id);
-	 	$result['loan'] = $this->loans_debts_model->getLoansDebts($id);
-	 	$result['residence'] = $this->residences_model->getResidence($id);
-	 	$result['home_assets'] = $this->home_assets_model->getHomeAssets($id);
+	 	$data['family'] = $this->families_model->getFamilyProfile($id);
+	 	$data['income'] = $this->incomes_model->getFamilyIncomes($id);
+	 	$data['expense'] = $this->expenses_model->getFamilyExpenses($id);
+	 	$data['loan'] = $this->loans_debts_model->getLoansDebts($id);
+	 	$data['residence'] = $this->residences_model->getResidence($id);
+	 	$data['home_assets'] = $this->home_assets_model->getHomeAssets($id);
+	 	$data['invesCon'] = $this->candidates_model->investiCon($id);
+	 	$data['provinces'] = ['Banteay Meanchey', 'Battambang', 'Kampong Cham', 'Kampong Chhnang', 'Kampong Speu',
+							'Kampong Thom', 'Kampot', 'Kandal', 'Kep', 'Koh Kong', 'Kratié', 'Mondulkiri', 
+							'Oddar Meanchey', 'Pailin', 'Phnom Penh', 'Preah Sihanouk', 'Prey Veng', 'Preah Vihear', 
+							'Pursat', 'Ratanakiri', 'Siem Reap', 'Stung Treng', 'Svay Rieng', 'Takéo', 'Tboung Khmum'];
+		$data['ngos'] = $this->ngos_model->getAllNGO();
 		$this->load->view('templates/header');   
 		$this->load->view('menu/index');   
-		$this->load->view('candidates/view',$result);   
+		$this->load->view('candidates/new',$data);   
 		$this->load->view('templates/footer'); 
 	}
 
@@ -239,11 +246,12 @@ Class Candidates extends CI_Controller{
 
 
 	/**
-     * Load the form to create a new candidate
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
-     */
+	 * [newCandidate loads the form to create a new candidate]
+	 */
 	public function newCandidate()
 	{
+		$data['title'] = 'Create a candidate';
+		$data['action'] = 'Create';
 		$data['provinces'] = ['Banteay Meanchey', 'Battambang', 'Kampong Cham', 'Kampong Chhnang', 'Kampong Speu',
 							'Kampong Thom', 'Kampot', 'Kandal', 'Kep', 'Koh Kong', 'Kratié', 'Mondulkiri', 
 							'Oddar Meanchey', 'Pailin', 'Phnom Penh', 'Preah Sihanouk', 'Prey Veng', 'Preah Vihear', 
@@ -256,10 +264,9 @@ Class Candidates extends CI_Controller{
 	}
 
   	/**
-     * Add a new candidate in the dabatase
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
-     */
-	public function addCandidate()
+  	 * [addOrUpdateCandidate adds or updates a candidate information]
+  	 */
+	public function addOrUpdateCandidate()
 	{
 		$candidateID = $this->input->post('candidateID');
 		$globalGrade = $this->input->post('globalGrade');
@@ -284,20 +291,30 @@ Class Candidates extends CI_Controller{
 		$cRank3 = $this->input->post('choiceRank3');
 		$stuCommite = $this->input->post('studentCommit');
 		$parCommite = $this->input->post('parentsCommit');
-		$ngoComment = $this->input->post('ngoComment');
+		$ngoOther = $this->input->post('ngoOther');
 		$healthComment = $this->input->post('healthComment');
-		
+		$imageValue = $this->input->post('candidateImage');
+
 		$uploaded = $this->upload();
 		if ($uploaded[0] || $uploaded[1] == "<p>You did not select a file to upload.</p>") {
 			// If no file uploaded, then set the $candidateImage variable to empty string
 			$candidateImage = $uploaded[0] ? $uploaded[1] : "";
+
 			// The candidate does not exist in the database
 			if ($candidateID == '') {
-				$result = $this->candidates_model->addCandidate($fname,$lname,$gender,$age,$province,$ngo,$health,$rankClass,$extraActivity,$pncChoice,$responsibility,$motivate,$communication,$alter1,$alter2,$alter3,$cRank1,$cRank2,$cRank3,$stuCommite,$parCommite,$globalGrade,$ngoComment,$healthComment,$candidateImage);
-				echo json_encode($result);
+				$candidateID = $this->candidates_model->addCandidate($fname,$lname,$gender,$age,$province,$ngo,$health,$rankClass,$extraActivity,$pncChoice,$responsibility,$motivate,$communication,$alter1,$alter2,$alter3,$cRank1,$cRank2,$cRank3,$stuCommite,$parCommite,$globalGrade,$ngoOther,$healthComment,$candidateImage);
+				// Create also family profile, incomes, expenses... to allow information loading when viewing or editing candidate's information 
+				$this->families_model->addFamilyProfile($candidateID);
+				$this->incomes_model->addFamilyIncomes($candidateID);
+				$this->expenses_model->addFamilyExpenses($candidateID);
+				$this->loans_debts_model->addLoansDebts($candidateID);
+				$this->residences_model->addResidence($candidateID);
+				$this->home_assets_model->addHomeAssets($candidateID);
+				echo json_encode($candidateID);
+
 			// The candidate exists in the database
 			} else {
-				$this->candidates_model->uCanInfo($candidateID,$fname,$lname,$gender,$age,$province,$ngo,$health,$rankClass,$extraActivity,$pncChoice,$responsibility,$motivate,$communication,$alter1,$alter2,$alter3,$cRank1,$cRank2,$cRank3,$stuCommite,$parCommite,$globalGrade,$ngoComment,$healthComment,$candidateImage);
+				$this->candidates_model->uCanInfo($candidateID,$fname,$lname,$gender,$age,$province,$ngo,$health,$rankClass,$extraActivity,$pncChoice,$responsibility,$motivate,$communication,$alter1,$alter2,$alter3,$cRank1,$cRank2,$cRank3,$stuCommite,$parCommite,$globalGrade,$ngoOther,$healthComment,$candidateImage);
 			}	   
 		} else {
 			echo json_encode($uploaded[1]);
@@ -305,9 +322,9 @@ Class Candidates extends CI_Controller{
 	}
   
     /**
-     * Add a family profile to a specific candidate
+     * [updateFamilyProfile updates a specific candidate's family profile]
      */
-    public function addFamilyProfile()
+    public function updateFamilyProfile()
     {
     	$candidateID = $this->input->post('candidateID');
     	$fAge = $this->input->post('faAge');
@@ -326,15 +343,15 @@ Class Candidates extends CI_Controller{
 	    $marriedStatus = $this->input->post('marriedStatus');
 	    $separated = $this->input->post('separated');
 	    $numberFamilyLiving = $this->input->post('member');
-	    $studentRank = $this->input->post('studentRank');	
-	    $result['familyProfile'] = $this->families_model->addFamilyProfile($fAge,$fOccupation,$fSpecify,$fHealth,$fHealthSpec,$fEdu,$mAge,$mOccu,$mSpecify,$mhealthStatus,$mHealthSpec,$mEdu,$numSiblings,$marriedStatus,$separated,$numFamily,$studentRank,$candidateID);
-	    echo json_encode($result);   
+	    $studentRank = $this->input->post('studentRank');
+	    
+	    $this->families_model->uFamilyProfile($candidateID,$fAge,$fOccupation,$fSpecify,$fHealth,$fHealthSpec,$fEdu,$mAge,$mOccu,$mSpecify,$mhealthStatus,$mHealthSpec,$mEdu,$numSiblings,$marriedStatus,$separated,$numberFamilyLiving,$studentRank);
     }
 
     /**
-     * Add family's income to a specific candidate)
+     * [updateFamilyIncome updates the family incomes information of a specific candidate]
      */
-	public function addFamilyIncome()
+	public function updateFamilyIncome()
 	{
 		$candidateID = $this->input->post('candidateID');
 		$paMonthIncome = $this->input->post('monthlyIncome');
@@ -349,32 +366,14 @@ Class Candidates extends CI_Controller{
 		$chTotalIncome = $this->input->post('childTotalIncome');
 		$totalIncome = $this->input->post('totalMonthIncome');
 		$totalIncomeId = $this->input->post('incomeIndividual');
-		$result['familyIncome'] = $this->incomes_model->addFamilyIncomes($paMonthIncome,$paDailyIncome,$paSesIncome,$paYearIncome,$paTotalIncome,$chMonthIncome,$chDailyIncome,$chSeasonIncome,$chYearIncome,$chTotalIncome,$totalIncome,$totalIncomeId,$candidateID);
-		echo json_encode($result);
+
+		$this->incomes_model->uFamilyIncomes($candidateID,$paMonthIncome,$paDailyIncome,$paSesIncome,$paYearIncome,$paTotalIncome,$chMonthIncome,$chDailyIncome,$chSeasonIncome,$chYearIncome,$chTotalIncome,$totalIncome,$totalIncomeId);
 	}
-  
-    /**
-     * Add family's loans & debts information to a specific candidate
-     */
-	public function addLoansDebts()
-	{
-		$candidateID = $this->input->post('candidateID');
-		$amount = $this->input->post('initAmount');
-		$institution = $this->input->post('instit');
-		$interest = $this->input->post('interRates');
-		$reason = $this->input->post('reason');
-		$monthly = $this->input->post('monthly');
-		$trimester = $this->input->post('trimester');
-		$semester = $this->input->post('semester');
-		$capital = $this->input->post('capital');
-		$result['familyLoan'] = $this->loans_debts_model->addLoansDebts($amount,$institution,$interest,$reason,$monthly,$trimester,$semester,$capital,$candidateID);
-		echo json_encode($result);
-	}
-   
-    /**
-     * Add family's expenses details to a specific candidate
-     */
-	public function addExpense()
+
+	/**
+	 * [updateExpense updates the family's expenses information of a specific candidate]
+	 */
+	public function updateExpense()
 	{
 		$candidateID = $this->input->post('candidateID');
 		$rice = $this->input->post('rice');
@@ -388,27 +387,46 @@ Class Candidates extends CI_Controller{
 		$wedding = $this->input->post('wedding');
 		$other = $this->input->post('other');
 		$totalExpense = $this->input->post('totalExpense');
-		$result['familyExpense'] = $this->expenses_model->addFamilyExpenses($rice,$food,$firewood,$loan,$study,$medical,$electric,$agriculture,$wedding,$other,$totalExpense,$candidateID);
-		echo json_encode($result);
+
+		$this->expenses_model->uFamilyExpenses($candidateID,$rice,$food,$firewood,$loan,$study,$medical,$electric,$agriculture,$wedding,$other,$totalExpense);
 	}
     
+  
     /**
-     * Add family's residence information to a specific candidate
+     * [updateLoansDebts updates the family's loans & debts information of a specific candidate]
      */
-	public function addResidence()
+	public function updateLoansDebts()
+	{
+		$candidateID = $this->input->post('candidateID');
+		$amount = $this->input->post('initAmount');
+		$institution = $this->input->post('instit');
+		$interest = $this->input->post('interRates');
+		$reason = $this->input->post('reason');
+		$monthly = $this->input->post('monthly');
+		$trimester = $this->input->post('trimester');
+		$semester = $this->input->post('semester');
+		$capital = $this->input->post('capital');
+		
+		$this->loans_debts_model->uLoansDebts($candidateID,$amount,$institution,$interest,$reason,$monthly,$trimester,$semester,$capital);
+	}
+   
+    /**
+     * [updateResidence updates the residence information of a specific candidate]
+     */
+	public function updateResidence()
 	{
 		$candidateID = $this->input->post('candidateID');
 		$status = $this->input->post('status');
 		$age = $this->input->post('age');
 		$rating = $this->input->post('rating');
-		$result['formExpense'] = $this->residences_model->addResidence($status,$age,$rating,$candidateID);
-		echo json_encode($result);
+		
+		$this->residences_model->uResidence($candidateID,$status,$age,$rating);
 	}
     
     /**
-     * Add family's home assets details to a specific candidate
+     * [updateHomeAssets updates the home assets information of a specific candidate]
      */
-    public function addHomeAssets()
+    public function updateHomeAssets()
     {
     	$candidateID = $this->input->post('candidateID');
     	$refrigerator = $this->input->post('refrigerator');
@@ -446,8 +464,7 @@ Class Candidates extends CI_Controller{
     	$certificate = $this->input->post('certificate');
     	$specifyLevel = $this->input->post('specifyLevel');
 
-    	$result['familyAsset'] = $this->home_assets_model->addHomeAssets($refrigerator,$radio,$airCon,$riceCooker,$lcdTV,$colorTV,$chComputer,$exComputer,$fCabinet,$dvd,$smartPhone,$phone,$cheapCam,$expenCam,$cheapSofa,$exSofa,$gasCooker,$fruitBlender,$elecCooker,$motoBike,$farmMachine,$car,$vihicleComment,$cow,$buffalo,$pig,$animalCmt,$farmSize,$farmCmt,$sumQuantity5,$sumQuantity3,$globalAsset,$certificate,$specifyLevel,$candidateID);
-    	echo json_encode($result);
+    	$this->home_assets_model->uHomeAssets($candidateID,$refrigerator,$radio,$airCon,$riceCooker,$lcdTV,$colorTV,$chComputer,$exComputer,$fCabinet,$dvd,$smartPhone,$phone,$cheapCam,$expenCam,$cheapSofa,$exSofa,$gasCooker,$fruitBlender,$elecCooker,$motoBike,$farmMachine,$car,$vihicleComment,$cow,$buffalo,$pig,$animalCmt,$farmSize,$farmCmt,$sumQuantity5,$sumQuantity3,$globalAsset,$certificate,$specifyLevel);
     }    
     
     /**
@@ -471,208 +488,29 @@ Class Candidates extends CI_Controller{
      * Load the form to update a specific candidate with the original data of this candidate
      * @param $id of the candidate to be updated 
      */
-	public function updateForm($id) {		// link to form update with old info
-		$data['image'] = $this->candidates_model->getImg($id);
-		$data['value'] = $this->candidates_model->getCanInfo($id); 	//get old value
-		$data['invesCon'] = $this->candidates_model->investiCon($id);
-		$data['provinces'] = ['Banteay Meanchey', 'Battambang', 'Kampong Cham', 'Kampong Chhnang', 'Kampong Speu',
+	public function updateForm($id) {
+		$data['title'] = 'Edit candidate details';
+		$data['action'] = 'Edit';
+		$data['id'] = $id;
+	 	$data['list'] = $this->candidates_model->getCanInfo($id);
+	 	if ($data['list'][0]->ngo_id != NULL) {
+	 		$data['ngo'] = $this->ngos_model->getNGOName($data['list'][0]->ngo_id);
+	 	}
+	 	$data['family'] = $this->families_model->getFamilyProfile($id);
+	 	$data['income'] = $this->incomes_model->getFamilyIncomes($id);
+	 	$data['expense'] = $this->expenses_model->getFamilyExpenses($id);
+	 	$data['loan'] = $this->loans_debts_model->getLoansDebts($id);
+	 	$data['residence'] = $this->residences_model->getResidence($id);
+	 	$data['home_assets'] = $this->home_assets_model->getHomeAssets($id);
+	 	$data['invesCon'] = $this->candidates_model->investiCon($id);
+	 	$data['provinces'] = ['Banteay Meanchey', 'Battambang', 'Kampong Cham', 'Kampong Chhnang', 'Kampong Speu',
 							'Kampong Thom', 'Kampot', 'Kandal', 'Kep', 'Koh Kong', 'Kratié', 'Mondulkiri', 
 							'Oddar Meanchey', 'Pailin', 'Phnom Penh', 'Preah Sihanouk', 'Prey Veng', 'Preah Vihear', 
 							'Pursat', 'Ratanakiri', 'Siem Reap', 'Stung Treng', 'Svay Rieng', 'Takéo', 'Tboung Khmum'];
-		$data['ngo'] = $this->ngos_model->getAllNGO();
-		$data['homeAsset'] = $this->home_assets_model->getHomeAssets($id);
-		$data['parent'] = $this->families_model->getFamilyProfile($id);
-		$data['income'] = $this->incomes_model->getFamilyIncomes($id);
-		$data['expense'] = $this->expenses_model->getFamilyExpenses($id);
-		$data['loadAndDebt'] = $this->loans_debts_model->getLoansDebts($id);
-		$data['residence'] = $this->residences_model->getResidence($id);
-		$this->load->view('templates/header');
-		$this->load->view('menu/index');
-		$this->load->view('candidates/update', $data);
-		$this->load->view('templates/footer');
-	}
-
-	/**
-     * Update the investigation conclusion
-     * @param $id of the candidate to be updated 
-     */
-	public function uInvestiCon($id) {		//function to update investigation conclusion 
-		$investi = $this->input->post('invesCon');
-		$data = $this->candidates_model->upInvesCon($id,$investi);
-		echo json_encode($data);
-	}
-
-	/**
-     * Update the candidate information
-     * @param $id of the candidate to be updated 
-     */
-	public function uCandidateInfo($id) {		//get value from form candidate student information
-		$fname = $this->input->post('fname');
-		$lname = $this->input->post('lname');
-		$gender = $this->input->post('gender');
-		$canAge = $this->input->post('canAge');
-		$province = $this->input->post('province');
-		$ngo = $this->input->post('ngo');
-		$grade = $this->input->post('grade');
-		$ngoComment = $this->input->post('ngoComment');
-		$can_health = $this->input->post('can_health');
-		$healthIssues = $this->input->post('healthIssues');
-		$canRankClass = $this->input->post('canRankClass');
-		$canAchivement = $this->input->post('canAchivement');
-		$canPncRank = $this->input->post('canPncRank');
-		$responsibilityMaturity = $this->input->post('responsibilityMaturity');
-		$motivatForPnc = $this->input->post('motivatForPnc');
-		$canCommunicate = $this->input->post('canCommunicate');
-		$otherScholarship = $this->input->post('otherScholarship');
-		$alter1 = $this->input->post('alternative1');
-		$alter2 = $this->input->post('alternative2');
-		$alter3 = $this->input->post('alternative3');
-		$alterRank1 = $this->input->post('choiceRank1');
-		$alterRank2 = $this->input->post('choiceRank2');
-		$alterRank3 = $this->input->post('choiceRank3');
-		$canChoiceRank = $this->input->post('canChoiceRank');
-		$CanCommitment = $this->input->post('CanCommitment');
-		$canParentCommitment = $this->input->post('canParentCommitment');
-		$data = $this->candidates_model->uCanInfo($id,$fname,$lname,$gender,$canAge,$province,$ngo,$grade,$ngoComment,$can_health,$healthIssues,$canRankClass,$canAchivement,$canPncRank,$responsibilityMaturity,$motivatForPnc,$canCommunicate,$alter1,$alter2,$alter3,$alterRank1,$alterRank2,$alterRank3,$canChoiceRank,$CanCommitment,$canParentCommitment);
-		echo json_encode($data);
-	}
-
-	/**
-     * Update the family information of a specific candidate
-     * @param $id of the candidate to be updated 
-     */
-	public function uFamilyProfile($id) {
-		$fAge = $this->input->post('fAge');
-		$fOccupation = $this->input->post('fOccupation');
-		$fotherOccupationSpecify = $this->input->post('fotherOccupationSpecify');
-		$fHealth = $this->input->post('fHealth');
-		$fatherhealthIssues = $this->input->post('fatherhealthIssues');
-		$fEducation = $this->input->post('fEducation');
-		$mAge = $this->input->post('mAge');
-		$mOccupation = $this->input->post('mOccupation');
-		$mOccupationSpecify = $this->input->post('mOccupationSpecify');
-		$mhealth = $this->input->post('mhealth');
-		$mhealthSpecify = $this->input->post('mhealthSpecify');
-		$mEducation = $this->input->post('mEducation');
-		$siblings = $this->input->post('siblings');
-		$Married = $this->input->post('Married');
-		$Separated = $this->input->post('Separated');
-		$liveInHouse = $this->input->post('liveInHouse');
-		$sRank = $this->input->post('sRank');
-		$data = $this->families_model->uFamilyProfile($id,$fAge,$fOccupation,$fotherOccupationSpecify,$fHealth,$fatherhealthIssues,$fEducation,$mAge,$mOccupation,$mOccupationSpecify,$mhealth,$mhealthSpecify,$mEducation,$siblings,$Married,$Separated,$liveInHouse,$sRank);
-		echo json_encode($data);
-	}
-
-	/**
-     * Update the parent incomes
-     * @param $id of the candidate to be updated 
-     */
-	public function uParentIncome($id) {
-		$famMonIncome = $this->input->post('famMonIncome');
-		$famDalIncome = $this->input->post('famDalIncome');
-		$famSeaIncome = $this->input->post('famSeaIncome');
-		$famYeaIncome = $this->input->post('famYeaIncome');
-		$famTotalIncome = $this->input->post('famTotalIncome');
-		$chMonIncome = $this->input->post('chMonIncome');
-		$chDaliIncome = $this->input->post('chDaliIncome');
-		$chSeaIncome = $this->input->post('chSeaIncome');
-		$chYeaIncome = $this->input->post('chYeaIncome');
-		$chTotalIncome = $this->input->post('chTotalIncome');
-		$gloToMonIn = $this->input->post('gloToMonIn');
-		$g_monthly_individual = $this->input->post('g_monthly_individual');
-		$data = $this->incomes_model->uFamilyIncomes($id,$famMonIncome,$famDalIncome,$famSeaIncome,$famYeaIncome,$famTotalIncome,$chMonIncome,$chDaliIncome,	$chSeaIncome,$chYeaIncome,$chTotalIncome,$gloToMonIn,$g_monthly_individual);
-		echo json_encode($data);
-	}
-
-	/**
-     * Update the family's expenses of a specific candidate
-     * @param $id of the candidate to be updated 
-     */
-	public function uFamilyExpences($id) {
-		$rice = $this->input->post('rice');
-		$food = $this->input->post('food');
-		$firewoodGasChacoal = $this->input->post('firewoodGasChacoal');
-		$loan = $this->input->post('loan');
-		$study = $this->input->post('study');
-		$medical = $this->input->post('medical');
-		$electricityWater = $this->input->post('electricityWater');
-		$agirculture = $this->input->post('agirculture');
-		$weddingCeremony = $this->input->post('weddingCeremony');
-		$otherUtilities = $this->input->post('otherUtilities');
-		$totalExpense = $this->input->post('totalExpense');
-		$data = $this->expenses_model->uFamilyExpenses($id,$rice,$food,$firewoodGasChacoal,$loan,$study,$medical,$electricityWater,$agirculture,$weddingCeremony,$otherUtilities,$totalExpense);
-		echo json_encode($data);
-	}
-
-	/**
-     * Update the loans & debts information of a specific candidate
-     * @param $id of the candidate to be updated 
-     */
-	public function uLoansDebts($id) {
-		$initialAmount = $this->input->post('initialAmount');
-		$institution = $this->input->post('institution');
-		$interestRates = $this->input->post('interestRates');
-		$reason = $this->input->post('reason');
-		$monthly = $this->input->post('monthly');
-		$semester = $this->input->post('semester');
-		$capital = $this->input->post('capital');
-		$trimester = $this->input->post('trimester');
-		$data = $this->loans_debts_model->uLoansDebts($id,$initialAmount,$institution,$interestRates,$reason,$monthly,$semester,$capital,$trimester);
-		echo json_encode($data);
-	}
-	
-	/**
-     * Update the residence information of a specific candidate
-     * @param $id of the candidate to be updated 
-     */
-	public function uResidence($id) {
-		$status = $this->input->post('status');
-		$age = $this->input->post('age');
-		$Rating_scal = $this->input->post('Rating_scal');
-		$data = $this->residences_model->uResidence($id,$status,$age,$Rating_scal);
-		echo json_encode($data);
-	}
-
-	/**
-     * Update the home assets of a specific candidate
-     * @param $id of the candidate to be updated 
-     */
-	public function uHomeAsset($id){
-		$refrigerator = $this->input->post('refrigerator');
-		$radio = $this->input->post('radio');
-		$conditioner = $this->input->post('conditioner');
-		$ricecooker = $this->input->post('ricecooker');
-		$lcdTV = $this->input->post('lcdTV');
-		$colorTV = $this->input->post('colorTV');
-		$computer1 = $this->input->post('computer1');
-		$computer2 = $this->input->post('computer2');
-		$furnished = $this->input->post('furnished');
-		$dvdPlayer = $this->input->post('dvdPlayer');
-		$smartphone = $this->input->post('smartphone');
-		$phone = $this->input->post('phone');
-		$camera1 = $this->input->post('camera1');
-		$camera2 = $this->input->post('camera2');
-		$sofa1 = $this->input->post('sofa1');
-		$sofa2 = $this->input->post('sofa2');
-		$gascooker = $this->input->post('gascooker');
-		$fruit = $this->input->post('fruit');
-		$electrical = $this->input->post('electrical');
-		$motobike = $this->input->post('motobike');
-		$farming = $this->input->post('farming');
-		$car = $this->input->post('car');
-		$vehiclesComment = $this->input->post('vehiclesComment');
-		$cow = $this->input->post('cow');
-		$buffaloe = $this->input->post('buffaloe');
-		$pig = $this->input->post('pig');
-		$animalComment = $this->input->post('animalComment');
-		$farmSize = $this->input->post('farmSize');
-		$farmComment = $this->input->post('farmComment');
-		$sumQuantity5 = $this->input->post('sumQuantity5');
-		$sumQuantity3 = $this->input->post('sumQuantity3');
-		$globalAsset = $this->input->post('globalAsset');
-		$certificate = $this->input->post('certificate');
-		$specifyLevel =$this->input->post('specifyLevel');
-		$data = $this->home_assets_model->uHomeAssets($id,$refrigerator,$radio,$conditioner,$ricecooker,$lcdTV,$colorTV,$camera1,$camera2,$furnished,$dvdPlayer,$smartphone,$phone,$computer1,$computer2,$sofa1,$sofa2,$gascooker,$fruit,$electrical,$motobike,$farming,$car,$vehiclesComment,$cow,$buffaloe,$pig,$animalComment,$farmSize,$farmComment,$sumQuantity5,$sumQuantity3,$globalAsset,$certificate,$specifyLevel);
-		echo json_encode($data);
+		$data['ngos'] = $this->ngos_model->getAllNGO();
+		$this->load->view('templates/header');   
+		$this->load->view('menu/index');   
+		$this->load->view('candidates/new',$data);   
+		$this->load->view('templates/footer'); 
 	}
 }

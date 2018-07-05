@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This model contains ...
+ * This model contains the add, update and get functions related to the table `expenses`
  * @copyright  Copyright (c) 2018 Benjamin BALET
  * @license    http://opensource.org/licenses/AGPL-3.0 AGPL-3.0
  * @link       
@@ -18,27 +18,44 @@ class Expenses_model extends CI_Model{
     }
 
     /**
-     * Get family's expenses of a specific candidate
-     * @param
-     * @return 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     * [addFamilyExpenses adds the family expenses information of a specific candidate]
+     * @param [int] $rice         [expenses for rice]
+     * @param [int] $food         [expenses for food]
+     * @param [int] $firewood     [expenses for firewood]
+     * @param [int] $loan         [expenses for loans]
+     * @param [int] $study        [expenses for studies]
+     * @param [int] $medical      [expenses for medical care]
+     * @param [int] $electric     [expenses for electricity & water]
+     * @param [int] $agriculture  [expenses for agriculture]
+     * @param [int] $wedding      [expenses for weddings]
+     * @param [int] $other        [expenses for other utilities]
+     * @param [int] $totalExpense [total expenses]
+     * @param [int] $candidateID  [id of a specific candidate]
      */
-    public function getFamilyExpenses($id) {
-        $this->db->select('*');
-        $this->db->from('expenses AS ex');
-        $this->db->join('candidates AS c', 'c.candidate_id = ex.candidate_id' );
-        $this->db->where('c.candidate_id', $id);
-        $query =  $this->db->get();
-        return $query->result();
+    function addFamilyExpenses($candidateID,$rice=null,$food=null,$firewood=null,$loan=null,$study=null,$medical=null,$electric=null,$agriculture=null,$wedding=null,$other=null,$totalExpense=null)
+    {
+        $data = array(
+            'exp_rice' => $rice,
+            'exp_food' => $food,
+            'exp_firewood' => $firewood,
+            'exp_loan' => $loan,
+            'exp_study' => $study,
+            'exp_medical' => $medical,
+            'exp_electricities_water' => $electric,
+            'exp_agriculture' => $agriculture,
+            'exp_weding' => $wedding,
+            'exp_other_utilities' => $other,
+            'exp_total' => $totalExpense,
+            'candidate_id' => $candidateID
+        );
+        $this->db->insert('expenses',$data);
     }
 
     /**
-     * Add family's expenses of a specific candidate
-     * @param
-     * @return 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     * [uFamilyExpenses updates the family expenses information of a specific candidate]
+     * @param  see the previous function addFamilyExpenses
      */
-    function addFamilyExpenses($rice,$food,$firewood,$loan,$study,$medical,$electric,$agriculture,$wedding,$other,$totalExpense,$candidateID)
+    public function uFamilyExpenses($candidateID,$rice,$food,$firewood,$loan,$study,$medical,$electric,$agriculture,$wedding,$other,$totalExpense) 
     {
         $data = array(
             'exp_rice' => $rice != "" ? $rice : null,
@@ -52,52 +69,24 @@ class Expenses_model extends CI_Model{
             'exp_weding' => $wedding != "" ? $wedding : null,
             'exp_other_utilities' => $other != "" ? $other : null,
             'exp_total' => $totalExpense != "" ? $totalExpense : null,
-            'candidate_id' => $candidateID != "" ? $candidateID : null
+            'candidate_id' => $candidateID
         );
-    
-        $this->db->select('*');
-        $this->db->from('expenses');
-        $this->db->where('candidate_id',$candidateID);
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-          $this->db->where('candidate_id',$candidateID);
-          $this->db->update('expenses',$data);
-        } else {
-          $insert = $this->db->insert('expenses',$data);
-        }
-
-        if ($this->db->affected_rows() > 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * Update family's expenses of a specific candidate
-     * @param
-     * @return 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
-     */
-    public function uFamilyExpenses($id,$rice,$food,$firewoodGasChacoal,$loan,$study,$medical,$electricityWater,$agirculture,$weddingCeremony,$otherUtilities,$totalExpense) 
-    {
-        $data = array(
-            'exp_rice' => $rice,
-            'exp_food' => $food,
-            'exp_firewood' => $firewoodGasChacoal,
-            'exp_loan' => $loan,
-            'exp_study' => $study,
-            'exp_medical' => $medical,
-            'exp_electricities_water' => $electricityWater,
-            'exp_agriculture' => $agirculture,
-            'exp_weding' => $weddingCeremony,
-            'exp_other_utilities' => $otherUtilities,
-            'exp_total' => $totalExpense,
-            'candidate_id' => $id
-        );
-        $this->db->where('expenses.candidate_id',$id);
+        $this->db->where('expenses.candidate_id',$candidateID);
         $this->db->update('expenses',$data);
     }
 
+   /**
+    * [getFamilyExpenses gets the family expenses information of a specific candidate]
+    * @param  [int] $id    [id of the specific candidate]
+    * @return [object]     [result of the mysql query]
+    */
+    public function getFamilyExpenses($id) {
+        $this->db->select('*');
+        $this->db->from('expenses AS ex');
+        $this->db->join('candidates AS c', 'c.candidate_id = ex.candidate_id' );
+        $this->db->where('c.candidate_id', $id);
+        $query =  $this->db->get();
+        return $query->result();
+    }
 }
 ?>

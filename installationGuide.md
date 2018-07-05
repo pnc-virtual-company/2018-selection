@@ -5,15 +5,7 @@ Here is a step by step plan on how to install the Selection Committee applicatio
 ## Requirements
 
 ### PHP
-PHP version at least 5.6 or 7.0+ (PHP 7 recommended) is required. You can check which PHP version is installed with the following command
-
-```php --version```
-
-### Composer
-Composer is also required to install dependencies. Detailed explanations on how to install composer can be found [here](https://getcomposer.org/doc/00-intro.md) 
-
-### Git
-Git is required to install the application and for future updates. Installation details can be found [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+PHP version at least 5.6 or 7.0+ (PHP 7 recommended) is required.
 
 ## Installation
 

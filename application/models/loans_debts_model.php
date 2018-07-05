@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This model contains ...
+ * This model contains the add, update and get functions related to the table `loan_debts`
  * @copyright  Copyright (c) 2018 Benjamin BALET
  * @license    http://opensource.org/licenses/AGPL-3.0 AGPL-3.0
  * @link       
@@ -16,65 +16,20 @@ class Loans_debts_model extends CI_Model{
     public function __construct() 
     {
     }
-
+    
     /**
-     * Get family's loans & debts of a specific candidate
-     * @param
-     * @return 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     * [addLoansDebts adds a new row in the table `loan_debts` with the specified information]
+     * @param [int] $candidateID     [id of the candidate]
+     * @param [int] $initialAmount   [initial amount borrowed]
+     * @param [string] $institution  [institution name]
+     * @param [float] $interestRates [interest rate of the transaction]
+     * @param [string] $reason       [reason of the transaction]
+     * @param [int] $monthly         [monthly payment]
+     * @param [int] $trimester       [quarterly payment]
+     * @param [int] $semester        [biannual payment]
+     * @param [int] $capital         [capital remainaing]
      */
-    public function getLoansDebts($id) {
-        $this->db->select('*');
-        $this->db->from('loan_debts AS ld');
-        $this->db->join('candidates AS c', 'c.candidate_id = ld.candidate_id' );
-        $this->db->where('c.candidate_id', $id);
-        $query =  $this->db->get();
-        return $query->result();
-    }
-
-    /**
-     * Add family's loans & debts information for a specific candidate
-     * @param
-     * @return 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
-     */
-    public function addLoansDebts($amount,$institution,$interest,$reason,$monthly,$trimester,$semester,$capital,$candidateID)
-    {
-        $data = array(
-            'ld_initial_amount' => $amount != "" ? $amount  : null,
-            'ld_instritution' => $institution != "" ? $institution  : null,
-            'ld_interest_rates' => $interest != "" ? $interest  : null,
-            'ld_reason' => $reason != "" ? $reason  : null,
-            'ld_monthly' => $monthly != "" ? $monthly  : null,
-            'ld_trimester' => $trimester != "" ? $trimester  : null,
-            'ld_semester' => $semester != "" ? $semester  : null,
-            'ld_capital' => $capital != "" ? $capital  : null,
-            'candidate_id' => $candidateID != "" ? $candidateID  : null
-        );
-        $this->db->select('*');
-        $this->db->from('loan_debts');
-        $this->db->where('candidate_id',$candidateID);
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-          $this->db->where('candidate_id',$candidateID);
-          $this->db->update('loan_debts',$data);
-        } else {
-          $insert = $this->db->insert('loan_debts',$data);
-        }
-        if ($this->db->affected_rows() > 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * Update family's loans & debts of a specific candidate
-     * @param
-     * @return 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
-     */
-    public function uLoansDebts($id,$initialAmount,$institution,$interestRates,$reason,$monthly,$semester,$capital,$trimester)
+    public function addLoansDebts($candidateID,$initialAmount=null,$institution=null,$interestRates=null,$reason=null,$monthly=null,$trimester=null,$semester=null,$capital=null)
     {
         $data = array(
             'ld_initial_amount' => $initialAmount,
@@ -85,11 +40,44 @@ class Loans_debts_model extends CI_Model{
             'ld_trimester' => $trimester,
             'ld_semester' => $semester,
             'ld_capital' => $capital,
-            'candidate_id' =>$id
+            'candidate_id' => $candidateID
         );
-        $this->db->where('loan_debts.candidate_id',$id);
+        $this->db->insert('loan_debts',$data);
+    }
+
+    /**
+     * [uLoansDebts updates the loans & debts information of a specific candidate]
+     * @param  see previous function addLoansDebts
+     */
+    public function uLoansDebts($candidateID,$initialAmount,$institution,$interestRates,$reason,$monthly,$trimester,$semester,$capital)
+    {
+        $data = array(
+            'ld_initial_amount' => $initialAmount != "" ? $initialAmount  : null,
+            'ld_instritution' => $institution != "" ? $institution  : null,
+            'ld_interest_rates' => $interestRates != "" ? $interestRates  : null,
+            'ld_reason' => $reason != "" ? $reason  : null,
+            'ld_monthly' => $monthly != "" ? $monthly  : null,
+            'ld_trimester' => $trimester != "" ? $trimester  : null,
+            'ld_semester' => $semester != "" ? $semester  : null,
+            'ld_capital' => $capital != "" ? $capital  : null,
+            'candidate_id' => $candidateID != "" ? $candidateID  : null
+        );
+        $this->db->where('loan_debts.candidate_id',$candidateID);
         $this->db->update('loan_debts',$data);
     }
 
+    /**
+     * [getLoansDebts gets the loans & debts information of a specific candidate]
+     * @param  [int] $id [id of the specific candidate]
+     * @return [object]  [result of the mysql query]
+     */
+    public function getLoansDebts($id) {
+        $this->db->select('*');
+        $this->db->from('loan_debts AS ld');
+        $this->db->join('candidates AS c', 'c.candidate_id = ld.candidate_id' );
+        $this->db->where('c.candidate_id', $id);
+        $query =  $this->db->get();
+        return $query->result();
+    }
 }
 ?>

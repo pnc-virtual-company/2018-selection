@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This model contains ...
+ * This model contains the add, update and get functions related to the table `home_assets`
  * @copyright  Copyright (c) 2018 Benjamin BALET
  * @license    http://opensource.org/licenses/AGPL-3.0 AGPL-3.0
  * @link       
@@ -18,27 +18,90 @@ class Home_assets_model extends CI_Model{
     }
 
     /**
-     * Get the home assets of a specific candidate
-     * @param
-     * @return 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     * [addHomeAssets adds a new row in the table `home_assets` with the specified information]
+     * @param [int] $candidateID       [id of the candidate]
+     * @param [int] $refrigerator      [quantity]
+     * @param [int] $radio             [quantity]
+     * @param [int] $airCon            [quantity]
+     * @param [int] $riceCooker        [quantity]
+     * @param [int] $lcdTV             [quantity]
+     * @param [int] $colorTV           [quantity]
+     * @param [int] $chComputer        [quantity]
+     * @param [int] $exComputer        [quantity]
+     * @param [int] $fCabinet          [quantity]
+     * @param [int] $dvd               [quantity]
+     * @param [int] $smartPhone        [quantity]
+     * @param [int] $phone             [quantity]
+     * @param [int] $cheapCam          [quantity]
+     * @param [int] $expenCam          [quantity]
+     * @param [int] $cheapSofa         [quantity]
+     * @param [int] $exSofa            [quantity]
+     * @param [int] $gasCooker         [quantity]
+     * @param [int] $fruitBlender      [quantity]
+     * @param [int] $elecCooker        [quantity]
+     * @param [int] $motoBike          [quantity]
+     * @param [int] $farmMachine       [quantity]
+     * @param [int] $car               [quantity]
+     * @param [string] $vehicleComment [free text about the family's vehicles]
+     * @param [int] $cow               [quantity]
+     * @param [int] $buffalo           [quantity]
+     * @param [int] $pig               [quantity]
+     * @param [string] $animalCmt      [free text about the family's animals]
+     * @param [int] $farmSize          [number of square meters]
+     * @param [string] $farmCmt        [free text about the family's farm]
+     * @param [int] $sumQuantity5      [sum of all quantities counting as coef 5 multiplied by 5]
+     * @param [int] $sumQuantity3      [sum of all quantities counting as coef 3 multiplied by 3]
+     * @param [int] $globalAsset       [total home assets score]
+     * @param [string] $certificate    [whether the family has a poverty certificate:yes or no]
+     * @param [int] $specifyLevel      [level of the povertty certificate]
      */
-    public function getHomeAssets($id) {
-        $this->db->select('*');
-        $this->db->from('home_assets AS h');
-        $this->db->join('candidates AS c', 'c.candidate_id = h.candidate_id' );
-        $this->db->where('c.candidate_id',$id);
-        $query = $this->db->get();
-        return $query->result();
+    function addHomeAssets($candidateID,$refrigerator=null,$radio=null,$airCon=null,$riceCooker=null,$lcdTV=null,$colorTV=null,$chComputer=null,$exComputer=null,$fCabinet=null,$dvd=null,$smartPhone=null,$phone=null,$cheapCam=null,$expenCam=null,$cheapSofa=null,$exSofa=null,$gasCooker=null,$fruitBlender=null,$elecCooker=null,$motoBike=null,$farmMachine=null,$car=null,$vehicleComment=null,$cow=null,$buffalo=null,$pig=null,$animalCmt=null,$farmSize=null,$farmCmt=null,$sumQuantity5=null,$sumQuantity3=null,$globalAsset=null,$certificate=null,$specifyLevel=null)
+    {
+        $data = array(
+            'h_refrigerator' => $refrigerator,
+            'h_air_condictioner' => $airCon,
+            'h_lcd_tv' => $lcdTV,
+            'h_computer_big_100' => $exComputer,
+            'h_furnished_big_300' => $fCabinet,
+            'h_smartphone_big_100' => $smartPhone,
+            'h_camera_big_100' => $expenCam,
+            'h_sofa_big_300' => $exSofa,
+            'h_motobike_big_500' => $motoBike,
+            'h_farming_machine' => $farmMachine,
+            'h_car_truck' => $car,
+            'h_cow' => $cow,
+            'h_buffaloe' => $buffalo,
+            'h_pig' => $pig,
+            'h_farm_size' => $farmSize,
+            'h_radio' => $radio,
+            'h_rice_cooker' => $riceCooker,
+            'h_color_tv' => $colorTV,
+            'h_computer_smal_100' => $chComputer,
+            'h_dvd_player' => $dvd,
+            'h_phone_smal_100' => $phone,
+            'h_camera_small_100' => $cheapCam,
+            'h_sofa_smal_300' => $cheapSofa,
+            'h_gascooker' => $gasCooker,
+            'h_fruit_blender' => $fruitBlender,
+            'h_electrical_cooker' => $elecCooker,
+            'h_vehicles_comment' => $vehicleComment,
+            'h_animals_comment' => $animalCmt,
+            'h_farm_comment' => $farmCmt,
+            'h_total_x5' => $sumQuantity5,
+            'h_total_x3' => $sumQuantity3,
+            'h_glbal_total' => $globalAsset,
+            'h_poverty_certificate' => $certificate,
+            'h_level' => $specifyLevel,
+            'candidate_id' => $candidateID
+        );
+        $this->db->insert('home_assets',$data);
     }
 
     /**
-     * Add home assets of a specific candidate
-     * @param
-     * @return 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     * [uHomeAssets description]
+     * @param  see previous function addHomeAssets
      */
-    function addHomeAssets($refrigerator,$radio,$airCon,$riceCooker,$lcdTV,$colorTV,$chComputer,$exComputer,$fCabinet,$dvd,$smartPhone,$phone,$cheapCam,$expenCam,$cheapSofa,$exSofa,$gasCooker,$fruitBlender,$elecCooker,$motoBike,$farmMachine,$car,$vihicleComment,$cow,$buffalo,$pig,$animalCmt,$farmSize,$farmCmt,$sumQuantity5,$sumQuantity3,$globalAsset,$certificate,$specifyLevel,$candidateID)
+    public function uHomeAssets($candidateID,$refrigerator,$radio,$airCon,$riceCooker,$lcdTV,$colorTV,$chComputer,$exComputer,$fCabinet,$dvd,$smartPhone,$phone,$cheapCam,$expenCam,$cheapSofa,$exSofa,$gasCooker,$fruitBlender,$elecCooker,$motoBike,$farmMachine,$car,$vehicleComment,$cow,$buffalo,$pig,$animalCmt,$farmSize,$farmCmt,$sumQuantity5,$sumQuantity3,$globalAsset,$certificate,$specifyLevel) 
     {
         $data = array(
             'h_refrigerator' => $refrigerator != "" ? $refrigerator : null,
@@ -67,80 +130,32 @@ class Home_assets_model extends CI_Model{
             'h_gascooker' => $gasCooker != "" ? $gasCooker : null,
             'h_fruit_blender' => $fruitBlender != "" ? $fruitBlender : null,
             'h_electrical_cooker' => $elecCooker != "" ? $elecCooker : null,
-            'h_vehicles_comment' => $vihicleComment != "" ? $vihicleComment : null,
+            'h_vehicles_comment' => $vehicleComment != "" ? $vehicleComment : null,
             'h_animals_comment' => $animalCmt != "" ? $animalCmt : null,
             'h_farm_comment' => $farmCmt != "" ? $farmCmt : null,
             'h_total_x5' => $sumQuantity5 != "" ? $sumQuantity5 : null,
             'h_total_x3' => $sumQuantity3 != "" ? $sumQuantity3 : null,
             'h_glbal_total' => $globalAsset != "" ? $globalAsset : null,
-            'h_poverty_certificate' => $specifyLevel != "" ? $specifyLevel : null,
+            'h_poverty_certificate' => $certificate != "" ? $certificate : null,
+            'h_level' => $specifyLevel,
             'candidate_id' => $candidateID != "" ? $candidateID : null
         );
-        $this->db->select('*');
-        $this->db->from('home_assets');
-        $this->db->where('candidate_id',$candidateID);
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-          $this->db->where('candidate_id',$candidateID);
-          $this->db->update('home_assets',$data);
-        } else {
-          $insert = $this->db->insert('home_assets',$data);
-        }
-        if ($this->db->affected_rows() > 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * Update the home assets of a specific candidate
-     * @param
-     * @return 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
-     */
-    public function uHomeAssets($id,$refrigerator,$radio,$conditioner,$ricecooker,$lcdTV,$colorTV,$camera1,$camera2,$furnished,$dvdPlayer,$smartphone,$phone,$computer1,$computer2,$sofa1,$sofa2,$gascooker,$fruit,$electrical,$motobike,$farming,$car,$vehiclesComment,$cow,$buffaloe,$pig,$animalComment,$farmSize,$farmComment,$sumQuantity5,$sumQuantity3,$globalAsset,$certificate,$specifyLevel) 
-    {
-        $data = array(
-            'h_refrigerator'                        => $refrigerator,
-            'h_air_condictioner'                  => $conditioner,
-            'h_lcd_tv'                                  => $lcdTV,
-            'h_computer_big_100'               => $computer1,
-            'h_furnished_big_300'              => $furnished,
-            'h_smartphone_big_100'           => $smartphone,
-            'h_camera_big_100'                  => $camera1,
-            'h_sofa_big_300'                      => $sofa1,
-            'h_motobike_big_500'              => $motobike,
-            'h_farming_machine'                 => $farming,
-            'h_car_truck'                            => $car,
-            'h_cow'                                      => $cow,
-            'h_buffaloe'                              => $buffaloe,
-            'h_pig'                                      => $pig,
-            'h_farm_size'                           => $farmSize,
-            'h_radio'                                   => $radio,
-            'h_rice_cooker'                        => $ricecooker,
-            'h_color_tv'                             => $colorTV,
-            'h_computer_smal_100'           => $computer2,
-            'h_dvd_player'                         => $dvdPlayer,
-            'h_phone_smal_100'                => $phone,
-            'h_camera_small_100'             => $camera2,
-            'h_sofa_smal_300'                  => $sofa2,
-            'h_gascooker'                          => $gascooker,
-            'h_fruit_blender'                    => $fruit,
-            'h_electrical_cooker'              => $electrical,
-            'h_vehicles_comment'             => $vehiclesComment,
-            'h_animals_comment'              => $animalComment,
-            'h_farm_comment'                 => $farmComment,
-            'h_total_x5'                           => $sumQuantity5,
-            'h_total_x3'                           => $sumQuantity3,
-            'h_glbal_total'                       => $globalAsset,
-            'h_poverty_certificate'         => $certificate,
-            'h_level'                                 => $specifyLevel,
-            'candidate_id'         => $id
-        );
-        $this->db->where('home_assets.candidate_id',$id);
+        $this->db->where('home_assets.candidate_id',$candidateID);
         $this->db->update('home_assets', $data );
     }
 
+    /**
+     * [getHomeAssets gets the home assets information of a specific candidate]
+     * @param  [int] $id    [id of the specific candidate]
+     * @return [object]     [result of the mysql query]
+     */
+    public function getHomeAssets($id) {
+        $this->db->select('*');
+        $this->db->from('home_assets AS h');
+        $this->db->join('candidates AS c', 'c.candidate_id = h.candidate_id' );
+        $this->db->where('c.candidate_id',$id);
+        $query = $this->db->get();
+        return $query->result();
+    }
 }
 ?>

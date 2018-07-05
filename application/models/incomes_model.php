@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This model contains ...
+ * This model contains the add, update and get functions related to the table `incomes`
  * @copyright  Copyright (c) 2018 Benjamin BALET
  * @license    http://opensource.org/licenses/AGPL-3.0 AGPL-3.0
  * @link       
@@ -18,27 +18,46 @@ class Incomes_model extends CI_Model{
     }
 
     /**
-     * Get family incomes of a specific candidate
-     * @param
-     * @return 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     * [addFamilyIncomes adds a new row in the table `incomes` with the information specified]
+     * @param [int] $candidateID    [id of a specific candidate]
+     * @param [int] $paMonthIncome  [parent's monthly income]
+     * @param [int] $paDailyIncome  [parent's daily income]
+     * @param [int] $paSesIncome    [parent's seasonal income]
+     * @param [int] $paYearIncome   [parent's yearly income]
+     * @param [int] $paTotalIncome  [parent's total income]
+     * @param [int] $chMonthIncome  [monthly children's assistance]
+     * @param [int] $chDailyIncome  [daily children's assistance]
+     * @param [int] $chSeasonIncome [seasonal children's assistance]
+     * @param [int] $chYearIncome   [yearmy children's assistance]
+     * @param [int] $chTotalIncome  [total children's assistance]
+     * @param [int] $totalIncome    [total global income]
+     * @param [int] $totalIncomeId  [total global income per individual living in the parent's house]
      */
-    public function getFamilyIncomes($id) {
-        $this->db->select('*');
-        $this->db->from('incomes AS in');
-        $this->db->join('candidates AS c', 'c.candidate_id = in.candidate_id' );
-        $this->db->where('c.candidate_id',$id);
-        $query = $this->db->get();
-        return $query->result();
+    public function addFamilyIncomes($candidateID,$paMonthIncome=null,$paDailyIncome=null,$paSesIncome=null,$paYearIncome=null,$paTotalIncome=null,$chMonthIncome=null,$chDailyIncome=null,$chSeasonIncome=null,$chYearIncome=null,$chTotalIncome=null,$totalIncome=null,$totalIncomeId=null)
+    {
+        $data = array(
+            'f_monthly'=>$paMonthIncome,
+            'f_daily'=>$paDailyIncome,
+            'f_seasonal'=>$paSesIncome,
+            'f_yearly'=>$paYearIncome,
+            'f_total'=>$paTotalIncome,
+            'c_monthly'=>$chMonthIncome,
+            'c_daily'=>$chDailyIncome,
+            'c_seasonal'=>$chSeasonIncome,
+            'c_yearly'=>$chYearIncome,
+            'c_total'=>$chTotalIncome,
+            'g_monthly'=>$totalIncome,
+            'g_monthly_individual'=>$totalIncomeId,
+            'candidate_id'=>$candidateID
+        );
+        $insert = $this->db->insert('incomes',$data);
     }
 
     /**
-     * Add family incomes for a specific candidate
-     * @param
-     * @return 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     * [uFamilyIncomes description]
+     * @param  see previous function addFamilyIncomes
      */
-    public function addFamilyIncomes($paMonthIncome,$paDailyIncome,$paSesIncome,$paYearIncome,$paTotalIncome,$chMonthIncome,$chDailyIncome,$chSeasonIncome,$chYearIncome,$chTotalIncome,$totalIncome,$totalIncomeId,$candidateID)
+    public function uFamilyIncomes($candidateID,$paMonthIncome,$paDailyIncome,$paSesIncome,$paYearIncome,$paTotalIncome,$chMonthIncome,$chDailyIncome,$chSeasonIncome,$chYearIncome,$chTotalIncome,$totalIncome,$totalIncomeId) 
     {
         $data = array(
             'f_monthly'=>$paMonthIncome != "" ? $paMonthIncome : null,
@@ -53,53 +72,24 @@ class Incomes_model extends CI_Model{
             'c_total'=>$chTotalIncome != "" ? $chTotalIncome : null,
             'g_monthly'=>$totalIncome != "" ? $totalIncome : null,
             'g_monthly_individual'=>$totalIncomeId != "" ? $totalIncomeId : null,
-            'candidate_id'=>$candidateID != "" ? $candidateID : null
+            'candidate_id'=>$candidateID
         );
-
-        $this->db->select('*');
-        $this->db->from('incomes');
-        $this->db->where('candidate_id',$candidateID);
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-          $this->db->where('candidate_id',$candidateID);
-          $this->db->update('incomes',$data);
-        } else {
-          $insert = $this->db->insert('incomes',$data);
-        }
-
-        if ($this->db->affected_rows() > 0) {
-           return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * Update family incomes of a specific candidate
-     * @param
-     * @return 
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
-     */
-    public function uFamilyIncomes($id,$famMonIncome,$famDalIncome,$famSeaIncome,$famYeaIncome,$famTotalIncome,$chMonIncome,$chDaliIncome,$chSeaIncome,$chYeaIncome,$chTotalIncome,$gloToMonIn,$g_monthly_individual) 
-    {
-        $data = array(
-            'f_monthly' => $famMonIncome,
-            'f_daily' => $famDalIncome,
-            'f_seasonal' => $famSeaIncome,
-            'f_yearly' => $famYeaIncome,
-            'f_total' => $famTotalIncome,
-            'c_monthly' => $chMonIncome,
-            'c_daily' => $chDaliIncome,
-            'c_seasonal' => $chSeaIncome,
-            'c_yearly' => $chYeaIncome,
-            'c_total' => $chTotalIncome,
-            'g_monthly' => $gloToMonIn,
-            'g_monthly_individual' => $g_monthly_individual,
-            'candidate_id' => $id
-        );
-        $this->db->where('incomes.candidate_id',$id);
+        $this->db->where('incomes.candidate_id',$candidateID);
         $this->db->update('incomes',$data);
     }
 
+    /**
+     * [getFamilyIncomes gets the family incomes information of a specific candidate]
+     * @param  [int] $id [id of the specific candidate]
+     * @return [object]  [result of the mysql query]
+     */
+    public function getFamilyIncomes($id) {
+        $this->db->select('*');
+        $this->db->from('incomes AS in');
+        $this->db->join('candidates AS c', 'c.candidate_id = in.candidate_id' );
+        $this->db->where('c.candidate_id',$id);
+        $query = $this->db->get();
+        return $query->result();
+    }
 }
 ?>
