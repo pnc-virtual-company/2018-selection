@@ -1622,12 +1622,12 @@
 
 		<br>
 		<div class="conclustion">
-			<form id="formConclude" action="<?php echo base_url() ?>candidates/addConclude" method="post">
+			<form id="formConclude" action="<?php echo base_url() ?>candidates/updateConclusion" method="post">
 				<input type="hidden" name="candidateID" value="<?php echo $action == "Edit" ? $id : ''; ?>"/>
 				<div class="row">
 					<div class="col-md-12">
 						<h4 style="color: #000;">Investigator's conclusion</h4>
-						<textarea name="investigatorConclude" rows="5" class="form-control" placeholder="Please comment"></textarea>
+						<textarea name="investigatorConclude" rows="5" class="form-control" placeholder="Please comment" <?php echo $readonly; ?>><?php echo $viewOrEdit ? $list[0]->candidate_investigator_conclusion : ''; ?></textarea>
 					</div>
 				</div>
 				<br>

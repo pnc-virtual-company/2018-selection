@@ -63,135 +63,10 @@ Class Candidates extends CI_Controller{
 		$this->load->view('candidates/index',$data);
 		$this->load->view('templates/footer',$data);
 	}
-	
-	/**
-     * Get the list of candidates
-     */
-	public function showAllCandidates()
-	{
-		$result = $this->candidates_model->showAllCandidates();
-		echo json_encode($result);
-	}
-
-	/**
-     * Get the list of selected candidates
-     */
-	public function showSelected()
-	{
-		$result = $this->candidates_model->showSelected();
-		echo json_encode($result);
-	}
-	
-	/**
-     * Count all candidates
-     */
-	public function countCandidates()
-	{
-		$resultCount = $this->candidates_model->countCandidates();
-		echo json_encode($resultCount);
-	}
-
-	/**
-     * Get the number of selected candidates
-     */
-	public function countSelectedCandidates()
-	{
-		$resultSelectedCount = $this->candidates_model->countSelectedCandidates();
-		echo json_encode($resultSelectedCount);
-	}
-
-	/**
-     * Get the number of candidates for each grade
-     */
-	public function countGrades()
-	{
-		$APlus = $this->candidates_model->countGrade("A+");
-		$A = $this->candidates_model->countGrade("A");
-		$AMinus = $this->candidates_model->countGrade("A-");
-		$BPlus = $this->candidates_model->countGrade("B+");
-		$B = $this->candidates_model->countGrade("B");
-		$Failed = $this->candidates_model->countGrade("Failed");
-		$totalSelected = $APlus + $A + $AMinus + $BPlus + $B + $Failed;
-		echo json_encode([$APlus,$A,$AMinus,$BPlus,$B,$Failed,$totalSelected]);
-	}
-
-	/**
-     * Get the % of selected candidates for each gender
-     */
-	public function countGender()
-	{
-		$maleCount = $this->candidates_model->countMale();
-		$femaleCount = $this->candidates_model->countFemale();
-		if ($maleCount + $femaleCount == 0) {
-			echo json_encode([0,0,0,0]);
-		} else {
-			$malePercentage = round($maleCount * 100 / ($maleCount + $femaleCount));
-			$femalePercentage = round($femaleCount * 100 / ($maleCount + $femaleCount));
-			echo json_encode([$malePercentage,$femalePercentage,$maleCount,$femaleCount]);
-		}
-	}
-
-	/**
-     * Get the % of selected candidates coming from another NGO vs not
-     */
-	public function countNGOProvenance()
-	{
-		$NGOProvenanceCount = $this->candidates_model->fromNGO();
-		$NonNGOProvenanceCount = $this->candidates_model->notFromNGO();
-		if ($NGOProvenanceCount + $NonNGOProvenanceCount == 0) {
-			echo json_encode([0,0,0,0]);
-		} else {
-			$NGOProvenancePercentage = round($NGOProvenanceCount * 100 / ($NGOProvenanceCount + $NonNGOProvenanceCount));
-			$NonNGOProvenancePercentage = round($NonNGOProvenanceCount * 100 / ($NGOProvenanceCount + $NonNGOProvenanceCount));
-			echo json_encode([$NGOProvenancePercentage,$NonNGOProvenancePercentage,$NGOProvenanceCount,$NonNGOProvenanceCount]);
-		}		
-	}
-
-	/**
-     * Delete a specific candidate
-     */
-	public function deleteCandidate()
-	{
-		$id = $this->input->get('candidate_id');
-		$result = $this->candidates_model->deleteCandidate($id);
-		$msg['success'] = false;
-		if($result){
-			$msg['success'] = true;
-		}
-		echo json_encode($msg);
-	}
-	
-	/**
-     * Count provinces
-     */
-	 function countProvinces()
-	{
-		$resultProvincesCount = $this->candidates_model->countProvinces();
-		echo json_encode($resultProvincesCount);
-	}
-
-	/**
-     * Export the list of candidates into an Excel file
-     */
-    public function export() {
-    	$data['candidateFilter'] = $this->input->get('value') == "selectedCandidates";
-        $this->load->view('candidates/export',$data);
-    }
-
-    /**
-     * Display the map of Cambodian's provinces 
-     */
-	public function map(){ 
-		$this->load->view('templates/header');
-		$this->load->view('menu/index');
-		$this->load->view('province');
-		$this->load->view('templates/footer');
-	}	
 
 	/**
 	 * [viewCandidateDetails description]
 	 * @param  [type] $id [description]
-	 * @return [type]     [description]
 	 */
 	public function viewCandidateDetails($id)
 	{
@@ -220,29 +95,39 @@ Class Candidates extends CI_Controller{
 	}
 
 	/**
-	 * [upload checks if the candidate picture respects some constraints and uploads it if everything ok]
-	 * @return [array] [1st element: true or false depending on whether the picture has been uploaded, 2nd element: name of image or error message]
-	 */
-    public function upload(){
-        $config['upload_path']="./assets/images/candidates/";
-        $config['allowed_types']='jpeg|jpg|png';
-        $config['max_size'] = 100;
-        $config['max_width'] = 1024;
-        $config['max_height'] = 768;
-        $this->load->library('upload',$config);
-        if($this->upload->do_upload("candidateImage")){
-            $data = array('upload_data' => $this->upload->data());
-            $image= $data['upload_data']['file_name']; 
-            return [true,$image];
-        } else {
-            return [false,$this->upload->display_errors()];
-        }
-    }
+     * Load the form to update a specific candidate with the original data of this candidate
+     * @param $id of the candidate to be updated 
+     */
+	public function updateForm($id) {
+		$data['title'] = 'Edit candidate details';
+		$data['action'] = 'Edit';
+		$data['id'] = $id;
+	 	$data['list'] = $this->candidates_model->getCanInfo($id);
+	 	if ($data['list'][0]->ngo_id != NULL) {
+	 		$data['ngo'] = $this->ngos_model->getNGOName($data['list'][0]->ngo_id);
+	 	}
+	 	$data['family'] = $this->families_model->getFamilyProfile($id);
+	 	$data['income'] = $this->incomes_model->getFamilyIncomes($id);
+	 	$data['expense'] = $this->expenses_model->getFamilyExpenses($id);
+	 	$data['loan'] = $this->loans_debts_model->getLoansDebts($id);
+	 	$data['residence'] = $this->residences_model->getResidence($id);
+	 	$data['home_assets'] = $this->home_assets_model->getHomeAssets($id);
+	 	$data['invesCon'] = $this->candidates_model->investiCon($id);
+	 	$data['provinces'] = ['Banteay Meanchey', 'Battambang', 'Kampong Cham', 'Kampong Chhnang', 'Kampong Speu',
+							'Kampong Thom', 'Kampot', 'Kandal', 'Kep', 'Koh Kong', 'Kratié', 'Mondulkiri', 
+							'Oddar Meanchey', 'Pailin', 'Phnom Penh', 'Preah Sihanouk', 'Prey Veng', 'Preah Vihear', 
+							'Pursat', 'Ratanakiri', 'Siem Reap', 'Stung Treng', 'Svay Rieng', 'Takéo', 'Tboung Khmum'];
+		$data['ngos'] = $this->ngos_model->getAllNGO();
+		$this->load->view('templates/header');   
+		$this->load->view('menu/index');   
+		$this->load->view('candidates/new',$data);   
+		$this->load->view('templates/footer'); 
+	}
 
 
-	/* ------------------------------------------------------------------------- */
-	/* THE FOLLOWING SECTION GROUPS THE FUNCTIONS USED TO CREATE A NEW CANDIDATE */
-	/* ------------------------------------------------------------------------- */
+	/* ----------------------------------------------------------------------------- */
+	/* THE FOLLOWING SECTION GROUPS THE FUNCTIONS USED TO CREATE/ UPDATE A CANDIDATE */
+	/* ----------------------------------------------------------------------------- */
 
 
 	/**
@@ -310,6 +195,7 @@ Class Candidates extends CI_Controller{
 				$this->loans_debts_model->addLoansDebts($candidateID);
 				$this->residences_model->addResidence($candidateID);
 				$this->home_assets_model->addHomeAssets($candidateID);
+				$this->candidates_model->addConclusion($candidateID);
 				echo json_encode($candidateID);
 
 			// The candidate exists in the database
@@ -468,49 +354,158 @@ Class Candidates extends CI_Controller{
     }    
     
     /**
-     * Add investigator's conclusion to a specific candidate
+     * [updateConclusion updates the investigator's conclusion of a specific candidate]
      */
-    public function addConclude()
+    public function updateConclusion()
     {
     	$candidateID = $this->input->post('candidateID');
-    	$investigatorConclude = $this->input->post('investigatorConclude');
-    	$this->candidates_model->addConclude($investigatorConclude,$candidateID);
+    	$investigatorConclusion = $this->input->post('investigatorConclude');
+    	$this->candidates_model->uConclusion($candidateID,$investigatorConclusion);
     	redirect('candidates/index');
     }
 
 
-    /* ------------------------------------------------------------------------------ */
-	/* THE FOLLOWING SECTION GROUPS THE FUNCTIONS USED TO UPDATE A SPECIFIC CANDIDATE */
-	/* ------------------------------------------------------------------------------ */
-
-    
-    /**
-     * Load the form to update a specific candidate with the original data of this candidate
-     * @param $id of the candidate to be updated 
+	/**
+     * Get the list of candidates
      */
-	public function updateForm($id) {
-		$data['title'] = 'Edit candidate details';
-		$data['action'] = 'Edit';
-		$data['id'] = $id;
-	 	$data['list'] = $this->candidates_model->getCanInfo($id);
-	 	if ($data['list'][0]->ngo_id != NULL) {
-	 		$data['ngo'] = $this->ngos_model->getNGOName($data['list'][0]->ngo_id);
-	 	}
-	 	$data['family'] = $this->families_model->getFamilyProfile($id);
-	 	$data['income'] = $this->incomes_model->getFamilyIncomes($id);
-	 	$data['expense'] = $this->expenses_model->getFamilyExpenses($id);
-	 	$data['loan'] = $this->loans_debts_model->getLoansDebts($id);
-	 	$data['residence'] = $this->residences_model->getResidence($id);
-	 	$data['home_assets'] = $this->home_assets_model->getHomeAssets($id);
-	 	$data['invesCon'] = $this->candidates_model->investiCon($id);
-	 	$data['provinces'] = ['Banteay Meanchey', 'Battambang', 'Kampong Cham', 'Kampong Chhnang', 'Kampong Speu',
-							'Kampong Thom', 'Kampot', 'Kandal', 'Kep', 'Koh Kong', 'Kratié', 'Mondulkiri', 
-							'Oddar Meanchey', 'Pailin', 'Phnom Penh', 'Preah Sihanouk', 'Prey Veng', 'Preah Vihear', 
-							'Pursat', 'Ratanakiri', 'Siem Reap', 'Stung Treng', 'Svay Rieng', 'Takéo', 'Tboung Khmum'];
-		$data['ngos'] = $this->ngos_model->getAllNGO();
-		$this->load->view('templates/header');   
-		$this->load->view('menu/index');   
-		$this->load->view('candidates/new',$data);   
-		$this->load->view('templates/footer'); 
+	public function showAllCandidates()
+	{
+		$result = $this->candidates_model->showAllCandidates();
+		echo json_encode($result);
 	}
+
+	/**
+     * Get the list of selected candidates
+     */
+	public function showSelected()
+	{
+		$result = $this->candidates_model->showSelected();
+		echo json_encode($result);
+	}
+	
+	/**
+     * Count all candidates
+     */
+	public function countCandidates()
+	{
+		$resultCount = $this->candidates_model->countCandidates();
+		echo json_encode($resultCount);
+	}
+
+	/**
+     * Get the number of selected candidates
+     */
+	public function countSelectedCandidates()
+	{
+		$resultSelectedCount = $this->candidates_model->countSelectedCandidates();
+		echo json_encode($resultSelectedCount);
+	}
+
+	/**
+     * Get the number of candidates for each grade
+     */
+	public function countGrades()
+	{
+		$APlus = $this->candidates_model->countGrade("A+");
+		$A = $this->candidates_model->countGrade("A");
+		$AMinus = $this->candidates_model->countGrade("A-");
+		$BPlus = $this->candidates_model->countGrade("B+");
+		$B = $this->candidates_model->countGrade("B");
+		$Failed = $this->candidates_model->countGrade("Failed");
+		$totalSelected = $APlus + $A + $AMinus + $BPlus + $B + $Failed;
+		echo json_encode([$APlus,$A,$AMinus,$BPlus,$B,$Failed,$totalSelected]);
+	}
+
+	/**
+     * Get the % of selected candidates for each gender
+     */
+	public function countGender()
+	{
+		$maleCount = $this->candidates_model->countMale();
+		$femaleCount = $this->candidates_model->countFemale();
+		if ($maleCount + $femaleCount == 0) {
+			echo json_encode([0,0,0,0]);
+		} else {
+			$malePercentage = round($maleCount * 100 / ($maleCount + $femaleCount));
+			$femalePercentage = round($femaleCount * 100 / ($maleCount + $femaleCount));
+			echo json_encode([$malePercentage,$femalePercentage,$maleCount,$femaleCount]);
+		}
+	}
+
+	/**
+     * Get the % of selected candidates coming from another NGO vs not
+     */
+	public function countNGOProvenance()
+	{
+		$NGOProvenanceCount = $this->candidates_model->fromNGO();
+		$NonNGOProvenanceCount = $this->candidates_model->notFromNGO();
+		if ($NGOProvenanceCount + $NonNGOProvenanceCount == 0) {
+			echo json_encode([0,0,0,0]);
+		} else {
+			$NGOProvenancePercentage = round($NGOProvenanceCount * 100 / ($NGOProvenanceCount + $NonNGOProvenanceCount));
+			$NonNGOProvenancePercentage = round($NonNGOProvenanceCount * 100 / ($NGOProvenanceCount + $NonNGOProvenanceCount));
+			echo json_encode([$NGOProvenancePercentage,$NonNGOProvenancePercentage,$NGOProvenanceCount,$NonNGOProvenanceCount]);
+		}		
+	}
+
+	/**
+     * Delete a specific candidate
+     */
+	public function deleteCandidate()
+	{
+		$id = $this->input->get('candidate_id');
+		$result = $this->candidates_model->deleteCandidate($id);
+		$msg['success'] = false;
+		if($result){
+			$msg['success'] = true;
+		}
+		echo json_encode($msg);
+	}
+	
+	/**
+     * Count provinces
+     */
+	 function countProvinces()
+	{
+		$resultProvincesCount = $this->candidates_model->countProvinces();
+		echo json_encode($resultProvincesCount);
+	}
+
+	/**
+     * Export the list of candidates into an Excel file
+     */
+    public function export() {
+    	$data['candidateFilter'] = $this->input->get('value') == "selectedCandidates";
+        $this->load->view('candidates/export',$data);
+    }
+
+    /**
+     * Display the map of Cambodian's provinces 
+     */
+	public function map(){ 
+		$this->load->view('templates/header');
+		$this->load->view('menu/index');
+		$this->load->view('province');
+		$this->load->view('templates/footer');
+	}	
+
+	/**
+	 * [upload checks if the candidate picture respects some constraints and uploads it if everything ok]
+	 * @return [array] [1st element: true or false depending on whether the picture has been uploaded, 2nd element: name of image or error message]
+	 */
+    public function upload(){
+        $config['upload_path']="./assets/images/candidates/";
+        $config['allowed_types']='jpeg|jpg|png';
+        $config['max_size'] = 100;
+        $config['max_width'] = 1024;
+        $config['max_height'] = 768;
+        $this->load->library('upload',$config);
+        if($this->upload->do_upload("candidateImage")){
+            $data = array('upload_data' => $this->upload->data());
+            $image= $data['upload_data']['file_name']; 
+            return [true,$image];
+        } else {
+            return [false,$this->upload->display_errors()];
+        }
+    }
 }

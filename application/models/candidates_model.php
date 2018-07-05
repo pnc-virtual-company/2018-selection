@@ -161,10 +161,10 @@ class Candidates_model extends CI_Model{
 
     /**
      * [addConclude adds an investigator's conclusion to a specific candidate]
+     * @param [int] $candidateID 
      * @param [string] $investigatorConclusion
-     * @param [int] $candidateID  
      */
-    public function addConclude($investigatorConclusion,$candidateID)
+    public function addConclusion($candidateID,$investigatorConclusion=null)
     {
         $data = array(
             'candidate_investigator_conclusion'=> $investigatorConclusion
@@ -178,7 +178,7 @@ class Candidates_model extends CI_Model{
      * @param  [int] $id 
      * @param  [string] $investi [investigator's conclusion text]
      */
-    public function upInvesCon($id,$investi) {
+    public function uConclusion($id,$investi) {
         $data = array('candidate_investigator_conclusion' => $investi);
         $this->db->where('candidate_id',$id);
         $this->db->update('candidates',$data);
