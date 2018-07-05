@@ -41,7 +41,11 @@ Class Candidates extends CI_Controller{
 		$this->load->model('loans_debts_model');
 		$this->load->model('residences_model');
 	}
-	
+
+	/* ------------------------------------------------------------ */
+	/* THE FOLLOWING SECTION GROUPS THE FUNCTIONS LOADING THE VIEWS */
+	/* ------------------------------------------------------------ */
+
 	/**
      * Display the list of all candidates
      */
@@ -124,11 +128,27 @@ Class Candidates extends CI_Controller{
 		$this->load->view('templates/footer'); 
 	}
 
+    /**
+     * Export the list of candidates into an Excel file
+     */
+    public function export() {
+    	$data['candidateFilter'] = $this->input->get('value') == "selectedCandidates";
+        $this->load->view('candidates/export',$data);
+    }
 
-	/* ----------------------------------------------------------------------------- */
-	/* THE FOLLOWING SECTION GROUPS THE FUNCTIONS USED TO CREATE/ UPDATE A CANDIDATE */
-	/* ----------------------------------------------------------------------------- */
+   /**
+    * Display the map of Cambodian's provinces 
+    */
+	public function map(){ 
+		$this->load->view('templates/header');
+		$this->load->view('menu/index');
+		$this->load->view('province');
+		$this->load->view('templates/footer');
+	}	
 
+	/* ------------------------------------------------------------------------------------- */
+	/* THE FOLLOWING SECTION GROUPS THE FUNCTIONS USED TO CREATE/ UPDATE/ DELETE A CANDIDATE */
+	/* ------------------------------------------------------------------------------------- */
 
 	/**
 	 * [newCandidate loads the form to create a new candidate]
@@ -206,6 +226,27 @@ Class Candidates extends CI_Controller{
 			echo json_encode($uploaded[1]);
 		}
 	}
+
+	/**
+	 * [upload checks if the candidate picture respects some constraints and uploads it if everything ok]
+	 * @return [array] [1st element: true or false depending on whether the picture has been uploaded, 
+	 *                  2nd element: name of image or error message]
+	 */
+    public function upload(){
+        $config['upload_path']="./assets/images/candidates/";
+        $config['allowed_types']='jpeg|jpg|png';
+        $config['max_size'] = 100;
+        $config['max_width'] = 1024;
+        $config['max_height'] = 768;
+        $this->load->library('upload',$config);
+        if($this->upload->do_upload("candidateImage")){
+            $data = array('upload_data' => $this->upload->data());
+            $image= $data['upload_data']['file_name']; 
+            return [true,$image];
+        } else {
+            return [false,$this->upload->display_errors()];
+        }
+    }
   
     /**
      * [updateFamilyProfile updates a specific candidate's family profile]
@@ -364,6 +405,34 @@ Class Candidates extends CI_Controller{
     	redirect('candidates/index');
     }
 
+	/**
+     * Delete a specific candidate
+     */
+	public function deleteCandidate()
+	{
+		// First delete the candidate image if there is any
+		$id = $this->input->get('candidate_id');
+		$imageName = $this->candidates_model->getCandidateImage($id);
+		$image = "./assets/images/candidates/".$imageName[0]->candidate_image;
+		if(is_file($image)) {
+			unlink($image);
+		}
+
+		// Then delete the information stored in the table `candidates`
+		// All information linked by foreign key to the candidate_id of the table `candidates` will be deleted 
+		// --> Family profile, incomes, expenses, loans & debts, residence status and home assets will be deleted
+		$result = $this->candidates_model->deleteCandidate($id);
+		$msg['success'] = false;
+		if($result){
+			$msg['success'] = true;
+		}
+		echo json_encode($msg);
+	}
+
+
+	/* ---------------------------------------------------------------------------- */
+	/* THE FOLLOWING SECTION GROUPS THE FUNCTIONS CALLED BY AJAX FOR THE INDEX PAGE */
+	/* ---------------------------------------------------------------------------- */
 
 	/**
      * Get the list of candidates
@@ -447,29 +516,6 @@ Class Candidates extends CI_Controller{
 			echo json_encode([$NGOProvenancePercentage,$NonNGOProvenancePercentage,$NGOProvenanceCount,$NonNGOProvenanceCount]);
 		}		
 	}
-
-	/**
-     * Delete a specific candidate
-     */
-	public function deleteCandidate()
-	{
-		// First delete the candidate image if there is any
-		$id = $this->input->get('candidate_id');
-		$imageName = $this->candidates_model->getCandidateImage($id);
-		$image = "./assets/images/candidates/".$imageName[0]->candidate_image;
-		if(is_file($image)) {
-			unlink($image);
-		}
-
-		// Then delete the information stored in the database
-		// All information linked by foreign key to the specific candidate will be deleted (incomes, expenses, home assets...) 
-		$result = $this->candidates_model->deleteCandidate($id);
-		$msg['success'] = false;
-		if($result){
-			$msg['success'] = true;
-		}
-		echo json_encode($msg);
-	}
 	
 	/**
      * Count provinces
@@ -479,42 +525,4 @@ Class Candidates extends CI_Controller{
 		$resultProvincesCount = $this->candidates_model->countProvinces();
 		echo json_encode($resultProvincesCount);
 	}
-
-	/**
-     * Export the list of candidates into an Excel file
-     */
-    public function export() {
-    	$data['candidateFilter'] = $this->input->get('value') == "selectedCandidates";
-        $this->load->view('candidates/export',$data);
-    }
-
-    /**
-     * Display the map of Cambodian's provinces 
-     */
-	public function map(){ 
-		$this->load->view('templates/header');
-		$this->load->view('menu/index');
-		$this->load->view('province');
-		$this->load->view('templates/footer');
-	}	
-
-	/**
-	 * [upload checks if the candidate picture respects some constraints and uploads it if everything ok]
-	 * @return [array] [1st element: true or false depending on whether the picture has been uploaded, 2nd element: name of image or error message]
-	 */
-    public function upload(){
-        $config['upload_path']="./assets/images/candidates/";
-        $config['allowed_types']='jpeg|jpg|png';
-        $config['max_size'] = 100;
-        $config['max_width'] = 1024;
-        $config['max_height'] = 768;
-        $this->load->library('upload',$config);
-        if($this->upload->do_upload("candidateImage")){
-            $data = array('upload_data' => $this->upload->data());
-            $image= $data['upload_data']['file_name']; 
-            return [true,$image];
-        } else {
-            return [false,$this->upload->display_errors()];
-        }
-    }
 }

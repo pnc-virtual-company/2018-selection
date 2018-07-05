@@ -250,7 +250,7 @@ $(document).ready(function(){
 	// If candidateID exists, then add the family profile in the database and go to the next form
 	$('#SaveFamilyPro').click(function(){
 		var candidateID	= $("input[name='candidateID']").val();
-		if (candidateID==undefined) {
+		if (candidateID=="") {
 			askForFirstAndLastNames('#collapseFamilyPro','#familyPro');
 		} else {
 			$.ajax({
@@ -273,7 +273,7 @@ $(document).ready(function(){
 	// If candidateID exists, then add the family income information in the database and go to the next form
 	$('#btnSaveFamilyIncome').click(function(){
 		var candidateID	= $("input[name='candidateID']").val();
-		if (candidateID==undefined) {
+		if (candidateID=="") {
 			askForFirstAndLastNames('#collapseFamilyIncome','#familyIncome');
 		} else {
 			$.ajax({
@@ -296,7 +296,7 @@ $(document).ready(function(){
 	// If candidateID exists, then add the family expense information in the database and go to the next form
 	$('#saveExpense').click(function(){
 		var candidateID	= $("input[name='candidateID']").val();
-		if (candidateID==undefined) {
+		if (candidateID=="") {
 			askForFirstAndLastNames('#collapseFamilyExpense','#familyExpense');
 		} else {
 			$.ajax({
@@ -319,7 +319,7 @@ $(document).ready(function(){
 	// If candidateID exists, then add the loand & debt information in the database and go to the next form
 	$('#saveLoan').click(function(){
 		var candidateID	= $("input[name='candidateID']").val();
-		if (candidateID==undefined) {
+		if (candidateID=="") {
 			askForFirstAndLastNames('#collapseLoanDebt','#loanDebt');
 		} else {
 			$.ajax({
@@ -341,7 +341,7 @@ $(document).ready(function(){
 	// If candidateID exists, then add the residence information in the database and go to the next form
 	$('#saveResidence').click(function(){
 		var candidateID	= $("input[name='candidateID']").val();
-		if (candidateID==undefined) {
+		if (candidateID=="") {
 			askForFirstAndLastNames('#collapseResidence','#residence');
 		} else {
 			$.ajax({
@@ -363,7 +363,7 @@ $(document).ready(function(){
 	// If candidateID exists, then add home assets information in the database and go to the next form
 	$('#saveHomeAsset').click(function(){
 		var candidateID	= $("input[name='candidateID']").val();
-		if (candidateID==undefined) {
+		if (candidateID=="") {
 			askForFirstAndLastNames('#collapseHomeAsset','#homeAsset');
 		} else {
 			$.ajax({
@@ -385,15 +385,16 @@ $(document).ready(function(){
 
 	// Check first if the new candidate has already been stored (i.e. has an ID)
 	// If candidateID exists, then add investigator's conclusion in the database and go to the index page
-	$('#formConclude').on('submit', function(){
+	$('#formConclude').on('submit', function(e){
 		var candidateID	= $("input[name='candidateID']").val();
-		if (candidateID==undefined) {
+		if (candidateID=="") {
 			bootbox.alert('Please enter first the first and last names of the candidate and click on button "Save information" in the form above "Student information"');
 			$('#collapseOne').collapse("show");
 			$('#headingOne').find("i").toggle();
 			$('#accordion')[0].scrollIntoView();
 			return false;
 		} else {
+			console.log("yes");
 			return true;
 		}
 	});

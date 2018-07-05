@@ -17,6 +17,10 @@ class Candidates_model extends CI_Model{
     {
     }
 
+    /* ----------------------------------------------------------------------------------------------------- */
+    /* THE FOLLOWING SECTION GROUPS THE FUNCTIONS ADD, UPDATE, GET, DELETE RELATED TO THE TABLE `candidates` */
+    /* ----------------------------------------------------------------------------------------------------- */
+
     /**
      * [addCandidate creates a new row in the table `candidates` with the information specified in parameters]
      * @param [string] $fname          [first name of the candidate]
@@ -207,6 +211,11 @@ class Candidates_model extends CI_Model{
         $query = $this->db->get_where('candidates', array('candidate_id' =>$id));
         return $query->result();
     }
+
+
+    /* ------------------------------------------------------------------------------------------------ */
+    /* THE FOLLOWING SECTION GROUPS THE FUNCTIONS COUNTING & FILTERING DATA FROM THE TABLE `candidates` */
+    /* ------------------------------------------------------------------------------------------------ */
 
     /**
      * [showAllCandidates gets the list of all candidates]
