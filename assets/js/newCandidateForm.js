@@ -224,7 +224,6 @@ $(document).ready(function(){
 						bootbox.alert('The information has been successfully updated');
 					}
 					else {
-						console.log(msg);
 						msg = JSON.parse(msg);
 						// There has been an error while uploading the candidate picture
 						if (isNaN(parseInt(msg))) {

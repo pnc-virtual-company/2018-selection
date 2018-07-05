@@ -453,7 +453,16 @@ Class Candidates extends CI_Controller{
      */
 	public function deleteCandidate()
 	{
+		// First delete the candidate image if there is any
 		$id = $this->input->get('candidate_id');
+		$imageName = $this->candidates_model->getCandidateImage($id);
+		$image = "./assets/images/candidates/".$imageName[0]->candidate_image;
+		if(is_file($image)) {
+			unlink($image);
+		}
+
+		// Then delete the information stored in the database
+		// All information linked by foreign key to the specific candidate will be deleted (incomes, expenses, home assets...) 
 		$result = $this->candidates_model->deleteCandidate($id);
 		$msg['success'] = false;
 		if($result){

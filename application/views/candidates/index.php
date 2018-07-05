@@ -251,12 +251,12 @@
                         NGOChart.destroy();
                         loadNGOChart(); // Load the chart of NGO provenance distribution of selected candidates
                     }else{
-                        alert('Error');
+                        alert("Error deleting");
                     }
                 },
                 error: function()
                 {
-                    alert('Error deleting');
+                    alert("Error deleting");
                 }
             });
         });

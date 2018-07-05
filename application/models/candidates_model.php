@@ -146,6 +146,19 @@ class Candidates_model extends CI_Model{
     }
 
     /**
+     * [getCandidateImage gets the candidate image name of a specific candidate]
+     * @param  [int] $id    [id of the specific candidate]
+     * @return [object]     [result of the mysql query]
+     */
+    function getCandidateImage($id) {
+        $this->db->select('candidate_image'); 
+        $this->db->from('candidates'); 
+        $this->db->where('candidates.candidate_id',$id);
+        $query=$this->db->get();
+        return $query->result();
+    }
+
+    /**
      * [getCanInfo gets a specific candidate's information]
      * @param  [int] $id    [id of the specific candiadte]
      * @return [object]     [result of the mysql query]
