@@ -94,7 +94,7 @@ Class Candidates extends CI_Controller{
 		$data['ngos'] = $this->ngos_model->getAllNGO();
 		$this->load->view('templates/header');   
 		$this->load->view('menu/index');   
-		$this->load->view('candidates/new',$data);   
+		$this->load->view('candidates/candidateForm',$data);   
 		$this->load->view('templates/footer'); 
 	}
 
@@ -124,7 +124,7 @@ Class Candidates extends CI_Controller{
 		$data['ngos'] = $this->ngos_model->getAllNGO();
 		$this->load->view('templates/header');   
 		$this->load->view('menu/index');   
-		$this->load->view('candidates/new',$data);   
+		$this->load->view('candidates/candidateForm',$data);   
 		$this->load->view('templates/footer'); 
 	}
 
@@ -164,7 +164,7 @@ Class Candidates extends CI_Controller{
 		$data['ngos'] = $this->ngos_model->getAllNGO();
 		$this->load->view('templates/header');
 		$this->load->view('menu/index');
-		$this->load->view('candidates/new',$data);
+		$this->load->view('candidates/candidateForm',$data);
 		$this->load->view('templates/footer');
 	}
 

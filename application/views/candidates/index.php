@@ -43,8 +43,8 @@
     </div>
     <br>
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8">
-            <h1 class="text-center">List of candidates</h1>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+            <h2 class="text-center">List of candidates</h2>
             <br>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
@@ -93,21 +93,24 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
-            <h1 class="text-center">Among all candidates</h1>
-            <canvas id="pie-chart" width="300" height="300"></canvas>
+        <div class="col-xs-12 col-sm-10 col-md-10 col-lg-4 col-xl-4" id="pieChartBlock">
+            <h2 class="text-center">Candidate distribution</h2>
             <br>
-            <div id="chartjs-tooltip">
-                   <table></table>
-            </div>
-            <h2 class="text-center">Among selected candidates</h2>
             <div class="row">
-                <div class="col-md-6">
-                    <canvas id="pie-chart1" width="300" height="300"></canvas>
+                <div class="col-md-6 col-lg-12 col-xl-6">
+                    <canvas id="pie-chart1" height="450"></canvas>
                 </div>
-                <div class="col-md-6">
-                    <canvas id="pie-chart2" width="300" height="300"></canvas>
+                <div class="col-md-6 col-lg-12 col-xl-6">
+                    <canvas id="pie-chart2" height="450"></canvas>
                 </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2 col-xl-2"></div>
+                <div class="col-md-8 col-lg-12 col-xl-7">
+                    <canvas id="pie-chart" height="450"></canvas>
+                </div>
+                <div class="col-md-2 col-xl-3"></div>
             </div>
         </div>
     </div>

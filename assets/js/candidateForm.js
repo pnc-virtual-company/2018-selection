@@ -1,5 +1,5 @@
 /*!
- * newCandidateForm.js
+ * candidateForm.js
  *
  * Script used for the new candidate form
  * 
@@ -12,6 +12,10 @@ var base_url = document.currentScript.getAttribute("base_url");
  * Actions include automatic scrolling, chevrons adjustments, automatic computation, add/ remove rows to datatable...
  */
 $(document).ready(function(){
+	// Modify select elements with select2
+	// minimumResultsForSearch set to -1 to avoid displaying a search field
+	$("select").select2({ minimumResultsForSearch: -1, width: '100%' });
+
 	// Manage chevrons of the collapsible div "Student information" & "Family information"
 	$(".formHeading" ).click(function() {
 		adaptHeadingChevrons(this);
@@ -536,11 +540,11 @@ function scrollToNextForm(idToToggle, idToShow, idToScrollTo) {
 function updateNGOSelectOptions(){
 	var select = $("#ngo");
 	var rowNb = $('#nbRows').val();
-	// Keep only the "Please select" option
-	select.prop('options').length=1;
+	// Keep the 2 first options "Please select" and "No NGO"
+	select.prop('options').length=2;
 	// Populate the select options with the new values of NGO from the table #tab_logic
 	for (var i = 0; i < rowNb; i++) {
-		select.prop('options')[i+1] = new Option($("#ngoName"+i).val(), $("#rowNb"+i).val(), true);
+		select.prop('options')[i+2] = new Option($("#ngoName"+i).val(), $("#rowNb"+i).val(), true);
 	}
 }
 

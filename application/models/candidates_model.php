@@ -264,7 +264,7 @@ class Candidates_model extends CI_Model{
         $this->db->select("count(candidate_id) AS totalSelected");
         $this->db->from("candidates");
         $this->db->where_not_in('candidate_global_grade','');
-        $this->db->where("candidate_global_grade !='Failed' ");
+        $this->db->where_not_in('candidate_global_grade','');
         $query = $this->db->get(); 
         return $query->result();
     }
@@ -279,6 +279,7 @@ class Candidates_model extends CI_Model{
         $this->db->from('candidates');
         $this->db->where('candidate_gender', 'Male');
         $this->db->where_not_in('candidate_global_grade','Failed');
+        $this->db->where_not_in('candidate_global_grade','');
         $query = $this->db->get(); 
         return count($query->result());
     }
@@ -293,6 +294,7 @@ class Candidates_model extends CI_Model{
         $this->db->from('candidates');
         $this->db->where('candidate_gender', 'Female');
         $this->db->where_not_in('candidate_global_grade','Failed');
+        $this->db->where_not_in('candidate_global_grade','');
         $query = $this->db->get(); 
         return count($query->result());
     }
@@ -316,9 +318,9 @@ class Candidates_model extends CI_Model{
     {
         $this->db->select("candidates.ngo_id, candidates.candidate_global_grade");
         $this->db->from("candidates");
-        $this->db->join('ngos', 'ngos.ngo_id = candidates.ngo_id','INNER');
-        $this->db->where_not_in('ngos.ngo_name','Other');
+        $this->db->where_not_in('candidates.ngo_id','NULL');
         $this->db->where_not_in('candidates.candidate_global_grade','Failed');
+        $this->db->where_not_in('candidates.candidate_global_grade','');
         $count = $this->db->get(); 
         return count($count->result());
     }
@@ -331,9 +333,9 @@ class Candidates_model extends CI_Model{
     {
         $this->db->select("candidates.ngo_id, candidates.candidate_global_grade");
         $this->db->from("candidates");
-        $this->db->join('ngos', 'ngos.ngo_id = candidates.ngo_id','INNER');
-        $this->db->where('ngos.ngo_name','Other');
+        $this->db->where('candidates.ngo_id',NULL);
         $this->db->where_not_in('candidates.candidate_global_grade','Failed');
+        $this->db->where_not_in('candidates.candidate_global_grade','');
         $count = $this->db->get(); 
         return count($count->result());
     }

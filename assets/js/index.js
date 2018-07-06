@@ -9,15 +9,26 @@
 var base_url = document.currentScript.getAttribute("base_url");
 var candidateFilter = document.currentScript.getAttribute("candidateFilter");
 
+/* ------------------------------------------------------------------------------------- */
+/* THE FOLLOWING SECTION GROUPS THE FUNCTIONS USED TO CREATE/ UPDATE/ DELETE A CANDIDATE */
+/* ------------------------------------------------------------------------------------- */
 
 $(document).ready(function(){
-    showCandidates();  /// call function showAllCandidates
-    countAllCandidates();  /// call function countAllCandidates
-    countSelectedCandidates();  /// call function countSelectedCandidates
-    countProvinces(); /// call function countProvinces
-    loadGradeChart(); // Load the chart of grade distribution
-    loadGenderChart(); // Load the chart of gender distribution of selected candidates
-    loadNGOChart(); // Load the chart of NGO provenance distribution of selected candidates
+
+    // Display all candidates in the datatable
+    showCandidates();
+    // Count all candidates and fill the associated card 
+    countAllCandidates();  
+    // Count the selected candidates and fill the associated card
+    countSelectedCandidates();
+    // Count the number of provinces of the selected candidates and fill the associated card
+    countProvinces(); 
+    // Display the pie chart of grade distribution among all candidates
+    loadGradeChart(); 
+    // Display the pie chart of gender distribution among selected candidates
+    loadGenderChart(); 
+    // Display the pie chart of NGO provenance among selected candidates
+    loadNGOChart(); 
     //Transform the HTML table in a fancy datatable
     $('#students').dataTable({
         stateSave: true,
@@ -25,115 +36,52 @@ $(document).ready(function(){
     var $gradeChart;
     var $genderChart;
     var $NGOChart;
-});
 
-// Function count all the candidates
-function countAllCandidates()
-{
-    $.ajax({
-        type: 'ajax',
-        url: base_url + 'candidates/countCandidates',
-        async: false,
-        dataType: 'json',
-        success: function(data)
-        {
-            var html = '';
-            html +=data[0].total;
-            $('#countCandidates').html(html);
-        },
-        error: function()
-        {
-            alert('Could not count candidate from Database');
-        }
-    });
-}
-
-//function count all selected candidates
-function countSelectedCandidates()
-{
-    $.ajax({
-        type: 'ajax',
-        url: base_url + 'candidates/countSelectedCandidates',
-        async: false,
-        dataType: 'json',
-        success: function(data)
-        {
-            var html = '';
-            html +=data[0].totalSelected;
-            $('#countSelectedCandidates').html(html);
-        },
-        error: function()
-        {
-            alert('Could not count selected candidate from Database');
-        }
-    });
-}
-
-//function count all provinces of selected candidates
-function countProvinces()
-{
-    $.ajax({
-        type: 'ajax',
-        url: base_url + 'candidates/countProvinces',
-        async: false,
-        dataType: 'json',
-        success: function(data)
-        {
-            var html = '';
-            html +=data[0].totalProvinces;
-            $('#countProvinces').html(html);
-        },
-        error: function()
-        {
-            alert('Could not count provinces from Database');
-        }
-    });
-}
-
-//function to delete candidate
-$('#showdata').on('click', '.item-delete', function()
-{
-    var id = $(this).attr('data');
-    $('#deleteModal').modal('show');
-    //prevent previous handler - unbind()
-    $('#btnDelete').unbind().click(function()
+    // Delete candidate
+    $('#showdata').on('click', '.item-delete', function()
     {
-        $.ajax({
-            type: 'ajax',
-            method: 'get',
-            async: false,
-            url: base_url + 'candidates/deleteCandidate',
-            data:{candidate_id:id},
-            dataType: 'json',
-            success: function(response)
-            {
-                if(response.success)
+        var id = $(this).attr('data');
+        $('#deleteModal').modal('show');
+        //prevent previous handler - unbind()
+        $('#btnDelete').unbind().click(function()
+        {
+            $.ajax({
+                type: 'ajax',
+                method: 'get',
+                async: false,
+                url: base_url + 'candidates/deleteCandidate',
+                data:{candidate_id:id},
+                dataType: 'json',
+                success: function(response)
                 {
-                    $('#deleteModal').modal('hide');
-                    $('.alert-success').html('Candidate Deleted successfully').fadeIn().delay(4000).fadeOut('slow');
-                    showCandidates();
-                    countAllCandidates();  /// call function countAllCandidates
-                    countSelectedCandidates();  /// call function countSelectedCandidates
-                    countProvinces(); /// call function countProvinces
-                    gradeChart.destroy();
-                    loadGradeChart(); // Load the chart of grade distribution
-                    genderChart.destroy();
-                    loadGenderChart(); // Load the chart of gender distribution of selected candidates
-                    NGOChart.destroy();
-                    loadNGOChart(); // Load the chart of NGO provenance distribution of selected candidates
-                }else{
+                    if(response.success)
+                    {
+                        $('#deleteModal').modal('hide');
+                        $('.alert-success').html('Candidate Deleted successfully').fadeIn().delay(4000).fadeOut('slow');
+                        showCandidates();
+                        countAllCandidates();  
+                        countSelectedCandidates();  
+                        countProvinces(); 
+                        grade.destroy();
+                        loadGradeChart(); 
+                        genderChart.destroy();
+                        loadGenderChart(); 
+                        NGOChart.destroy();
+                        loadNGOChart(); 
+                    } else {
+                        alert("Error deleting");
+                    }
+                },
+                error: function()
+                {
                     alert("Error deleting");
                 }
-            },
-            error: function()
-            {
-                alert("Error deleting");
-            }
+            });
         });
     });
 });
 
-//function to show all candidates into datatable
+// Display all candidates into datatable
 function showCandidates()
 {
     $.ajax({
@@ -183,24 +131,70 @@ function showCandidates()
     });
 }
 
-//Display a modal pop-up so as to confirm if a user has to be deleted or not
-//We build a complex selector because datatable does horrible things on DOM...
-//a simplier selector doesn't work when the delete is on page >1
-$("#users tbody").on('click', '.confirm-delete',  function()
+// Count all the candidates and fill the associated card on the page
+function countAllCandidates()
 {
-    var id = $(this).parent().data('id');
-    var link = base_url + "users/delete/" + id;
-    $("#lnkDeleteUser").attr('href', link);
-    $('#frmConfirmDelete').modal('show');
-});
-$("#users tbody").on('click', '.reset-password',  function()
-{
-    var id = $(this).parent().data('id');
-    var link = base_url + "users/reset/" + id;
-    $("#formResetPwd").prop("action", link);
-    $('#frmResetPwd').modal('show');
-});
+    $.ajax({
+        type: 'ajax',
+        url: base_url + 'candidates/countCandidates',
+        async: false,
+        dataType: 'json',
+        success: function(data)
+        {
+            var html = '';
+            html +=data[0].total;
+            $('#countCandidates').html(html);
+        },
+        error: function()
+        {
+            alert('Could not count candidate from Database');
+        }
+    });
+}
 
+// Count all selected candidates and fill the associated card on the page
+function countSelectedCandidates()
+{
+    $.ajax({
+        type: 'ajax',
+        url: base_url + 'candidates/countSelectedCandidates',
+        async: false,
+        dataType: 'json',
+        success: function(data)
+        {
+            var html = '';
+            html +=data[0].totalSelected;
+            $('#countSelectedCandidates').html(html);
+        },
+        error: function()
+        {
+            alert('Could not count selected candidate from Database');
+        }
+    });
+}
+
+// Count all provinces of selected candidates and fill the associated card on the page
+function countProvinces()
+{
+    $.ajax({
+        type: 'ajax',
+        url: base_url + 'candidates/countProvinces',
+        async: false,
+        dataType: 'json',
+        success: function(data)
+        {
+            var html = '';
+            html +=data[0].totalProvinces;
+            $('#countProvinces').html(html);
+        },
+        error: function()
+        {
+            alert('Could not count provinces from Database');
+        }
+    });
+}
+
+// Load the pie chart showing the grade distribution among all candidates
 function loadGradeChart() {
     $.ajax({
             type: 'ajax',
@@ -220,7 +214,7 @@ function loadGradeChart() {
                         datasets: 
                         [{
                             label: "Grade distribution",
-                            backgroundColor: ["#00cc00","#bfff00","#ffff00","#ffd11a","#ff9900","#ff471a"],
+                            backgroundColor: ["#28a745","#33ff33","#ffff00","#ffc107","#ff6900","#EF3C3C"],
                             data: dataArray.slice(0,6)
                         }],       
                     },
@@ -229,8 +223,18 @@ function loadGradeChart() {
                         title: 
                         {
                             display: true,
-                            text: 'Grade distribution',
-                            fontSize: 20
+                            text: ['Grade distribution', '(all candidates)'],
+                            lineHeight: 1.4,
+                            fontSize: 22,
+                            fontColor:  '#000000',
+                            fontFamily: 'Verdana',
+                            fontStyle: 'normal'
+                        },
+                        legend: {
+                            labels: {
+                                fontSize: 15,
+                                fontFamily: 'Verdana'
+                            }
                         },
                         tooltips: 
                         {
@@ -238,9 +242,12 @@ function loadGradeChart() {
                             {
                                 label: function(tooltipItem, chartData) 
                                 {
-                                    return chartData.labels[tooltipItem.index] + ': ' + dataArray[tooltipItem.index] + ' (' + dataArray[tooltipItem.index] * 100 / dataArray[6] + '%)';
+                                    return chartData.labels[tooltipItem.index] + ': ' + dataArray[tooltipItem.index] + ' (' + Math.round(dataArray[tooltipItem.index] * 100 / dataArray[6]) + '%)';
                                 }
-                            }
+                            },
+                            bodyFontFamily: 'Verdana',
+                            bodyFontSize: 13,
+                            yPadding: 8
                         }
                     },
                 }); 
@@ -252,6 +259,7 @@ function loadGradeChart() {
         });
 }
 
+// Load the pie chart showing the gender distribution among all candidates
 function loadGenderChart() {
     $.ajax({
             type: 'ajax',
@@ -270,7 +278,7 @@ function loadGenderChart() {
                         datasets: 
                         [{
                             label: "Gender distribution",
-                            backgroundColor: ["#0066cc","#ffcc99"],
+                            backgroundColor: ["#007bff","#ffc107"],
                             data: dataArray.slice(0,2)
                         }]
                     },
@@ -279,8 +287,18 @@ function loadGenderChart() {
                         title: 
                         {
                             display: true,
-                            text: 'Gender distribution',
-                            fontSize: 20
+                            text: ['Gender distribution','(selected candidates)'],
+                            lineHeight: 1.4,
+                            fontSize: 22,
+                            fontColor:  '#000000',
+                            fontFamily: 'Verdana',
+                            fontStyle: 'normal'
+                        },
+                        legend: {
+                            labels: {
+                                fontSize: 15,
+                                fontFamily: 'Verdana'
+                            }
                         },
                         tooltips: 
                         {
@@ -290,7 +308,10 @@ function loadGenderChart() {
                                 {
                                     return chartData.labels[tooltipItem.index] + ': ' + dataArray[tooltipItem.index + 2] + ' (' + dataArray[tooltipItem.index] + '%)';
                                 }
-                            }
+                            },
+                            bodyFontFamily: 'Verdana',
+                            bodyFontSize: 13,
+                            yPadding: 8
                         }
                     }
                 });
@@ -302,6 +323,7 @@ function loadGenderChart() {
         });
 }
 
+// Load the pie chart showing the NGO provenance distribution among all candidates
 function loadNGOChart() {
     $.ajax({
             type: 'ajax',
@@ -320,7 +342,7 @@ function loadNGOChart() {
                         datasets: 
                         [{
                             label: "NGO provenance",
-                            backgroundColor: ["#80ff80","#ff6666"],
+                            backgroundColor: ["#28a745","#EF3C3C"],
                             data: dataArray.slice(0,2)
                         }]
                     },
@@ -329,8 +351,18 @@ function loadNGOChart() {
                         title: 
                         {
                             display: true,
-                            text: 'NGO provenance',
-                            fontSize: 20
+                            text: ['NGO provenance','(selected candidates)'],
+                            lineHeight: 1.4,
+                            fontSize: 22,
+                            fontColor:  '#000000',
+                            fontFamily: 'Verdana',
+                            fontStyle: 'normal'
+                        },
+                        legend: {
+                            labels: {
+                                fontSize: 15,
+                                fontFamily: 'Verdana'
+                            }
                         },
                         tooltips: 
                         {
@@ -340,7 +372,10 @@ function loadNGOChart() {
                                 {
                                     return chartData.labels[tooltipItem.index] + ': ' + dataArray[tooltipItem.index + 2] + ' (' + dataArray[tooltipItem.index] + '%)';
                                 }
-                            }
+                            },
+                            bodyFontFamily: 'Verdana',
+                            bodyFontSize: 13,
+                            yPadding: 8
                         }
                     }
                 });

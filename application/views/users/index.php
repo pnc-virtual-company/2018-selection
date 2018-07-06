@@ -144,15 +144,15 @@ $(document).ready(function() {
     //a simplier selector doesn't work when the delete is on page >1
     $("#users tbody").on('click', '.confirm-delete',  function(){
         var id = $(this).parent().data('id');
-				var link = "<?php echo base_url();?>users/delete/" + id;
-				$("#lnkDeleteUser").attr('href', link);
+		var link = "<?php echo base_url();?>users/delete/" + id;
+		$("#lnkDeleteUser").attr('href', link);
         $('#frmConfirmDelete').modal('show');
     });
 
 		$("#users tbody").on('click', '.reset-password',  function(){
         var id = $(this).parent().data('id');
-				var link = "<?php echo base_url();?>users/reset/" + id;
-				$("#formResetPwd").prop("action", link);
+		var link = "<?php echo base_url();?>users/reset/" + id;
+		$("#formResetPwd").prop("action", link);
         $('#frmResetPwd').modal('show');
     });
 

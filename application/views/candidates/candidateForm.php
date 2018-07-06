@@ -1,5 +1,6 @@
 
 <link href="<?php echo base_url();?>assets/DataTable/DataTables-1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/select2-4.0.6-rc.1/css/select2.min.css">
 
 <!-- Define variables to fix form inputs if the user chose view mode -->
 <?php $viewOrEdit = $action	== "View" || $action == "Edit"; ?>
@@ -129,6 +130,7 @@
 									<div class="col-lg-6 col-md-10 col-xs-12" style="white-space: nowrap;">
 										<select class="form-control" id="ngo" name="ngo" style="display: inline-block;" <?php echo $disabled; ?>>
 											<option value="">Please select</option>
+											<option value="">No NGO</option>
 											<?php foreach ($ngos as $ngo): ?>
 												<option value="<?php echo $ngo->ngo_id ?>" <?php echo ($viewOrEdit && $list[0]->ngo_id==$ngo->ngo_id) ? 'selected' : ''; ?>><?php echo $ngo->ngo_name?></option>
 											<?php endforeach ?>
@@ -1633,12 +1635,17 @@
 				<br>
 				<div class="row">
 					<div class="col-lg-8 col-md-5 col-sm-0 col-xs-0"></div>
+					<?php if($action == "View") { ?>
+						<div class="col-lg-2 col-md-3 col-sm-5 col-xs-6"></div>
+					<?php } ?>
 					<div class="col-lg-2 col-md-4 col-sm-7 col-xs-8">
 							<a href="<?php echo base_url() ?>candidates" class="btn btn-primary float-right" role="button" style="margin-right: 10px;"><i class="mdi mdi-arrow-left-bold"></i>Back to the list of candidates</a>
 					</div>
-					<div class="col-lg-2 col-md-3 col-sm-5 col-xs-6">
-						<button type="submit" class="btn btn-primary float-right">Save information</button>
-					</div>
+					<?php if($action != "View") { ?>
+						<div class="col-lg-2 col-md-3 col-sm-5 col-xs-6">
+							<button type="submit" class="btn btn-primary float-right">Save information</button>
+						</div>
+					<?php } ?>
 				</div>
 			</form>	
 		</div>
@@ -1699,5 +1706,5 @@
   </div>
 </div>	
 <!-- END OF THE MODAL -->
-
-<script src="<?php echo base_url();?>assets/js/newCandidateForm.js" base_url="<?php echo base_url();?>"></script>
+<script src="<?php echo base_url();?>assets/select2-4.0.6-rc.1/js/select2.min.js"></script>
+<script src="<?php echo base_url();?>assets/js/candidateForm.js" base_url="<?php echo base_url();?>"></script>
