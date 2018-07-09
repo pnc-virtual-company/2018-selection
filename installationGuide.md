@@ -9,19 +9,28 @@ PHP version at least 5.6 or 7.0+ (PHP 7 recommended) is required.
 
 ## Installation
 
-Clone the github repository on the server with the following command
-
-```git clone https://github.com/pnc-virtual-company/2018-selection.git```
-
-Then open the command shell, get to the root of the application and install all dependencies with the following command 
-
-```composer install```
+Download the zip file attached to the latest release [here](https://github.com/pnc-virtual-company/2018-selection/releases) and move it to the adapted location on your server. The zip file contains the source code of the project.
 
 ## Database
 
-By using the command shell or the graphic interface of phpMyAdmin, import the schema by using the SQL script `selection_committee.sql` provided into the sql folder.
+Create a database named for example 'selection_committee' with the collating option `utf8_general_ci`
+Import the schema by using the SQL script `selection_committee.sql` provided into the sql folder.
 
-Now edit the file `application/config/database.php` in order to point to your database.
+Now edit the file `application/config/database.php` in order to point to your database. For example, the properties below:
+
+`$db['default']['dsn'] = 'mysql:host=localhost; dbname=selection_committee; charset=utf8;'
+ $db['default']['hostname'] = 'localhost'
+ $db['username'] = 'root'
+ $db['password'] = ''
+ $db['database'] = 'selection_committee'`
+
+Would become:
+`$db['default']['dsn'] = 'mysql:host=my_host_name; dbname=my_database_name; charset=utf8;'
+ $db['default']['hostname'] = 'my_host_name'
+ $db['username'] = 'my_database_username'
+ $db['password'] = 'my_database_password'
+ $db['database'] = 'my_database_name'`
+
 
 Finally, you will need to edit the file `application/config/email.php` in order to allow the application to send emails (modify *smtp_host*). 
 

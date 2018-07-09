@@ -7,20 +7,7 @@ The project contains some useful frontend and backend libraries:
 
  * CodeIgniter 3
  * PHPSpreadsheet (import/export Excel)
- * DOMPDF (create a PDF document)
- * picqer/php-barcode-generator Barcode generator
- * guzzlehttp/guzzle to call 3rd party API from PHP
- * sabre/vobject manipulate iCalendar objects (for an ICS feed)
-
- A lot of examples are provided for various frontend widgets:
-
- * Datatable
- * Calendar
- * Datepicker
- * Material design icons
- * Rich text editors
- * Treeview
- * etc.
+ * Random combat (generate random passwords)
 
 ## PHP requirements
 
@@ -40,8 +27,8 @@ Use composer (PHP dependencies manager) to install the libraries with this comma
     composer install
 
 
-Create a database named (for example) selection_committee with the collating option `utf8_general_ci`
-Import the schema by using the SQL script provided into the SQL folder.
+Create a database named (for example) selection_committee with the collating option `utf8_general_ci`.
+Import the schema by using the SQL script `selection_committee.sql` provided into the sql folder.
 Edit the file `application/config/database.php` and point to your database.
 
 The default user is *admin* and its password is *password*.
