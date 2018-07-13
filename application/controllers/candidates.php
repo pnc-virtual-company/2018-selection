@@ -17,7 +17,7 @@ Class Candidates extends CI_Controller{
 	public function __construct() {
 		parent::__construct();
 		log_message('debug', 'URI=' . $this->uri->uri_string());
-		$this->session->set_userdata('last_page', $this->uri->uri_string());
+
 		if($this->session->loggedIn === TRUE) 
 		{
 	        // Allowed methods
@@ -51,6 +51,8 @@ Class Candidates extends CI_Controller{
      */
 	public function index()
 	{
+		$this->session->set_userdata('last_page', $this->uri->uri_string());
+		
 		$data['gradeAPlus'] = $this->candidates_model->countGrade("A+");
 		$data['gradeA'] = $this->candidates_model->countGrade("A");
 		$data['gradeAMinus'] = $this->candidates_model->countGrade("A-");

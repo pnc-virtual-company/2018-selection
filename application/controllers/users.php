@@ -19,7 +19,7 @@ class Users extends CI_Controller {
     {
         parent::__construct();
         log_message('debug', 'URI=' . $this->uri->uri_string());
-        $this->session->set_userdata('last_page', $this->uri->uri_string());
+        
         if($this->session->loggedIn === FALSE) {
           redirect('session/login');
         } 
@@ -32,6 +32,8 @@ class Users extends CI_Controller {
      */
     public function index() {
       if ($this->session->isAdmin) {
+        $this->session->set_userdata('last_page', $this->uri->uri_string());
+        
         $data['users'] = $this->users_model->getUsersAndRoles();
         $data['page_title'] = 'List of users';
         $data['activeLink'] = 'users';

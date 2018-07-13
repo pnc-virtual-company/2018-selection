@@ -16,7 +16,7 @@ Class NGOs extends CI_Controller{
     public function __construct() {
         parent::__construct();
         log_message('debug', 'URI=' . $this->uri->uri_string());
-        $this->session->set_userdata('last_page', $this->uri->uri_string());
+        
         if($this->session->loggedIn === TRUE) {
             if ($this->session->isAdmin) {
                 // The management of the list of NGOs is reserved for admin only
