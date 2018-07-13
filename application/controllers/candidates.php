@@ -235,9 +235,6 @@ Class Candidates extends CI_Controller{
     public function upload(){
         $config['upload_path']="./assets/images/candidates/";
         $config['allowed_types']='jpeg|jpg|png';
-        $config['max_size'] = 100;
-        $config['max_width'] = 1024;
-        $config['max_height'] = 768;
         $this->load->library('upload',$config);
         if($this->upload->do_upload("candidateImage")){
             $data = array('upload_data' => $this->upload->data());
