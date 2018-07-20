@@ -60,6 +60,7 @@ body {
 .image-upload img
 {
     width: 140px;
+    image-orientation: from-image;
 }
 
 .select2-selection--single {
